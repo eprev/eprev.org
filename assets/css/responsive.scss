@@ -1,0 +1,18 @@
+/**
+ * iPhone 4S- 320x480
+ * iPhone 5+ 320x565
+ * Lumia 920 768x1280
+ */
+
+@mixin respond-to($layout) {
+    @if $layout == tablet {
+        @media all and (min-width: 980px) {
+            @content;
+        }
+    }
+    @if $layout == mobile {
+        @media all and (max-width: 979px) {
+            @content;
+        }
+    }
+}

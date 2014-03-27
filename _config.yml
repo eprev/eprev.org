@@ -1,0 +1,26 @@
+timezone: Europe/Moscow
+lsi: true
+
+safe: false
+markdown: kramdown
+pygments: true
+permalink: /:year/:month/:day/:title
+tag_title_prefix: "Tag «"
+tag_title_suffix: "»"
+tag_dir: tags
+
+
+relative_permalinks: false
+exclude: [Makefile, package.json, Gruntfile.js, .travis.yml, .jshintrc, .gitignore, .editorconfig, node_modules, Sketch.sketch]
+
+title: "Anton Eprev"
+description: "Hello. My name’s Anton Eprev and I’m a web developer working as front-end engineer at Mail.ru in Moscow, Russia."
+public_host: eprev.org
+
+
+prose:
+    rooturl: _posts
+    metadata:
+        "_posts": |
+            layout: post
+            published: true

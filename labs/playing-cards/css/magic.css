@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #eee;
+    background: -webkit-gradient(linear, left top, right bottom, from(#666), to(#aaa));
+    background: -webkit-linear-gradient(left top,  #666,  #aaa);
+    background: -moz-linear-gradient(left top,  #666,  #aaa);
+    background: -o-linear-gradient(left top,  #666,  #aaa);
+    background: linear-gradient(to bottom left,  #666,  #aaa);
+    color: #333;
+    font: 1em/1.5 Palatino,Georgia,serif;
+    height: 100%;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .25);
+}
+
+a, a:visited {
+    border-bottom: 1px dotted #333;
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom-color: #111;
+    color: #111;
+    text-decoration: none;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 5px;
+    margin-left: -150px;
+    margin-top: -2px;
+    border: 1px solid #333;
+}
+
+.loader-inner {
+    margin: 1px;
+    height: 3px;
+    width: 0;
+    background-color: #333;
+}
+
+.page {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 980px;
+    margin-left: -490px;
+    margin-top: -325px;
+}
+
+.card-table {
+    position: relative;
+    width: 980px;
+    height: 630px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 2em;
+    background-color: rgba(196, 196, 196, .75);
+}
+.card-wrapper {
+    display: none;
+    height: 315px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 225px;
+}
+.card-back, .card-front {
+    cursor: pointer;
+    display: block;
+    height: 315px;
+    position: absolute;
+    width: 225px;
+}
+.card-front {
+    display: none;
+    width: 0;
+}
+.card-front img, .card-back img {
+    height: 100%;
+    width: 100%;
+}
+.mask {
+    position: absolute;
+    background-color: #333;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 0;
+}

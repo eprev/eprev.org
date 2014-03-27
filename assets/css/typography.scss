@@ -1,0 +1,239 @@
+/**
+ * Links:
+ * 1. The Ultimate Guide to Readable Web Typography
+ *    (http://www.pearsonified.com/2011/12/golden-ratio-typography.php)
+ * 2. The Elements of Typographic Style Applied to the Web
+ *    (http://webtypography.net/toc)
+ * 3. Typograph – Scale & Rhythm
+ *    (http://lamb.cc/typograph/)
+ * 4. Baseline Grid
+ *    (http://www.alistapart.com/articles/settingtypeontheweb/)
+ * 5. The Elements of Typographic Style Applied to the Web
+ *    (http://webtypography.net/toc)
+ * 6. Revised Font Stack
+ *    (http://www.awayback.com/revised-font-stack/)
+ */
+
+$phi: 1.61803398875 !default;
+
+/**
+ * Returns an adjusted line width for the given font size and line height [1].
+ */
+@function calculate-line-width($font-size, $line-height) {
+    @if (unit($font-size) == "px") {
+        $font-size: $font-size / 1px;
+    }
+    @if (unit($line-height) == "px") {
+        $line-height: $line-height / 1px;
+    }
+    @return round(power($font-size * $phi, 2) * (1 + 2 * $phi * ($line-height / $font-size - $phi))) * 1px;
+}
+
+/**
+ * Returns an adjusted line height for the given font size and line width [1].
+ */
+@function calculate-line-height($font-size, $line-width) {
+    @if (unit($font-size) == "px") {
+        $font-size: $font-size / 1px;
+    }
+    @if (unit($line-width) == "px") {
+        $line-width: $line-width / 1px;
+    }
+    $ratio: $phi - ( 1 - $line-width / power($font-size * $phi, 2) ) / (2 * $phi);
+    @return round($ratio * $font-size) * 1px;
+}
+
+/**
+ * Returns base to the exponent power (base ^ exponent).
+ */
+@function power($base, $exponent) {
+    @if $exponent == 0 {
+        @return 1;
+    }
+    $value: $base;
+    @if $exponent > 1 {
+        @for $i from 2 through $exponent {
+            $value: $value * $base;
+        }
+    } @else {
+        @for $i from 0 through -$exponent {
+            $value: $value / $base;
+        }
+    }
+    @return $value;
+}
+
+$font-size: 18px !default;
+//$line-height: round($phi * $font-size);
+//$line-width: calculate-line-width($font-size, $line-height);
+$line-width: 320px; /* We are Mobile First! */
+$line-height: calculate-line-height($font-size, $line-width); /* [1] */
+
+/**
+ * Modular scale.
+ */
+$modular-scale-base-size: $font-size !default;
+$modular-scale-ratio: $phi !default;
+
+@function modular-scale($multiplier, $base-size: $modular-scale-base-size, $ratio: $modular-scale-ratio) {
+    @if $multiplier == 0 {
+        @return $base-size;
+    }
+    $value: power($ratio, $multiplier) * $base-size;
+    @if unit($value) == 'px' {
+        @return round($value);
+    } @else {
+        @return $value;
+    }
+}
+
+/**
+ * Typographic scale [3].
+ */
+
+$typographic-scale: 6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 21, 24, 36, 48, 60, 72 !default; /* Traditional typographic scale. */
+$typographic-scale-base-size: 12 !default;
+
+$typographic-scale-origin: index($typographic-scale, $typographic-scale-base-size) !default;
+@if not $typographic-scale-origin {
+    @warn "Base size is not found in typographic scale";
+}
+$typographic-relative-scale: ();
+@each $size in $typographic-scale {
+    $typographic-relative-scale: append($typographic-relative-scale, $size / $typographic-scale-base-size, comma);
+}
+
+@function typographic-scale($multiplier, $font-size: $font-size) {
+    @if $multiplier == 0 {
+        @return $font-size;
+    }
+    $index: $multiplier + $typographic-scale-origin;
+    @if $index < 1 or $index > length($typographic-relative-scale) {
+        @warn "Index out of scale bounds";
+    } @else {
+        $value: nth($typographic-relative-scale, $index) * $font-size;
+        @if unit($value) == 'px' {
+            @return round($value);
+        } @else {
+            @return $value;
+        }
+    }
+}
+
+/**
+ * Vertical rhythm. As we set the font size for headers,
+ * we also need to set appropriate line-heights in multiples of $line-height [4].
+ */
+$scale-line-height-base: $line-height;
+
+@function scale-line-height($font-size, $line-height: $scale-line-height-base) {
+    @if $font-size > $line-height {
+        @return ceil($font-size / $line-height) * $line-height;
+    } @else {
+        @return $line-height;
+    }
+}
+
+@mixin hyphens($value) {
+    -webkit-hyphens: $value;
+    -moz-hyphens: $value;
+    -ms-hyphens: $value;
+    -o-hyphens: $value;
+    hyphens: $value;
+}
+
+body {
+//    font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif; /* 80% Mac (Palatino) & 98% PC (Palatino Linotype) [6] */
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; /* 90% Mac  (Optima) & 54% PC (Candara) [6] */
+    font-size: typographic-scale(0);
+    line-height: $line-height;
+    // -webkit-text-size-adjust: none; /* Don’t do that — it inhibit the ability to “Zoom In/Out” of a page in desktop Safari. See https://bugs.webkit.org/show_bug.cgi?id=56543 */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 $line-height; /* Vertical rhythm. */
+    font-weight: normal;
+    text-rendering: optimizeLegibility; /* Enables a font’s native kerning and optional ligatures. */
+    page-break-inside: avoid;
+}
+
+h1 {
+    font-size: typographic-scale(5);
+    font-weight: normal;
+    line-height: scale-line-height(typographic-scale(5));
+    text-transform: uppercase;
+//    page-break-before: always;
+}
+h2 {
+    font-size: typographic-scale(4);
+    line-height: scale-line-height(typographic-scale(4));
+}
+h3 {
+    font-size: typographic-scale(3);
+    line-height: scale-line-height(typographic-scale(3));
+}
+h4 {
+    font-size: typographic-scale(2);
+    line-height: scale-line-height(typographic-scale(2));
+}
+h5 {
+    font-size: typographic-scale(1);
+    line-height: scale-line-height(typographic-scale(1));
+}
+h6 {
+    font-size: typographic-scale(0);
+    line-height: scale-line-height(typographic-scale(0));
+}
+
+ul, ol, p, pre, blockquote {
+    margin: $line-height 0; /* Vertical rhythm. */
+}
+blockquote {
+    font-style: italic;
+    border-left: 4px solid #d6d6d6;
+    padding-left: 1em;
+
+    p + p {
+        text-indent: 0;
+    }
+}
+ul {
+    list-style-position: outside;
+}
+p {
+    margin-bottom: 0; /* Remove line space between paragraphs
+                         (http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.2/). */
+    @include hyphens(auto); /*  Automatically break words at appropriate hyphenation points. */
+//    widows: 4;
+//    orphans: 4;
+}
+p + p {
+    margin-top: 0;
+    text-indent: 1em;
+}
+code {
+//    font-family: Consolas, monaco, monospace; /* 35% Mac & 83% PC (http://cssfontstack.com) */
+    font-family: "Courier New", Courier, monospace;
+    font-size: typographic-scale(0);
+    line-height: 1; /* Not to change the line-height of the paragraph. */
+}
+abbr {
+    letter-spacing: .1em; /* Letterspace abbreviations
+                             (http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.6/). */
+}
+a {
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+}
+// header {
+//     a {
+//         border-bottom-style: none;
+
+//         &:hover {
+//             border-bottom-style: solid;
+//         }
+//     }
+// }
+// article {
+//     margin-bottom: $line-height;
+// }

@@ -1,0 +1,19 @@
+---
+layout: nil
+---
+
+{% include header.html swiped=true %}
+<h1>Archive</h1>
+<ul class="archive">
+    {% for post in site.posts %}
+        <li class="archive__item">
+            <span class="archive__date">
+                {{ post.date | date:"%B %-d, %Y" }}
+            </span>
+            <span class="archive__header">
+                <a class="archive__header__link" href="{{ post.url }}">{{ post.title }}</a>
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+{% include footer.html %}

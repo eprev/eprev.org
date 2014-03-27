@@ -1,0 +1,20 @@
+---
+layout: nil
+---
+
+{% include header.html swiped=true %}
+
+{% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% capture tags_count %}{{ site_tags | split:',' | size }}{% endcapture %}
+{% assign tag_values = site_tags | split:',' | sort %}
+
+<h1>Tags</h1>
+<ul class="tags">
+    {% for item in (0..tags_count) %}{% unless forloop.last %}
+        {% capture tag %}{{ tag_values[item] | strip_newlines }}{% endcapture %}
+        <li class="tags__item">
+            <a class="tags__item__link" href="/tags/{{ tag }}/">{{ tag }}</a>
+        </li>
+    {% endunless %}{% endfor %}
+</ul>
+{% include footer.html %}

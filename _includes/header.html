@@ -1,0 +1,74 @@
+{% include meta.html %}
+<!DOCTYPE html>
+<html lang="en"><head>
+    <script>
+        if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+            document.documentElement.classList.add('support__touch_yes');
+        } else {
+            document.documentElement.classList.add('support__touch_no');
+        }
+     </script>
+    <link href="/assets/css/v/{{ version_css }}/magic{% if is_deploy %}.min{% endif %}.css" rel="stylesheet" media="all"/>
+    {% if is_livereload %}
+        <script>
+            (function () {
+                var script = document.createElement('script');
+                script.src = '//' + location.hostname + ':35729/livereload.js';
+                document.querySelector('head').appendChild(script);
+            })();
+        </script>
+    {% endif %}
+    <meta charset="utf-8"/>
+    {% if page.title %}
+        <title>{{ page.title }} – {{ site.title }}</title>
+    {% else %}
+        <title>{{ site.title }}</title>
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% if page.description %}
+        <meta name="description" content="{{ page.description }}"/>
+    {% else %}
+        <meta name="description" content="{{ site.description }}"/>
+    {% endif %}
+    <link rel="shortcut icon" href="/assets/icon.png"/>
+    <link rel="alternate" type="application/atom+xml" title="Feed" href="/atom.xml"/>
+    {% if page.excerpt %}
+        <meta name="og:title" content="{{ page.title }}"/>
+        <meta name="og:site_name" content="{{ site.title }}"/>
+        <meta name="og:type" content="blog"/>
+        <meta name="og:description" content="{{ page.excerpt }}"/>
+        {% if page.image %}
+            <meta name="og:image" content="http://{{ site.public_host }}/assets/posts/{{ page.image }}"/>
+            <meta name="twitter:card" content="summary_large_image"/>
+        {% elsif page.share-image %}
+            <meta name="og:image" content="http://{{ site.public_host }}/assets/posts/{{ page.share-image }}"/>
+            <meta name="twitter:card" content="summary_large_image"/>
+        {% else %}
+            <meta name="twitter:card" content="summary"/>
+        {% endif %}
+        <meta name="twitter:creator" content="@eprev"/>
+        <meta name="twitter:title" content="{{ page.title }}"/>
+        <meta name="twitter:description" content="{{ page.excerpt }}"/>
+        {% if page.image %}
+            <meta name="twitter:image:src" content="http://{{ site.public_host }}/assets/posts/{{ page.image }}"/>
+        {% elsif page.share-image %}
+            <meta name="twitter:image:src" content="http://{{ site.public_host }}/assets/posts/{{ page.share-image }}"/>
+        {% endif %}
+    {% endif %}
+</head><body>
+    {% if is_deploy %}
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-12144011-2']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    {% endif %}
+    <div class="page">
+        <div class="page__arrow{% if include.swiped != true %} page__arrow_alt{% endif %}"></div>
+        <div class="page__inner page__inner_animated{% if include.swiped == true %} page__inner_swiped{% endif %}">
+            <div class="page__content" role="main">

@@ -1,0 +1,63 @@
+            </div>
+            <div class="page__sidebar">
+                <div class="page__sidebar__inner">
+                    {% if page.url == "/index.html" %}
+                        <h1><a class="page__user__name" href="/">@eprev</a></h1>
+                    {% else %}
+                        <h2><a class="page__user__name" href="/">@eprev</a></h2>
+                    {% endif %}
+                    <div class="page__user__picture"></div>
+                    <p>My name’s Anton Eprev and I’m a web developer working as front-end engineer at Mail.ru in Moscow, Russia.</p>
+                    <ul class="page__nav">
+                        <li>
+                            {% if page.url == "/index.html" %}
+                                Recent
+                            {% else %}
+                                <a href="/">Recent</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if page.url == "/archive/index.html" %}
+                                Archive
+                            {% else %}
+                                <a href="/archive/">Archive</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if page.url == "/labs/index.html" %}
+                                Laboratory
+                            {% else %}
+                                <a href="/labs/">Laboratory</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if page.url == "/tags/index.html" %}
+                                Tags
+                            {% else %}
+                                <a href="/tags/">Tags</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <p>Geeky Links:</p>
+                    <ul class="page__nav">
+                        <li><a href="http://twitter.com/eprev">Twitter</a></li>
+                        <li><a href="http://github.com/eprev">GitHub</a></li>
+                        <li><a href="http://careers.stackoverflow.com/eprev">Résumé</a></li>
+                    </ul>
+                </div>
+                <script>
+                    var requestAnimationFrame = window.requestAnimationFrame || /* Chrome, IE 10 */
+                        window.webkitRequestAnimationFrame || /* Safari */
+                        window.msRequestAnimationFrame || /* IEMobile 10 */
+                        window.mozRequestAnimationFrame || /* Firefox 22- */
+                        function (callback) { window.setTimeout(callback, 1000 / 60); }; /* Android */
+
+                        requestAnimationFrame(function () {
+                            document.querySelector('.page__inner').classList.toggle('page__inner_swiped');
+                        });
+                </script>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/v/{{ version_js }}/magic{% if is_deploy %}.min{% endif %}.js"></script>
+</body></html>

@@ -1,0 +1,19 @@
+{% include header.html swiped=true %}
+<h1>{{page.title}}</h1>
+<ul class="archive">
+    {% for post in site.posts %}
+        {% for tag in post.tags %}
+            {% if tag == page.tag %}
+                <li class="archive__item">
+                    <span class="archive__date">
+                        {{ post.date | date:"%B %-d, %Y" }}
+                    </span>
+                    <span class="archive__header">
+                        <a class="archive__header__link" href="{{ post.url }}">{{ post.title }}</a>
+                    </span>
+                </li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</ul>
+{% include footer.html %}
