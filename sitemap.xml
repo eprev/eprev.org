@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://eprev.org/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+    
+        <url>
+            <loc>http://eprev.org/2014/02/27/whats-worth-watching</loc>
+            <lastmod>2014-02-27</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
+            <loc>http://eprev.org/2014/01/22/whats-worth-watching</loc>
+            <lastmod>2014-01-22</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
+            <loc>http://eprev.org/2014/01/19/chrome-tab-tooltips</loc>
+            <lastmod>2014-01-19</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
+            <loc>http://eprev.org/2013/09/24/why-waiting-is-torture</loc>
+            <lastmod>2013-09-24</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
+            <loc>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</loc>
+            <lastmod>2013-09-22</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
+            <loc>http://eprev.org/2013/06/02/is-%28a%3D%3Db%29-equivalent-to-%28%21a%3D%3D%21b%29</loc>
+            <lastmod>2013-06-02</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/javascript/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/mongodb/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/gray-matter/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/ux/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/worth-watching/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/performance/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/git/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/css/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/typography/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+</urlset>

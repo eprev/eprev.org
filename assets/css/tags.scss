@@ -1,0 +1,12 @@
+.tags {
+    list-style: none;
+    padding: 0;
+}
+.tags__item {
+    text-transform: uppercase;
+    margin-bottom: $line-height;
+}
+.tags__item__link {
+    font-size: typographic-scale(1);
+    line-height: scale-line-height(typographic-scale(1));
+}

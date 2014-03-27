@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Anton Eprev</title>
+    <link href="http://eprev.org/atom.xml" rel="self" />
+    <link href="http://eprev.org/" />
+    <updated>2014-03-27T23:20:41+04:00</updated>
+    <id>http://eprev.org/</id>
+    <author>
+        <name>Anton Eprev</name>
+        <email>a.eprev@gmail.com</email>
+    </author>
+    
+        <entry>
+            <title>What’s worth watching</title>
+            <link href="http://eprev.org/2014/02/27/whats-worth-watching"/>
+            <updated>2014-02-27T00:00:00+04:00</updated>
+            <id>http://eprev.org/2014/02/27/whats-worth-watching</id>
+            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+  &lt;li&gt;Pete Hunt (Facebook) on “&lt;a href=&quot;http://2013.jsconf.eu/speakers/pete-hunt-react-rethinking-best-practices.html&quot;&gt;React: rethinking best practices&lt;/a&gt;”.&lt;/li&gt;
+  &lt;li&gt;Steven Wittens on “&lt;a href=&quot;http://www.youtube.com/watch?v=Zkx1aKv2z8o&quot;&gt;Making things with maths&lt;/a&gt;”.&lt;/li&gt;
+  &lt;li&gt;Interesting talk on &lt;a href=&quot;https://vimeo.com/channels/cssday/70171266&quot;&gt;border-radius&lt;/a&gt; by Lea Verou.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vimeo.com/39441590&quot;&gt;Inspiring talk&lt;/a&gt; by Aaron James Draplin.&lt;/li&gt;
+  &lt;li&gt;Jason Santa Maria (A Book Apart) on “&lt;a href=&quot;https://vimeo.com/34178417&quot;&gt;Web typography&lt;/a&gt;”.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <title>What’s worth watching</title>
+            <link href="http://eprev.org/2014/01/22/whats-worth-watching"/>
+            <updated>2014-01-22T00:00:00+04:00</updated>
+            <id>http://eprev.org/2014/01/22/whats-worth-watching</id>
+            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+  &lt;li&gt;Tim Berglund (GitHub) on “&lt;a href=&quot;https://vimeo.com/49444883&quot;&gt;Advanced Git&lt;/a&gt;”: low-level commands, interactive rebase, external diff &amp;amp; merge tools, reflog and reset.&lt;/li&gt;
+  &lt;li&gt;Ilya Grigorik (Google) on “&lt;a href=&quot;http://www.youtube.com/watch?v=Il4swGfTOSM&quot;&gt;Breaking the 1000ms time to glass mobile barrier&lt;/a&gt;”: how to build a mobile website that loads as quickly as possible.&lt;/li&gt;
+  &lt;li&gt;Parikh (Facebook) on “&lt;a href=&quot;http://www.youtube.com/watch?v=oodS71YtkGU&quot;&gt;Building for a billion users&lt;/a&gt;”.&lt;/li&gt;
+  &lt;li&gt;Michael Starzinger (V8) on &lt;a href=&quot;http://2012.jsconf.eu/speaker/2012/08/31/the-footprint-of-performance.html&quot;&gt;the memory usage optimizations while keeping performance fast&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Science paper begins with “Once upon a time…” — inspiring &lt;a href=&quot;http://www.ted.com/talks/beau_lotto_amy_o_toole_science_is_for_everyone_kids_included.html&quot;&gt;TED talk&lt;/a&gt; by Beau Lotto and Amy O’Toole.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <title>Chrome tab tooltips</title>
+            <link href="http://eprev.org/2014/01/19/chrome-tab-tooltips"/>
+            <updated>2014-01-19T00:00:00+04:00</updated>
+            <id>http://eprev.org/2014/01/19/chrome-tab-tooltips</id>
+            <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; /&gt;&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <title>Why waiting is torture</title>
+            <link href="http://eprev.org/2013/09/24/why-waiting-is-torture"/>
+            <updated>2013-09-24T00:00:00+04:00</updated>
+            <id>http://eprev.org/2013/09/24/why-waiting-is-torture</id>
+            <content type="html">&lt;p&gt;This is excerpts from “&lt;a href=&quot;http://www.nytimes.com/2012/08/19/opinion/sunday/why-waiting-in-line-is-torture.html&quot;&gt;Why Waiting Is Torture&lt;/a&gt;” by Alex Stone, The New York Times.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Instead of reducing wait times, Houston airport moved the arrival gates away
+from the main terminal and routed bags to the outermost carousel. Passengers now
+had to walk six times longer to get their bags. Number of complaints about the long waits
+at baggage claim dropped to near zero.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Isn’t it brilliant?!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Occupied time (walking to baggage claim) feels shorter than unoccupied time (standing at the carousel).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is also why there are mirrors next to elevators and packs of gum along supermarket checkout aisles.&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <title>Mongo shell as an interactive JavaScript interpreter</title>
+            <link href="http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter"/>
+            <updated>2013-09-22T00:00:00+04:00</updated>
+            <id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</id>
+            <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;
+
+&lt;pre class=&quot;javascript&quot;&gt;&lt;code&gt;$ mongo --nodb
+MongoDB shell version: 2.2.0
+&amp;gt; var user = {name: &quot;Anton Eprev&quot;, age: 27}
+&amp;gt; user
+{ &quot;name&quot; : &quot;Anton Eprev&quot;, &quot;age&quot; : 27 }
+&amp;gt; print(user)
+[object Object]
+&amp;gt; printjson(user)
+{ &quot;name&quot; : &quot;Anton Eprev&quot;, &quot;age&quot; : 27 }
+&amp;gt; var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+&amp;gt; print(numbers)
+1,2,3,4,5,6,7,8,9
+&amp;gt; printjson(numbers)
+[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And of course the shell allows you to use loops, user functions and etc.:&lt;/p&gt;
+
+&lt;pre class=&quot;javascript&quot;&gt;&lt;code&gt;&amp;gt; for (var i in user) { print(i, user[i]) }
+name Anton Eprev
+age 27
+&amp;gt; function add(x){ return function(y){ return x + y } }
+&amp;gt; add(3)(4)
+7
+&amp;gt; {
+... for (var i = 0; i &amp;lt; 10; i++)
+...     print(i)
+... }
+0
+1
+…
+9
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can also use the &lt;code&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;
+
+&lt;pre class=&quot;javascript&quot;&gt;&lt;code&gt;&amp;gt; var profile = cat('.profile')
+&amp;gt; profile
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+…
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You may even explore global scope by executing &lt;code&gt;printjson(this)&lt;/code&gt; and find out the following functions:&lt;/p&gt;
+
+&lt;pre class=&quot;javascript&quot;&gt;&lt;code&gt;pwd()
+ls()
+cd()
+mkdir()
+hostname()
+sleep()
+hex_md5()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And finally, you can run a JavaScript file using MongoDB shell.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cat hello.js
+print(&quot;Hello World!&quot;);
+$ mongo --nodb hello.js
+MongoDB shell version: 2.2.0
+Hello World!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Happy coding =]&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <title>Is (a == b) equivalent to (!a == !b)?</title>
+            <link href="http://eprev.org/2013/06/02/is-%28a%3D%3Db%29-equivalent-to-%28%21a%3D%3D%21b%29"/>
+            <updated>2013-06-02T00:00:00+04:00</updated>
+            <id>http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)</id>
+            <content type="html">&lt;p&gt;That’s not always true for JavaScript. Its comparison algorithm is quite complicated (see section &lt;a href=&quot;http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3&quot;&gt;&lt;em&gt;11.9.3 The Abstract Equality Comparison Algorithm&lt;/em&gt;&lt;/a&gt; of ECMA-262 specification). And it returns &lt;code&gt;false&lt;/code&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and type of &lt;code&gt;b&lt;/code&gt; is other than Null or Undefined. Thus &lt;code&gt;(a == b)&lt;/code&gt; is &lt;strong&gt;false&lt;/strong&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; is equal to &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;What’s happening to &lt;code&gt;(!a == !b)&lt;/code&gt;? The logical Not operator converts its operand to Boolean and then negates it. Null values for Boolean becomes to false. Thus &lt;code&gt;(!a == !b)&lt;/code&gt; is &lt;strong&gt;true&lt;/strong&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; is equal to &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;That’s it. Be careful with &lt;code&gt;null&lt;/code&gt; values.&lt;/p&gt;
+</content>
+        </entry>
+    
+</feed>

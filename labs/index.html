@@ -1,0 +1,123 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en"><head>
+    <script>
+        if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+            document.documentElement.classList.add('support__touch_yes');
+        } else {
+            document.documentElement.classList.add('support__touch_no');
+        }
+     </script>
+    <link href="/assets/css/v/7/magic.min.css" rel="stylesheet" media="all"/>
+    
+    <meta charset="utf-8"/>
+    
+        <title>Anton Eprev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+        <meta name="description" content="Hello. My name’s Anton Eprev and I’m a web developer working as front-end engineer at Mail.ru in Moscow, Russia."/>
+    
+    <link rel="shortcut icon" href="/assets/icon.png"/>
+    <link rel="alternate" type="application/atom+xml" title="Feed" href="/atom.xml"/>
+    
+</head><body>
+    
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-12144011-2']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    
+    <div class="page">
+        <div class="page__arrow"></div>
+        <div class="page__inner page__inner_animated page__inner_swiped">
+            <div class="page__content" role="main">
+
+<h1>Laboratory</h1>
+<div class="post">
+    <h3 class="post__header">
+        <a class="post__header__link" href="/labs/playing-cards-revised/">Playing Cards Revised</a>
+    </h3>
+    <div class="post__content">
+        November, 2013. High performance Playing Cards animation.
+    </div>
+</div>
+<div class="post">
+    <h3 class="post__header">
+        <a class="post__header__link" href="/labs/gdd-2011/">GDD 2011</a>
+    </h3>
+    <div class="post__content">
+        September, 2011. Doodle for Google Developer Day. Requires browsers that support inline SVG.
+        <!-- http://googlecode.blogspot.ru/2011/08/open-call-results-doodle-your-way-to.html -->
+    </div>
+</div>
+<div class="post">
+    <h3 class="post__header">
+        <a class="post__header__link" href="/labs/playing-cards/">Playing Cards</a>
+    </h3>
+    <div class="post__content">
+        March, 2010. Awesome animation of playing cards made with CSS3 and jQuery.
+    </div>
+</div>
+            </div>
+            <div class="page__sidebar">
+                <div class="page__sidebar__inner">
+                    
+                        <h2><a class="page__user__name" href="/">@eprev</a></h2>
+                    
+                    <div class="page__user__picture"></div>
+                    <p>My name’s Anton Eprev and I’m a web developer working as front-end engineer at Mail.ru in Moscow, Russia.</p>
+                    <ul class="page__nav">
+                        <li>
+                            
+                                <a href="/">Recent</a>
+                            
+                        </li>
+                        <li>
+                            
+                                <a href="/archive/">Archive</a>
+                            
+                        </li>
+                        <li>
+                            
+                                Laboratory
+                            
+                        </li>
+                        <li>
+                            
+                                <a href="/tags/">Tags</a>
+                            
+                        </li>
+                    </ul>
+                    <p>Geeky Links:</p>
+                    <ul class="page__nav">
+                        <li><a href="http://twitter.com/eprev">Twitter</a></li>
+                        <li><a href="http://github.com/eprev">GitHub</a></li>
+                        <li><a href="http://careers.stackoverflow.com/eprev">Résumé</a></li>
+                    </ul>
+                </div>
+                <script>
+                    var requestAnimationFrame = window.requestAnimationFrame || /* Chrome, IE 10 */
+                        window.webkitRequestAnimationFrame || /* Safari */
+                        window.msRequestAnimationFrame || /* IEMobile 10 */
+                        window.mozRequestAnimationFrame || /* Firefox 22- */
+                        function (callback) { window.setTimeout(callback, 1000 / 60); }; /* Android */
+
+                        requestAnimationFrame(function () {
+                            document.querySelector('.page__inner').classList.toggle('page__inner_swiped');
+                        });
+                </script>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/v/3/magic.min.js"></script>
+</body></html>
+

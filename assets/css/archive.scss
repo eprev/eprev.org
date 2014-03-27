@@ -1,0 +1,23 @@
+.archive {
+    display: table;
+    list-style: none;
+    padding: 0;
+}
+.archive__item {
+    display: table-row;
+}
+.archive__date {
+    display: table-cell;
+    color: #555;
+    text-transform: uppercase;
+    padding-right: 1em;
+    padding-bottom: $line-height;
+}
+.archive__header {
+    display: table-cell;
+    padding-bottom: $line-height;
+}
+.archive__header__link {
+    font-size: typographic-scale(1);
+    line-height: scale-line-height(typographic-scale(1));
+}
