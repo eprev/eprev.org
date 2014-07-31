@@ -37,7 +37,7 @@
         </url>
     
         <url>
-            <loc>http://eprev.org/2013/06/02/is-%28a%3D%3Db%29-equivalent-to-%28%21a%3D%3D%21b%29</loc>
+            <loc>http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)</loc>
             <lastmod>2013-06-02</lastmod>
             <changefreq>weekly</changefreq>
         </url>

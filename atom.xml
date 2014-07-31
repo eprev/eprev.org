@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2014-03-27T23:23:38+04:00</updated>
+    <updated>2014-07-31T23:32:06+04:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -154,7 +154,7 @@ Hello World!
     
         <entry>
             <title>Is (a == b) equivalent to (!a == !b)?</title>
-            <link href="http://eprev.org/2013/06/02/is-%28a%3D%3Db%29-equivalent-to-%28%21a%3D%3D%21b%29"/>
+            <link href="http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)"/>
             <updated>2013-06-02T00:00:00+04:00</updated>
             <id>http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)</id>
             <content type="html">&lt;p&gt;That’s not always true for JavaScript. Its comparison algorithm is quite complicated (see section &lt;a href=&quot;http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3&quot;&gt;&lt;em&gt;11.9.3 The Abstract Equality Comparison Algorithm&lt;/em&gt;&lt;/a&gt; of ECMA-262 specification). And it returns &lt;code&gt;false&lt;/code&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and type of &lt;code&gt;b&lt;/code&gt; is other than Null or Undefined. Thus &lt;code&gt;(a == b)&lt;/code&gt; is &lt;strong&gt;false&lt;/strong&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; is equal to &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
