@@ -14,7 +14,7 @@ relative_permalinks: false
 exclude: [Makefile, package.json, Gruntfile.js, .travis.yml, .jshintrc, .gitignore, .editorconfig, node_modules, Sketch.sketch]
 
 title: "Anton Eprev"
-description: "Hello. My name’s Anton Eprev and I’m a web developer working as front-end engineer at Mail.ru in Moscow, Russia."
+description: "Hello. My name’s Anton Eprev and I’m a web developer working as front-end engineer at Booking.com in Amsterdam, Netherlands."
 public_host: eprev.org
 
 
