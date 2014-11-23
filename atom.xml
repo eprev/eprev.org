@@ -3,12 +3,27 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2014-10-14T00:57:46+04:00</updated>
+    <updated>2014-11-23T20:04:23+04:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
         <email>a.eprev@gmail.com</email>
     </author>
+    
+        <entry>
+            <title>What’s worth watching</title>
+            <link href="http://eprev.org/2014/11/23/whats-worth-watching"/>
+            <updated>2014-11-23T00:00:00+04:00</updated>
+            <id>http://eprev.org/2014/11/23/whats-worth-watching</id>
+            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+  &lt;li&gt;Bred Victor (MIT) on “&lt;a href=&quot;https://vimeo.com/67076984&quot;&gt;Media for Thinking the Unthinkable&lt;/a&gt;”: incredible ideas that will probably change the way we present and understand things.&lt;/li&gt;
+  &lt;li&gt;Douglas Crockford on “&lt;a href=&quot;http://www.youtube.com/watch?v=bo36MrBfTk4&quot;&gt;The Better Parts&lt;/a&gt;”: you aren’t supposed to use every feature of the language to write error-free programs. Douglas is sharing his favorite parts of JavaScript and coming ES6 standard.&lt;/li&gt;
+  &lt;li&gt;Facebook’s way to Flux and React in “&lt;a href=&quot;http://www.youtube.com/watch?v=nYkdrAPrdcw&quot;&gt;Rethinking Web App Development at Facebook&lt;/a&gt;”.&lt;/li&gt;
+  &lt;li&gt;John-David Dalton (Lo-Dash) on “&lt;a href=&quot;http://www.youtube.com/watch?v=NthmeLEhDDM&quot;&gt;Unorthodox Performance&lt;/a&gt;”: interesting techniques to improve JavaScript performance.&lt;/li&gt;
+  &lt;li&gt;Patrick Hamann (The Guardian) on “&lt;a href=&quot;http://www.youtube.com/watch?v=_0Fk85to6hA&quot;&gt;CSS and the Critical Path&lt;/a&gt;”: dealing with performance bottlenecks in the browser from network to painting.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        </entry>
     
         <entry>
             <title>What’s worth watching</title>

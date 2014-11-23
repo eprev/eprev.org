@@ -7,6 +7,12 @@
     </url>
     
         <url>
+            <loc>http://eprev.org/2014/11/23/whats-worth-watching</loc>
+            <lastmod>2014-11-23</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
             <loc>http://eprev.org/2014/02/27/whats-worth-watching</loc>
             <lastmod>2014-02-27</lastmod>
             <changefreq>weekly</changefreq>
@@ -130,6 +136,14 @@
         
             <url>
                 <loc>http://eprev.org/tags/typography/index.html</loc>
+                <lastmod></lastmod>
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/media/index.html</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>

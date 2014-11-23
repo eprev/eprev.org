@@ -50,6 +50,49 @@
         <div class="post">
     <h2 class="post__header">
         
+            <a class="post__header__link" href="/2014/11/23/whats-worth-watching">What’s worth watching</a>
+        
+    </h2>
+    <div class="post__meta">
+        November 23, 2014
+        
+            ∙
+            
+                <a href="/tags/worth-watching">worth-watching</a>,
+            
+                <a href="/tags/javascript">javascript</a>,
+            
+                <a href="/tags/performance">performance</a>,
+            
+                <a href="/tags/media">media</a>
+            
+        
+    </div>
+    
+        <div class="post__content">
+            
+            <ul class="post__content__list">
+  <li>Bred Victor (MIT) on “<a href="https://vimeo.com/67076984">Media for Thinking the Unthinkable</a>”: incredible ideas that will probably change the way we present and understand things.</li>
+  <li>Douglas Crockford on “<a href="http://www.youtube.com/watch?v=bo36MrBfTk4">The Better Parts</a>”: you aren’t supposed to use every feature of the language to write error-free programs. Douglas is sharing his favorite parts of JavaScript and coming ES6 standard.</li>
+  <li>Facebook’s way to Flux and React in “<a href="http://www.youtube.com/watch?v=nYkdrAPrdcw">Rethinking Web App Development at Facebook</a>”.</li>
+  <li>John-David Dalton (Lo-Dash) on “<a href="http://www.youtube.com/watch?v=NthmeLEhDDM">Unorthodox Performance</a>”: interesting techniques to improve JavaScript performance.</li>
+  <li>Patrick Hamann (The Guardian) on “<a href="http://www.youtube.com/watch?v=_0Fk85to6hA">CSS and the Critical Path</a>”: dealing with performance bottlenecks in the browser from network to painting.</li>
+</ul>
+
+        </div>
+    
+</div>
+
+    
+
+    
+        
+        
+        
+        
+        <div class="post">
+    <h2 class="post__header">
+        
             <a class="post__header__link" href="/2014/02/27/whats-worth-watching">What’s worth watching</a>
         
     </h2>
@@ -212,101 +255,6 @@ at baggage claim dropped to near zero.</p>
 </div>
 
     
-
-    
-        
-        
-        
-        
-        <div class="post">
-    <h2 class="post__header">
-        
-            <a class="post__header__link" href="/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter">Mongo shell as an interactive JavaScript interpreter</a>
-        
-    </h2>
-    <div class="post__meta">
-        September 22, 2013
-        
-            ∙
-            
-                <a href="/tags/javascript">javascript</a>,
-            
-                <a href="/tags/mongodb">mongodb</a>
-            
-        
-    </div>
-    
-        <div class="post__content">
-            
-            <p>Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type <code>mongo --nodb</code> in the shell.</p>
-
-<pre class="javascript"><code>$ mongo --nodb
-MongoDB shell version: 2.2.0
-&gt; var user = {name: "Anton Eprev", age: 27}
-&gt; user
-{ "name" : "Anton Eprev", "age" : 27 }
-&gt; print(user)
-[object Object]
-&gt; printjson(user)
-{ "name" : "Anton Eprev", "age" : 27 }
-&gt; var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-&gt; print(numbers)
-1,2,3,4,5,6,7,8,9
-&gt; printjson(numbers)
-[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-</code></pre>
-
-<p>And of course the shell allows you to use loops, user functions and etc.:</p>
-
-<pre class="javascript"><code>&gt; for (var i in user) { print(i, user[i]) }
-name Anton Eprev
-age 27
-&gt; function add(x){ return function(y){ return x + y } }
-&gt; add(3)(4)
-7
-&gt; {
-... for (var i = 0; i &lt; 10; i++)
-...     print(i)
-... }
-0
-1
-…
-9
-</code></pre>
-
-<p>You can also use the <code>cat</code> function to read the file’s contents.</p>
-
-<pre class="javascript"><code>&gt; var profile = cat('.profile')
-&gt; profile
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-…
-</code></pre>
-
-<p>You may even explore global scope by executing <code>printjson(this)</code> and find out the following functions:</p>
-
-<pre class="javascript"><code>pwd()
-ls()
-cd()
-mkdir()
-hostname()
-sleep()
-hex_md5()
-</code></pre>
-
-<p>And finally, you can run a JavaScript file using MongoDB shell.</p>
-
-<pre><code>$ cat hello.js
-print("Hello World!");
-$ mongo --nodb hello.js
-MongoDB shell version: 2.2.0
-Hello World!
-</code></pre>
-
-<p>Happy coding =]</p>
-
-        </div>
-    
-</div>
 
     
 
