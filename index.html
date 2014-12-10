@@ -50,6 +50,60 @@
         <div class="post">
     <h2 class="post__header">
         
+            <a class="post__header__link" href="/2014/12/10/open-all-modified-files">Open all modified files in editor</a>
+        
+    </h2>
+    <div class="post__meta">
+        December 10, 2014
+        
+            ∙
+            
+                <a href="/tags/git">git</a>
+            
+        
+    </div>
+    
+        <div class="post__content">
+            
+            <p>Often I finish working day without committing changes to the repository. Thus, next morning
+I need to open all the files I was working yesterday. And I found an efficient way to do this.</p>
+
+<pre><code>$ vim -p $(git diff --name-only HEAD | sed 's,$(git rev-parse --show-prefix),,' | tr '\n' ' '
+</code></pre>
+
+<p>It opens Vim and loads all modified files in tabs. You could add this command as an alias to your <code>.bashrc</code>,
+but adding this to <code>.gitconfig</code> seems like a better option. This is what you need to add to your <code>~/.gitconfig</code>.</p>
+
+<pre><code>[alias]
+open = "!vim -p $(git diff --name-only HEAD | sed 's,$(git rev-parse --show-prefix),,' | tr '\\n' ' ')"
+</code></pre>
+
+<p>To run this command you need to type <code>git open</code> in the terminal. And of course you can replace Vim by your
+favorite editor or event by <code>$EDITOR</code>.</p>
+
+<p>Besides If you use sort of file watchers to perform certain operations when files change then
+you would find the following command quite helpful. It changes modification time of all modified files at once.</p>
+
+<pre><code>[alias]
+touch = "!touch -c $(git diff --name-only HEAD | sed 's,$(git rev-parse --show-prefix),,' | tr '\\n' ' ')"
+</code></pre>
+
+<p>You can find more handy aliases in <a href="https://github.com/eprev/dotfiles/blob/master/gitconfig">.dotfiles</a> of mine.</p>
+
+        </div>
+    
+</div>
+
+    
+
+    
+        
+        
+        
+        
+        <div class="post">
+    <h2 class="post__header">
+        
             <a class="post__header__link" href="/2014/11/23/whats-worth-watching">What’s worth watching</a>
         
     </h2>
@@ -209,50 +263,6 @@
 </div>
 
     
-
-    
-        
-        
-        
-        
-        <div class="post">
-    <h2 class="post__header">
-        
-            <a class="post__header__link" href="/2013/09/24/why-waiting-is-torture">Why waiting is torture</a>
-        
-    </h2>
-    <div class="post__meta">
-        September 24, 2013
-        
-            ∙
-            
-                <a href="/tags/gray-matter">gray-matter</a>
-            
-        
-    </div>
-    
-        <div class="post__content">
-            
-            <p>This is excerpts from “<a href="http://www.nytimes.com/2012/08/19/opinion/sunday/why-waiting-in-line-is-torture.html">Why Waiting Is Torture</a>” by Alex Stone, The New York Times.</p>
-
-<blockquote>
-  <p>Instead of reducing wait times, Houston airport moved the arrival gates away
-from the main terminal and routed bags to the outermost carousel. Passengers now
-had to walk six times longer to get their bags. Number of complaints about the long waits
-at baggage claim dropped to near zero.</p>
-</blockquote>
-
-<p>Isn’t it brilliant?!</p>
-
-<blockquote>
-  <p>Occupied time (walking to baggage claim) feels shorter than unoccupied time (standing at the carousel).</p>
-</blockquote>
-
-<p>This is also why there are mirrors next to elevators and packs of gum along supermarket checkout aisles.</p>
-
-        </div>
-    
-</div>
 
     
 
