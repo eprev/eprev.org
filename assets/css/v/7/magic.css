@@ -488,7 +488,7 @@ a {
 .post__content pre .vhdl .attribute,
 .post__content pre .clojure .attribute,
 .post__content pre .coffeescript .property {
-  color: #8888ff;
+  color: #88F;
 }
 .post__content pre .keyword,
 .post__content pre .id,
@@ -529,3 +529,5 @@ a {
 .post__content pre .xml .cdata {
   opacity: 0.5;
 }
+
+/*# sourceMappingURL=magic.css.map */
