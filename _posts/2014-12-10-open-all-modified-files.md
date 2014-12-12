@@ -24,7 +24,7 @@ open = "!vim -p $(git diff --name-only HEAD | sed 's,$(git rev-parse --show-pref
 To run this command you need to type `git open` in the terminal. And of course you can replace Vim by your
 favorite editor or event by `$EDITOR`.
 
-Besides If you use sort of file watchers to perform certain operations when files change then
+Besides, If you use sort of file watchers to perform certain operations when files change, then
 you would find the following command quite helpful. It changes modification time of all modified files at once.
 
 ~~~
