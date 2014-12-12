@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2014-12-12T10:12:00+03:00</updated>
+    <updated>2014-12-12T18:40:26+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -18,24 +18,25 @@
             <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
 I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ vim -p $(git diff --name-only HEAD | sed &#39;s,$(git rev-parse --show-prefix),,&#39; | tr &#39;\n&#39; &#39; &#39;
+&lt;pre&gt;&lt;code&gt;$ vim -p $(git diff --name-only HEAD | sed &quot;s,$(git rev-parse --show-prefix),,&quot; | tr &quot;\n&quot; &quot; &quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code&gt;.bashrc&lt;/code&gt;,
 but adding this to &lt;code&gt;.gitconfig&lt;/code&gt; seems like a better option. This is what you need to add to your &lt;code&gt;~/.gitconfig&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;[alias]
-open = &quot;!vim -p $(git diff --name-only HEAD | sed &#39;s,$(git rev-parse --show-prefix),,&#39; | tr &#39;\\n&#39; &#39; &#39;)&quot;
+open = &quot;!vim -c \&quot;cd $GIT_PREFIX\&quot; -p $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#39;)&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;To run this command you need to type &lt;code&gt;git open&lt;/code&gt; in the terminal. And of course you can replace Vim by your
-favorite editor or event by &lt;code&gt;$EDITOR&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To run this command you need to type &lt;code&gt;git open&lt;/code&gt; in the terminal. Since all commands prefixed with an exclamation
+point are executed from the top-level directory of a repository, we need to change working directory in Vim to
+the current one. And of course you can replace Vim by your favorite editor or event by &lt;code&gt;$EDITOR&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Besides, If you use sort of file watchers to perform certain operations when files change, then
 you would find the following command quite helpful. It changes modification time of all modified files at once.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;[alias]
-touch = &quot;!touch -c $(git diff --name-only HEAD | sed &#39;s,$(git rev-parse --show-prefix),,&#39; | tr &#39;\\n&#39; &#39; &#39;)&quot;
+touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#39;)&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;You can find more handy aliases in &lt;a href=&quot;https://github.com/eprev/dotfiles/blob/master/gitconfig&quot;&gt;.dotfiles&lt;/a&gt; of mine.&lt;/p&gt;
