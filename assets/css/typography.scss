@@ -215,7 +215,7 @@ p + p {
 code {
 //    font-family: Consolas, monaco, monospace; /* 35% Mac & 83% PC (http://cssfontstack.com) */
     font-family: "Courier New", Courier, monospace;
-    font-size: typographic-scale(0);
+    font-size: typographic-scale(-1);
     line-height: 1; /* Not to change the line-height of the paragraph. */
 }
 abbr {
