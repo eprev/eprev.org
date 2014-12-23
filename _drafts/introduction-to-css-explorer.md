@@ -28,5 +28,29 @@ And of course, if it’s not even important, it’s quite interesting at least.
 ![Screenshot of the ‘server’ report](/assets/posts/css-explorer-distribution.png)
 
 So, `node-specificity` provides two commands. One is for parsing your CSS files and creating profiles.
-Second is for reading or “exploring” these profiles.
+Second is for reading or “exploring” these profiles. Let’s look at an example. I have a few versions of
+[CSS](https://github.com/eprev/specificity/tree/master/spec/fixtures/timeline) of the website
+you’re reading right now. As I’m writing this post the website is using `v8.css`.
 
+Alright, let’s create profiles for these files:
+
+~~~
+$ node-specificity parse v1.css --label=v1 --output=v1.json
+...
+$ node-specificity parse v8.css --label=v8 --output=v8.json
+~~~
+
+We’ve created a profile for each CSS files since we want to observe changings over the time. If you use
+more than one CSS file on your website, you have to create a profile for all of them, for instance:
+
+~~~
+$ node-specificity parse main.css print.css --label=2014-12-23 --output=20141223.json
+~~~
+
+Once we have profiles created, we are able to run a report. Let’s start a ‘server’ report:
+
+~~~
+$ node-specificity explore v*.json --report=server
+Server is running on http://localhost:4000/
+Press Ctrl + C to stop it.
+~~~
