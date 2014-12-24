@@ -9,8 +9,8 @@ share-image: css-explorer-distribution.png
 ---
 
 I’ve been curious about the state of our CSS code and its changes over the time.
-So I’ve written recently a program called `node-specificity`. What does it do?
-It answers the following questions:
+So I’ve written recently a program called [`specificity`](https://github.com/eprev/specificity).
+What does it do? It answers the following questions:
 
 1. What is a total number of selectors in your CSS codebase?
 How has it been changing over the time?
@@ -22,7 +22,7 @@ How has it been changing over the time?
 How has it been changing over the time?
 
 Wait, why is it so important? It’s not, until you have a codebase of dozens of
-thousands lines of code that is hard to maintain and you’re used to do a lot of experiments.
+thousands lines of code that is hard to maintain and you used to do a lot of experiments.
 And of course, if it’s not even important, it’s quite interesting at least.
 
 ![Screenshot of the ‘server’ report](/assets/posts/css-explorer-distribution.png)
@@ -54,3 +54,12 @@ $ node-specificity explore v*.json --report=server
 Server is running on http://localhost:4000/
 Press Ctrl + C to stop it.
 ~~~
+
+Open a browser and go to ’http://localhost:4000/’. Now you’re supposed to be seeing the page
+with different controls and a weird graph. It‘s the specificity distribution bar chart (see in
+the picture above). For each specificity (tuple) it shows the total number of selectors
+of this specificity in the specific profile.
+
+![Screenshot of the ‘server’ report](/assets/posts/css-explorer-selectors.png)
+![Screenshot of the ‘server’ report](/assets/posts/css-explorer-profile.png)
+![Screenshot of the ‘server’ report](/assets/posts/css-explorer-cli.png)
