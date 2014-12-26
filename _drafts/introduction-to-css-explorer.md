@@ -40,7 +40,7 @@ $ node-specificity parse v1.css --label=v1 --output=v1.json
 $ node-specificity parse v8.css --label=v8 --output=v8.json
 ~~~
 
-We’ve created a profile for each CSS files since we want to observe changings over the time. If you use
+We’ve created a profile for each CSS file since we want to observe changings over the time. If you use
 more than one CSS file on your website, you have to create a profile for all of them, for instance:
 
 ~~~
@@ -60,6 +60,21 @@ with different controls and a weird graph. It‘s the specificity distribution b
 the picture above). For each specificity (tuple) it shows the total number of selectors
 of this specificity in the specific profile.
 
+Other graphs are: number of selectors in your CSS files and total number of selectors in profiles,
+how many of them contain rules with the `!important` directive, average and median
+values of selector’s specificity for CSS files and profiles.
+
 ![Screenshot of the ‘server’ report](/assets/posts/css-explorer-selectors.png)
+
+You are able to explore all these graphs for a specific profile. To do this, you have to
+select the particular profile in the dropdown list.
+
 ![Screenshot of the ‘server’ report](/assets/posts/css-explorer-profile.png)
+
+So, `server` report is quite a powerful tool. Keep in mind, images above are for the profiles
+of one humble CSS file. There is also `inspect` report (it’s the default one).
+If you run `node-specificity explore v8.json`, it will print out the list of all selectors
+in the given profile, the summary on specificity numbers and the histogram, which is very similar
+to the one you can see above.
+
 ![Screenshot of the ‘server’ report](/assets/posts/css-explorer-cli.png)
