@@ -47,7 +47,8 @@ more than one CSS file on your website, you have to create a profile for all of 
 $ node-specificity parse main.css print.css --label=2014-12-23 --output=20141223.json
 ~~~
 
-Once we have profiles created, we are able to run a report. Let’s start a ‘server’ report:
+Label acts as a profile’s name in reports. Once we have profiles created, we are able to run a report.
+Let’s start a ‘server’ report:
 
 ~~~
 $ node-specificity explore v*.json --report=server
@@ -55,7 +56,7 @@ Server is running on http://localhost:4000/
 Press Ctrl + C to stop it.
 ~~~
 
-Open a browser and go to ’http://localhost:4000/’. Now you’re supposed to be seeing the page
+Open a browser and go to “http://localhost:4000/”. Now you’re supposed to be seeing the page
 with different controls and a weird graph. It‘s the specificity distribution bar chart (see in
 the picture above). For each specificity (tuple) it shows the total number of selectors
 of this specificity in the specific profile.
@@ -67,14 +68,15 @@ values of selector’s specificity for CSS files and profiles.
 ![Screenshot of the ‘server’ report](/assets/posts/css-explorer-selectors.png)
 
 You are able to explore all these graphs for a specific profile. To do this, you have to
-select the particular profile in the dropdown list.
+select the particular profile’s label in the dropdown list. For instance, it’s the specificity
+distribution bar chart for ‘v8.json’ profile in the picture below.
 
 ![Screenshot of the ‘server’ report](/assets/posts/css-explorer-profile.png)
 
 So, `server` report is quite a powerful tool. Keep in mind, images above are for the profiles
-of one humble CSS file. There is also `inspect` report (it’s the default one).
+of one humble CSS file. There is also `inspect` report (it’s used as the default one).
 If you run `node-specificity explore v8.json`, it will print out the list of all selectors
-in the given profile, the summary on specificity numbers and the histogram, which is very similar
-to the one you can see above.
+in the given profile, the summary on specificity numbers and the specificity distribution charts,
+which is very similar to the one you can see above.
 
 ![Screenshot of the ‘server’ report](/assets/posts/css-explorer-cli.png)
