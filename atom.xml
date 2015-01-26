@@ -3,12 +3,24 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2014-12-13T23:27:10+03:00</updated>
+    <updated>2015-01-26T18:26:45+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
         <email>a.eprev@gmail.com</email>
     </author>
+    
+        <entry>
+            <title>What’s worth watching</title>
+            <link href="http://eprev.org/2015/01/26/whats-worth-watching"/>
+            <updated>2015-01-26T00:00:00+03:00</updated>
+            <id>http://eprev.org/2015/01/26/whats-worth-watching</id>
+            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/KirbySayshi&quot;&gt;Drew Petersen&lt;/a&gt; (Spotify) on “&lt;a href=&quot;https://www.youtube.com/watch?v=uNVP5jDOVAY&quot;&gt;Developing Games Using Data not Trees&lt;/a&gt;”: cons and pros of using data-oriented approach in game development.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/danielespeset&quot;&gt;Daniel Espeset&lt;/a&gt; (Etsy) on “&lt;a href=&quot;https://vimeo.com/109912254&quot;&gt;The role of Front-end Infrastructure at Etsy&lt;/a&gt;”: continuos deployment and experimentation-driven development, instruments that help to delete old code constantly.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        </entry>
     
         <entry>
             <title>Open all modified files in editor</title>
