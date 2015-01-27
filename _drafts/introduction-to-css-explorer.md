@@ -4,7 +4,7 @@ layout: post
 tags:
     - css
     - javascript
-excerpt:
+excerpt: Explore your project’s CSS with node-specificity.
 share-image: css-explorer-distribution.png
 ---
 
