@@ -33,18 +33,18 @@
     <link rel="shortcut icon" href="/assets/icon.png"/>
     <link rel="alternate" type="application/atom+xml" title="Feed" href="/atom.xml"/>
     {% if page.excerpt %}
-        <meta name="og:title" content="{{ page.title }}"/>
-        <meta name="og:site_name" content="{{ site.title }}"/>
-        <meta name="og:type" content="article"/>
-        <meta name="og:description" content="{{ page.excerpt }}"/>
+        <meta property="og:title" content="{{ page.title }}"/>
+        <meta property="og:site_name" content="{{ site.title }}"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:description" content="{{ page.excerpt }}"/>
         {% if page.image %}
-            <meta name="og:image" content="http://{{ site.public_host }}/assets/posts/{{ page.image }}"/>
+            <meta property="og:image" content="http://{{ site.public_host }}/assets/posts/{{ page.image }}"/>
             <meta name="twitter:card" content="summary_large_image"/>
         {% elsif page.share-image %}
-            <meta name="og:image" content="http://{{ site.public_host }}/assets/posts/{{ page.share-image }}"/>
+            <meta property="og:image" content="http://{{ site.public_host }}/assets/posts/{{ page.share-image }}"/>
             <meta name="twitter:card" content="summary_large_image"/>
         {% else %}
-            <meta name="og:image" content="http://{{ site.public_host }}/assets/default-share-image.png"/>
+            <meta property="og:image" content="http://{{ site.public_host }}/assets/default-share-image.png"/>
             <meta name="twitter:card" content="summary"/>
         {% endif %}
         <meta name="twitter:creator" content="@eprev"/>
