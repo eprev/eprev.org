@@ -7,55 +7,55 @@
     </url>
     
         <url>
-            <loc>http://eprev.org/2015/01/26/whats-worth-watching</loc>
+            <loc>http://eprev.org/2015/01/26/whats-worth-watching/</loc>
             <lastmod>2015-01-26</lastmod>
             <changefreq>weekly</changefreq>
         </url>
     
         <url>
-            <loc>http://eprev.org/2014/12/10/open-all-modified-files</loc>
+            <loc>http://eprev.org/2014/12/10/open-all-modified-files/</loc>
             <lastmod>2014-12-10</lastmod>
             <changefreq>weekly</changefreq>
         </url>
     
         <url>
-            <loc>http://eprev.org/2014/11/23/whats-worth-watching</loc>
+            <loc>http://eprev.org/2014/11/23/whats-worth-watching/</loc>
             <lastmod>2014-11-23</lastmod>
             <changefreq>weekly</changefreq>
         </url>
     
         <url>
-            <loc>http://eprev.org/2014/02/27/whats-worth-watching</loc>
+            <loc>http://eprev.org/2014/02/27/whats-worth-watching/</loc>
             <lastmod>2014-02-27</lastmod>
             <changefreq>weekly</changefreq>
         </url>
     
         <url>
-            <loc>http://eprev.org/2014/01/22/whats-worth-watching</loc>
+            <loc>http://eprev.org/2014/01/22/whats-worth-watching/</loc>
             <lastmod>2014-01-22</lastmod>
             <changefreq>weekly</changefreq>
         </url>
     
         <url>
-            <loc>http://eprev.org/2014/01/19/chrome-tab-tooltips</loc>
+            <loc>http://eprev.org/2014/01/19/chrome-tab-tooltips/</loc>
             <lastmod>2014-01-19</lastmod>
             <changefreq>weekly</changefreq>
         </url>
     
         <url>
-            <loc>http://eprev.org/2013/09/24/why-waiting-is-torture</loc>
+            <loc>http://eprev.org/2013/09/24/why-waiting-is-torture/</loc>
             <lastmod>2013-09-24</lastmod>
             <changefreq>weekly</changefreq>
         </url>
     
         <url>
-            <loc>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</loc>
+            <loc>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/</loc>
             <lastmod>2013-09-22</lastmod>
             <changefreq>weekly</changefreq>
         </url>
     
         <url>
-            <loc>http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)</loc>
+            <loc>http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)/</loc>
             <lastmod>2013-06-02</lastmod>
             <changefreq>weekly</changefreq>
         </url>
@@ -83,7 +83,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/javascript/index.html</loc>
+                <loc>http://eprev.org/tags/javascript/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -91,7 +91,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/mongodb/index.html</loc>
+                <loc>http://eprev.org/tags/mongodb/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -99,7 +99,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/gray-matter/index.html</loc>
+                <loc>http://eprev.org/tags/gray-matter/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -107,7 +107,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/ux/index.html</loc>
+                <loc>http://eprev.org/tags/ux/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -115,7 +115,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/worth-watching/index.html</loc>
+                <loc>http://eprev.org/tags/worth-watching/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -123,7 +123,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/performance/index.html</loc>
+                <loc>http://eprev.org/tags/performance/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -131,7 +131,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/git/index.html</loc>
+                <loc>http://eprev.org/tags/git/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -139,7 +139,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/css/index.html</loc>
+                <loc>http://eprev.org/tags/css/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -147,7 +147,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/typography/index.html</loc>
+                <loc>http://eprev.org/tags/typography/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -155,7 +155,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/media/index.html</loc>
+                <loc>http://eprev.org/tags/media/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
@@ -163,7 +163,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/devops/index.html</loc>
+                <loc>http://eprev.org/tags/devops/</loc>
                 <lastmod></lastmod>
                 <changefreq>weekly</changefreq>
             </url>
