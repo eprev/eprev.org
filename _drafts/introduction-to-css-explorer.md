@@ -78,11 +78,11 @@ of one humble CSS file. If you have a few files for profile, it gets better.
 
 There is also `inspect` report (it’s used as the default one). If you run `node-specificity explore v8.json`,
 it will print out the list of all selectors in the given profile, the summary on specificity numbers
-and the specificity distribution charts, which is very similar to the one you can see above.
+and the specificity distribution chart, which is very similar to the one you can see above.
 
 ![Screenshot of the ‘server’ report](/assets/posts/css-explorer-cli.png)
 
-Reports can accept additional command line options. There are few of them. To see  In the example above,
+Reports can accept additional command line options. There are few of them. In the example above,
 `--no-inspect-selectors` option has been used. It disables printing out the list of all selectors.
 
 That’s it. Happy exploring!
