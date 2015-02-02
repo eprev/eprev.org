@@ -69,7 +69,10 @@ $page__arrow-height: 96px;
     }
 }
 .page__sidebar__inner {
+    @include box-sizing(border-box);
     padding: $gap-medium;
+    -webkit-transition: -webkit-transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out;
 }
 .page__footer {
     clear: both;

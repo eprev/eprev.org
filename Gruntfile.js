@@ -5,8 +5,8 @@ module.exports = function (grunt) {
     var isDeploy = grunt.cli.tasks.length >= 1 && grunt.cli.tasks.indexOf('deploy') > -1,
         isLiveReload = grunt.cli.tasks.length >= 1 && grunt.cli.tasks.indexOf('watch') > -1,
         version = {
-            css: 8,
-            js : 3
+            css: 9,
+            js : 4
         },
         prefix = {
             css: 'assets/css/v/' + version.css,
@@ -49,7 +49,10 @@ module.exports = function (grunt) {
                 }
             },
             js: {
-                files: ['assets/js/**/*.js'],
+                files: [
+                    'assets/js/**/*.js',
+                    '!assets/js/v/**/*.js'
+                ],
                 tasks: ['concat:js'],
                 options: {
                     interrupt: true
