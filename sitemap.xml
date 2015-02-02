@@ -11,7 +11,7 @@ layout: nil
     </url>
     {% for post in site.posts %}
         <url>
-            <loc>http://{{ site.public_host }}{{ post.url }}</loc>
+            <loc>http://{{ site.public_host }}{{ post.url }}/</loc>
             <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
             <changefreq>weekly</changefreq>
         </url>
@@ -19,7 +19,7 @@ layout: nil
     {% for page in site.pages %}
         {% if page.layout != 'nil' and page.path != 'index.html' %}
             <url>
-                <loc>http://{{ site.public_host }}{{ page.url }}</loc>
+                <loc>http://{{ site.public_host }}{{ page.url }}/</loc>
                 <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
                 <changefreq>weekly</changefreq>
             </url>
