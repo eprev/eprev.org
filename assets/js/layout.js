@@ -134,25 +134,28 @@ var hiPageInner = Hammer(pageInner, {
     }
 });
 
+var sidebarHidden = false;
 function resizeHanlder() {
-    hiPageInner.enable(window.innerWidth <= 979);
+    sidebarHidden = window.innerWidth <= 979;
+    hiPageInner.enable(sidebarHidden);
 }
 
 window.addEventListener('resize', resizeHanlder);
 resizeHanlder();
 
-
 (function () {
     var toScrollHandler;
     function scrollHandler() {
-        if (toScrollHandler) {
-            clearTimeout(toScrollHandler);
-        }
-        var scrollTop = window.pageYOffset;
-        if (scrollTop === 0 || (window.innerHeight + scrollTop) >= document.body.scrollHeight) {
-            moveSidebar();
-        } else {
-            toScrollHandler = setTimeout(moveSidebar, 500);
+        if (sidebarHidden) {
+            if (toScrollHandler) {
+                clearTimeout(toScrollHandler);
+            }
+            var scrollTop = window.pageYOffset;
+            if (scrollTop === 0 || (window.innerHeight + scrollTop) >= document.body.scrollHeight) {
+                moveSidebar();
+            } else {
+                toScrollHandler = setTimeout(moveSidebar, 500);
+            }
         }
     }
 
@@ -161,20 +164,26 @@ resizeHanlder();
     }
 
     var sidebarInner = document.querySelector('.page__sidebar__inner');
+    var prevY = 0;
     function moveSidebar() {
         var scrollTop = window.pageYOffset;
         var innerHeight = window.innerHeight;
         var sidebarHeight = sidebarInner.clientHeight;
         if (typeof scrollTop !== 'undefined' && typeof innerHeight !== 'undefined') {
+            var Y;
             if (innerHeight < sidebarHeight) {
                 var diff = scrollTop + innerHeight - sidebarHeight;
                 if (diff <= 0) {
-                    sidebarInner.style[getCSSProperty('transform')] = 'translateY(0px)';
+                    Y = 0;
                 } else {
-                    sidebarInner.style[getCSSProperty('transform')] = 'translateY(' + rhythm(diff) + 'px)';
+                    Y = rhythm(diff);
                 }
             } else {
-                sidebarInner.style[getCSSProperty('transform')] = 'translateY(' + rhythm(scrollTop) + 'px)';
+                Y = rhythm(scrollTop);
+            }
+            if (Math.abs(Y - prevY) > innerHeight || Y === 0) {
+                sidebarInner.style[getCSSProperty('transform')] = 'translateY(' + Y + 'px)';
+                prevY = Y;
             }
         }
     }

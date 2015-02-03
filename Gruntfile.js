@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         isLiveReload = grunt.cli.tasks.length >= 1 && grunt.cli.tasks.indexOf('watch') > -1,
         version = {
             css: 9,
-            js : 4
+            js : 6
         },
         prefix = {
             css: 'assets/css/v/' + version.css,
