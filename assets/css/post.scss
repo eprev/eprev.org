@@ -2,6 +2,12 @@
     margin-bottom: $line-height;
 }
 
+.post_special_home {
+    @include respond-to(tablet) {
+        display: none;
+    }
+}
+
 .post__header {
     // font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 }
