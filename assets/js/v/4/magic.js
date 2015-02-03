@@ -1556,25 +1556,28 @@ var hiPageInner = Hammer(pageInner, {
     }
 });
 
+var sidebarHidden = false;
 function resizeHanlder() {
-    hiPageInner.enable(window.innerWidth <= 979);
+    sidebarHidden = window.innerWidth <= 979;
+    hiPageInner.enable(sidebarHidden);
 }
 
 window.addEventListener('resize', resizeHanlder);
 resizeHanlder();
 
-
 (function () {
     var toScrollHandler;
     function scrollHandler() {
-        if (toScrollHandler) {
-            clearTimeout(toScrollHandler);
-        }
-        var scrollTop = window.pageYOffset;
-        if (scrollTop === 0 || (window.innerHeight + scrollTop) >= document.body.scrollHeight) {
-            moveSidebar();
-        } else {
-            toScrollHandler = setTimeout(moveSidebar, 500);
+        if (sidebarHidden) {
+            if (toScrollHandler) {
+                clearTimeout(toScrollHandler);
+            }
+            var scrollTop = window.pageYOffset;
+            if (scrollTop === 0 || (window.innerHeight + scrollTop) >= document.body.scrollHeight) {
+                moveSidebar();
+            } else {
+                toScrollHandler = setTimeout(moveSidebar, 500);
+            }
         }
     }
 
