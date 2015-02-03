@@ -146,7 +146,7 @@ resizeHanlder();
 (function () {
     var toScrollHandler;
     function scrollHandler() {
-        // if (sidebarHidden) {
+        if (sidebarHidden) {
             if (toScrollHandler) {
                 clearTimeout(toScrollHandler);
             }
@@ -156,7 +156,7 @@ resizeHanlder();
             } else {
                 toScrollHandler = setTimeout(moveSidebar, 500);
             }
-        // }
+        }
     }
 
     function rhythm(y) {
