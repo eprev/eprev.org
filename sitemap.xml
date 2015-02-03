@@ -20,7 +20,9 @@ layout: nil
         {% if page.layout != 'nil' and page.path != 'index.html' %}
             <url>
                 <loc>http://{{ site.public_host }}{{ page.dir  }}/</loc>
+                {% if page.date %}
                 <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
+                {% endif %}
                 <changefreq>weekly</changefreq>
             </url>
         {% endif %}
