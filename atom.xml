@@ -3,12 +3,97 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2015-02-03T22:45:39+03:00</updated>
+    <updated>2015-02-05T10:05:54+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
         <email>a.eprev@gmail.com</email>
     </author>
+    
+        <entry>
+            <title>Introduction to CSS Explorer</title>
+            <link href="http://eprev.org/2015/02/05/introduction-to-css-explorer"/>
+            <updated>2015-02-05T00:00:00+03:00</updated>
+            <id>http://eprev.org/2015/02/05/introduction-to-css-explorer</id>
+            <content type="html">&lt;p&gt;I’ve been curious about the state of our CSS code and its changes over the time.
+So I’ve written recently a program called &lt;a href=&quot;https://github.com/eprev/specificity&quot;&gt;&lt;code&gt;specificity&lt;/code&gt;&lt;/a&gt;.
+What does it do? It answers the following questions:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;What is a total number of selectors in your CSS codebase?
+How has it been changing over the time?&lt;/li&gt;
+  &lt;li&gt;What is a maximum/average/median selector‘s specificity of your CSS codebase?
+How has it been changing over the time?&lt;/li&gt;
+  &lt;li&gt;How does the distribution of selector‘s specificity of your CSS codebase look like?
+How has it been changing over the time?&lt;/li&gt;
+  &lt;li&gt;How many selectors in your CSS codebase contain at least one rule with the &lt;code&gt;!important&lt;/code&gt; directive?
+How has it been changing over the time?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Wait, why is it so important? It’s not, until you have a codebase of dozens of
+thousands lines of code that is hard to maintain and you used to do a lot of experiments.
+And of course, if it’s not even important, it’s quite interesting at least.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-distribution.png&quot; alt=&quot;Screenshot of the ‘server’ report&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, &lt;code&gt;node-specificity&lt;/code&gt; provides two commands. One is for parsing your CSS files and creating profiles.
+Second is for reading or “exploring” these profiles. Let’s look at an example. I have a few versions of
+&lt;a href=&quot;https://github.com/eprev/specificity/tree/master/spec/fixtures/timeline&quot;&gt;CSS&lt;/a&gt; of the website
+you’re reading right now. As I’m writing this post the website is using &lt;code&gt;v8.css&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Alright, let’s create profiles for these files:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ node-specificity parse v1.css --label=v1 --output=v1.json
+...
+$ node-specificity parse v8.css --label=v8 --output=v8.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We’ve created a profile for each CSS file since we want to observe changings over the time. If you use
+more than one CSS file on your website, you have to create a profile for all of them, for instance:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ node-specificity parse main.css print.css --label=2014-12-23 --output=20141223.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Label acts as a profile’s name in reports. Once we have profiles created, we are able to run a report.
+Let’s start a ‘server’ report:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ node-specificity explore v*.json --report=server
+Server is running on http://localhost:4000/
+Press Ctrl + C to stop it.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Open a browser and go to “http://localhost:4000/”. Now you’re supposed to be seeing the page
+with different controls and a weird graph. It‘s the specificity distribution bar chart (see in
+the picture above). For each specificity (tuple) it shows the total number of selectors
+of this specificity in the specific profile.&lt;/p&gt;
+
+&lt;p&gt;Other graphs are: number of selectors in your CSS files and total number of selectors in profiles,
+how many of them contain rules with the &lt;code&gt;!important&lt;/code&gt; directive, average and median
+values of selector’s specificity for CSS files and profiles.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-selectors.png&quot; alt=&quot;Screenshot of the ‘server’ report&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You are able to explore all these graphs for a specific profile. To do this, you have to
+select the particular profile’s label in the dropdown list. For instance, it’s the specificity
+distribution bar chart for ‘v8.json’ profile in the picture below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-profile.png&quot; alt=&quot;Screenshot of the ‘server’ report&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, &lt;code&gt;server&lt;/code&gt; report is quite a powerful tool. Bear in mind, images above are for the profiles
+of one humble CSS file. If you have a few files for profile, it gets better.&lt;/p&gt;
+
+&lt;p&gt;There is also &lt;code&gt;inspect&lt;/code&gt; report (it’s used as the default one). If you run &lt;code&gt;node-specificity explore v8.json&lt;/code&gt;,
+it will print out the list of all selectors in the given profile, the summary on specificity numbers
+and the specificity distribution chart, which is very similar to the one you can see above.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-cli.png&quot; alt=&quot;Screenshot of the ‘server’ report&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Reports can accept additional command line options. There are few of them. In the example above,
+&lt;code&gt;--no-inspect-selectors&lt;/code&gt; option has been used. It disables printing out the list of all selectors.&lt;/p&gt;
+
+&lt;p&gt;That’s it. Happy exploring!&lt;/p&gt;
+</content>
+        </entry>
     
         <entry>
             <title>What’s worth watching</title>
