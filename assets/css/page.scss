@@ -79,8 +79,12 @@ $page__arrow-height: 96px;
     padding-top: $line-height;
 }
 .page__user__name {
-    border-bottom: 0;
+    font-size: typographic-scale(5);
+    line-height: scale-line-height(typographic-scale(5));
     text-transform: none;
+    a {
+        border-bottom-style: none;
+    }
 }
 .page__user__picture {
     width: 6 * $line-height;

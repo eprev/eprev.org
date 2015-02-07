@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     var isDeploy = grunt.cli.tasks.length >= 1 && grunt.cli.tasks.indexOf('deploy') > -1,
         isLiveReload = grunt.cli.tasks.length >= 1 && grunt.cli.tasks.indexOf('watch') > -1,
         version = {
-            css: 10,
+            css: 11,
             js : 6
         },
         prefix = {

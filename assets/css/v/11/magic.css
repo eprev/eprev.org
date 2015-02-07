@@ -270,10 +270,12 @@ a {
 }
 
 .page__user__name {
-  border-bottom: 0;
   font-size: 36px;
   line-height: 52px;
   text-transform: none;
+}
+.page__user__name a {
+  border-bottom-style: none;
 }
 
 .page__user__picture {
