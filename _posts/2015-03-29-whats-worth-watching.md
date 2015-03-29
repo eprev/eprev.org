@@ -7,6 +7,6 @@ tags:
 excerpt: List of favorite talks and performances.
 ---
 
-- “[Big Code: Developer Infrastructure at Facebook's Scale](https://www.youtube.com/watch?v=X0VH78ye4yY)” (F8 2015): what is it like to be engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.
+- “[Big Code: Developer Infrastructure at Facebook's Scale](https://www.youtube.com/watch?v=X0VH78ye4yY)” (F8 2015): what is it like to be an engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.
 - [Zach Holman](https://twitter.com/holman) (GitHub) on “[Move fast and break nothing](http://www.bbc.co.uk/academy/technology/article/art20150206154333467)”: how to ship software changes fast and not to break things.
 {:.post__content__list}
