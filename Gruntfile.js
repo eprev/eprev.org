@@ -94,7 +94,7 @@ module.exports = function (grunt) {
         csso: {
             magic: {
                 options: {
-                    report: 'gzip'
+                    report: 'min'
                 },
                 src: prefix.css + '/magic.css',
                 dest: prefix.css + '/magic.min.css'
@@ -103,7 +103,7 @@ module.exports = function (grunt) {
         uglify: {
             magic: {
                 options: {
-                    report: 'gzip',
+                    report: 'min',
                     preserveComments: 'some'
                 },
                 src: prefix.js + '/magic.js',
