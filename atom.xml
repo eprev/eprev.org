@@ -3,12 +3,24 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2015-03-04T10:17:01+03:00</updated>
+    <updated>2015-03-29T13:49:40+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
         <email>a.eprev@gmail.com</email>
     </author>
+    
+        <entry>
+            <title>What’s worth watching</title>
+            <link href="http://eprev.org/2015/03/29/hats-worth-watching"/>
+            <updated>2015-03-29T00:00:00+03:00</updated>
+            <id>http://eprev.org/2015/03/29/hats-worth-watching</id>
+            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+  &lt;li&gt;“&lt;a href=&quot;https://www.youtube.com/watch?v=X0VH78ye4yY&quot;&gt;Big Code: Developer Infrastructure at Facebook’s Scale&lt;/a&gt;” (F8 2015): what is it like to be engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/holman&quot;&gt;Zach Holman&lt;/a&gt; (GitHub) on “&lt;a href=&quot;http://www.bbc.co.uk/academy/technology/article/art20150206154333467&quot;&gt;Move fast and break nothing&lt;/a&gt;”: how to ship software changes fast and not to break things.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        </entry>
     
         <entry>
             <title>Introduction to CSS Explorer</title>
