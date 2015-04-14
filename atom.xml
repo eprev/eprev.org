@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2015-03-29T13:53:39+03:00</updated>
+    <updated>2015-04-14T22:27:47+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -43,7 +43,7 @@ How has it been changing over the time?&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Wait, why is it so important? It’s not, until you have a codebase of dozens of
-thousands lines of code that is hard to maintain and you used to do a lot of experiments.
+thousands lines of code that is hard to maintain and you do a lot of experiments.
 And of course, if it’s not even important, it’s quite interesting at least.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-distribution.png&quot; alt=&quot;CSS specificity chart&quot; /&gt;&lt;/p&gt;
