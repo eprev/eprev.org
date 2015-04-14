@@ -22,7 +22,7 @@ How has it been changing over the time?
 How has it been changing over the time?
 
 Wait, why is it so important? It’s not, until you have a codebase of dozens of
-thousands lines of code that is hard to maintain and you used to do a lot of experiments.
+thousands lines of code that is hard to maintain and you do a lot of experiments.
 And of course, if it’s not even important, it’s quite interesting at least.
 
 ![CSS specificity chart](/assets/posts/css-explorer-distribution.png)
