@@ -6,6 +6,8 @@ tags:
 excerpt: My favorite OS X applications.
 ---
 
-[f.lux](https://justgetflux.com).
+* [f.lux](https://justgetflux.com).
 
-[Spectacle](http://spectacleapp.com).
+* [Spectacle](http://spectacleapp.com).
+
+* [Bartender](http://www.macbartender.com).
