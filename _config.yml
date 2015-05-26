@@ -1,5 +1,5 @@
 timezone: Europe/Moscow
-lsi: true
+lsi: false
 
 safe: false
 markdown: kramdown
