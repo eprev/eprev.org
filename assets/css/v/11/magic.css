@@ -155,8 +155,17 @@ p {
 }
 
 p + p {
-  margin-top: 0;
   text-indent: 1em;
+}
+
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6 {
+  margin-top: 26px;
+  /* Vertical rhythm. */
 }
 
 code {
