@@ -28,21 +28,17 @@ $ sudp cp mkbitmap potrace /usr/local/bin
 ### Usage
 
 Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. Let's say you’ve got this image (by [Nation of Amanda](http://nationofamanda.tumblr.com/)) in PNG format with transparency:
-
 ![‘Nap all day, sleep all night, party never’ by Nation of Amanda](/assets/posts/party-never.png)
-
 All you need to do is to run this:
 
 ~~~
 $ convert -alpha remove party-never.png pgm: \
 | mkbitmap -f 32 -t 0.4 - -o - \
-| potrace --svg -o party-never.svg 
+| potrace --svg -o party-never.svg
 ~~~
 
 It converts PNG file to PGM format, removes image transparency, outputs the result image to the standart input of `mkbitmap` that transforms the input with highpass filtering and thresholding into a suitable for the `potrace` program format, that finally generates SVG file. You can play around with highpass filtering (`-f`) and thresholding (`-t`) values until you have the final look that you want.
 
 As a result you might have now:
-
 ![‘Nap all day, sleep all night, party never’ by Nation of Amanda](/assets/posts/party-never.svg)
-
 That’s it.
