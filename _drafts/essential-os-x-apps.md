@@ -1,5 +1,5 @@
 ---
-title: Converting PNG to SVG
+title: Essential OS X Applications
 layout: post
 tags:
     - os-x
