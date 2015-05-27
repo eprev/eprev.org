@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2015-05-27T10:09:19+03:00</updated>
+    <updated>2015-05-27T21:33:48+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -33,24 +33,20 @@ $ sudp cp mkbitmap potrace /usr/local/bin
 
 &lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
 
-&lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;All you need to do is to run this:&lt;/p&gt;
+&lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:
+&lt;img src=&quot;/assets/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;
+All you need to do is to run this:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ convert -alpha remove party-never.png pgm: \
 | mkbitmap -f 32 -t 0.4 - -o - \
-| potrace --svg -o party-never.svg 
+| potrace --svg -o party-never.svg
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standart input of &lt;code&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code&gt;-f&lt;/code&gt;) and thresholding (&lt;code&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;
 
-&lt;p&gt;As a result you might have now:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;That’s it.&lt;/p&gt;
+&lt;p&gt;As a result you might have now:
+&lt;img src=&quot;/assets/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;
+That’s it.&lt;/p&gt;
 </content>
         </entry>
     
