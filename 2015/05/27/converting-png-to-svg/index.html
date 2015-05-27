@@ -14,7 +14,7 @@
     
     <meta charset="utf-8"/>
     
-        <title>Tag «devops» – Anton Eprev</title>
+        <title>Converting PNG to SVG – Anton Eprev</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
@@ -22,6 +22,22 @@
     
     <link rel="shortcut icon" href="/assets/icon.png"/>
     <link rel="alternate" type="application/atom+xml" title="Feed" href="/atom.xml"/>
+    
+        <meta property="og:url" content="http://eprev.org/2015/05/27/converting-png-to-svg/"/>
+        <meta property="og:title" content="Converting PNG to SVG"/>
+        <meta property="og:site_name" content="Anton Eprev"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:description" content="There is an easy way to convert bitmapped images into SVG using command-line tool called Potrace."/>
+        
+            <meta property="og:image" content="http://eprev.org/assets/posts/share-party-never.png"/>
+            <meta name="twitter:card" content="summary_large_image"/>
+        
+        <meta name="twitter:creator" content="@eprev"/>
+        <meta name="twitter:title" content="Converting PNG to SVG"/>
+        <meta name="twitter:description" content="There is an easy way to convert bitmapped images into SVG using command-line tool called Potrace."/>
+        
+            <meta name="twitter:image:src" content="http://eprev.org/assets/posts/share-party-never.png"/>
+        
     
 </head><body>
     
@@ -41,106 +57,74 @@
         <div class="page__inner page__inner_animated page__inner_swiped">
             <div class="page__content" role="main">
 
-<h1>Tag «devops»</h1>
-<ul class="archive">
+
+
+
+
+<div class="post">
+    <h1 class="post__header">
+        
+            Converting PNG to SVG
+        
+    </h1>
+    <div class="post__meta">
+        May 27, 2015
+        
+            ∙
+            
+                <a href="/tags/svg">svg</a>
+            
+        
+    </div>
     
-        
+        <div class="post__content">
             
-        
+            <p>Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called <a href="http://potrace.sourceforge.net">Potrace</a>.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including <a href="http://brew.sh/">Homebrew</a>:</p>
+
+<pre><code>$ brew install potrace
+</code></pre>
+
+<p>The manual installation is super easy, however. For OS X do the following:</p>
+
+<pre><code>$ cd potrace-1.12.mac-i386
+$ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
+$ sudp cp mkbitmap potrace /usr/local/bin
+</code></pre>
+
+<h3 id="usage">Usage</h3>
+
+<p>Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. Let’s say you’ve got this image (by <a href="http://nationofamanda.tumblr.com/">Nation of Amanda</a>) in PNG format with transparency:</p>
+
+<p><img src="/assets/posts/party-never.png" alt="‘Nap all day, sleep all night, party never’ by Nation of Amanda" /></p>
+
+<p>All you need to do is to run this:</p>
+
+<pre><code>$ convert -alpha remove party-never.png pgm: \
+| mkbitmap -f 32 -t 0.4 - -o - \
+| potrace --svg -o party-never.svg 
+</code></pre>
+
+<p>It converts PNG file to PGM format, removes image transparency, outputs the result image to the standart input of <code>mkbitmap</code> that transforms the input with highpass filtering and thresholding into a suitable for the <code>potrace</code> program format, that finally generates SVG file. You can play around with highpass filtering (<code>-f</code>) and thresholding (<code>-t</code>) values until you have the final look that you want.</p>
+
+<p>As a result you might have now:</p>
+
+<p><img src="/assets/posts/party-never.svg" alt="‘Nap all day, sleep all night, party never’ by Nation of Amanda" /></p>
+
+<p>That’s it.</p>
+
+        </div>
     
-        
-            
-        
-            
-                <li class="archive__item">
-                    <span class="archive__date">
-                        March 29, 2015
-                    </span>
-                    <span class="archive__header">
-                        <a class="archive__header__link" href="/2015/03/29/whats-worth-watching">What’s worth watching</a>
-                    </span>
-                </li>
-            
-        
-    
-        
-            
-        
-            
-        
-    
-        
-            
-        
-            
-        
-            
-                <li class="archive__item">
-                    <span class="archive__date">
-                        January 26, 2015
-                    </span>
-                    <span class="archive__header">
-                        <a class="archive__header__link" href="/2015/01/26/whats-worth-watching">What’s worth watching</a>
-                    </span>
-                </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-            
-        
-    
-        
-            
-        
-    
-</ul>
+</div>
+
+<div class="post post_special_home">
+    <h3 class="post__header">
+        &lsaquo; <a class="page__header__link" href="/">Home</a>
+    </h3>
+</div>
             </div>
             <div class="page__sidebar">
                 <div class="page__sidebar__inner">

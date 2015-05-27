@@ -50,6 +50,72 @@
         <div class="post">
     <h2 class="post__header">
         
+            <a class="post__header__link" href="/2015/05/27/converting-png-to-svg">Converting PNG to SVG</a>
+        
+    </h2>
+    <div class="post__meta">
+        May 27, 2015
+        
+            ∙
+            
+                <a href="/tags/svg">svg</a>
+            
+        
+    </div>
+    
+        <div class="post__content">
+            
+            <p>Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called <a href="http://potrace.sourceforge.net">Potrace</a>.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including <a href="http://brew.sh/">Homebrew</a>:</p>
+
+<pre><code>$ brew install potrace
+</code></pre>
+
+<p>The manual installation is super easy, however. For OS X do the following:</p>
+
+<pre><code>$ cd potrace-1.12.mac-i386
+$ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
+$ sudp cp mkbitmap potrace /usr/local/bin
+</code></pre>
+
+<h3 id="usage">Usage</h3>
+
+<p>Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. Let’s say you’ve got this image (by <a href="http://nationofamanda.tumblr.com/">Nation of Amanda</a>) in PNG format with transparency:</p>
+
+<p><img src="/assets/posts/party-never.png" alt="‘Nap all day, sleep all night, party never’ by Nation of Amanda" /></p>
+
+<p>All you need to do is to run this:</p>
+
+<pre><code>$ convert -alpha remove party-never.png pgm: \
+| mkbitmap -f 32 -t 0.4 - -o - \
+| potrace --svg -o party-never.svg 
+</code></pre>
+
+<p>It converts PNG file to PGM format, removes image transparency, outputs the result image to the standart input of <code>mkbitmap</code> that transforms the input with highpass filtering and thresholding into a suitable for the <code>potrace</code> program format, that finally generates SVG file. You can play around with highpass filtering (<code>-f</code>) and thresholding (<code>-t</code>) values until you have the final look that you want.</p>
+
+<p>As a result you might have now:</p>
+
+<p><img src="/assets/posts/party-never.svg" alt="‘Nap all day, sleep all night, party never’ by Nation of Amanda" /></p>
+
+<p>That’s it.</p>
+
+        </div>
+    
+</div>
+
+    
+
+    
+        
+        
+        
+        
+        <div class="post">
+    <h2 class="post__header">
+        
             <a class="post__header__link" href="/2015/03/29/whats-worth-watching">What’s worth watching</a>
         
     </h2>
@@ -279,47 +345,6 @@ touch = "!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')"
 </div>
 
     
-
-    
-        
-        
-        
-        
-        <div class="post">
-    <h2 class="post__header">
-        
-            <a class="post__header__link" href="/2014/11/23/whats-worth-watching">What’s worth watching</a>
-        
-    </h2>
-    <div class="post__meta">
-        November 23, 2014
-        
-            ∙
-            
-                <a href="/tags/worth-watching">worth-watching</a>,
-            
-                <a href="/tags/javascript">javascript</a>,
-            
-                <a href="/tags/performance">performance</a>,
-            
-                <a href="/tags/media">media</a>
-            
-        
-    </div>
-    
-        <div class="post__content">
-            
-            <ul class="post__content__list">
-  <li>Bred Victor (MIT) on “<a href="https://vimeo.com/67076984">Media for Thinking the Unthinkable</a>”: incredible ideas that will probably change the way we present and understand things.</li>
-  <li>Douglas Crockford on “<a href="http://www.youtube.com/watch?v=bo36MrBfTk4">The Better Parts</a>”: you aren’t supposed to use every feature of the language to write error-free programs. Douglas is sharing his favorite parts of JavaScript and coming ES6 standard.</li>
-  <li>Facebook’s way to Flux and React in “<a href="http://www.youtube.com/watch?v=nYkdrAPrdcw">Rethinking Web App Development at Facebook</a>”.</li>
-  <li>John-David Dalton (Lo-Dash) on “<a href="http://www.youtube.com/watch?v=NthmeLEhDDM">Unorthodox Performance</a>”: interesting techniques to improve JavaScript performance.</li>
-  <li>Patrick Hamann (The Guardian) on “<a href="http://www.youtube.com/watch?v=_0Fk85to6hA">CSS and the Critical Path</a>”: dealing with performance bottlenecks in the browser from network to painting.</li>
-</ul>
-
-        </div>
-    
-</div>
 
     
 
