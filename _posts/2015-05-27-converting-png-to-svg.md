@@ -27,7 +27,13 @@ $ sudp cp mkbitmap potrace /usr/local/bin
 
 ### Usage
 
-Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. Let's say you’ve got this image (by [Nation of Amanda](http://nationofamanda.tumblr.com/)) in PNG format with transparency:
+Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using [ImageMagick](http://www.imagemagick.org) for this. If you don’t have it installed, you can use Homebrew to get it:
+
+~~~
+$ brew install imagemagick
+~~~
+
+Alright. Let's say you’ve got this image (by [Nation of Amanda](http://nationofamanda.tumblr.com/)) in PNG format with transparency:
 ![‘Nap all day, sleep all night, party never’ by Nation of Amanda](/assets/posts/party-never.png)
 All you need to do is to run this:
 
