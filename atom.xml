@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2015-05-30T10:32:59+03:00</updated>
+    <updated>2015-05-30T10:39:14+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -33,7 +33,7 @@ $ sudp cp mkbitmap potrace /usr/local/bin
 
 &lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
 
-&lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org&quot;&gt;ImageMagick&lt;/a&gt; for this. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;
+&lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org&quot;&gt;ImageMagick&lt;/a&gt;’s &lt;code&gt;convert&lt;/code&gt; program. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ brew install imagemagick
 &lt;/code&gt;&lt;/pre&gt;
