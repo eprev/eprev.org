@@ -6,7 +6,7 @@ tags:
 excerpt: How to change automatically OS X’s network location based on the name of Wi-Fi network and run scrips when it happens.
 ---
 
-You might have heard or know about [network locations](https://support.apple.com/en-us/HT202480) in OS X. It allows you to have different network configurations and quickly switch between them. For instance, if you need to use a specific netwrok preferences at work (let’s say, corporate proxy server) and you don’t need it when you get home, you could create a new location named “Work” for work enveronment and use the default “Automatic” location for home. But still, you will need to switch between those locations manually. How annoying!
+You might have heard or know about [Network locations](https://support.apple.com/en-us/HT202480) in OS X. It allows you to have different network configurations and quickly switch between them. For instance, if you need to use a specific netwrok preferences at work (let’s say, corporate proxy server) and you don’t need it when you get home, you could create a new location named “Work” for work enveronment and use the default “Automatic” location for home. But still, you will need to switch between those locations manually. How annoying!
 
 Fortunately or not, I love to automate things. And I wanted OS X to switch location automatically based on the name of Wi-Fi network that I’m connected to. Furthermore, I wanted to change automatically Security Preferences. I have to lock the computer immediatly at work when I go away. But I found it annoing to have it at home.
 
