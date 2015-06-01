@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2015-06-01T22:21:07+03:00</updated>
+    <updated>2015-06-01T23:10:57+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -47,7 +47,7 @@ All you need to do is to run this:&lt;/p&gt;
 | potrace --svg -o party-never.svg
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standart input of &lt;code&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code&gt;-f&lt;/code&gt;) and thresholding (&lt;code&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;
+&lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of &lt;code&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code&gt;-f&lt;/code&gt;) and thresholding (&lt;code&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;
 
 &lt;p&gt;As a result you might have now:
 &lt;img src=&quot;/assets/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;
