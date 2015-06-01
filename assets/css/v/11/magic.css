@@ -134,38 +134,18 @@ blockquote {
   border-left: 4px solid #d6d6d6;
   padding-left: 1em;
 }
-blockquote p + p {
-  text-indent: 0;
-}
 
 ul {
   list-style-position: outside;
 }
 
 p {
-  margin-bottom: 0;
-  /* Remove line space between paragraphs
-     (http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.2/). */
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   -o-hyphens: auto;
   hyphens: auto;
   /*  Automatically break words at appropriate hyphenation points. */
-}
-
-p + p {
-  text-indent: 1em;
-}
-
-p + h1,
-p + h2,
-p + h3,
-p + h4,
-p + h5,
-p + h6 {
-  margin-top: 26px;
-  /* Vertical rhythm. */
 }
 
 code {
