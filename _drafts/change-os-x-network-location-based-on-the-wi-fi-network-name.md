@@ -27,12 +27,35 @@ your corporate wireless network is “Corp Wi-Fi”, you have to create a new lo
 If you connect to a wireless network that you don’t have a specific location for, then
 the default location “Automatic” will be used.
 
-Now we need the [tools](https://github.com/eprev/locationchanger). The installation process
+And we need [tools](https://github.com/eprev/locationchanger) for this. The installation process
 is extremely easy:
 
 ~~~
 $ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
 ~~~
 
-It will ask only for a root password to install `locationchanger`. Now every time you connect to
-a wireless network, the it will change your location to either corresponding or default one.
+It will ask only for a root password to install `locationchanger`. Now, every time you connect to
+a wireless network it will change the location to either the corresponding or the default one.
+
+That’s not all. How to change automatically Security Preferences when the location has changed?
+Let’s create scripts that will be executed every time it happens. One is for “Corp Wi-Fi” location:
+
+~~~
+#!/usr/bin/env bash
+
+# Require password immediately after sleep or screen saver
+osascript -e 'tell application "System Events" to set require password to wake of security preferences to true'
+~~~
+
+Another is for the default location:
+
+~~~
+#!/usr/bin/env bash
+
+# Don’t require password after sleep or screen saver
+osascript -e 'tell application "System Events" to set require password to wake of security preferences to false'
+~~~
+
+Save them as *~/.locations/Corp Wi-Fi* and *~/.locations/Automatic* respectively. Voilà!
+You’re not limited by changing only the security preferences, you can do whatever
+you want to…
