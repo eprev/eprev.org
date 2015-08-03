@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2015-06-01T23:10:57+03:00</updated>
+    <updated>2015-08-04T00:47:57+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -12,7 +12,7 @@
     
         <entry>
             <title>Converting PNG to SVG</title>
-            <link href="http://eprev.org/2015/05/27/converting-png-to-svg"/>
+            <link href="http://eprev.org/2015/05/27/converting-png-to-svg/"/>
             <updated>2015-05-27T00:00:00+03:00</updated>
             <id>http://eprev.org/2015/05/27/converting-png-to-svg</id>
             <content type="html">&lt;p&gt;Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called &lt;a href=&quot;http://potrace.sourceforge.net&quot;&gt;Potrace&lt;/a&gt;.&lt;/p&gt;
@@ -57,7 +57,7 @@ That’s it.&lt;/p&gt;
     
         <entry>
             <title>What’s worth watching</title>
-            <link href="http://eprev.org/2015/03/29/whats-worth-watching"/>
+            <link href="http://eprev.org/2015/03/29/whats-worth-watching/"/>
             <updated>2015-03-29T00:00:00+03:00</updated>
             <id>http://eprev.org/2015/03/29/whats-worth-watching</id>
             <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
@@ -69,7 +69,7 @@ That’s it.&lt;/p&gt;
     
         <entry>
             <title>Introduction to CSS Explorer</title>
-            <link href="http://eprev.org/2015/02/05/introduction-to-css-explorer"/>
+            <link href="http://eprev.org/2015/02/05/introduction-to-css-explorer/"/>
             <updated>2015-02-05T00:00:00+03:00</updated>
             <id>http://eprev.org/2015/02/05/introduction-to-css-explorer</id>
             <content type="html">&lt;p&gt;I’ve been curious about the state of our CSS code and its changes over the time.
@@ -154,7 +154,7 @@ and the specificity distribution chart, which is very similar to the one you can
     
         <entry>
             <title>What’s worth watching</title>
-            <link href="http://eprev.org/2015/01/26/whats-worth-watching"/>
+            <link href="http://eprev.org/2015/01/26/whats-worth-watching/"/>
             <updated>2015-01-26T00:00:00+03:00</updated>
             <id>http://eprev.org/2015/01/26/whats-worth-watching</id>
             <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
@@ -166,7 +166,7 @@ and the specificity distribution chart, which is very similar to the one you can
     
         <entry>
             <title>Open all modified files in editor</title>
-            <link href="http://eprev.org/2014/12/10/open-all-modified-files"/>
+            <link href="http://eprev.org/2014/12/10/open-all-modified-files/"/>
             <updated>2014-12-10T00:00:00+03:00</updated>
             <id>http://eprev.org/2014/12/10/open-all-modified-files</id>
             <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
@@ -199,7 +199,7 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#3
     
         <entry>
             <title>What’s worth watching</title>
-            <link href="http://eprev.org/2014/11/23/whats-worth-watching"/>
+            <link href="http://eprev.org/2014/11/23/whats-worth-watching/"/>
             <updated>2014-11-23T00:00:00+03:00</updated>
             <id>http://eprev.org/2014/11/23/whats-worth-watching</id>
             <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
@@ -214,7 +214,7 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#3
     
         <entry>
             <title>What’s worth watching</title>
-            <link href="http://eprev.org/2014/02/27/whats-worth-watching"/>
+            <link href="http://eprev.org/2014/02/27/whats-worth-watching/"/>
             <updated>2014-02-27T00:00:00+04:00</updated>
             <id>http://eprev.org/2014/02/27/whats-worth-watching</id>
             <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
@@ -229,7 +229,7 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#3
     
         <entry>
             <title>What’s worth watching</title>
-            <link href="http://eprev.org/2014/01/22/whats-worth-watching"/>
+            <link href="http://eprev.org/2014/01/22/whats-worth-watching/"/>
             <updated>2014-01-22T00:00:00+04:00</updated>
             <id>http://eprev.org/2014/01/22/whats-worth-watching</id>
             <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
@@ -244,7 +244,7 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#3
     
         <entry>
             <title>Chrome tab tooltips</title>
-            <link href="http://eprev.org/2014/01/19/chrome-tab-tooltips"/>
+            <link href="http://eprev.org/2014/01/19/chrome-tab-tooltips/"/>
             <updated>2014-01-19T00:00:00+04:00</updated>
             <id>http://eprev.org/2014/01/19/chrome-tab-tooltips</id>
             <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.&lt;/p&gt;
@@ -259,7 +259,7 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#3
     
         <entry>
             <title>Why waiting is torture</title>
-            <link href="http://eprev.org/2013/09/24/why-waiting-is-torture"/>
+            <link href="http://eprev.org/2013/09/24/why-waiting-is-torture/"/>
             <updated>2013-09-24T00:00:00+04:00</updated>
             <id>http://eprev.org/2013/09/24/why-waiting-is-torture</id>
             <content type="html">&lt;p&gt;This is excerpts from “&lt;a href=&quot;http://www.nytimes.com/2012/08/19/opinion/sunday/why-waiting-in-line-is-torture.html&quot;&gt;Why Waiting Is Torture&lt;/a&gt;” by Alex Stone, The New York Times.&lt;/p&gt;
@@ -283,7 +283,7 @@ at baggage claim dropped to near zero.&lt;/p&gt;
     
         <entry>
             <title>Mongo shell as an interactive JavaScript interpreter</title>
-            <link href="http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter"/>
+            <link href="http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/"/>
             <updated>2013-09-22T00:00:00+04:00</updated>
             <id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</id>
             <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;
@@ -356,7 +356,7 @@ Hello World!
     
         <entry>
             <title>Is (a == b) equivalent to (!a == !b)?</title>
-            <link href="http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)"/>
+            <link href="http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)/"/>
             <updated>2013-06-02T00:00:00+04:00</updated>
             <id>http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)</id>
             <content type="html">&lt;p&gt;That’s not always true for JavaScript. Its comparison algorithm is quite complicated (see section &lt;a href=&quot;http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3&quot;&gt;&lt;em&gt;11.9.3 The Abstract Equality Comparison Algorithm&lt;/em&gt;&lt;/a&gt; of ECMA-262 specification). And it returns &lt;code&gt;false&lt;/code&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and type of &lt;code&gt;b&lt;/code&gt; is other than Null or Undefined. Thus &lt;code&gt;(a == b)&lt;/code&gt; is &lt;strong&gt;false&lt;/strong&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; is equal to &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
