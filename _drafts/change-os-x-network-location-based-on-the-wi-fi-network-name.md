@@ -14,7 +14,7 @@ the default “Automatic” location for home. But still, you will need to switc
 manually. How annoying!
 
 Wouldn’t it be great if OS X could switch location automatically based on the name of Wi-Fi network
-that I’m connected to? Furthermore, I would like to change automatically some Security Preferences,
+that I’m connected to? Moreover, I would like to change automatically some Security Preferences,
 because I have to lock the computer immediately at work when I go away. But I found it annoying
 to have it at home.
 
