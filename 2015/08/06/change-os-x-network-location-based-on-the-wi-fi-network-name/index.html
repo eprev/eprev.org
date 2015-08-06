@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en"><head>
+    <script>
+        if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+            document.documentElement.classList.add('support__touch_yes');
+        } else {
+            document.documentElement.classList.add('support__touch_no');
+        }
+     </script>
+    <link href="/assets/css/v/13/magic.min.css" rel="stylesheet" media="all"/>
+    
+    <meta charset="utf-8"/>
+    
+        <title>Change OS X network location based on the Wi-Fi network name – Anton Eprev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+        <meta name="description" content="Hello. My name’s Anton Eprev and I’m a web developer working as front-end engineer at Booking.com in Amsterdam, Netherlands."/>
+    
+    <link rel="shortcut icon" href="/assets/icon.png"/>
+    <link rel="alternate" type="application/atom+xml" title="Feed" href="/atom.xml"/>
+    
+        <meta property="og:url" content="http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/"/>
+        <meta property="og:title" content="Change OS X network location based on the Wi-Fi network name"/>
+        <meta property="og:site_name" content="Anton Eprev"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:description" content="How to change automatically OS X’s network location based on the name of Wi-Fi network and run arbitrary scrips when it happens."/>
+        
+            <meta property="og:image" content="http://eprev.org/assets/default-share-image.png"/>
+            <meta name="twitter:card" content="summary"/>
+        
+        <meta name="twitter:creator" content="@eprev"/>
+        <meta name="twitter:title" content="Change OS X network location based on the Wi-Fi network name"/>
+        <meta name="twitter:description" content="How to change automatically OS X’s network location based on the name of Wi-Fi network and run arbitrary scrips when it happens."/>
+        
+    
+</head><body>
+    
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-12144011-2']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    
+    <div class="page">
+        <div class="page__arrow"></div>
+        <div class="page__inner page__inner_animated page__inner_swiped">
+            <div class="page__content" role="main">
+
+
+
+
+
+<div class="post">
+    <h1 class="post__header">
+        
+            Change OS X network location based on the Wi-Fi network name
+        
+    </h1>
+    <div class="post__meta">
+        August 6, 2015
+        
+            ∙
+            
+                <a href="/tags/os-x/">os-x</a>
+            
+        
+    </div>
+    
+        <div class="post__content">
+            
+            <p>You might have heard about <a href="https://support.apple.com/en-us/HT202480">Network locations</a> in OS X.
+It allows you to have different network configurations and quickly switch between them. For instance,
+if you must to use a corporate proxy server at work and you don’t need it when you get back home,
+you might create a new location named “Work” (with any necessary network proxy settings) and keep
+the default “Automatic” location for home. But still, you will need to switch between those locations
+manually. How annoying!</p>
+
+<p>Wouldn’t it be great if OS X could switch location automatically based on the name of Wi-Fi network
+that I’m connected to? Moreover, I would like to change automatically some Security Preferences,
+because I have to lock the computer immediately at work when I go away. But I found it annoying
+to have it at home.</p>
+
+<p>So, how to change automatically OS X’s network location based on the name of Wi-Fi network or run
+arbitrary scrips when it happens? Pretty easy! We will be following a convention over configuration
+paradigm to reduce the overall complexity.</p>
+
+<p>First of all, we have to name locations after Wi-Fi network names. For instance, if the name of
+your corporate wireless network is “Corp Wi-Fi”, you have to create a new location “Corp Wi-Fi”.
+If you connect to a wireless network that you don’t have a specific location for, then
+the default location “Automatic” will be used.</p>
+
+<p>And of course we need a <a href="https://github.com/eprev/locationchanger">tool</a> for doing that.
+The installation process is extremely easy:</p>
+
+<pre><code>$ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
+</code></pre>
+
+<p>It will ask only for a root password to install <code>locationchanger</code>. Now, every time you connect to
+a wireless network it will change the location to either the corresponding or the default one.</p>
+
+<p>That’s not all. We still want to change Security Preferences automatically when the location
+has been changed. Let’s create scripts that will be executed every time it happens. One is
+for “Corp Wi-Fi” location:</p>
+
+<pre><code>#!/usr/bin/env bash
+
+# Require password immediately after sleep or screen saver
+osascript -e 'tell application "System Events" to set require password to wake of security preferences to true'
+</code></pre>
+
+<p>Another is for the default location:</p>
+
+<pre><code>#!/usr/bin/env bash
+
+# Don’t require password after sleep or screen saver
+osascript -e 'tell application "System Events" to set require password to wake of security preferences to false'
+</code></pre>
+
+<p>Save them as <em>~/.locations/Corp Wi-Fi</em> and <em>~/.locations/Automatic</em> respectively. Voilà!
+You’re not limited by changing only the security preferences, you can do whatever
+you want to…</p>
+
+        </div>
+    
+</div>
+
+<div class="post post_special_home">
+    <h3 class="post__header">
+        &lsaquo; <a class="page__header__link" href="/">Home</a>
+    </h3>
+</div>
+            </div>
+            <div class="page__sidebar">
+                <div class="page__sidebar__inner">
+                    
+                        <h2 class="page__user__name"><a href="/">@eprev</a></h2>
+                    
+                    <div class="page__user__picture"></div>
+                    <p>My name’s Anton Eprev and I’m a web developer working as front-end engineer at Booking.com in Amsterdam, Netherlands.</p>
+                    <ul class="page__nav">
+                        <li>
+                            
+                                <a href="/">Recent</a>
+                            
+                        </li>
+                        <li>
+                            
+                                <a href="/archive/">Archive</a>
+                            
+                        </li>
+                        <li>
+                            
+                                <a href="/labs/">Laboratory</a>
+                            
+                        </li>
+                        <li>
+                            
+                                <a href="/tags/">Tags</a>
+                            
+                        </li>
+                    </ul>
+                    <p>Geeky Links:</p>
+                    <ul class="page__nav">
+                        <li><a href="http://twitter.com/eprev">Twitter</a></li>
+                        <li><a href="http://github.com/eprev">GitHub</a></li>
+                        <li><a href="http://www.flickr.com/photos/eprev/">Flickr</a></li>
+                        <li><a href="http://careers.stackoverflow.com/eprev">Résumé</a></li>
+                    </ul>
+                </div>
+                <script>
+                    var requestAnimationFrame = window.requestAnimationFrame || /* Chrome, IE 10 */
+                        window.webkitRequestAnimationFrame || /* Safari */
+                        window.msRequestAnimationFrame || /* IEMobile 10 */
+                        window.mozRequestAnimationFrame || /* Firefox 22- */
+                        function (callback) { window.setTimeout(callback, 1000 / 60); }; /* Android */
+
+                        requestAnimationFrame(function () {
+                            document.querySelector('.page__inner').classList.toggle('page__inner_swiped');
+                        });
+                </script>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/v/6/magic.min.js"></script>
+</body></html>
+

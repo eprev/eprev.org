@@ -3,12 +3,71 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2015-08-04T00:47:57+03:00</updated>
+    <updated>2015-08-06T22:07:06+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
         <email>a.eprev@gmail.com</email>
     </author>
+    
+        <entry>
+            <title>Change OS X network location based on the Wi-Fi network name</title>
+            <link href="http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/"/>
+            <updated>2015-08-06T00:00:00+03:00</updated>
+            <id>http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name</id>
+            <content type="html">&lt;p&gt;You might have heard about &lt;a href=&quot;https://support.apple.com/en-us/HT202480&quot;&gt;Network locations&lt;/a&gt; in OS X.
+It allows you to have different network configurations and quickly switch between them. For instance,
+if you must to use a corporate proxy server at work and you don’t need it when you get back home,
+you might create a new location named “Work” (with any necessary network proxy settings) and keep
+the default “Automatic” location for home. But still, you will need to switch between those locations
+manually. How annoying!&lt;/p&gt;
+
+&lt;p&gt;Wouldn’t it be great if OS X could switch location automatically based on the name of Wi-Fi network
+that I’m connected to? Moreover, I would like to change automatically some Security Preferences,
+because I have to lock the computer immediately at work when I go away. But I found it annoying
+to have it at home.&lt;/p&gt;
+
+&lt;p&gt;So, how to change automatically OS X’s network location based on the name of Wi-Fi network or run
+arbitrary scrips when it happens? Pretty easy! We will be following a convention over configuration
+paradigm to reduce the overall complexity.&lt;/p&gt;
+
+&lt;p&gt;First of all, we have to name locations after Wi-Fi network names. For instance, if the name of
+your corporate wireless network is “Corp Wi-Fi”, you have to create a new location “Corp Wi-Fi”.
+If you connect to a wireless network that you don’t have a specific location for, then
+the default location “Automatic” will be used.&lt;/p&gt;
+
+&lt;p&gt;And of course we need a &lt;a href=&quot;https://github.com/eprev/locationchanger&quot;&gt;tool&lt;/a&gt; for doing that.
+The installation process is extremely easy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It will ask only for a root password to install &lt;code&gt;locationchanger&lt;/code&gt;. Now, every time you connect to
+a wireless network it will change the location to either the corresponding or the default one.&lt;/p&gt;
+
+&lt;p&gt;That’s not all. We still want to change Security Preferences automatically when the location
+has been changed. Let’s create scripts that will be executed every time it happens. One is
+for “Corp Wi-Fi” location:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
+
+# Require password immediately after sleep or screen saver
+osascript -e &#39;tell application &quot;System Events&quot; to set require password to wake of security preferences to true&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another is for the default location:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
+
+# Don’t require password after sleep or screen saver
+osascript -e &#39;tell application &quot;System Events&quot; to set require password to wake of security preferences to false&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Save them as &lt;em&gt;~/.locations/Corp Wi-Fi&lt;/em&gt; and &lt;em&gt;~/.locations/Automatic&lt;/em&gt; respectively. Voilà!
+You’re not limited by changing only the security preferences, you can do whatever
+you want to…&lt;/p&gt;
+</content>
+        </entry>
     
         <entry>
             <title>Converting PNG to SVG</title>

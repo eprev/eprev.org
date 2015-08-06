@@ -50,6 +50,87 @@
         <div class="post">
     <h2 class="post__header">
         
+            <a class="post__header__link" href="/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/">Change OS X network location based on the Wi-Fi network name</a>
+        
+    </h2>
+    <div class="post__meta">
+        August 6, 2015
+        
+            ∙
+            
+                <a href="/tags/os-x/">os-x</a>
+            
+        
+    </div>
+    
+        <div class="post__content">
+            
+            <p>You might have heard about <a href="https://support.apple.com/en-us/HT202480">Network locations</a> in OS X.
+It allows you to have different network configurations and quickly switch between them. For instance,
+if you must to use a corporate proxy server at work and you don’t need it when you get back home,
+you might create a new location named “Work” (with any necessary network proxy settings) and keep
+the default “Automatic” location for home. But still, you will need to switch between those locations
+manually. How annoying!</p>
+
+<p>Wouldn’t it be great if OS X could switch location automatically based on the name of Wi-Fi network
+that I’m connected to? Moreover, I would like to change automatically some Security Preferences,
+because I have to lock the computer immediately at work when I go away. But I found it annoying
+to have it at home.</p>
+
+<p>So, how to change automatically OS X’s network location based on the name of Wi-Fi network or run
+arbitrary scrips when it happens? Pretty easy! We will be following a convention over configuration
+paradigm to reduce the overall complexity.</p>
+
+<p>First of all, we have to name locations after Wi-Fi network names. For instance, if the name of
+your corporate wireless network is “Corp Wi-Fi”, you have to create a new location “Corp Wi-Fi”.
+If you connect to a wireless network that you don’t have a specific location for, then
+the default location “Automatic” will be used.</p>
+
+<p>And of course we need a <a href="https://github.com/eprev/locationchanger">tool</a> for doing that.
+The installation process is extremely easy:</p>
+
+<pre><code>$ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
+</code></pre>
+
+<p>It will ask only for a root password to install <code>locationchanger</code>. Now, every time you connect to
+a wireless network it will change the location to either the corresponding or the default one.</p>
+
+<p>That’s not all. We still want to change Security Preferences automatically when the location
+has been changed. Let’s create scripts that will be executed every time it happens. One is
+for “Corp Wi-Fi” location:</p>
+
+<pre><code>#!/usr/bin/env bash
+
+# Require password immediately after sleep or screen saver
+osascript -e 'tell application "System Events" to set require password to wake of security preferences to true'
+</code></pre>
+
+<p>Another is for the default location:</p>
+
+<pre><code>#!/usr/bin/env bash
+
+# Don’t require password after sleep or screen saver
+osascript -e 'tell application "System Events" to set require password to wake of security preferences to false'
+</code></pre>
+
+<p>Save them as <em>~/.locations/Corp Wi-Fi</em> and <em>~/.locations/Automatic</em> respectively. Voilà!
+You’re not limited by changing only the security preferences, you can do whatever
+you want to…</p>
+
+        </div>
+    
+</div>
+
+    
+
+    
+        
+        
+        
+        
+        <div class="post">
+    <h2 class="post__header">
+        
             <a class="post__header__link" href="/2015/05/27/converting-png-to-svg/">Converting PNG to SVG</a>
         
     </h2>
@@ -291,59 +372,6 @@ and the specificity distribution chart, which is very similar to the one you can
 </div>
 
     
-
-    
-        
-        
-        
-        
-        <div class="post">
-    <h2 class="post__header">
-        
-            <a class="post__header__link" href="/2014/12/10/open-all-modified-files/">Open all modified files in editor</a>
-        
-    </h2>
-    <div class="post__meta">
-        December 10, 2014
-        
-            ∙
-            
-                <a href="/tags/git/">git</a>
-            
-        
-    </div>
-    
-        <div class="post__content">
-            
-            <p>Often I finish working day without committing changes to the repository. Thus, next morning
-I need to open all the files I was working yesterday. And I found an efficient way to do this.</p>
-
-<pre><code>$ vim -p $(git diff --name-only HEAD | sed "s,$(git rev-parse --show-prefix),," | tr "\n" " ")
-</code></pre>
-
-<p>It opens Vim and loads all modified files in tabs. You could add this command as an alias to your <code>.bashrc</code>,
-but adding this to <code>.gitconfig</code> seems like a better option. This is what you need to add to your <code>~/.gitconfig</code>.</p>
-
-<pre><code>[alias]
-open = "!vim -c \"cd $GIT_PREFIX\" -p $(git diff --name-only HEAD | tr '\\n' ' ')"
-</code></pre>
-
-<p>To run this command you need to type <code>git open</code> in the terminal. Since all commands prefixed with an exclamation
-point are executed from the top-level directory of a repository, we need to change working directory in Vim to
-the current one. And of course you can replace Vim by your favorite editor or event by <code>$EDITOR</code>.</p>
-
-<p>Besides, If you use sort of file watchers to perform certain operations when files change, then
-you would find the following command quite helpful. It changes modification time of all modified files at once.</p>
-
-<pre><code>[alias]
-touch = "!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')"
-</code></pre>
-
-<p>You can find more handy aliases in <a href="https://github.com/eprev/dotfiles/blob/master/gitconfig">.dotfiles</a> of mine.</p>
-
-        </div>
-    
-</div>
 
     
 
