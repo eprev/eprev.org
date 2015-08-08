@@ -1,18 +1,18 @@
 /* global Hammer: true */
 
-var el = document.createElement('div'),
-    matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector || el.oMatchesSelector;
+// var el = document.createElement('div');
+// var matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector || el.oMatchesSelector;
 
-function closest(el, selector) {
-    var p = el;
-    while (p !== document.documentElement) {
-        if (matchesSelector.call(p, selector)) {
-            return p;
-        }
-        p = p.parentNode;
-    }
-    return null;
-}
+// function closest(el, selector) {
+//     var p = el;
+//     while (p !== document.documentElement) {
+//         if (matchesSelector.call(p, selector)) {
+//             return p;
+//         }
+//         p = p.parentNode;
+//     }
+//     return null;
+// }
 
 var getCSSProperty = (function() {
     "use strict";
@@ -96,7 +96,7 @@ var hiPageInner = Hammer(pageInner, {
     drag_min_distance: 1,
     drag_block_horizontal: true,
     drag_lock_to_axis: true
-}).on('touch', function (evt) {
+}).on('touch', function (/*evt*/) {
     // if (closest(evt.target, 'pre code')) {
     //     evt.gesture.stopDetect();
     // } else {
@@ -136,7 +136,7 @@ var hiPageInner = Hammer(pageInner, {
 
 var sidebarHidden = false;
 function resizeHanlder() {
-    sidebarHidden = window.innerWidth <= 979;
+    sidebarHidden = window.innerWidth <= 767;
     hiPageInner.enable(sidebarHidden);
 }
 

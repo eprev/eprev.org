@@ -3,15 +3,16 @@
  * iPhone 5+ 320x565
  * Lumia 920 768x1280
  */
+$tablet-min-width: 768px;
 
 @mixin respond-to($layout) {
     @if $layout == tablet {
-        @media all and (min-width: 980px) {
+        @media all and (min-width: #{$tablet-min-width}) {
             @content;
         }
     }
     @if $layout == mobile {
-        @media all and (max-width: 979px) {
+        @media all and (max-width: #{$tablet-min-width - 1}) {
             @content;
         }
     }

@@ -10,7 +10,8 @@
             document.documentElement.classList.add('support__touch_no');
         }
      </script>
-    <link href="/assets/css/v/13/magic.min.css" rel="stylesheet" media="all"/>
+     
+     <style>@charset "UTF-8";body{margin:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}html{background-color:#e9eced;height:100%}body{color:#222;height:100%}a{color:inherit}body{font-family:Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;font-size:18px;line-height:26px}h1,h2,h3,h4,h5,h6{margin:0 0 26px;text-rendering:optimizeLegibility;page-break-inside:avoid;font-weight:400}h1{font-size:36px;line-height:52px;text-transform:uppercase}h2{font-size:32px}h2,h3{line-height:52px}h3{font-size:27px}h4{font-size:24px;line-height:26px}h5{font-size:21px}h5,h6{line-height:26px}h6{font-size:18px}ul,ol,p,pre,blockquote{margin:26px 0}blockquote{font-style:italic;border-left:4px solid #d6d6d6;padding-left:1em}ul{list-style-position:outside}p{-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto;-o-hyphens:auto;hyphens:auto}code{font-family:"Courier New",Courier,monospace;font-size:17px;line-height:1}abbr{letter-spacing:.1em}a{text-decoration:none;border-bottom:1px solid #555}.page{max-width:980px;min-width:320px;min-height:100%;margin:0 auto;overflow:hidden}.page__inner{position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-transform:translate3d(0,0);transform:translate3d(0,0,0);padding:13px 13px 13px 50px;height:100%}@media all and (min-width:768px){.page__inner{padding-left:13px}}.page__inner_animated{-webkit-transition:-webkit-transform 500ms ease;transition:transform 500ms ease}@media all and (max-width:767px){.page__inner_swiped{-webkit-transform:translate3d(80%,0,0);transform:translate3d(80%,0,0)}}.page__content{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;min-height:700px}@media all and (min-width:768px){.page__content{margin-left:30%}}.page__sidebar{position:absolute;top:0;left:0;width:80%;height:100%;-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);-webkit-backface-visibility:hidden}@media all and (min-width:768px){.page__sidebar{width:30%;-webkit-transform:none;transform:none}}.page__sidebar__inner{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:13px;-webkit-transition:-webkit-transform 500ms ease-in-out;transition:transform 500ms ease-in-out}.page__footer{clear:both;padding-top:26px}.page__user__name{font-size:36px;line-height:52px;text-transform:none}.page__user__name a{border-bottom-style:none}.page__user__picture{width:156px;height:156px}.page__nav{padding:0;list-style:none}.page__arrow{position:fixed;margin-top:-48px;width:24px;height:96px;top:50%;left:13px;-webkit-transition:left 500ms ease-in-out,-webkit-transform 500ms ease-in-out;transition:left 500ms ease-in-out,transform 500ms ease-in-out;cursor:pointer;z-index:1}@media all and (min-width:768px){.page__arrow{display:none}}.page__arrow_alt{left:80%;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.support__touch_yes .page__inner{padding-left:13px}.support__touch_yes .page__arrow{display:none}.post{margin-bottom:26px}@media all and (min-width:768px){.post_special_home{display:none}}.post__meta{margin-bottom:26px;color:#555;text-transform:uppercase;font-size:15px}.post__content p{margin-top:0}.post__content p>img{display:block;margin:26px auto;max-width:100%}.post__content__list{list-style-type:square;padding-left:1em}.post__content__list li{margin:26px 0}.post__image{height:312px;margin-right:auto;margin-bottom:26px;margin-left:auto;background-repeat:no-repeat;background-position:50% 50%;background-size:cover}.post__footer{margin-top:26px}.archive{display:table;list-style:none;padding:0}.archive__item{display:table-row}.archive__date{color:#555;text-transform:uppercase;padding-right:1em}.archive__date,.archive__header{display:table-cell;padding-bottom:26px}.archive__header__link{font-size:21px;line-height:26px}.tags{list-style:none;padding:0}.tags__item{text-transform:uppercase;margin-bottom:26px}.tags__item__link{font-size:21px;line-height:26px}.post__content pre code{display:block;background:#e6e6e6;padding:26px;line-height:26px;word-wrap:break-word}</style>
     
     <meta charset="utf-8"/>
     
@@ -153,20 +154,16 @@
                         <li><a href="http://careers.stackoverflow.com/eprev">Résumé</a></li>
                     </ul>
                 </div>
-                <script>
-                    var requestAnimationFrame = window.requestAnimationFrame || /* Chrome, IE 10 */
-                        window.webkitRequestAnimationFrame || /* Safari */
-                        window.msRequestAnimationFrame || /* IEMobile 10 */
-                        window.mozRequestAnimationFrame || /* Firefox 22- */
-                        function (callback) { window.setTimeout(callback, 1000 / 60); }; /* Android */
-
-                        requestAnimationFrame(function () {
-                            document.querySelector('.page__inner').classList.toggle('page__inner_swiped');
-                        });
-                </script>
             </div>
         </div>
     </div>
-    <script src="/assets/js/v/6/magic.min.js"></script>
+    
+    <script>function loadCSS(a){requestAnimationFrame(function(){var b=document.createElement("link"),c=document.getElementsByTagName("head")[0];b.rel="stylesheet",b.href=a,c.parentNode.insertBefore(b,c)})}var requestAnimationFrame=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame||window.mozRequestAnimationFrame||function(a){window.setTimeout(a,1e3/60)};requestAnimationFrame(function(){document.querySelector(".page__inner").classList.toggle("page__inner_swiped")});</script>
+    
+    <script>loadCSS("/assets/css/v/14/main.min.css");</script>
+    <noscript>
+        <link href="/assets/css/v/14/main.min.css" rel="stylesheet" media="all"/>
+    </noscript>
+    <script src="/assets/js/v/7/magic.min.js"></script>
 </body></html>
 
