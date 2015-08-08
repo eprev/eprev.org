@@ -5,8 +5,8 @@ module.exports = function (grunt) {
     var isDeploy = grunt.cli.tasks.length >= 1 && grunt.cli.tasks.indexOf('deploy') > -1,
         isLiveReload = grunt.cli.tasks.length >= 1 && grunt.cli.tasks.indexOf('watch') > -1,
         version = {
-            css: 13,
-            js : 6
+            css: 14,
+            js : 7
         },
         prefix = {
             css: 'assets/css/v/' + version.css,
