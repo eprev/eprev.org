@@ -8,7 +8,8 @@
             document.documentElement.classList.add('support__touch_no');
         }
      </script>
-    <link href="/assets/css/v/{{ version_css }}/magic{% if is_deploy %}.min{% endif %}.css" rel="stylesheet" media="all"/>
+     {% capture critical_css %}critical-assets/critical{% if is_deploy %}.min{% endif %}.css{% endcapture %}
+     <style>{% include {{critical_css}} %}</style>
     {% if is_livereload %}
         <script>
             (function () {

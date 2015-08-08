@@ -9,6 +9,7 @@ module.exports = function (grunt) {
             js : 7
         },
         prefix = {
+            critical: '_includes/critical-assets/',
             css: 'assets/css/v/' + version.css,
             js:  'assets/js/v/' + version.js
         };
@@ -43,7 +44,7 @@ module.exports = function (grunt) {
             },
             sass: {
                 files: ['assets/css/**/*.scss'],
-                tasks: ['sass:magic'],
+                tasks: ['sass'],
                 options: {
                     interrupt: true
                 }
@@ -64,7 +65,8 @@ module.exports = function (grunt) {
                     interrupt: true
                 },
                 files: [
-                    '_site/' + prefix.css + '/magic.css',
+                    // prefix.critical + '/**/*.*',
+                    '_site/' + prefix.css + '/main.css',
                     '_site/' + prefix.js + '/magic.js'
                 ]
             }
@@ -83,24 +85,43 @@ module.exports = function (grunt) {
             options: {
                 noCache: true
             },
-            magic: {
+            critical: {
+                src: 'assets/css/critical.scss',
+                dest: prefix.critical + '/critical.css'
+            },
+            main: {
                 options: {
                     style: 'expanded'
                 },
-                src: 'assets/css/magic.scss',
-                dest: prefix.css + '/magic.css'
+                src: 'assets/css/main.scss',
+                dest: prefix.css + '/main.css'
             }
         },
         csso: {
-            magic: {
+            critical: {
                 options: {
                     report: 'min'
                 },
-                src: prefix.css + '/magic.css',
-                dest: prefix.css + '/magic.min.css'
+                src: prefix.critical + '/critical.css',
+                dest: prefix.critical + '/critical.min.css'
+            },
+            main: {
+                options: {
+                    report: 'min'
+                },
+                src: prefix.css + '/main.css',
+                dest: prefix.css + '/main.min.css'
             }
         },
         uglify: {
+            inlined: {
+                options: {
+                    report: 'min',
+                    preserveComments: false
+                },
+                src: '_includes/script.js',
+                dest: '_includes/script.min.js'
+            },
             magic: {
                 options: {
                     report: 'min',
@@ -108,6 +129,11 @@ module.exports = function (grunt) {
                 },
                 src: prefix.js + '/magic.js',
                 dest: prefix.js + '/magic.min.js'
+            }
+        },
+        clean: {
+            critical: {
+                src: prefix.css + '/**/*.*',
             }
         }
     });
@@ -117,10 +143,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    // grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-csso');
 
     grunt.registerTask('travis', ['jshint']);
-    grunt.registerTask('default', ['concat:meta', 'sass:magic', 'concat:js']);
-    grunt.registerTask('deploy', ['concat:meta', 'sass:magic', 'csso:magic', 'concat:js', 'uglify:magic']);
+    grunt.registerTask('default', ['concat:meta', 'sass', 'concat:js']);
+    grunt.registerTask('deploy', ['concat:meta', 'clean:critical', 'sass', 'csso', 'concat:js', 'uglify']);
 
 };

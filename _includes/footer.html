@@ -46,19 +46,15 @@
                         <li><a href="http://careers.stackoverflow.com/eprev">Résumé</a></li>
                     </ul>
                 </div>
-                <script>
-                    var requestAnimationFrame = window.requestAnimationFrame || /* Chrome, IE 10 */
-                        window.webkitRequestAnimationFrame || /* Safari */
-                        window.msRequestAnimationFrame || /* IEMobile 10 */
-                        window.mozRequestAnimationFrame || /* Firefox 22- */
-                        function (callback) { window.setTimeout(callback, 1000 / 60); }; /* Android */
-
-                        requestAnimationFrame(function () {
-                            document.querySelector('.page__inner').classList.toggle('page__inner_swiped');
-                        });
-                </script>
             </div>
         </div>
     </div>
+    {% capture inlined_script %}script{% if is_deploy %}.min{% endif %}.js{% endcapture %}
+    <script>{% include {{inlined_script}} %}</script>
+    {% capture main_css %}/assets/css/v/{{ version_css }}/main{% if is_deploy %}.min{% endif %}.css{% endcapture %}
+    <script>loadCSS("{{ main_css }}");</script>
+    <noscript>
+        <link href="{{ main_css }}" rel="stylesheet" media="all"/>
+    </noscript>
     <script src="/assets/js/v/{{ version_js }}/magic{% if is_deploy %}.min{% endif %}.js"></script>
 </body></html>
