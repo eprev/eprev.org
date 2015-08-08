@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2015-08-09T00:07:44+03:00</updated>
+    <updated>2015-08-09T01:28:07+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -150,7 +150,7 @@ How has it been changing over the time?&lt;/li&gt;
 thousands lines of code that is hard to maintain and you do a lot of experiments.
 And of course, if it’s not even important, it’s quite interesting at least.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-distribution.png&quot; alt=&quot;CSS specificity chart&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-distribution-lr.png&quot; data-src=&quot;/assets/posts/css-explorer-distribution.png&quot; alt=&quot;CSS specificity chart&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;So, &lt;code&gt;node-specificity&lt;/code&gt; provides two commands. One is for parsing your CSS files and creating profiles.
 Second is for reading or “exploring” these profiles. Let’s look at an example. I have a few versions of
@@ -187,13 +187,13 @@ of this specificity in the specific profile.&lt;/p&gt;
 how many of them contain rules with the &lt;code&gt;!important&lt;/code&gt; directive, average and median
 values of selector’s specificity for CSS files and profiles.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-selectors.png&quot; alt=&quot;Number of selectors chart&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-selectors-lr.png&quot; data-src=&quot;/assets/posts/css-explorer-selectors.png&quot; alt=&quot;Number of selectors chart&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You are able to explore all these graphs for a specific profile. To do this, you have to
 select the particular profile’s label in the dropdown list. For instance, it’s the specificity
 distribution bar chart for ‘v8.json’ profile in the picture below.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-profile.png&quot; alt=&quot;CSS specificity chart&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-profile-lr.png&quot; data-src=&quot;/assets/posts/css-explorer-profile.png&quot; alt=&quot;CSS specificity chart&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;So, &lt;code&gt;server&lt;/code&gt; report is quite a powerful tool. Bear in mind, images above are for the profiles
 of one humble CSS file. If you have a few files for profile, it gets better.&lt;/p&gt;
@@ -202,7 +202,7 @@ of one humble CSS file. If you have a few files for profile, it gets better.&lt;
 it will print out the list of all selectors in the given profile, the summary on specificity numbers
 and the specificity distribution chart, which is very similar to the one you can see above.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-cli.png&quot; alt=&quot;Screenshot of the ‘inspect’ report&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-cli-lr.png&quot; data-src=&quot;/assets/posts/css-explorer-cli.png&quot; alt=&quot;Screenshot of the ‘inspect’ report&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Reports can accept additional command line options. There are few of them. In the example above,
 &lt;code&gt;--no-inspect-selectors&lt;/code&gt; option has been used. It disables printing out the list of all selectors.&lt;/p&gt;
