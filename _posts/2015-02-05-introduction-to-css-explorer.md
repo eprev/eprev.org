@@ -25,7 +25,7 @@ Wait, why is it so important? It’s not, until you have a codebase of dozens of
 thousands lines of code that is hard to maintain and you do a lot of experiments.
 And of course, if it’s not even important, it’s quite interesting at least.
 
-![CSS specificity chart](/assets/posts/css-explorer-distribution.png)
+<img src="/assets/posts/css-explorer-distribution-lr.png" data-src="/assets/posts/css-explorer-distribution.png" alt="CSS specificity chart">
 
 So, `node-specificity` provides two commands. One is for parsing your CSS files and creating profiles.
 Second is for reading or “exploring” these profiles. Let’s look at an example. I have a few versions of
@@ -65,13 +65,13 @@ Other graphs are: number of selectors in your CSS files and total number of sele
 how many of them contain rules with the `!important` directive, average and median
 values of selector’s specificity for CSS files and profiles.
 
-![Number of selectors chart](/assets/posts/css-explorer-selectors.png)
+<img src="/assets/posts/css-explorer-selectors-lr.png" data-src="/assets/posts/css-explorer-selectors.png" alt="Number of selectors chart">
 
 You are able to explore all these graphs for a specific profile. To do this, you have to
 select the particular profile’s label in the dropdown list. For instance, it’s the specificity
 distribution bar chart for ‘v8.json’ profile in the picture below.
 
-![CSS specificity chart](/assets/posts/css-explorer-profile.png)
+<img src="/assets/posts/css-explorer-profile-lr.png" data-src="/assets/posts/css-explorer-profile.png" alt="CSS specificity chart">
 
 So, `server` report is quite a powerful tool. Bear in mind, images above are for the profiles
 of one humble CSS file. If you have a few files for profile, it gets better.
@@ -80,7 +80,7 @@ There is also `inspect` report (it’s used as the default one). If you run `nod
 it will print out the list of all selectors in the given profile, the summary on specificity numbers
 and the specificity distribution chart, which is very similar to the one you can see above.
 
-![Screenshot of the ‘inspect’ report](/assets/posts/css-explorer-cli.png)
+<img src="/assets/posts/css-explorer-cli-lr.png" data-src="/assets/posts/css-explorer-cli.png" alt="Screenshot of the ‘inspect’ report">
 
 Reports can accept additional command line options. There are few of them. In the example above,
 `--no-inspect-selectors` option has been used. It disables printing out the list of all selectors.
