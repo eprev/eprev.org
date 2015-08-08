@@ -202,11 +202,13 @@ resizeHanlder();
 // });
 
 (function() {
-    window.addEventListener('load', function () {
-        var images = document.querySelectorAll('img[data-src]');
-        for (var i = 0, c = images.length; i < c; i++) {
-            var image = images[i];
-            image.src = image.getAttribute('data-src');
-        }
-    });
+    if (screen.width >= 768) {
+        window.addEventListener('load', function () {
+            var images = document.querySelectorAll('img[data-src]');
+            for (var i = 0, c = images.length; i < c; i++) {
+                var image = images[i];
+                image.src = image.getAttribute('data-src');
+            }
+        });
+    }
 })();

@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         isLiveReload = grunt.cli.tasks.length >= 1 && grunt.cli.tasks.indexOf('watch') > -1,
         version = {
             css: 14,
-            js : 8
+            js : 9
         },
         prefix = {
             critical: '_includes/critical-assets/',
