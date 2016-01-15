@@ -1,7 +1,7 @@
 <div class="post">
     <h{{ include_post_h }} class="post__header">
         {% if include_post_link %}
-            <a class="post__header__link" href="{{ include_post_meta.url }}/">{{ include_post_meta.title }}</a>
+            <a class="post__header__link" href="{{ include_post_meta.url }}">{{ include_post_meta.title }}</a>
         {% else %}
             {{ include_post_meta.title }}
         {% endif %}
