@@ -3,7 +3,7 @@ lsi: false
 
 safe: false
 markdown: kramdown
-pygments: true
+highlighter: true
 permalink: /:year/:month/:day/:title
 tag_title_prefix: "Tag «"
 tag_title_suffix: "»"
