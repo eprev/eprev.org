@@ -7,6 +7,12 @@
     </url>
     
         <url>
+            <loc>http://eprev.org/2016/01/15/whats-worth-watching/</loc>
+            <lastmod>2016-01-15</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
             <loc>http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/</loc>
             <lastmod>2015-08-06</lastmod>
             <changefreq>weekly</changefreq>
@@ -86,28 +92,8 @@
     
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
             <url>
-                <loc>http://eprev.org/tags/javascript/</loc>
+                <loc>http://eprev.org//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -115,7 +101,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/mongodb/</loc>
+                <loc>http://eprev.org//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -123,7 +109,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/gray-matter/</loc>
+                <loc>http://eprev.org/labs//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -131,7 +117,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/ux/</loc>
+                <loc>http://eprev.org/labs/playing-cards-revised//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -139,7 +125,17 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/worth-watching/</loc>
+                <loc>http://eprev.org/labs/playing-cards//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/labs/gdd-2011//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -147,7 +143,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/performance/</loc>
+                <loc>http://eprev.org/archive//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -155,7 +151,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/git/</loc>
+                <loc>http://eprev.org/tags//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -163,7 +159,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/css/</loc>
+                <loc>http://eprev.org//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -171,7 +167,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/typography/</loc>
+                <loc>http://eprev.org/tags/javascript//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -179,7 +175,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/media/</loc>
+                <loc>http://eprev.org/tags/mongodb//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -187,7 +183,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/devops/</loc>
+                <loc>http://eprev.org/tags/gray-matter//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -195,7 +191,7 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/svg/</loc>
+                <loc>http://eprev.org/tags/ux//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
@@ -203,7 +199,87 @@
     
         
             <url>
-                <loc>http://eprev.org/tags/os-x/</loc>
+                <loc>http://eprev.org/tags/worth-watching//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/performance//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/git//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/css//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/typography//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/media//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/devops//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/svg//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/os-x//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/robotics//</loc>
+                
+                <changefreq>weekly</changefreq>
+            </url>
+        
+    
+        
+            <url>
+                <loc>http://eprev.org/tags/graphql//</loc>
                 
                 <changefreq>weekly</changefreq>
             </url>
