@@ -3,31 +3,12 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2016-01-15T23:49:00+03:00</updated>
+    <updated>2015-08-09T01:41:46+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
         <email>a.eprev@gmail.com</email>
     </author>
-    
-        <entry>
-            <title>What’s worth watching</title>
-            <link href="http://eprev.org/2016/01/15/whats-worth-watching/"/>
-            <updated>2016-01-15T00:00:00+03:00</updated>
-            <id>http://eprev.org/2016/01/15/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/leeb&quot;&gt;Lee Byron&lt;/a&gt; (Facebook) on &lt;a href=&quot;http://youtu.be/WQLzZf34FJ8&quot;&gt;Exploring GraphQL&lt;/a&gt;: a data fetching language
-that is widely used at Facebook.&lt;/li&gt;
-  &lt;li&gt;Interesting session on &lt;a href=&quot;http://youtu.be/OcFOWIq3cIc&quot;&gt;Making Robots&lt;/a&gt; at &lt;a href=&quot;http://www.fab11.org&quot;&gt;Fab11 conference&lt;/a&gt;:
-MIT, Harvard, DARPA, Boston Dynamics and Kiva Systems.&lt;/li&gt;
-  &lt;li&gt;Rachel Potvin (Google) on &lt;a href=&quot;http://youtu.be/W71BTkUbdqE&quot;&gt;Why Google Stores Billions of Lines of Code in a Single Repository&lt;/a&gt;:
-advantages and trade-offs of having a giant single monolithic source repository.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/cjno&quot;&gt;Christian Johansen&lt;/a&gt; on &lt;a href=&quot;http://youtu.be/wA98Coal4jk&quot;&gt;Immutable JavaScript: You can’t change this&lt;/a&gt;:
-Immutability in React.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/LeaVerou&quot;&gt;Lea Verou&lt;/a&gt; on making CSS pie charts in &lt;a href=&quot;http://youtu.be/s4HdeJctq-A&quot;&gt;The Missing Slice&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-        </entry>
     
         <entry>
             <title>Change OS X network location based on the Wi-Fi network name</title>
