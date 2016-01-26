@@ -51,6 +51,47 @@
         <div class="post">
     <h2 class="post__header">
         
+            <a class="post__header__link" href="/2016/01/26/whats-worth-watching/">What’s worth watching</a>
+        
+    </h2>
+    <div class="post__meta">
+        January 26, 2016
+        
+            ∙
+            
+                <a href="/tags/worth-watching/">worth-watching</a>,
+            
+                <a href="/tags/javascript/">javascript</a>,
+            
+                <a href="/tags/engineering/">engineering</a>
+            
+        
+    </div>
+    
+        <div class="post__content">
+            
+            <ul class="post__content__list">
+  <li><a href="https://twitter.com/yunongx">Yunong Xiao</a> (Netflix) on - <a href="https://youtu.be/O1YP8QP9gLA">Debugging Node.js in Production</a>: what Netflix uses in production to diagnose and fix performance issues, bugs and memory leaks in Node.js applications.</li>
+  <li><a href="https://twitter.com/dan_abramov">Dan Abramov</a> on <a href="https://youtu.be/xsSnOQynTHs">Live React: Hot Reloading with Time Travel</a>: a story about Redux.</li>
+  <li><a href="https://youtu.be/ttavBa4giPc">Google I/O 2011: The Secrets of Google Pac-Man: A Game Show</a>: the entertaining story behind Google Pac-Man doodle.</li>
+  <li><a href="https://twitter.com/erniemiller">Ernie Miller</a> on <a href="https://youtu.be/7MeBuDLbF98">How to Build a Skyscraper</a>: what we can learn from skyscraper-building experience.</li>
+  <li><a href="https://twitter.com/mathias">Mathias Bynens</a> (Opera) on <a href="https://youtu.be/0Bj4etSa84c">RegExp.prototype.unicode</a>: what Unicode-related problems are in JavaScript regular expressions and how ES6 helps solve these issues.</li>
+</ul>
+
+        </div>
+    
+</div>
+
+    
+
+    
+        
+        
+        
+        
+        <div class="post">
+    <h2 class="post__header">
+        
             <a class="post__header__link" href="/2016/01/15/whats-worth-watching/">What’s worth watching</a>
         
     </h2>
@@ -277,113 +318,6 @@ That’s it.</p>
 </div>
 
     
-
-    
-        
-        
-        
-        
-        <div class="post">
-    <h2 class="post__header">
-        
-            <a class="post__header__link" href="/2015/02/05/introduction-to-css-explorer/">Introduction to CSS Explorer</a>
-        
-    </h2>
-    <div class="post__meta">
-        February 5, 2015
-        
-            ∙
-            
-                <a href="/tags/css/">css</a>,
-            
-                <a href="/tags/javascript/">javascript</a>
-            
-        
-    </div>
-    
-        <div class="post__content">
-            
-            <p>I’ve been curious about the state of our CSS code and its changes over the time.
-So I’ve written recently a program called <a href="https://github.com/eprev/specificity"><code>specificity</code></a>.
-What does it do? It answers the following questions:</p>
-
-<ol>
-  <li>What is a total number of selectors in your CSS codebase?
-How has it been changing over the time?</li>
-  <li>What is a maximum/average/median selector‘s specificity of your CSS codebase?
-How has it been changing over the time?</li>
-  <li>How does the distribution of selector‘s specificity of your CSS codebase look like?
-How has it been changing over the time?</li>
-  <li>How many selectors in your CSS codebase contain at least one rule with the <code>!important</code> directive?
-How has it been changing over the time?</li>
-</ol>
-
-<p>Wait, why is it so important? It’s not, until you have a codebase of dozens of
-thousands lines of code that is hard to maintain and you do a lot of experiments.
-And of course, if it’s not even important, it’s quite interesting at least.</p>
-
-<p><img src="/assets/posts/css-explorer-distribution-lr.png" data-src="/assets/posts/css-explorer-distribution.png" alt="CSS specificity chart" /></p>
-
-<p>So, <code>node-specificity</code> provides two commands. One is for parsing your CSS files and creating profiles.
-Second is for reading or “exploring” these profiles. Let’s look at an example. I have a few versions of
-<a href="https://github.com/eprev/specificity/tree/master/spec/fixtures/timeline">CSS</a> of the website
-you’re reading right now. As I’m writing this post the website is using <code>v8.css</code>.</p>
-
-<p>Alright, let’s create profiles for these files:</p>
-
-<pre><code>$ node-specificity parse v1.css --label=v1 --output=v1.json
-...
-$ node-specificity parse v8.css --label=v8 --output=v8.json
-</code></pre>
-
-<p>We’ve created a profile for each CSS file since we want to observe changings over the time. If you use
-more than one CSS file on your website, you have to create a profile for all of them, for instance:</p>
-
-<pre><code>$ node-specificity parse main.css print.css --label=2014-12-23 --output=20141223.json
-</code></pre>
-
-<p>Label acts as a profile’s name in reports. Once we have profiles created, we are able to run a report.
-Let’s start a ‘server’ report:</p>
-
-<pre><code>$ node-specificity explore v*.json --report=server
-Server is running on http://localhost:4000/
-Press Ctrl + C to stop it.
-</code></pre>
-
-<p>Open a browser and go to “http://localhost:4000/”. Now you’re supposed to be seeing the page
-with different controls and a weird graph. It‘s the specificity distribution chart (see in
-the picture above). For each specificity (tuple) it shows the total number of selectors
-of this specificity in the specific profile.</p>
-
-<p>Other graphs are: number of selectors in your CSS files and total number of selectors in profiles,
-how many of them contain rules with the <code>!important</code> directive, average and median
-values of selector’s specificity for CSS files and profiles.</p>
-
-<p><img src="/assets/posts/css-explorer-selectors-lr.png" data-src="/assets/posts/css-explorer-selectors.png" alt="Number of selectors chart" /></p>
-
-<p>You are able to explore all these graphs for a specific profile. To do this, you have to
-select the particular profile’s label in the dropdown list. For instance, it’s the specificity
-distribution bar chart for ‘v8.json’ profile in the picture below.</p>
-
-<p><img src="/assets/posts/css-explorer-profile-lr.png" data-src="/assets/posts/css-explorer-profile.png" alt="CSS specificity chart" /></p>
-
-<p>So, <code>server</code> report is quite a powerful tool. Bear in mind, images above are for the profiles
-of one humble CSS file. If you have a few files for profile, it gets better.</p>
-
-<p>There is also <code>inspect</code> report (it’s used as the default one). If you run <code>node-specificity explore v8.json</code>,
-it will print out the list of all selectors in the given profile, the summary on specificity numbers
-and the specificity distribution chart, which is very similar to the one you can see above.</p>
-
-<p><img src="/assets/posts/css-explorer-cli-lr.png" data-src="/assets/posts/css-explorer-cli.png" alt="Screenshot of the ‘inspect’ report" /></p>
-
-<p>Reports can accept additional command line options. There are few of them. In the example above,
-<code>--no-inspect-selectors</code> option has been used. It disables printing out the list of all selectors.</p>
-
-<p>That’s it. Happy exploring!</p>
-
-        </div>
-    
-</div>
 
     
 
