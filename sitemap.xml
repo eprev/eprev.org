@@ -7,6 +7,12 @@
     </url>
     
         <url>
+            <loc>http://eprev.org/2016/07/23/whats-worth-watching/</loc>
+            <lastmod>2016-07-23</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
             <loc>http://eprev.org/2016/01/26/whats-worth-watching/</loc>
             <lastmod>2016-01-26</lastmod>
             <changefreq>weekly</changefreq>
@@ -249,6 +255,12 @@
     
         <url>
             <loc>http://eprev.org/tags/engineering/</loc>
+            
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
+            <loc>http://eprev.org/tags/security/</loc>
             
             <changefreq>weekly</changefreq>
         </url>

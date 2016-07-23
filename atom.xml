@@ -3,12 +3,33 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2016-07-23T13:10:21+03:00</updated>
+    <updated>2016-07-23T14:08:19+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
         <email>a.eprev@gmail.com</email>
     </author>
+    
+        <entry>
+            <title>What’s worth watching</title>
+            <link href="http://eprev.org/2016/07/23/whats-worth-watching/"/>
+            <updated>2016-07-23T00:00:00+03:00</updated>
+            <id>http://eprev.org/2016/07/23/whats-worth-watching</id>
+            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+  &lt;li&gt;Ben Maurer (Facebook) on &lt;a href=&quot;https://youtu.be/MlNGomWegCE&quot;&gt;Web speed @ Facebook&lt;/a&gt;: ship the page incrementally, packaging
+based on resource usage patterns, early flushing, deferred dependencies, measurement, lazy parsing.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/mflaming&quot;&gt;Matthew Flaming&lt;/a&gt; (New Relic) on &lt;a href=&quot;https://youtu.be/SH8nNANNQ98&quot;&gt;Building a system that never stops&lt;/a&gt;:
+what challenges come with scaling the systems?&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/aerotwist&quot;&gt;Pual Lewis&lt;/a&gt; (Google) on &lt;a href=&quot;https://youtu.be/thNyy5eYfbc&quot;&gt;High performance web user interfaces&lt;/a&gt;:
+applying RAIL (Response-Animation-Idle-Load) principles in practice.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/scottjenson&quot;&gt;Scott Jenson&lt;/a&gt; (Google) on &lt;a href=&quot;https://youtu.be/7H_E_ZbFAn0&quot;&gt;The Physical Web is a Speed Issue&lt;/a&gt;:
+there is no need to have a gazillion of apps installed on your smartphone in order to interact with things around you.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/guypod&quot;&gt;Guy Podjarny&lt;/a&gt; (Snyk) &amp;amp; &lt;a href=&quot;https://twitter.com/assafhefetz&quot;&gt;Assaf Hefet&lt;/a&gt; (Snyk)
+on &lt;a href=&quot;https://youtu.be/iXA14OFXxZA&quot;&gt;Tracking Vulnerabilities in Your Third Party Code&lt;/a&gt;: these guys built a tool
+that helps you track and fix vulnerabilities in your Node.js application dependencies.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        </entry>
     
         <entry>
             <title>What’s worth watching</title>
