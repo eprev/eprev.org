@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2016-07-24T12:30:33+03:00</updated>
+    <updated>2016-07-24T12:32:12+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -20,7 +20,7 @@
 packaging resources based on their usage patterns, early flushing, deferred dependencies, performance measurements,
 JavaScript lazy parsing.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/mflaming&quot;&gt;Matthew Flaming&lt;/a&gt; (New Relic) on &lt;a href=&quot;https://youtu.be/SH8nNANNQ98&quot;&gt;Building a system that never stops&lt;/a&gt;:
-what challenges come with scaling the systems?&lt;/li&gt;
+what challenges come with the scaling systems?&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/aerotwist&quot;&gt;Pual Lewis&lt;/a&gt; (Google) on &lt;a href=&quot;https://youtu.be/thNyy5eYfbc&quot;&gt;High performance web user interfaces&lt;/a&gt;:
 applying RAIL (Response-Animation-Idle-Load) principles in practice.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/scottjenson&quot;&gt;Scott Jenson&lt;/a&gt; (Google) on &lt;a href=&quot;https://youtu.be/7H_E_ZbFAn0&quot;&gt;The Physical Web is a Speed Issue&lt;/a&gt;:
