@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2016-07-23T14:09:20+03:00</updated>
+    <updated>2016-07-24T12:29:50+03:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -16,8 +16,9 @@
             <updated>2016-07-23T00:00:00+03:00</updated>
             <id>http://eprev.org/2016/07/23/whats-worth-watching</id>
             <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
-  &lt;li&gt;Ben Maurer (Facebook) on &lt;a href=&quot;https://youtu.be/MlNGomWegCE&quot;&gt;Web speed @ Facebook&lt;/a&gt;: ship the page incrementally, packaging
-based on resource usage patterns, early flushing, deferred dependencies, measurements, lazy parsing.&lt;/li&gt;
+  &lt;li&gt;Ben Maurer (Facebook) on &lt;a href=&quot;https://youtu.be/MlNGomWegCE&quot;&gt;Web speed @ Facebook&lt;/a&gt;: shipping the page incrementally,
+package resources based on their usage patterns, early flushing, deferred dependencies, performance measurements,
+JavaScript lazy parsing.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/mflaming&quot;&gt;Matthew Flaming&lt;/a&gt; (New Relic) on &lt;a href=&quot;https://youtu.be/SH8nNANNQ98&quot;&gt;Building a system that never stops&lt;/a&gt;:
 what challenges come with scaling the systems?&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/aerotwist&quot;&gt;Pual Lewis&lt;/a&gt; (Google) on &lt;a href=&quot;https://youtu.be/thNyy5eYfbc&quot;&gt;High performance web user interfaces&lt;/a&gt;:
