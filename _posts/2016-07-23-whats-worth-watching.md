@@ -10,10 +10,11 @@ tags:
 excerpt: List of favorite talks and performances.
 ---
 
-- Ben Maurer (Facebook) on [Web speed @ Facebook](https://youtu.be/MlNGomWegCE): ship the page incrementally, packaging
-  based on resource usage patterns, early flushing, deferred dependencies, measurements, lazy parsing.
+- Ben Maurer (Facebook) on [Web speed @ Facebook](https://youtu.be/MlNGomWegCE): shipping the page incrementally,
+  packaging resources based on their usage patterns, early flushing, deferred dependencies, performance measurements,
+  JavaScript’s lazy parsing.
 - [Matthew Flaming](https://twitter.com/mflaming) (New Relic) on [Building a system that never stops](https://youtu.be/SH8nNANNQ98):
-  what challenges come with scaling the systems?
+  what challenges come with the scaling systems?
 - [Pual Lewis](https://twitter.com/aerotwist) (Google) on [High performance web user interfaces](https://youtu.be/thNyy5eYfbc):
   applying RAIL (Response-Animation-Idle-Load) principles in practice.
 - [Scott Jenson](https://twitter.com/scottjenson) (Google) on [The Physical Web is a Speed Issue](https://youtu.be/7H_E_ZbFAn0):
