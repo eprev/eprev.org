@@ -317,6 +317,13 @@ a {
   padding-right: 1em;
   padding-bottom: 26px; }
 
+.archive__date__md {
+  white-space: nowrap; }
+
+.archive__date__y::before {
+  content: "\a";
+  white-space: pre-line; }
+
 .archive__header {
   display: table-cell;
   padding-bottom: 26px; }
