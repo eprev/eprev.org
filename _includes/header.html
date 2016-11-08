@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    {% if page.title %}
+        <title>{{ page.title }} – {{ site.title }}</title>
+    {% else %}
+        <title>{{ site.title }}</title>
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if page.description %}
+        <meta name="description" content="{{ page.description }}">
+    {% else %}
+        <meta name="description" content="{{ site.description }}">
+    {% endif %}
+    <link href="main.css" rel="stylesheet" media="all">
+    <div class="page">
+        <div class="page__sidebar">
+            {% if page.url == "/" %}
+                <h1 class="page__user__name">@eprev</h1>
+            {% else %}
+                <h2 class="page__user__name"><a href="/">@eprev</a></h2>
+            {% endif %}
+            <div class="page__user__picture"></div>
+            <p>{{ site.description }}</p>
+            <ul class="page__nav">
+                <li>
+                    {% if page.url == "/" %}
+                        Recent
+                    {% else %}
+                        <a href="/">Recent</a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if page.url == "/archive/" %}
+                        Archive
+                    {% else %}
+                        <a href="/archive/">Archive</a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if page.url == "/tags/" %}
+                        Tags
+                    {% else %}
+                        <a href="/tags/">Tags</a>
+                    {% endif %}
+                </li>
+            </ul>
+            <p>Geeky Links:</p>
+            <ul class="page__nav">
+                <li><a href="https://twitter.com/eprev">Twitter</a></li>
+                <li><a href="https://github.com/eprev">GitHub</a></li>
+                <li><a href="https://unsplash.com/@eprev">Unsplash</a></li>
+                <li><a href="https://careers.stackoverflow.com/eprev">Résumé</a></li>
+            </ul>
+        </div>
+        <div class="page__content">
+            <p>
+            
+            </p>
+        </div>
+    </div>
