@@ -1,0 +1,28 @@
+---
+layout: null
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://{{ site.public_host }}/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+    {% for post in site.posts %}
+        <url>
+            <loc>http://{{ site.public_host }}{{ post.url }}</loc>
+            <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    {% endfor %}
+    {% for page in site.pages %}
+        <url>
+            <loc>http://{{ site.public_host }}{{ page.dir  }}</loc>
+            {% if page.date %}
+            <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
+            {% endif %}
+            <changefreq>weekly</changefreq>
+        </url>
+    {% endfor %}
+</urlset>

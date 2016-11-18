@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+{% if jekyll.environment == "development" %}
+    {% assign site_url = "" %}
+{% else %}
+    {% assign site_url = site.url %}
+{% endif %}
 <html lang="en">
     <meta charset="utf-8">
     {% if page.title %}
@@ -12,13 +17,37 @@
     {% else %}
         <meta name="description" content="{{ site.description }}">
     {% endif %}
-    <link href="main.css" rel="stylesheet" media="all">
+    <link href="{{ site_url }}/main.css" rel="stylesheet" media="all">
+    <link rel="shortcut icon" href="{{ site_url }}/images/icon.png">
+    <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ site_url }}/atom.xml">
+    {% if page.excerpt %}
+        <meta property="og:url" content="{{ site_url }}{{ page.url }}">
+        <meta property="og:title" content="{{ page.title }}">
+        <meta property="og:site_name" content="{{ site.title }}">
+        <meta property="og:type" content="article">
+        <meta property="og:description" content="{{ page.excerpt }}">
+        {% if page.image %}
+            <meta property="og:image" content="{{ site_url }}/images/posts/{{ page.image }}">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:image" content="{{ site.utl }}/images/posts/{{ page.image }}">
+        {% elsif page.share-image %}
+            <meta property="og:image" content="{{ site_url }}/images/posts/{{ page.share-image }}">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:image" content="{{ site_url }}/images/posts/{{ page.share-image }}">
+        {% else %}
+            <meta property="og:image" content="{{ site_url }}/images/default-share-image.png">
+            <meta name="twitter:card" content="summary">
+        {% endif %}
+        <meta name="twitter:creator" content="@{{ site.twitter }}">
+        <meta name="twitter:title" content="{{ page.title }}">
+        <meta name="twitter:description" content="{{ page.excerpt }}">
+    {% endif %}
     <div class="page">
         <div class="page__sidebar">
             {% if page.url == "/" %}
-                <h1 class="page__user__name">@eprev</h1>
+                <h1 class="page__user-name">@{{ site.twitter }}</h1>
             {% else %}
-                <h2 class="page__user__name"><a href="/">@eprev</a></h2>
+                <h2 class="page__user-name"><a class="page__user-name-link" href="/">@{{ site.twitter }}</a></h2>
             {% endif %}
             <div class="page__user__picture"></div>
             <p>{{ site.description }}</p>
@@ -54,8 +83,3 @@
             </ul>
         </div>
         <div class="page__content">
-            <p>
-            
-            </p>
-        </div>
-    </div>

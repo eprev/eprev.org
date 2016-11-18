@@ -1,3 +1,12 @@
-{% include header.html %}
-{{ content }}
+{% include header.html swiped=true %}
+{% assign include_post_h = 1 %}
+{% assign include_post_link = false %}
+{% assign include_post_meta = page %}
+{% assign include_post_content = content %}
+{% include post.html %}
+<div class="post post_special_home">
+    <h3 class="post__header">
+        &lsaquo; <a class="page__header__link" href="/">Home</a>
+    </h3>
+</div>
 {% include footer.html %}

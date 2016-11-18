@@ -1,6 +1,5 @@
 /* vim: set fdm=marker: */
 
-
 /* Normalize {{{ */
 
 body {
@@ -25,96 +24,78 @@ textarea {
 
 /* Typography {{{ */
 
-:root {
-    --phi: 1.61803;
-    --font-size: 18px;
-    --line-height: calc( var(--font-size) * var(--phi) ); /* [1] */
-}
-
 html {
     font-size: 18px;
-    font-size: var(--font-size);
-    line-height: 28px;
-    line-height: var(--line-height);
+    line-height: 1.5; /* The line height (1.5rem) sets the vertical rhythm. */
 }
 
 body {
     font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; /* 90% Mac  (Optima) & 54% PC (Candara) [5] */
-    /* font-size: 1em; */
+    color: #222;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 28px;
-    margin: 0 0 var(--line-height); /* Vertical rhythm. */
+    margin: 0 0 1.5rem; /* Vertical rhythm */
     font-weight: normal;
     text-rendering: optimizeLegibility; /* Enables a font’s native kerning and optional ligatures. */
     page-break-inside: avoid;
 }
-
 h1 {
-    font-size: 2em; /* Traditional scale [3] */
+    font-size: 2rem;   /* Traditional scale [3] */
+    line-height: 3rem; /* Vertical rhythm */
     text-transform: uppercase;
-    line-height: calc( 2 * 28 );
-    line-height: calc( 2 * var(--line-height) ); /* Vertical rhythm. */
 }
 h2 {
-    font-size: 1.75em; /* Traditional scale [3] */
-    line-height: calc( 2 * 28 );
-    line-height: calc( 2 * var(--line-height) ); /* Vertical rhythm. */
+    font-size: 1.75rem; /* Traditional scale [3] */
+    line-height: 3rem;  /* Vertical rhythm */
 }
 h3 {
-    font-size: 1.5em; /* Traditional scale [3] */
+    font-size: 1.5rem;   /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
 }
 h4 {
-    font-size: 1.3em; /* Traditional scale [3] */
+    font-size: 1.3rem;   /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
 }
 h5 {
-    font-size: 1.16em; /* Traditional scale [3] */
+    font-size: 1.16rem;  /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
 }
 h6 {
-    font-size: 1em; /* Traditional scale [3] */
+    font-size: 1rem; /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
 }
 
 ul, ol, p, pre, blockquote {
-    margin: 28px 0;
-    margin: var(--line-height) 0; /* Vertical rhythm. */
+    margin: 1.5rem 0; /* Vertical rhythm */
 }
+
 blockquote {
     font-style: italic;
     border-left: 4px solid #d6d6d6;
-    padding-left: 1em;
+    padding-left: 1rem;
 }
 ul {
     list-style-position: outside;
+    list-style-type: square;
+    padding-left: 0;
 }
 p {
-    /* margin-bottom: 0; /* Remove line space between paragraphs */
-    /*                      (http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.2/). */ */
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
     hyphens: auto; /*  Automatically break words at appropriate hyphenation points. */
 }
-/* p + p { */
-/*     // margin-top: 0; */
-/*     text-indent: 1em; */
-/* } */
-/* p + h1, */
-/* p + h2, */
-/* p + h3, */
-/* p + h4, */
-/* p + h5, */
-/* p + h6 { */
-/*     margin-top: $line-height; /* Vertical rhythm. */ */
-/* } */
 code {
     font-family: "Courier New", Courier, monospace;
-    font-size: 0.91em; /* Traditional scale [3] */
-    line-height: 1; /* Not to change the line-height of the paragraph. */
+    font-size: 0.92rem; /* Traditional scale [3] */
+    line-height: 1.5rem; /* Not to change the line-height of the paragraph. */
 }
 abbr {
     letter-spacing: .1em; /* Letterspace abbreviations
                              (http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.6/). */
 }
 a {
+    color: inherit;
     text-decoration: none;
     border-bottom: 1px solid #555;
 }
@@ -127,23 +108,12 @@ a {
      (http://webtypography.net/toc)
   3. Typograph – Scale & Rhythm
      (http://lamb.cc/typograph/)
-  4. The Elements of Typographic Style Applied to the Web
-     (http://webtypography.net/toc)
-  5. Revised Font Stack
+  4. Revised Font Stack
      (http://www.awayback.com/revised-font-stack/)
 */
 /* }}} */
 
 /* Layout {{{ */
-
-:root {
-    --gutter: 16px;
-}
-
-body {
-    padding: 0 16px;
-    padding: 0 var(--gutter);
-}
 
 .page {
     max-width: 980px;
@@ -153,47 +123,122 @@ body {
 .page__sidebar {
     width: 30%;
     float: left;
+    padding: 0 1rem 0 1.5rem; /* Left margin is bigger due to the outside position of the menu items */
+    box-sizing: border-box;
 }
 .page__content {
     margin-left: 30%;
+    box-sizing: border-box;
+    padding: 0 3rem 0 1rem; /* Right margin is bigger due to 1.5rem-wide box-shadow of the code elements */
 }
 
-/*h1*/.page__user__name {
+/*h1*/.page__user-name {
     text-transform: none;
 }
 
-@media (max-width: 767px) {
-    :root {
-        --font-size: 16px;
-        --gutter: 8px;
-    }
-    .page__sidebar {
-        float: none;
-        width: auto;
-    }
-    .page__content {
-        margin-left: auto;
-    }
-    .page__user__picture {
-        height: calc( 3 * 28px );
-        height: calc( 3 * var(--line-height) );
-    }
-}
-
-@media (max-width: 479px) {
-    :root {
-        --font-size: 14px;
-    }
+/*a*/.page__user-name-link {
+    border-bottom: 0;
 }
 
 .page__user__picture {
-    height: calc( 6 * 28px ); /* If calc() is not supported, then SVG may not be supported either and the picture will remain invisible - yay! */
-    height: calc( 6 * var(--line-height) );
+    height: calc( 6 * 1.5rem ); /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
+                                   and the picture will remain invisible - yay! */
     background-repeat: no-repeat;
     /* background-image: base64 {{{ */
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTk2IiBoZWlnaHQ9IjU5NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+NC1FeWVkPC90aXRsZT48ZyBmaWxsPSIjZGZkZmRmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xMDggNTMwdjY3aDM0M3YtNjdoLTM0M3ptMCAwIiBmaWxsPSIjZmVmZmZmIi8+PHBhdGggZD0iTTc5LjUwMiA1OTYuNXYtNDFjMC0yOCAzNy4yODktNDEuMDQgMzcuMjg5LTQxLjA0bDc5LjcwOSA2OS4wNGgyMi41djEzaC0xMzkuNDk4em0zNTYuNDk4LTEzMi41aDI3YzE5IDAgNjUuNSAwIDg1IDgzdjUwaC0xMTJ2LTEzM20tMTEyIDExNi41aDMzdjE2aC0zM3YtMTYiIGZpbGw9IiNmZjI2MDAiLz48cGF0aCBkPSJNMTA4IDIxOHYyODJjMCAxOS41IDUxLjUgODQgODcgODRoMTcxYzQ5IDAgODUtNjYuNSA4NS04NHYtMjgyYzAtNC00OC04MC01Mi04MGgtMjM5LjVjLTQgMC01MS41IDgwLTUxLjUgODAiIGZpbGw9IiNmZmQ0MDAiLz48cGF0aCBkPSJNMTcxIDI5Ni40MjFjLTMwLS41LTY0LS41LTY0LS41di0xMjIuNXM0LjUtMzMuNSA1My0zNGMtMjEuNS41LTI3LjUtMjguNS0yNy41LTQzLjUgMC0xNC41IDAtNDEuNSAyOS01NS41IDI4LjUtMTQgNjkuNSA0IDY5LjUgNHMtMjAuNSAxOC0zNCA1MS41YzEuNSA5LjUgOSA0IDkgNHMxMy00MS41IDEwMC02M2M5NS41LTkuNSAxOTctMTYuNSAyNDYuNSAwLTE5LjUgNjYuNS0xMDEgMTAzLTE0NyAxMDIgNDYgMSA0NiAzNC41IDQ2IDM0LjV2MTIyLjVoLTY0di0xNTdjMCA5LTIxNi41IDcuNS0yMTYuNSA3LjV2MTUwem0wIDAiIGZpbGw9IiNmZjI2MDAiLz48cGF0aCBkPSJNNDg2IDM2OXYtNTVjMC0zNy0zNi0zNy00MC0zN2gtMTVjLTQgMC04IDQtOCA4djExM2MwIDQgNCA4IDggOGgxNWM0IDAgNDAgMCA0MC0zNyIgZmlsbD0iI2ZmZDQwMCIvPjxwYXRoIGQ9Ik02OSAzMTR2NTVjMCAzNyAzNiAzNyA0MCAzN2gxNWM0IDAgOC00IDgtOHYtMTEzYzAtNC00LTgtOC04aC0xNWMtNCAwLTQwIDAtNDAgMzciIGZpbGw9IiNmZmQ0MDAiLz48cGF0aCBkPSJNMjE5IDQ2M3YxN2gxMTZ2LTE3aC0xMTYiIGZpbGw9IiM3NzBiMDAiLz48cGF0aCBkPSJNMzQ4IDM2OWMtMjUuNSAwLTQ2LTIwLjUtNDYtNDZzMjAuNS00NiA0Ni00NiA0NiAyMC41IDQ2IDQ2LTIwLjUgNDYtNDYgNDZtLTE0MiAwYy0yNS41IDAtNDYtMjAuNS00Ni00NnMyMC41LTQ2IDQ2LTQ2IDQ2IDIwLjUgNDYgNDYtMjAuNSA0Ni00NiA0NiIgZmlsbD0iI2ZlZmZmZiIvPjxwYXRoIGQ9Ik0yMDUuNSAzMjNjLTEzIDAtMjMuNS0xMC41LTIzLjUtMjMuNXMxMC41LTIzLjUgMjMuNS0yMy41IDIzLjUgMTAuNSAyMy41IDIzLjUtMTAuNSAyMy41LTIzLjUgMjMuNW0xNDMgMGMtMTMgMC0yMy41LTEwLjUtMjMuNS0yMy41czEwLjUtMjMuNSAyMy41LTIzLjUgMjMuNSAxMC41IDIzLjUgMjMuNS0xMC41IDIzLjUtMjMuNSAyMy41IiBmaWxsPSIjYWFkNmQ3Ii8+PHBhdGggZD0iTTIwNi41IDQwMGMtNDIgMC03Ni41LTM0LjUtNzYuNS03Ni41czM0LjUtNzYuNSA3Ni41LTc2LjVjMzIuMDAzIDAgNTkuNjUxIDIwLjAzMSA3MSA0OC4xNDcgMTEuMzQ5LTI4LjExNyAzOC45OTctNDguMTQ3IDcxLTQ4LjE0NyA0MiAwIDc2LjUgMzQuNSA3Ni41IDc2LjVzLTM0LjUgNzYuNS03Ni41IDc2LjVjLTMyLjAwMyAwLTU5LjY1MS0yMC4wMzEtNzEtNDguMTQ3LTExLjM0OSAyOC4xMTctMzguOTk3IDQ4LjE0Ny03MSA0OC4xNDdtLS41LTMxYzI1LjUgMCA0Ni0yMC41IDQ2LTQ2cy0yMC41LTQ2LTQ2LTQ2LTQ2IDIwLjUtNDYgNDYgMjAuNSA0NiA0NiA0Nm0xNDIgMGMyNS41IDAgNDYtMjAuNSA0Ni00NnMtMjAuNS00Ni00Ni00Ni00NiAyMC41LTQ2IDQ2IDIwLjUgNDYgNDYgNDYiIGZpbGw9IiM3NzBiMDAiLz48L2c+PC9zdmc+);
     /* }}} */
     background-size: 100% 100%; /* iOS Safari doesn't support background-size in background shorthand property */
+}
+
+.post__content pre code {
+    position: relative;
+    display: block;
+    padding: 1.5rem 0; /* Vertical rhythm */
+    line-height: 1.5;  /* Restore line-height for the block elements */
+    overflow: auto;
+    background: #f6f6f6;
+    box-shadow: 1.5rem 0 #f6f6f6, -1.5rem 0 #f6f6f6;
+}
+
+.post__meta {
+    margin-bottom: 1.5rem;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.83rem;  /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
+}
+
+/*ul*/.post__content__list li {
+    margin: 1.5rem 0; /* Vertical rhythm */
+}
+
+.archive {
+    display: table;
+    list-style: none;
+    padding: 0;
+}
+.archive__item {
+    display: table-row;
+}
+.archive__date {
+    display: table-cell;
+    color: #555;
+    text-transform: uppercase;
+    padding: 0 1rem 1.5rem 0; /* Vertical rhythm */
+}
+.archive__date__md {
+    white-space: nowrap;
+}
+.archive__date__y::before {
+    content: "\a";
+    white-space: pre-line;
+}
+.archive__header {
+    display: table-cell;
+    padding-bottom: 1.5rem; /* Vertical rhythm */
+}
+.archive__header__link {
+    font-size: 1.16rem;  /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
+    vertical-align: bottom; /* The "baseline" affects the vertical rhythm */
+}
+
+.tags {
+    list-style: none;
+    padding: 0;
+}
+.tags__item {
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    line-height: 1.5rem; /* Vertical rhythm */
+    font-size: 1.16rem;  /* Traditional scale [3] */
+}
+
+@media (max-width: 979px) {
+    html {
+        font-size: 16px;
+    }
+    ul {
+        padding-left: 1rem; /* There's no space on the left for markers */
+    }
+    .page__sidebar {
+        float: none;
+        width: auto;
+        padding-left: 1rem;
+    }
+    .page__content {
+        margin-left: auto;
+        padding-right: 1rem;
+    }
+    .page__user__picture {
+        height: calc( 3 * 1.5rem ); /* Vertical rhythm */
+    }
+}
+
+@media (max-width: 479px) {
+    html {
+        font-size: 14px;
+    }
 }
 
 /* }}} */

@@ -19,17 +19,18 @@ description: >
   Hello. My name’s Anton Eprev and I’m a web developer working
   as front-end engineer at Booking.com in Amsterdam, Netherlands.
 
-public_host: eprev.org
+twitter: eprev
 
 timezone: Europe/Amsterdam
 permalink: /:year/:month/:day/:title/
-
-tag_title_prefix: "Tag «"
-tag_title_suffix: "»"
-tag_dir: tags
 
 # Build settings
 markdown: kramdown
 exclude:
   - Gemfile
   - Gemfile.lock
+
+tag_title_prefix: "Tag «"
+tag_title_suffix: "»"
+tag_dir: tags
+
