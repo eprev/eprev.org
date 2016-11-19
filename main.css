@@ -140,7 +140,7 @@ a {
     border-bottom: 0;
 }
 
-.page__user__picture {
+.page__user-picture {
     height: calc( 6 * 1.5rem ); /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
                                    and the picture will remain invisible - yay! */
     background-repeat: no-repeat;
@@ -168,7 +168,7 @@ a {
     line-height: 1.5rem; /* Vertical rhythm */
 }
 
-/*ul*/.post__content__list li {
+/*ul*/.post__content-list li {
     margin: 1.5rem 0; /* Vertical rhythm */
 }
 
@@ -186,10 +186,10 @@ a {
     text-transform: uppercase;
     padding: 0 1rem 1.5rem 0; /* Vertical rhythm */
 }
-.archive__date__md {
+.archive__date-md {
     white-space: nowrap;
 }
-.archive__date__y::before {
+.archive__date-y::before {
     content: "\a";
     white-space: pre-line;
 }
@@ -197,7 +197,7 @@ a {
     display: table-cell;
     padding-bottom: 1.5rem; /* Vertical rhythm */
 }
-.archive__header__link {
+.archive__header-link {
     font-size: 1.16rem;  /* Traditional scale [3] */
     line-height: 1.5rem; /* Vertical rhythm */
     vertical-align: bottom; /* The "baseline" affects the vertical rhythm */
@@ -230,7 +230,7 @@ a {
         margin-left: auto;
         padding-right: 1rem;
     }
-    .page__user__picture {
+    .page__user-picture {
         height: calc( 3 * 1.5rem ); /* Vertical rhythm */
     }
 }

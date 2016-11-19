@@ -20,4 +20,4 @@ advantages and trade-offs of having a giant single monolithic source repository.
 - [Christian Johansen](https://twitter.com/cjno) on “[Immutable JavaScript: You can't change this](http://youtu.be/wA98Coal4jk)” (2015):
 Immutability in React.
 - [Lea Verou](https://twitter.com/LeaVerou) on making CSS pie charts in “[The Missing Slice](http://youtu.be/s4HdeJctq-A)” (2015).
-{:.post__content__list}
+{:.post__content-list}

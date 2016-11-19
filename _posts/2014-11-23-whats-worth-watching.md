@@ -14,4 +14,4 @@ excerpt: List of favorite talks and performances.
 - Facebook’s way to Flux and React in “[Rethinking Web App Development at Facebook](http://www.youtube.com/watch?v=nYkdrAPrdcw)” (2014).
 - John-David Dalton (Lo-Dash) on “[Unorthodox Performance](http://www.youtube.com/watch?v=NthmeLEhDDM)” (2014): interesting techniques to improve JavaScript performance.
 - Patrick Hamann (The Guardian) on “[CSS and the Critical Path](http://www.youtube.com/watch?v=_0Fk85to6hA)” (2014): dealing with performance bottlenecks in the browser from network to painting.
-{:.post__content__list}
+{:.post__content-list}

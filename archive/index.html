@@ -8,11 +8,11 @@ layout: null
     {% for post in site.posts %}
         <li class="archive__item">
             <span class="archive__date">
-                <span class="archive__date__md">{{ post.date | date:"%B %-d" }},</span/>
-                <span class="archive__date__y">{{ post.date | date:"%Y" }}</span/>
+                <span class="archive__date-md">{{ post.date | date:"%B %-d" }},</span/>
+                <span class="archive__date-y">{{ post.date | date:"%Y" }}</span/>
             </span>
             <span class="archive__header">
-                <a class="archive__header__link" href="{{ post.url }}">{{ post.title }}</a>
+                <a class="archive__header-link" href="{{ post.url }}">{{ post.title }}</a>
             </span>
         </li>
     {% endfor %}
