@@ -1,0 +1,14 @@
+{
+  "name": "eprev.org",
+  "version": "2.0.0",
+  "description": "That’s my spot.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eprev/eprev.org.git"
+  },
+  "author": "Anton Eprev <a.eprev@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/eprev/eprev.org/issues"
+  },
+  "homepage": "http://eprev.org"
+}

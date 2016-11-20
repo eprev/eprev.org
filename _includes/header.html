@@ -17,7 +17,11 @@
     {% else %}
         <meta name="description" content="{{ site.description }}">
     {% endif %}
-    <link href="{{ site_url }}/main.css" rel="stylesheet" media="all">
+    {% if jekyll.environment == "production" %}
+        <style>{% include main.min.css %}</style>
+    {% else %}
+        <link href="{{ site_url }}/main.css" rel="stylesheet" media="all">
+    {% endif %}
     <link rel="shortcut icon" href="{{ site_url }}/images/icon.png{{site.url}}">
     <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ site_url }}/atom.xml">
     {% if page.excerpt %}
