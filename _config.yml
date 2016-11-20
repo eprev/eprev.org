@@ -21,6 +21,8 @@ description: >
 
 twitter: eprev
 
+url: http://eprev.org
+
 timezone: Europe/Amsterdam
 permalink: /:year/:month/:day/:title/
 
