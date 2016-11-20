@@ -118,7 +118,7 @@ a {
 .page {
     max-width: 980px;
     min-width: 320px;
-    margin: 0 auto;
+    margin: 1.5rem auto;
 }
 .page__sidebar {
     width: 30%;
@@ -226,6 +226,9 @@ a {
     }
     ul {
         padding-left: 1rem; /* There's no space on the left for markers */
+    }
+    .page {
+        margin: 0 auto;
     }
     .page__sidebar {
         float: none;
