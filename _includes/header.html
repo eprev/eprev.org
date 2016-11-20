@@ -50,7 +50,11 @@
                 <h2 class="page__user-name"><a class="page__user-name-link" href="/">@{{ site.twitter }}</a></h2>
             {% endif %}
             <div class="page__user-picture"></div>
-            <p>{{ site.description }}</p>
+            <div class="page__user-story">
+                {{ site.description }}
+                I’m on <a href="https://twitter.com/eprev">Twitter</a>,
+                <a href="https://github.com/eprev">GitHub</a> and <a href="https://unsplash.com/@eprev">Unsplash</a>.
+            </div>
             <ul class="page__nav">
                 <li>
                     {% if page.url == "/" %}
@@ -73,13 +77,9 @@
                         <a href="/tags/">Tags</a>
                     {% endif %}
                 </li>
-            </ul>
-            <p>Geeky Links:</p>
-            <ul class="page__nav">
-                <li><a href="https://twitter.com/eprev">Twitter</a></li>
-                <li><a href="https://github.com/eprev">GitHub</a></li>
-                <li><a href="https://unsplash.com/@eprev">Unsplash</a></li>
-                <li><a href="https://careers.stackoverflow.com/eprev">Résumé</a></li>
+                <li>
+                    <a href="https://careers.stackoverflow.com/eprev">Résumé</a>
+                </li>
             </ul>
         </div>
         <div class="page__content">
