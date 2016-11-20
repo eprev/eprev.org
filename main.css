@@ -234,9 +234,6 @@ a {
 }
 
 @media (max-width: 979px) {
-    html {
-        font-size: 16px;
-    }
     ul {
         padding-left: 1rem; /* There's no space on the left for markers */
     }
@@ -261,8 +258,6 @@ a {
         min-width: calc( 4 * 1.5rem );
         margin-bottom: 0;
     }
-    .page__user-story {
-    }
     .page__user-name {
         display: none;
     }
@@ -279,8 +274,16 @@ a {
     /*ul*/.page__nav li:last-child::after {
         content: '';
     }
+    .post-special-home::before {
+        position: static;
+    }
 }
 
+@media (max-width: 667px) {
+    html {
+        font-size: 16px;
+    }
+}
 @media (max-width: 359px) {
     html {
         font-size: 14px;
