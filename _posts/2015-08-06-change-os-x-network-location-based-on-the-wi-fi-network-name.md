@@ -8,9 +8,9 @@ excerpt: How to change automatically OS X’s network location based on the name
 
 You might have heard about [Network locations](https://support.apple.com/en-us/HT202480) in OS X.
 It allows you to have different network configurations and quickly switch between them. For instance,
-if you must to use a corporate proxy server at work and you don’t need it when you get back home,
-you might create a new location named “Work” (with any necessary network proxy settings) and keep
-the default “Automatic” location for home. But still, you will need to switch between those locations
+if you have to use a corporate proxy server at work and you don’t need it when you get back home,
+you can create a new location named “Work” (with any necessary network proxy settings) and keep
+the default “Automatic” location for home. But still, you would need to switch between those locations
 manually. How annoying!
 
 Wouldn’t it be great if OS X could switch location automatically based on the name of Wi-Fi network

@@ -246,12 +246,15 @@ a {
     }
     .page__user-picture-story {
         display: flex;
+        align-items: center;
         margin-bottom: 1.5rem; /* Vertical rhythm */
     }
     .page__user-picture {
         height: calc( 3 * 1.5rem ); /* Vertical rhythm */
-        min-width: calc( 4 * 1.5rem );
+        width: calc( 3 * 1.5rem );
+        flex-shrink: 0;
         margin-bottom: 0;
+        padding-right: 1rem;
     }
     .page__user-name {
         display: none;
@@ -272,14 +275,20 @@ a {
     .post-special-home::before {
         position: static;
     }
+    .archive__header {
+        line-height: 2rem; /* This breaks vertical rhythm, though looks much better */
+    }
+
 }
 
 @media (max-width: 667px) {
+    /* iPhone 6 375x667 */
     html {
         font-size: 16px;
     }
 }
 @media (max-width: 359px) {
+    /* Galaxy S5 360x640  */
     html {
         font-size: 14px;
     }
