@@ -236,21 +236,23 @@ a {
         margin-left: auto;
         padding-right: 1rem;
     }
+    .page__user-picture-story {
+        display: flex;
+        margin-bottom: 1.5rem; /* Vertical rhythm */
+    }
     .page__user-picture {
         height: calc( 3 * 1.5rem ); /* Vertical rhythm */
-        width: calc( 4 * 1.5rem );
-        float: left;
-    }
-    .page__user-story {
-        margin-left: calc( 4 * 1.5rem );
-    }
-    .page__user-name {
-        margin-left: calc( 4 * 1.5rem );
+        min-width: calc( 4 * 1.5rem );
         margin-bottom: 0;
     }
+    .page__user-story {
+    }
+    .page__user-name {
+        display: none;
+    }
     /*ul*/.page__nav {
-        margin-left: calc( 4 * 1.5rem );
         padding-left: 0;
+        order: -1;
     }
     /*ul*/.page__nav li {
         display: inline-block;
