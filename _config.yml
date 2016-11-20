@@ -31,6 +31,9 @@ markdown: kramdown
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Makefile
+  - package.json
+  - node_modules
 
 tag_dir: tags
 
