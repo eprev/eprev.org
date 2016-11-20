@@ -30,9 +30,9 @@ the default location “Automatic” will be used.
 And of course we need a [tool](https://github.com/eprev/locationchanger) for doing that.
 The installation process is extremely easy:
 
-~~~
+{% highlight shell %}
 $ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
-~~~
+{% endhighlight %}
 
 It will ask only for a root password to install `locationchanger`. Now, every time you connect to
 a wireless network it will change the location to either the corresponding or the default one.
@@ -41,21 +41,21 @@ That’s not all. We still want to change Security Preferences automatically whe
 has been changed. Let’s create scripts that will be executed every time it happens. One is
 for “Corp Wi-Fi” location:
 
-~~~
+{% highlight shell %}
 #!/usr/bin/env bash
 
 # Require password immediately after sleep or screen saver
 osascript -e 'tell application "System Events" to set require password to wake of security preferences to true'
-~~~
+{% endhighlight %}
 
 Another is for the default location:
 
-~~~
+{% highlight shell %}
 #!/usr/bin/env bash
 
 # Don’t require password after sleep or screen saver
 osascript -e 'tell application "System Events" to set require password to wake of security preferences to false'
-~~~
+{% endhighlight %}
 
 Save them as *~/.locations/Corp Wi-Fi* and *~/.locations/Automatic* respectively. Voilà!
 You’re not limited by changing only the security preferences, you can do whatever
