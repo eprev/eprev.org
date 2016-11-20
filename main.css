@@ -122,7 +122,8 @@ a {
 .page {
     max-width: 980px;
     min-width: 320px;
-    margin: 1.5rem auto;
+    margin: 0 auto;
+    padding: 1.5rem 0;
 }
 .page__sidebar {
     width: 30%;
@@ -160,25 +161,33 @@ a {
     margin-bottom: 1.5rem; /* Vertical rhythm */
 }
 
+.post__header {
+    margin-bottom: 0;
+}
+.post__content ul,
+.post__content p {
+    margin-top: 0;
+}
+
 .post__content pre code {
     position: relative;
     display: block;
     padding: 1.5rem 0; /* Vertical rhythm */
     line-height: 1.5;  /* Restore line-height for the block elements */
     overflow: auto;
-    background: #f6f6f6;
-    box-shadow: 1.5rem 0 #f6f6f6, -1.5rem 0 #f6f6f6;
+    background: #fafafa;
+    box-shadow: 1.5rem 0 #fafafa, -1.5rem 0 #fafafa;
 }
 
 .post__meta {
-    margin-bottom: 1.5rem;
     text-transform: uppercase;
     font-size: 0.83rem;  /* Traditional scale [3] */
     line-height: 1.5rem; /* Vertical rhythm */
+    margin: .75rem 0;
 }
 
 /*ul*/.post__content-list li {
-    margin: 1.5rem 0; /* Vertical rhythm */
+    margin-bottom: 1.5rem; /* Vertical rhythm */
 }
 
 .post-special-home {
@@ -233,7 +242,7 @@ a {
         padding-left: 1rem; /* There's no space on the left for markers */
     }
     .page {
-        margin: 0 auto;
+        padding-top: 0;
     }
     .page__sidebar {
         float: none;
