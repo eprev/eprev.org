@@ -181,6 +181,17 @@ a {
     margin: 1.5rem 0; /* Vertical rhythm */
 }
 
+.post-special-home {
+    position: relative;
+    font-size: 1.5rem;  /* H3 */
+    line-height: 1.5rem; /* H3 */
+}
+    .post-special-home::before {
+        content: '\2039';
+        position: absolute;
+        left: -1rem;
+    }
+
 .archive {
     display: table;
     list-style: none;
