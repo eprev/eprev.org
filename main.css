@@ -231,7 +231,14 @@ a {
     margin-bottom: 1.5rem;
     line-height: 1.5rem; /* Vertical rhythm */
     font-size: 1.16rem;  /* Traditional scale [3] */
+    display: inline-block;
 }
+    .tags__item::after {
+        content: '\a0\25aa\a0';
+    }
+    .tags__item:last-child::after {
+        content: '';
+    }
 
 @media (max-width: 979px) {
     ul {
@@ -269,7 +276,7 @@ a {
         display: inline-block;
     }
     /*ul*/.page__nav li::after {
-        content: '\25aa';
+        content: '\a0\25aa\a0';
     }
     /*ul*/.page__nav li:last-child::after {
         content: '';
