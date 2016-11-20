@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,0BAA0B;AAC1B,IAAK;EACD,gBAAgB,EAAE,mBAAmB;EACrC,iCAAiC;EACjC,gBAAgB,EAAE,mxKAAmxK;EACryK,OAAO;;;AAEX,oBAAqB;EACjB,UAAU,EAAE,qCAAqC;EACjD,iCAAiC;EACjC,gBAAgB,EAAE,++EAA++E;EACjgF,OAAO;EACP,eAAe,EAAE,SAAS;EAAE,iFAAiF;;;AAEjH,YAAa;EACT,iCAAiC;EACjC,UAAU,EAAE,yZAAyZ;EACra,OAAO;EACP,eAAe,EAAE,SAAS;EAAE,iFAAiF",
-"sources": ["../../images.scss"],
-"names": [],
-"file": "main.css"
-}

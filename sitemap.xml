@@ -49,12 +49,6 @@
         </url>
     
         <url>
-            <loc>http://eprev.org/2015/02/05/introduction-to-css-explorer/</loc>
-            <lastmod>2015-02-05</lastmod>
-            <changefreq>weekly</changefreq>
-        </url>
-    
-        <url>
             <loc>http://eprev.org/2015/01/26/whats-worth-watching/</loc>
             <lastmod>2015-01-26</lastmod>
             <changefreq>weekly</changefreq>
@@ -102,12 +96,6 @@
             <changefreq>weekly</changefreq>
         </url>
     
-        <url>
-            <loc>http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)/</loc>
-            <lastmod>2013-06-02</lastmod>
-            <changefreq>weekly</changefreq>
-        </url>
-    
     
         <url>
             <loc>http://eprev.org/404/</loc>
@@ -122,36 +110,6 @@
         </url>
     
         <url>
-            <loc>http://eprev.org/labs/</loc>
-            
-            <changefreq>weekly</changefreq>
-        </url>
-    
-        <url>
-            <loc>http://eprev.org/labs/playing-cards-revised/</loc>
-            
-            <changefreq>weekly</changefreq>
-        </url>
-    
-        <url>
-            <loc>http://eprev.org/labs/playing-cards/</loc>
-            
-            <changefreq>weekly</changefreq>
-        </url>
-    
-        <url>
-            <loc>http://eprev.org/</loc>
-            
-            <changefreq>weekly</changefreq>
-        </url>
-    
-        <url>
-            <loc>http://eprev.org/labs/gdd-2011/</loc>
-            
-            <changefreq>weekly</changefreq>
-        </url>
-    
-        <url>
             <loc>http://eprev.org/archive/</loc>
             
             <changefreq>weekly</changefreq>
@@ -159,6 +117,12 @@
     
         <url>
             <loc>http://eprev.org/tags/</loc>
+            
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
+            <loc>http://eprev.org/</loc>
             
             <changefreq>weekly</changefreq>
         </url>

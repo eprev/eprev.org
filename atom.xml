@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2016-08-03T23:47:26+03:00</updated>
+    <updated>2016-11-20T20:31:27+01:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -13,9 +13,9 @@
         <entry>
             <title>What’s worth watching</title>
             <link href="http://eprev.org/2016/08/03/whats-worth-watching/"/>
-            <updated>2016-08-03T00:00:00+03:00</updated>
+            <updated>2016-08-03T00:00:00+02:00</updated>
             <id>http://eprev.org/2016/08/03/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+            <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/Demruth&quot;&gt;Alexander Bruce&lt;/a&gt; on “&lt;a href=&quot;http://www.gdcvault.com/play/1020776/&quot;&gt;An Overnight Success, Seven Years in the Making&lt;/a&gt;” (2014): a story of creating an (successful) indie game, which shows how high the cost of success can be (financially and psychologically).&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://plus.google.com/+JeffDean/&quot;&gt;Jeffrey Dean&lt;/a&gt; (Google) on “&lt;a href=&quot;https://youtu.be/modXC5IWTJI&quot;&gt;Building Software Systems At Google and Lessons Learned&lt;/a&gt;” (2010): interesting talk on how their technology had evolved over time.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/mathias&quot;&gt;Mathias Bynens&lt;/a&gt; (Opera) on “&lt;a href=&quot;https://vimeo.com/163113209&quot;&gt;Front-End Performance: The Dark Side&lt;/a&gt;” (2016): performance-related APIs can have a negative security impact, making some timing attacks possible on the web.&lt;/li&gt;
@@ -27,9 +27,9 @@
         <entry>
             <title>What’s worth watching</title>
             <link href="http://eprev.org/2016/07/23/whats-worth-watching/"/>
-            <updated>2016-07-23T00:00:00+03:00</updated>
+            <updated>2016-07-23T00:00:00+02:00</updated>
             <id>http://eprev.org/2016/07/23/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+            <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
   &lt;li&gt;Ben Maurer (Facebook) on “&lt;a href=&quot;https://youtu.be/MlNGomWegCE&quot;&gt;Web speed @ Facebook&lt;/a&gt;” (2016): shipping the page incrementally,
 packaging resources based on their usage patterns, early flushing, deferred dependencies, performance measurements,
 JavaScript’s lazy parsing.&lt;/li&gt;
@@ -49,9 +49,9 @@ that helps you track and fix vulnerabilities in your Node.js application depende
         <entry>
             <title>What’s worth watching</title>
             <link href="http://eprev.org/2016/01/26/whats-worth-watching/"/>
-            <updated>2016-01-26T00:00:00+03:00</updated>
+            <updated>2016-01-26T00:00:00+01:00</updated>
             <id>http://eprev.org/2016/01/26/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+            <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/yunongx&quot;&gt;Yunong Xiao&lt;/a&gt; (Netflix) on “&lt;a href=&quot;https://youtu.be/O1YP8QP9gLA&quot;&gt;Debugging Node.js in Production&lt;/a&gt;” (2015): what Netflix uses in production to diagnose and fix performance issues, bugs and memory leaks in Node.js applications.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/dan_abramov&quot;&gt;Dan Abramov&lt;/a&gt; on “&lt;a href=&quot;https://youtu.be/xsSnOQynTHs&quot;&gt;Live React: Hot Reloading with Time Travel&lt;/a&gt;” (2015): a story about Redux.&lt;/li&gt;
   &lt;li&gt;“&lt;a href=&quot;https://youtu.be/ttavBa4giPc&quot;&gt;Google I/O 2011: The Secrets of Google Pac-Man: A Game Show&lt;/a&gt;” (2011): the entertaining story behind Google Pac-Man doodle.&lt;/li&gt;
@@ -64,9 +64,9 @@ that helps you track and fix vulnerabilities in your Node.js application depende
         <entry>
             <title>What’s worth watching</title>
             <link href="http://eprev.org/2016/01/15/whats-worth-watching/"/>
-            <updated>2016-01-15T00:00:00+03:00</updated>
+            <updated>2016-01-15T00:00:00+01:00</updated>
             <id>http://eprev.org/2016/01/15/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+            <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/leeb&quot;&gt;Lee Byron&lt;/a&gt; (Facebook) on “&lt;a href=&quot;http://youtu.be/WQLzZf34FJ8&quot;&gt;Exploring GraphQL&lt;/a&gt;” (2015): a data fetching language
 that is widely used at Facebook.&lt;/li&gt;
   &lt;li&gt;Interesting session on “&lt;a href=&quot;http://youtu.be/OcFOWIq3cIc&quot;&gt;Making Robots&lt;/a&gt;” at &lt;a href=&quot;http://www.fab11.org&quot;&gt;Fab11 conference&lt;/a&gt;:
@@ -83,13 +83,13 @@ Immutability in React.&lt;/li&gt;
         <entry>
             <title>Change OS X network location based on the Wi-Fi network name</title>
             <link href="http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/"/>
-            <updated>2015-08-06T00:00:00+03:00</updated>
+            <updated>2015-08-06T00:00:00+02:00</updated>
             <id>http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name</id>
             <content type="html">&lt;p&gt;You might have heard about &lt;a href=&quot;https://support.apple.com/en-us/HT202480&quot;&gt;Network locations&lt;/a&gt; in OS X.
 It allows you to have different network configurations and quickly switch between them. For instance,
-if you must to use a corporate proxy server at work and you don’t need it when you get back home,
-you might create a new location named “Work” (with any necessary network proxy settings) and keep
-the default “Automatic” location for home. But still, you will need to switch between those locations
+if you have to use a corporate proxy server at work and you don’t need it when you get back home,
+you can create a new location named “Work” (with any necessary network proxy settings) and keep
+the default “Automatic” location for home. But still, you would need to switch between those locations
 manually. How annoying!&lt;/p&gt;
 
 &lt;p&gt;Wouldn’t it be great if OS X could switch location automatically based on the name of Wi-Fi network
@@ -109,29 +109,26 @@ the default location “Automatic” will be used.&lt;/p&gt;
 &lt;p&gt;And of course we need a &lt;a href=&quot;https://github.com/eprev/locationchanger&quot;&gt;tool&lt;/a&gt; for doing that.
 The installation process is extremely easy:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;It will ask only for a root password to install &lt;code&gt;locationchanger&lt;/code&gt;. Now, every time you connect to
+&lt;p&gt;It will ask only for a root password to install &lt;code class=&quot;highlighter-rouge&quot;&gt;locationchanger&lt;/code&gt;. Now, every time you connect to
 a wireless network it will change the location to either the corresponding or the default one.&lt;/p&gt;
 
 &lt;p&gt;That’s not all. We still want to change Security Preferences automatically when the location
 has been changed. Let’s create scripts that will be executed every time it happens. One is
 for “Corp Wi-Fi” location:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
 
-# Require password immediately after sleep or screen saver
-osascript -e &#39;tell application &quot;System Events&quot; to set require password to wake of security preferences to true&#39;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;c&quot;&gt;# Require password immediately after sleep or screen saver&lt;/span&gt;
+osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Events&quot; to set require password to wake of security preferences to true'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Another is for the default location:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
 
-# Don’t require password after sleep or screen saver
-osascript -e &#39;tell application &quot;System Events&quot; to set require password to wake of security preferences to false&#39;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;c&quot;&gt;# Don’t require password after sleep or screen saver&lt;/span&gt;
+osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Save them as &lt;em&gt;~/.locations/Corp Wi-Fi&lt;/em&gt; and &lt;em&gt;~/.locations/Automatic&lt;/em&gt; respectively. Voilà!
 You’re not limited by changing only the security preferences, you can do whatever
@@ -142,7 +139,7 @@ you want to…&lt;/p&gt;
         <entry>
             <title>Converting PNG to SVG</title>
             <link href="http://eprev.org/2015/05/27/converting-png-to-svg/"/>
-            <updated>2015-05-27T00:00:00+03:00</updated>
+            <updated>2015-05-27T00:00:00+02:00</updated>
             <id>http://eprev.org/2015/05/27/converting-png-to-svg</id>
             <content type="html">&lt;p&gt;Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called &lt;a href=&quot;http://potrace.sourceforge.net&quot;&gt;Potrace&lt;/a&gt;.&lt;/p&gt;
 
@@ -150,36 +147,32 @@ you want to…&lt;/p&gt;
 
 &lt;p&gt;It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ brew install potrace
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install potrace&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The manual installation is super easy, however. For OS X do the following:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ cd potrace-1.12.mac-i386
-$ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
-$ sudp cp mkbitmap potrace /usr/local/bin
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;potrace-1.12.mac-i386
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap.1 potrace.1 /usr/share/man/
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudp cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
 
-&lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org&quot;&gt;ImageMagick&lt;/a&gt;’s &lt;code&gt;convert&lt;/code&gt; program. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;
+&lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org&quot;&gt;ImageMagick&lt;/a&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;convert&lt;/code&gt; program. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ brew install imagemagick
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install imagemagick&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Alright. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:
-&lt;img src=&quot;/assets/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;
+&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;
 All you need to do is to run this:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ convert -alpha remove party-never.png pgm: \
-| mkbitmap -f 32 -t 0.4 - -o - \
-| potrace --svg -o party-never.svg
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;convert -alpha remove party-never.png pgm: &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+| mkbitmap -f 32 -t 0.4 - -o - &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+| potrace --svg -o party-never.svg&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of &lt;code&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code&gt;-f&lt;/code&gt;) and thresholding (&lt;code&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;
+&lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of &lt;code class=&quot;highlighter-rouge&quot;&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code class=&quot;highlighter-rouge&quot;&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt;) and thresholding (&lt;code class=&quot;highlighter-rouge&quot;&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;
 
 &lt;p&gt;As a result you might have now:
-&lt;img src=&quot;/assets/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;
+&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;
 That’s it.&lt;/p&gt;
 </content>
         </entry>
@@ -187,9 +180,9 @@ That’s it.&lt;/p&gt;
         <entry>
             <title>What’s worth watching</title>
             <link href="http://eprev.org/2015/03/29/whats-worth-watching/"/>
-            <updated>2015-03-29T00:00:00+03:00</updated>
+            <updated>2015-03-29T00:00:00+01:00</updated>
             <id>http://eprev.org/2015/03/29/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+            <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
   &lt;li&gt;“&lt;a href=&quot;https://www.youtube.com/watch?v=X0VH78ye4yY&quot;&gt;Big Code: Developer Infrastructure at Facebook’s Scale&lt;/a&gt;” (2015): what is it like to be an engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/holman&quot;&gt;Zach Holman&lt;/a&gt; (GitHub) on “&lt;a href=&quot;http://www.bbc.co.uk/academy/technology/article/art20150206154333467&quot;&gt;Move fast and break nothing&lt;/a&gt;” (2014): how to ship software changes fast and not to break things.&lt;/li&gt;
 &lt;/ul&gt;
@@ -197,96 +190,11 @@ That’s it.&lt;/p&gt;
         </entry>
     
         <entry>
-            <title>Introduction to CSS Explorer</title>
-            <link href="http://eprev.org/2015/02/05/introduction-to-css-explorer/"/>
-            <updated>2015-02-05T00:00:00+03:00</updated>
-            <id>http://eprev.org/2015/02/05/introduction-to-css-explorer</id>
-            <content type="html">&lt;p&gt;I’ve been curious about the state of our CSS code and its changes over the time.
-So I’ve written recently a program called &lt;a href=&quot;https://github.com/eprev/specificity&quot;&gt;&lt;code&gt;specificity&lt;/code&gt;&lt;/a&gt;.
-What does it do? It answers the following questions:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;What is a total number of selectors in your CSS codebase?
-How has it been changing over the time?&lt;/li&gt;
-  &lt;li&gt;What is a maximum/average/median selector‘s specificity of your CSS codebase?
-How has it been changing over the time?&lt;/li&gt;
-  &lt;li&gt;How does the distribution of selector‘s specificity of your CSS codebase look like?
-How has it been changing over the time?&lt;/li&gt;
-  &lt;li&gt;How many selectors in your CSS codebase contain at least one rule with the &lt;code&gt;!important&lt;/code&gt; directive?
-How has it been changing over the time?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Wait, why is it so important? It’s not, until you have a codebase of dozens of
-thousands lines of code that is hard to maintain and you do a lot of experiments.
-And of course, if it’s not even important, it’s quite interesting at least.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-distribution-lr.png&quot; data-src=&quot;/assets/posts/css-explorer-distribution.png&quot; alt=&quot;CSS specificity chart&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So, &lt;code&gt;node-specificity&lt;/code&gt; provides two commands. One is for parsing your CSS files and creating profiles.
-Second is for reading or “exploring” these profiles. Let’s look at an example. I have a few versions of
-&lt;a href=&quot;https://github.com/eprev/specificity/tree/master/spec/fixtures/timeline&quot;&gt;CSS&lt;/a&gt; of the website
-you’re reading right now. As I’m writing this post the website is using &lt;code&gt;v8.css&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Alright, let’s create profiles for these files:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ node-specificity parse v1.css --label=v1 --output=v1.json
-...
-$ node-specificity parse v8.css --label=v8 --output=v8.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We’ve created a profile for each CSS file since we want to observe changings over the time. If you use
-more than one CSS file on your website, you have to create a profile for all of them, for instance:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ node-specificity parse main.css print.css --label=2014-12-23 --output=20141223.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Label acts as a profile’s name in reports. Once we have profiles created, we are able to run a report.
-Let’s start a ‘server’ report:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ node-specificity explore v*.json --report=server
-Server is running on http://localhost:4000/
-Press Ctrl + C to stop it.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Open a browser and go to “http://localhost:4000/”. Now you’re supposed to be seeing the page
-with different controls and a weird graph. It‘s the specificity distribution chart (see in
-the picture above). For each specificity (tuple) it shows the total number of selectors
-of this specificity in the specific profile.&lt;/p&gt;
-
-&lt;p&gt;Other graphs are: number of selectors in your CSS files and total number of selectors in profiles,
-how many of them contain rules with the &lt;code&gt;!important&lt;/code&gt; directive, average and median
-values of selector’s specificity for CSS files and profiles.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-selectors-lr.png&quot; data-src=&quot;/assets/posts/css-explorer-selectors.png&quot; alt=&quot;Number of selectors chart&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You are able to explore all these graphs for a specific profile. To do this, you have to
-select the particular profile’s label in the dropdown list. For instance, it’s the specificity
-distribution bar chart for ‘v8.json’ profile in the picture below.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-profile-lr.png&quot; data-src=&quot;/assets/posts/css-explorer-profile.png&quot; alt=&quot;CSS specificity chart&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So, &lt;code&gt;server&lt;/code&gt; report is quite a powerful tool. Bear in mind, images above are for the profiles
-of one humble CSS file. If you have a few files for profile, it gets better.&lt;/p&gt;
-
-&lt;p&gt;There is also &lt;code&gt;inspect&lt;/code&gt; report (it’s used as the default one). If you run &lt;code&gt;node-specificity explore v8.json&lt;/code&gt;,
-it will print out the list of all selectors in the given profile, the summary on specificity numbers
-and the specificity distribution chart, which is very similar to the one you can see above.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/css-explorer-cli-lr.png&quot; data-src=&quot;/assets/posts/css-explorer-cli.png&quot; alt=&quot;Screenshot of the ‘inspect’ report&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Reports can accept additional command line options. There are few of them. In the example above,
-&lt;code&gt;--no-inspect-selectors&lt;/code&gt; option has been used. It disables printing out the list of all selectors.&lt;/p&gt;
-
-&lt;p&gt;That’s it. Happy exploring!&lt;/p&gt;
-</content>
-        </entry>
-    
-        <entry>
             <title>What’s worth watching</title>
             <link href="http://eprev.org/2015/01/26/whats-worth-watching/"/>
-            <updated>2015-01-26T00:00:00+03:00</updated>
+            <updated>2015-01-26T00:00:00+01:00</updated>
             <id>http://eprev.org/2015/01/26/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+            <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/KirbySayshi&quot;&gt;Drew Petersen&lt;/a&gt; (Spotify) on “&lt;a href=&quot;https://www.youtube.com/watch?v=uNVP5jDOVAY&quot;&gt;Developing Games Using Data not Trees&lt;/a&gt;” (2014): cons and pros of using data-oriented approach in game development.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/danielespeset&quot;&gt;Daniel Espeset&lt;/a&gt; (Etsy) on “&lt;a href=&quot;https://vimeo.com/109912254&quot;&gt;The role of Front-end Infrastructure at Etsy&lt;/a&gt;” (2014): continuos deployment and experimentation-driven development, instruments that help to delete old code constantly.&lt;/li&gt;
 &lt;/ul&gt;
@@ -296,31 +204,28 @@ and the specificity distribution chart, which is very similar to the one you can
         <entry>
             <title>Open all modified files in editor</title>
             <link href="http://eprev.org/2014/12/10/open-all-modified-files/"/>
-            <updated>2014-12-10T00:00:00+03:00</updated>
+            <updated>2014-12-10T00:00:00+01:00</updated>
             <id>http://eprev.org/2014/12/10/open-all-modified-files</id>
             <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
 I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ vim -p $(git diff --name-only HEAD | sed &quot;s,$(git rev-parse --show-prefix),,&quot; | tr &quot;\n&quot; &quot; &quot;)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;vim -p &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | sed &lt;span class=&quot;s2&quot;&gt;&quot;s,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git rev-parse --show-prefix&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,,&quot;&lt;/span&gt; | tr &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code&gt;.bashrc&lt;/code&gt;,
-but adding this to &lt;code&gt;.gitconfig&lt;/code&gt; seems like a better option. This is what you need to add to your &lt;code&gt;~/.gitconfig&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt;,
+but adding this to &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitconfig&lt;/code&gt; seems like a better option. This is what you need to add to your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.gitconfig&lt;/code&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;[alias]
-open = &quot;!vim -c \&quot;cd $GIT_PREFIX\&quot; -p $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#39;)&quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+open &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;!vim -c &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;cd &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$GIT_PREFIX&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; -p &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | tr &lt;span class=&quot;s1&quot;&gt;'\\n'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;To run this command you need to type &lt;code&gt;git open&lt;/code&gt; in the terminal. Since all commands prefixed with an exclamation
+&lt;p&gt;To run this command you need to type &lt;code class=&quot;highlighter-rouge&quot;&gt;git open&lt;/code&gt; in the terminal. Since all commands prefixed with an exclamation
 point are executed from the top-level directory of a repository, we need to change working directory in Vim to
-the current one. And of course you can replace Vim by your favorite editor or event by &lt;code&gt;$EDITOR&lt;/code&gt;.&lt;/p&gt;
+the current one. And of course you can replace Vim by your favorite editor or event by &lt;code class=&quot;highlighter-rouge&quot;&gt;$EDITOR&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Besides, If you use sort of file watchers to perform certain operations when files change, then
 you would find the following command quite helpful. It changes modification time of all modified files at once.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;[alias]
-touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#39;)&quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;!touch -c &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | tr &lt;span class=&quot;s1&quot;&gt;'\\n'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;You can find more handy aliases in &lt;a href=&quot;https://github.com/eprev/dotfiles/blob/master/gitconfig&quot;&gt;.dotfiles&lt;/a&gt; of mine.&lt;/p&gt;
 </content>
@@ -329,9 +234,9 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#3
         <entry>
             <title>What’s worth watching</title>
             <link href="http://eprev.org/2014/11/23/whats-worth-watching/"/>
-            <updated>2014-11-23T00:00:00+03:00</updated>
+            <updated>2014-11-23T00:00:00+01:00</updated>
             <id>http://eprev.org/2014/11/23/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+            <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
   &lt;li&gt;Bred Victor (MIT) on “&lt;a href=&quot;https://vimeo.com/67076984&quot;&gt;Media for Thinking the Unthinkable&lt;/a&gt;” (2013): incredible ideas that will probably change the way we present and understand things.&lt;/li&gt;
   &lt;li&gt;Douglas Crockford on “&lt;a href=&quot;http://www.youtube.com/watch?v=bo36MrBfTk4&quot;&gt;The Better Parts&lt;/a&gt;” (2014): you aren’t supposed to use every feature of the language to write error-free programs. Douglas is sharing his favorite parts of JavaScript and coming ES6 standard.&lt;/li&gt;
   &lt;li&gt;Facebook’s way to Flux and React in “&lt;a href=&quot;http://www.youtube.com/watch?v=nYkdrAPrdcw&quot;&gt;Rethinking Web App Development at Facebook&lt;/a&gt;” (2014).&lt;/li&gt;
@@ -344,9 +249,9 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#3
         <entry>
             <title>What’s worth watching</title>
             <link href="http://eprev.org/2014/02/27/whats-worth-watching/"/>
-            <updated>2014-02-27T00:00:00+04:00</updated>
+            <updated>2014-02-27T00:00:00+01:00</updated>
             <id>http://eprev.org/2014/02/27/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+            <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
   &lt;li&gt;Pete Hunt (Facebook) on “&lt;a href=&quot;http://2013.jsconf.eu/speakers/pete-hunt-react-rethinking-best-practices.html&quot;&gt;React: rethinking best practices&lt;/a&gt;” (2013).&lt;/li&gt;
   &lt;li&gt;Steven Wittens on “&lt;a href=&quot;http://www.youtube.com/watch?v=Zkx1aKv2z8o&quot;&gt;Making things with maths&lt;/a&gt;” (2013).&lt;/li&gt;
   &lt;li&gt;Interesting talk on &lt;a href=&quot;https://vimeo.com/channels/cssday/70171266&quot;&gt;border-radius&lt;/a&gt; (2013) by Lea Verou.&lt;/li&gt;
@@ -359,9 +264,9 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#3
         <entry>
             <title>What’s worth watching</title>
             <link href="http://eprev.org/2014/01/22/whats-worth-watching/"/>
-            <updated>2014-01-22T00:00:00+04:00</updated>
+            <updated>2014-01-22T00:00:00+01:00</updated>
             <id>http://eprev.org/2014/01/22/whats-worth-watching</id>
-            <content type="html">&lt;ul class=&quot;post__content__list&quot;&gt;
+            <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
   &lt;li&gt;Tim Berglund (GitHub) on “&lt;a href=&quot;https://vimeo.com/49444883&quot;&gt;Advanced Git&lt;/a&gt;” (2012): low-level commands, interactive rebase, external diff &amp;amp; merge tools, reflog and reset.&lt;/li&gt;
   &lt;li&gt;Ilya Grigorik (Google) on “&lt;a href=&quot;http://www.youtube.com/watch?v=Il4swGfTOSM&quot;&gt;Breaking the 1000ms time to glass mobile barrier&lt;/a&gt;” (2013): how to build a mobile website that loads as quickly as possible.&lt;/li&gt;
   &lt;li&gt;Parikh (Facebook) on “&lt;a href=&quot;http://www.youtube.com/watch?v=oodS71YtkGU&quot;&gt;Building for a billion users&lt;/a&gt;” (2012).&lt;/li&gt;
@@ -374,22 +279,22 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr &#39;\\n&#39; &#39; &#3
         <entry>
             <title>Chrome tab tooltips</title>
             <link href="http://eprev.org/2014/01/19/chrome-tab-tooltips/"/>
-            <updated>2014-01-19T00:00:00+04:00</updated>
+            <updated>2014-01-19T00:00:00+01:00</updated>
             <id>http://eprev.org/2014/01/19/chrome-tab-tooltips</id>
             <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; /&gt;&lt;/p&gt;
 </content>
         </entry>
     
         <entry>
             <title>Why waiting is torture</title>
             <link href="http://eprev.org/2013/09/24/why-waiting-is-torture/"/>
-            <updated>2013-09-24T00:00:00+04:00</updated>
+            <updated>2013-09-24T00:00:00+02:00</updated>
             <id>http://eprev.org/2013/09/24/why-waiting-is-torture</id>
             <content type="html">&lt;p&gt;This is excerpts from “&lt;a href=&quot;http://www.nytimes.com/2012/08/19/opinion/sunday/why-waiting-in-line-is-torture.html&quot;&gt;Why Waiting Is Torture&lt;/a&gt;” by Alex Stone, The New York Times.&lt;/p&gt;
 
@@ -413,86 +318,68 @@ at baggage claim dropped to near zero.&lt;/p&gt;
         <entry>
             <title>Mongo shell as an interactive JavaScript interpreter</title>
             <link href="http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/"/>
-            <updated>2013-09-22T00:00:00+04:00</updated>
+            <updated>2013-09-22T00:00:00+02:00</updated>
             <id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</id>
-            <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;
+            <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code class=&quot;highlighter-rouge&quot;&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;
 
-&lt;pre class=&quot;javascript&quot;&gt;&lt;code&gt;$ mongo --nodb
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mongo --nodb
 MongoDB shell version: 2.2.0
-&amp;gt; var user = {name: &quot;Anton Eprev&quot;, age: 27}
-&amp;gt; user
-{ &quot;name&quot; : &quot;Anton Eprev&quot;, &quot;age&quot; : 27 }
-&amp;gt; print(user)
-[object Object]
-&amp;gt; printjson(user)
-{ &quot;name&quot; : &quot;Anton Eprev&quot;, &quot;age&quot; : 27 }
-&amp;gt; var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-&amp;gt; print(numbers)
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;var user &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;name: &lt;span class=&quot;s2&quot;&gt;&quot;Anton Eprev&quot;&lt;/span&gt;, age: 27&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;user
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Anton Eprev&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;age&quot;&lt;/span&gt; : 27 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;object Object]
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;printjson&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Anton Eprev&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;age&quot;&lt;/span&gt; : 27 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;var numbers &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1, 2, 3, 4, 5, 6, 7, 8, 9]
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 1,2,3,4,5,6,7,8,9
-&amp;gt; printjson(numbers)
-[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;printjson&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;And of course the shell allows you to use loops, user functions and etc.:&lt;/p&gt;
 
-&lt;pre class=&quot;javascript&quot;&gt;&lt;code&gt;&amp;gt; for (var i in user) { print(i, user[i]) }
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;var i &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;i, user[i]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 name Anton Eprev
 age 27
-&amp;gt; function add(x){ return function(y){ return x + y } }
-&amp;gt; add(3)(4)
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;add&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return function&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;x + y &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;add&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 7
-&amp;gt; {
-... for (var i = 0; i &amp;lt; 10; i++)
-...     print(i)
-... }
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+... &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;var i &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0; i &amp;lt; 10; i++&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+...     print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+... &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 0
 1
 …
-9
-&lt;/code&gt;&lt;/pre&gt;
+9&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;You can also use the &lt;code&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;
+&lt;p&gt;You can also use the &lt;code class=&quot;highlighter-rouge&quot;&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;
 
-&lt;pre class=&quot;javascript&quot;&gt;&lt;code&gt;&amp;gt; var profile = cat(&#39;.profile&#39;)
-&amp;gt; profile
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-…
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;var profile &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; cat&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.profile'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;profile
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/local/bin:/opt/local/sbin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+…&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;You may even explore global scope by executing &lt;code&gt;printjson(this)&lt;/code&gt; and find out the following functions:&lt;/p&gt;
+&lt;p&gt;You may even explore global scope by executing &lt;code class=&quot;highlighter-rouge&quot;&gt;printjson(this)&lt;/code&gt; and find out the following functions:&lt;/p&gt;
 
-&lt;pre class=&quot;javascript&quot;&gt;&lt;code&gt;pwd()
-ls()
-cd()
-mkdir()
-hostname()
-sleep()
-hex_md5()
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;hex_md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;And finally, you can run a JavaScript file using MongoDB shell.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ cat hello.js
-print(&quot;Hello World!&quot;);
-$ mongo --nodb hello.js
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cat hello.js
+print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mongo --nodb hello.js
 MongoDB shell version: 2.2.0
-Hello World!
-&lt;/code&gt;&lt;/pre&gt;
+Hello World!&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Happy coding =]&lt;/p&gt;
-</content>
-        </entry>
-    
-        <entry>
-            <title>Is (a == b) equivalent to (!a == !b)?</title>
-            <link href="http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)/"/>
-            <updated>2013-06-02T00:00:00+04:00</updated>
-            <id>http://eprev.org/2013/06/02/is-(a==b)-equivalent-to-(!a==!b)</id>
-            <content type="html">&lt;p&gt;That’s not always true for JavaScript. Its comparison algorithm is quite complicated (see section &lt;a href=&quot;http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3&quot;&gt;&lt;em&gt;11.9.3 The Abstract Equality Comparison Algorithm&lt;/em&gt;&lt;/a&gt; of ECMA-262 specification). And it returns &lt;code&gt;false&lt;/code&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and type of &lt;code&gt;b&lt;/code&gt; is other than Null or Undefined. Thus &lt;code&gt;(a == b)&lt;/code&gt; is &lt;strong&gt;false&lt;/strong&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; is equal to &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;What’s happening to &lt;code&gt;(!a == !b)&lt;/code&gt;? The logical Not operator converts its operand to Boolean and then negates it. Null values for Boolean becomes to false. Thus &lt;code&gt;(!a == !b)&lt;/code&gt; is &lt;strong&gt;true&lt;/strong&gt; if &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; is equal to &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;That’s it. Be careful with &lt;code&gt;null&lt;/code&gt; values.&lt;/p&gt;
 </content>
         </entry>
     
