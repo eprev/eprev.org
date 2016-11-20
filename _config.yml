@@ -30,7 +30,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
-tag_title_prefix: "Tag «"
-tag_title_suffix: "»"
 tag_dir: tags
 

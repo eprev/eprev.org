@@ -193,33 +193,21 @@ a {
     }
 
 .archive {
-    display: table;
     list-style: none;
     padding: 0;
 }
 .archive__item {
-    display: table-row;
+    display: block;
+    margin-bottom: 1.5rem; /* Vertical rhythm */
 }
 .archive__date {
-    display: table-cell;
+    font-size: 0.92rem; /* Traditional scale [3] */
+    line-height: 1.5rem;
     text-transform: uppercase;
-    padding: 0 1rem 1.5rem 0; /* Vertical rhythm */
-}
-.archive__date-md {
-    white-space: nowrap;
-}
-.archive__date-y::before {
-    content: "\a";
-    white-space: pre-line;
 }
 .archive__header {
-    display: table-cell;
-    padding-bottom: 1.5rem; /* Vertical rhythm */
-}
-.archive__header-link {
     font-size: 1.16rem;  /* Traditional scale [3] */
     line-height: 1.5rem; /* Vertical rhythm */
-    vertical-align: bottom; /* The "baseline" affects the vertical rhythm */
 }
 
 .tags {

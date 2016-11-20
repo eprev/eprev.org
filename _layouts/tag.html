@@ -1,17 +1,14 @@
 {% include header.html %}
-<h1>{{page.title}}</h1>
+<h1>{{page.tag}}</h1>
 <ul class="archive">
     {% for post in site.posts %}
         {% for tag in post.tags %}
             {% if tag == page.tag %}
                 <li class="archive__item">
-                    <span class="archive__date g--shady">
-                        <span class="archive__date-md">{{ post.date | date:"%B %-d" }},</span/>
-                        <span class="archive__date-y">{{ post.date | date:"%Y" }}</span/>
-                    </span>
-                    <span class="archive__header">
-                        <a class="archive__header-link" href="{{ post.url }}">{{ post.title }}</a>
-                    </span>
+                    <div class="archive__date g--shady">{{ post.date | date:"%B %-d, %Y" }}</div>
+                    <div class="archive__header">
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                    </div>
                 </li>
             {% endif %}
         {% endfor %}
