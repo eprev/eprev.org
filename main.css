@@ -72,7 +72,7 @@ ul, ol, p, pre, blockquote {
 
 blockquote {
     font-style: italic;
-    border-left: 4px solid #d6d6d6;
+    border-left: 4px solid #eee;
     padding-left: 1rem;
 }
 ul {
@@ -325,6 +325,9 @@ a {
 .theme--dark .post__content pre code {
     background: #333;
     box-shadow: 1.5rem 0 #333, -1.5rem 0 #333;
+}
+.theme-dark blockquote {
+    border-left-color: #666;
 }
 .theme--dark .post__content img {
     background-color: #fff; /* Replaces transparent color */
