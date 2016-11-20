@@ -22,4 +22,4 @@ excerpt: List of favorite talks and performances.
 - [Guy Podjarny](https://twitter.com/guypod) (Snyk) & [Assaf Hefet](https://twitter.com/assafhefetz) (Snyk)
   on “[Tracking Vulnerabilities in Your Third Party Code](https://youtu.be/iXA14OFXxZA)” (2015): these guys built a tool
   that helps you track and fix vulnerabilities in your Node.js application dependencies.
-{:.post__content__list}
+{:.post__content-list}

@@ -8,9 +8,9 @@ excerpt: How to change automatically OS X’s network location based on the name
 
 You might have heard about [Network locations](https://support.apple.com/en-us/HT202480) in OS X.
 It allows you to have different network configurations and quickly switch between them. For instance,
-if you must to use a corporate proxy server at work and you don’t need it when you get back home,
-you might create a new location named “Work” (with any necessary network proxy settings) and keep
-the default “Automatic” location for home. But still, you will need to switch between those locations
+if you have to use a corporate proxy server at work and you don’t need it when you get back home,
+you can create a new location named “Work” (with any necessary network proxy settings) and keep
+the default “Automatic” location for home. But still, you would need to switch between those locations
 manually. How annoying!
 
 Wouldn’t it be great if OS X could switch location automatically based on the name of Wi-Fi network
@@ -30,9 +30,9 @@ the default location “Automatic” will be used.
 And of course we need a [tool](https://github.com/eprev/locationchanger) for doing that.
 The installation process is extremely easy:
 
-~~~
+{% highlight shell %}
 $ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
-~~~
+{% endhighlight %}
 
 It will ask only for a root password to install `locationchanger`. Now, every time you connect to
 a wireless network it will change the location to either the corresponding or the default one.
@@ -41,21 +41,21 @@ That’s not all. We still want to change Security Preferences automatically whe
 has been changed. Let’s create scripts that will be executed every time it happens. One is
 for “Corp Wi-Fi” location:
 
-~~~
+{% highlight shell %}
 #!/usr/bin/env bash
 
 # Require password immediately after sleep or screen saver
 osascript -e 'tell application "System Events" to set require password to wake of security preferences to true'
-~~~
+{% endhighlight %}
 
 Another is for the default location:
 
-~~~
+{% highlight shell %}
 #!/usr/bin/env bash
 
 # Don’t require password after sleep or screen saver
 osascript -e 'tell application "System Events" to set require password to wake of security preferences to false'
-~~~
+{% endhighlight %}
 
 Save them as *~/.locations/Corp Wi-Fi* and *~/.locations/Automatic* respectively. Voilà!
 You’re not limited by changing only the security preferences, you can do whatever

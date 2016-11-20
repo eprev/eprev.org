@@ -1,0 +1,374 @@
+/* vim: set fdm=marker: */
+
+/* Normalize {{{ */
+
+body {
+    margin: 0; /* Remove default margin [1]. */
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* Corrects font family not being inherited in all browsers [1]. */
+    font-size: 100%; /* Corrects font size not being inherited in all browsers [1]. */
+    margin: 0; /* Addresses margins set differently in Firefox 4+, Safari 5, and Chrome [1]. */
+}
+
+/*
+  Resources:
+  1. Normalize.css (http://necolas.github.io/normalize.css/)
+*/
+
+/* }}} */
+
+/* Typography {{{ */
+
+html {
+    font-size: 18px;
+    line-height: 1.5; /* The line height (1.5rem) sets the vertical rhythm. */
+}
+
+body {
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; /* 90% Mac  (Optima) & 54% PC (Candara) [5] */
+    color: #222;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1.5rem; /* Vertical rhythm */
+    font-weight: normal;
+    text-rendering: optimizeLegibility; /* Enables a font’s native kerning and optional ligatures. */
+    page-break-inside: avoid;
+}
+h1 {
+    font-size: 2rem;   /* Traditional scale [3] */
+    line-height: 3rem; /* Vertical rhythm */
+    text-transform: uppercase;
+}
+h2 {
+    font-size: 1.75rem; /* Traditional scale [3] */
+    line-height: 3rem;  /* Vertical rhythm */
+}
+h3 {
+    font-size: 1.5rem;   /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
+}
+h4 {
+    font-size: 1.3rem;   /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
+}
+h5 {
+    font-size: 1.16rem;  /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
+}
+h6 {
+    font-size: 1rem; /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
+}
+
+ul, ol, p, pre, blockquote {
+    margin: 1.5rem 0; /* Vertical rhythm */
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 4px solid #eee;
+    padding-left: 1rem;
+}
+ul {
+    list-style-position: outside;
+    list-style-type: square;
+    padding-left: 0;
+}
+p {
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto; /*  Automatically break words at appropriate hyphenation points. */
+}
+code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.92rem; /* Traditional scale [3] */
+    line-height: 1; /* Not to change the line-height of the paragraph. */
+}
+abbr {
+    letter-spacing: .1em; /* Letterspace abbreviations
+                             (http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.6/). */
+}
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+}
+
+/*
+  Resources:
+  1. The Ultimate Guide to Readable Web Typography
+     (http://www.pearsonified.com/2011/12/golden-ratio-typography.php)
+  2. The Elements of Typographic Style Applied to the Web
+     (http://webtypography.net/toc)
+  3. Typograph – Scale & Rhythm
+     (http://lamb.cc/typograph/)
+  4. Revised Font Stack
+     (http://www.awayback.com/revised-font-stack/)
+*/
+/* }}} */
+
+/* Layout {{{ */
+
+.g--shady {
+    color: #555;
+}
+
+.page {
+    max-width: 980px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+}
+.page__sidebar {
+    width: 30%;
+    float: left;
+    padding: 0 1rem 0 1.5rem; /* Left margin is bigger due to the outside position of the menu items */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.page__content {
+    margin-left: 30%;
+    box-sizing: border-box;
+    padding: 0 3rem 0 1rem; /* Right margin is bigger due to 1.5rem-wide box-shadow of the code elements */
+}
+
+/*h1,h2*/.page__user-name {
+    font-size: 2rem;   /* H1 */
+    line-height: 3rem; /* H1 */
+    text-transform: none;
+}
+
+/*a*/.page__user-name-link {
+    border-bottom: 0;
+}
+
+.page__user-picture {
+    height: calc( 6 * 1.5rem ); /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
+                                   and the picture will remain invisible - yay! */
+    background-repeat: no-repeat;
+    /* background-image: base64 {{{ */
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDg0IiBoZWlnaHQ9IjU3MCIgdmlld0JveD0iMCAwIDQ4NCA1NzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTM5IDUwM3Y2N2gzNDN2LTY3SDM5eiIgZmlsbD0iI0ZFRkZGRiIvPjxwYXRoIGQ9Ik0xMC41MDIgNTY5LjV2LTQxYzAtMjggMzcuMjktNDEuMDQgMzcuMjktNDEuMDRMMTI3LjUgNTU2LjVIMTUwdjEzSDEwLjUwMnpNMzY3IDQzN2gyN2MxOSAwIDY1LjUgMCA4NSA4M3Y1MEgzNjdWNDM3ek0yNTUgNTUzLjVoMzN2MTZoLTMzdi0xNnoiIGZpbGw9IiNGRjI2MDAiLz48cGF0aCBkPSJNMzkgMTkxdjI4MmMwIDE5LjUgNTEuNSA4NCA4NyA4NGgxNzFjNDkgMCA4NS02Ni41IDg1LTg0VjE5MWMwLTQtNDgtODAtNTItODBIOTAuNWMtNCAwLTUxLjUgODAtNTEuNSA4MCIgZmlsbD0iI0ZGRDQwMCIvPjxwYXRoIGQ9Ik0zOCAyNjguOTJ2LTEyMi41YzAtMzQuNSAyMi43MzYtMzMuNjg3IDUzLTM0LTIxLjUuNS0yNy41LTI4LjUtMjcuNS00My41IDAtMTQuNSAwLTQxLjUgMjktNTUuNSAyOC41LTE0IDY5LjUgNCA2OS41IDRzLTIwLjUgMTgtMzQgNTEuNWMxLjUgOS41IDkgNCA5IDRzMTMtNDEuNSAxMDAtNjNjOTUuNS05LjUgMTk3LTE2LjUgMjQ2LjUgMC0xOS41IDY2LjUtMTAxIDEwMy0xNDcgMTAyIDQ2IDEgNDYgMzQuNSA0NiAzNC41djEyMi41aC02NHYtMTU3YzAgOS0yMTYuNSA3LjUtMjE2LjUgNy41djE1MGMtMzAtLjUtNjQtLjUtNjQtLjV6IiBmaWxsPSIjRkYyNjAwIi8+PHBhdGggZD0iTTQxNyAzNDJ2LTU1YzAtMzctMzYtMzctNDAtMzdoLTE1Yy00IDAtOCA0LTggOHYxMTNjMCA0IDQgOCA4IDhoMTVjNCAwIDQwIDAgNDAtMzdNMCAyODd2NTVjMCAzNyAzNiAzNyA0MCAzN2gxNWM0IDAgOC00IDgtOFYyNThjMC00LTQtOC04LThINDBjLTQgMC00MCAwLTQwIDM3IiBmaWxsPSIjRkZENDAwIi8+PHBhdGggZD0iTTE1MCA0MzZ2MTdoMTE2di0xN0gxNTAiIGZpbGw9IiM3NzBCMDAiLz48cGF0aCBkPSJNMjc5IDM0MmMtMjUuNSAwLTQ2LTIwLjUtNDYtNDZzMjAuNS00NiA0Ni00NiA0NiAyMC41IDQ2IDQ2LTIwLjUgNDYtNDYgNDZtLTE0MiAwYy0yNS41IDAtNDYtMjAuNS00Ni00NnMyMC41LTQ2IDQ2LTQ2IDQ2IDIwLjUgNDYgNDYtMjAuNSA0Ni00NiA0NiIgZmlsbD0iI0ZFRkZGRiIvPjxwYXRoIGQ9Ik0xMzYuNSAyOTZjLTEzIDAtMjMuNS0xMC41LTIzLjUtMjMuNXMxMC41LTIzLjUgMjMuNS0yMy41IDIzLjUgMTAuNSAyMy41IDIzLjUtMTAuNSAyMy41LTIzLjUgMjMuNW0xNDMgMGMtMTMgMC0yMy41LTEwLjUtMjMuNS0yMy41czEwLjUtMjMuNSAyMy41LTIzLjUgMjMuNSAxMC41IDIzLjUgMjMuNS0xMC41IDIzLjUtMjMuNSAyMy41IiBmaWxsPSIjQUFENkQ3Ii8+PHBhdGggZD0iTTEzNy41IDM3M2MtNDIgMC03Ni41LTM0LjUtNzYuNS03Ni41Uzk1LjUgMjIwIDEzNy41IDIyMGMzMi4wMDMgMCA1OS42NSAyMC4wMyA3MSA0OC4xNDdDMjE5Ljg1IDI0MC4wMyAyNDcuNDk3IDIyMCAyNzkuNSAyMjBjNDIgMCA3Ni41IDM0LjUgNzYuNSA3Ni41UzMyMS41IDM3MyAyNzkuNSAzNzNjLTMyLjAwMyAwLTU5LjY1LTIwLjAzLTcxLTQ4LjE0N0MxOTcuMTUgMzUyLjk3IDE2OS41MDMgMzczIDEzNy41IDM3M20tLjUtMzFjMjUuNSAwIDQ2LTIwLjUgNDYtNDZzLTIwLjUtNDYtNDYtNDYtNDYgMjAuNS00NiA0NiAyMC41IDQ2IDQ2IDQ2bTE0MiAwYzI1LjUgMCA0Ni0yMC41IDQ2LTQ2cy0yMC41LTQ2LTQ2LTQ2LTQ2IDIwLjUtNDYgNDYgMjAuNSA0NiA0NiA0NiIgZmlsbD0iIzc3MEIwMCIvPjwvZz48L3N2Zz4=);
+    /* }}} */
+    background-size: contain; /* iOS Safari doesn't support background-size in background shorthand property */
+    background-position: center;
+    margin-bottom: 1.5rem; /* Vertical rhythm */
+}
+
+.post__header {
+    margin-bottom: 0;
+}
+.post__content ul,
+.post__content p {
+    margin-top: 0;
+}
+
+.post__content figure.highlight {
+    margin: 0;
+}
+.post__content pre code {
+    position: relative;
+    display: block;
+    padding: 1.5rem 0; /* Vertical rhythm */
+    line-height: 1.5;  /* Restore line-height for the block elements */
+    overflow: auto;
+    color: #fff;
+    background: #444;
+    box-shadow: 1.5rem 0 #444, -1.5rem 0 #444;
+}
+
+.post__meta {
+    text-transform: uppercase;
+    font-size: 0.83rem;  /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
+    margin: .75rem 0;
+}
+
+/*ul*/.post__content-list li {
+    margin-bottom: 1.5rem; /* Vertical rhythm */
+}
+.post__content img {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 100%; /* Makes images to scale properly */
+}
+
+.post-special-home {
+    position: relative;
+    font-size: 1.5rem;  /* H3 */
+    line-height: 1.5rem; /* H3 */
+}
+    .post-special-home::before {
+        content: '\2039';
+        position: absolute;
+        left: -1rem;
+    }
+
+.archive {
+    list-style: none;
+    padding: 0;
+}
+.archive__item {
+    display: block;
+    margin-bottom: 1.5rem; /* Vertical rhythm */
+}
+.archive__date {
+    font-size: 0.92rem; /* Traditional scale [3] */
+    line-height: 1.5rem;
+    text-transform: uppercase;
+}
+.archive__header {
+    font-size: 1.16rem;  /* Traditional scale [3] */
+    line-height: 1.5rem; /* Vertical rhythm */
+}
+
+.tags {
+    list-style: none;
+    padding: 0;
+}
+.tags__item {
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    line-height: 1.5rem; /* Vertical rhythm */
+    font-size: 1.16rem;  /* Traditional scale [3] */
+    display: inline-block;
+}
+    .tags__item::after {
+        content: '\a0\25aa\a0';
+    }
+    .tags__item:last-child::after {
+        content: '';
+    }
+
+@media (max-width: 979px) {
+    ul {
+        padding-left: 1rem; /* There's no space on the left for markers */
+    }
+    .page {
+        padding-top: 0;
+    }
+    .page__sidebar {
+        float: none;
+        width: auto;
+        padding-left: 1rem;
+        color: #fff;
+        background-color: #444;
+        margin-bottom: 1rem; /* This breaks vertical rhythm, though looks much better */
+    }
+    .page__content {
+        margin-left: auto;
+        padding-right: 1rem;
+    }
+    .page__user-picture-story {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem; /* Vertical rhythm */
+    }
+    .page__user-picture {
+        height: calc( 3 * 1.5rem ); /* Vertical rhythm */
+        width: calc( 3 * 1.5rem );
+        flex-shrink: 0;
+        margin-bottom: 0;
+        padding-right: 1rem;
+    }
+    .page__user-name {
+        display: none;
+    }
+    /*ul*/.page__nav {
+        padding-left: 0;
+        order: -1;
+    }
+    /*ul*/.page__nav li {
+        display: inline-block;
+    }
+    /*ul*/.page__nav li::after {
+        content: '\a0\25aa\a0';
+    }
+    /*ul*/.page__nav li:last-child::after {
+        content: '';
+    }
+    .post-special-home::before {
+        position: static;
+    }
+    .archive__header {
+        line-height: 2rem; /* This breaks vertical rhythm, though looks much better */
+    }
+
+}
+
+@media (max-width: 667px) {
+    /* iPhone 6 375x667 */
+    html {
+        font-size: 16px;
+    }
+}
+@media (max-width: 359px) {
+    /* Galaxy S5 360x640  */
+    html {
+        font-size: 14px;
+    }
+}
+
+/* }}} */
+
+/* Theme {{{ */
+.theme--dark body {
+    background-color: #222;
+    color: #fff;
+}
+.theme--dark .g--shady {
+    color: #ccc;
+}
+.theme--dark .post__content pre code {
+    background: #333;
+    box-shadow: 1.5rem 0 #333, -1.5rem 0 #333;
+}
+.theme-dark blockquote {
+    border-left-color: #666;
+}
+.theme--dark .post__content img {
+    background-color: #fff; /* Replaces transparent color */
+}
+/* }}} */
+
+/* Highlighter {{{ */
+.highlight .c { font-style: italic; color: #999; } /* Comment */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .cm { font-style: italic } /* Comment.Multiline */
+.highlight .c1 { font-style: italic } /* Comment.Single */
+.highlight .cs { font-style: italic } /* Comment.Special */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gh { font-weight: bold } /* Generic.Heading */
+.highlight .gp { font-weight: bold; color: #999; } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { font-weight: bold } /* Generic.Subheading */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { font-weight: bold } /* Keyword.Namespace */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .s { font-style: italic } /* Literal.String */
+.highlight .nc { font-weight: bold } /* Name.Class */
+.highlight .ni { font-weight: bold } /* Name.Entity */
+.highlight .ne { font-weight: bold } /* Name.Exception */
+.highlight .nn { font-weight: bold } /* Name.Namespace */
+.highlight .nt { font-weight: bold } /* Name.Tag */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .sb { font-style: italic } /* Literal.String.Backtick */
+.highlight .sc { font-style: italic } /* Literal.String.Char */
+.highlight .sd { font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { font-style: italic } /* Literal.String.Double */
+.highlight .se { font-weight: bold; font-style: italic } /* Literal.String.Escape */
+.highlight .sh { font-style: italic } /* Literal.String.Heredoc */
+.highlight .si { font-weight: bold; font-style: italic } /* Literal.String.Interpol */
+.highlight .sx { font-style: italic } /* Literal.String.Other */
+.highlight .sr { font-style: italic } /* Literal.String.Regex */
+.highlight .s1 { font-style: italic } /* Literal.String.Single */
+.highlight .ss { font-style: italic } /* Literal.String.Symbol */
+/* }}} */
+

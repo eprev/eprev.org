@@ -1,27 +1,14 @@
 {
-    "name": "eprev.github.io",
-    "version": "0.1.0",
-    "author": "Anton Eprev <a.eprev@gmail.com>",
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:eprev/eprev.github.io.git"
-    },
-    "devDependencies": {
-        "grunt" : "0.4.1",
-        "grunt-contrib-concat": "0.3.0",
-        "grunt-contrib-jshint": "0.6.4",
-        "grunt-contrib-watch" : "0.4.4",
-        "grunt-contrib-sass"  : "0.5.0",
-        "grunt-contrib-copy"  : "0.8.0",
-        "grunt-contrib-clean" : "0.6.0",
-        "grunt-contrib-uglify": "0.2.4",
-        "grunt-csso": "0.5.0"
-    },
-    "scripts": {
-        "test": "grunt travis --verbose"
-    },
-    "private": true,
-    "engines": {
-        "node": ">= 0.8.0"
-    }
+  "name": "eprev.org",
+  "version": "2.0.0",
+  "description": "That’s my spot.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eprev/eprev.org.git"
+  },
+  "author": "Anton Eprev <a.eprev@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/eprev/eprev.org/issues"
+  },
+  "homepage": "http://eprev.org"
 }

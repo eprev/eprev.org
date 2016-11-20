@@ -1,25 +1,39 @@
-timezone: Europe/Moscow
-lsi: false
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing these this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
-safe: false
-markdown: kramdown
-highlighter: pygments
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Anton Eprev
+description: >
+  My name’s Anton Eprev and I’m a web developer working
+  as front-end engineer at Booking.com in Amsterdam, Netherlands.
+
+twitter: eprev
+
+url: http://eprev.org
+
+timezone: Europe/Amsterdam
 permalink: /:year/:month/:day/:title/
-tag_title_prefix: "Tag «"
-tag_title_suffix: "»"
+
+# Build settings
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - package.json
+  - node_modules
+
 tag_dir: tags
 
-
-exclude: [Makefile, package.json, Gruntfile.js, .travis.yml, .jshintrc, .gitignore, .editorconfig, node_modules, Sketch.sketch]
-
-title: "Anton Eprev"
-description: "Hello. My name’s Anton Eprev and I’m a web developer working as front-end engineer at Booking.com in Amsterdam, Netherlands."
-public_host: eprev.org
-
-
-prose:
-    rooturl: _posts
-    metadata:
-        "_posts": |
-            layout: post
-            published: true
