@@ -175,8 +175,9 @@ a {
     padding: 1.5rem 0; /* Vertical rhythm */
     line-height: 1.5;  /* Restore line-height for the block elements */
     overflow: auto;
-    background: #fafafa;
-    box-shadow: 1.5rem 0 #fafafa, -1.5rem 0 #fafafa;
+    color: #fff;
+    background: #444;
+    box-shadow: 1.5rem 0 #444, -1.5rem 0 #444;
 }
 
 .post__meta {
@@ -188,6 +189,11 @@ a {
 
 /*ul*/.post__content-list li {
     margin-bottom: 1.5rem; /* Vertical rhythm */
+}
+.post__content img {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 100%; /* Makes images to scale properly */
 }
 
 .post-special-home {
@@ -316,5 +322,8 @@ a {
 .theme--dark .post__content pre code {
     background: #333;
     box-shadow: 1.5rem 0 #333, -1.5rem 0 #333;
+}
+.theme--dark .post__content img {
+    background-color: #fff; /* Replaces transparent color */
 }
 /* }}} */

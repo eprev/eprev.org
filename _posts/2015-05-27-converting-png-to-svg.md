@@ -34,7 +34,7 @@ $ brew install imagemagick
 ~~~
 
 Alright. Let's say you’ve got this image (by [Nation of Amanda](http://nationofamanda.tumblr.com/)) in PNG format with transparency:
-![‘Nap all day, sleep all night, party never’ by Nation of Amanda](/assets/posts/party-never.png)
+![‘Nap all day, sleep all night, party never’ by Nation of Amanda]({{ site_url }}/images/posts/party-never.png)
 All you need to do is to run this:
 
 ~~~
@@ -46,5 +46,5 @@ $ convert -alpha remove party-never.png pgm: \
 It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of `mkbitmap` that transforms the input with highpass filtering and thresholding into a suitable for the `potrace` program format, that finally generates SVG file. You can play around with highpass filtering (`-f`) and thresholding (`-t`) values until you have the final look that you want.
 
 As a result you might have now:
-![‘Nap all day, sleep all night, party never’ by Nation of Amanda](/assets/posts/party-never.svg)
+![‘Nap all day, sleep all night, party never’ by Nation of Amanda]({{ site_url }}/images/posts/party-never.svg)
 That’s it.
