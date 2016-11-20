@@ -257,6 +257,9 @@ a {
         float: none;
         width: auto;
         padding-left: 1rem;
+        color: #fff;
+        background-color: #444;
+        margin-bottom: 1rem; /* This breaks vertical rhythm, though looks much better */
     }
     .page__content {
         margin-left: auto;
