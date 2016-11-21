@@ -178,9 +178,8 @@ a {
     padding: 1.5rem 0; /* Vertical rhythm */
     line-height: 1.5;  /* Restore line-height for the block elements */
     overflow: auto;
-    color: #fff;
-    background: #444;
-    box-shadow: 1.5rem 0 #444, -1.5rem 0 #444;
+    background: #f9f9f9;
+    box-shadow: 1.5rem 0 #f9f9f9, -1.5rem 0 #f9f9f9;
 }
 
 .post__meta {
@@ -258,7 +257,7 @@ a {
         width: auto;
         padding-left: 1rem;
         color: #fff;
-        background-color: #444;
+        background-color: #3b3b46;
         margin-bottom: 1rem; /* This breaks vertical rhythm, though looks much better */
     }
     .page__content {
