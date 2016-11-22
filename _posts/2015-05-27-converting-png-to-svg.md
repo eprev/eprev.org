@@ -22,7 +22,7 @@ The manual installation is super easy, however. For OS X do the following:
 {% highlight shell %}
 $ cd potrace-1.12.mac-i386
 $ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
-$ sudp cp mkbitmap potrace /usr/local/bin
+$ sudo cp mkbitmap potrace /usr/local/bin
 {% endhighlight %}
 
 ### Usage
