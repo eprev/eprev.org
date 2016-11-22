@@ -324,7 +324,11 @@ a {
 .theme--dark .g--shady {
     color: #ccc;
 }
+.theme--dark code {
+    font-weight: bold;
+}
 .theme--dark .post__content pre code {
+    font-weight: normal;
     background: #333;
     box-shadow: 1.5rem 0 #333, -1.5rem 0 #333;
 }
