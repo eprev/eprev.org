@@ -395,9 +395,6 @@ a {
 .theme--dark code {
     font-weight: bold;
 }
-.theme--dark .page__sidebar {
-    box-shadow: 0 1px #333;
-}
 .theme--dark .post__content pre code {
     font-weight: normal;
     background: #262626;
@@ -411,5 +408,10 @@ a {
 }
 .theme--dark .post__content img {
     background-color: #fff; /* Replaces transparent color */
+}
+@media (max-width: 979px) {
+    .theme--dark .page__sidebar {
+        box-shadow: 0 1px #333;
+    }
 }
 /* }}} */
