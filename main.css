@@ -27,6 +27,10 @@ textarea {
 html {
     font-size: 18px;
     line-height: 1.5; /* The line height (1.5rem) sets the vertical rhythm. */
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    text-size-adjust: none;
 }
 
 body {
