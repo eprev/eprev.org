@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2016-11-21T22:05:19+01:00</updated>
+    <updated>2016-11-22T22:34:33+01:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -153,7 +153,7 @@ you want to…&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;potrace-1.12.mac-i386
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap.1 potrace.1 /usr/share/man/
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudp cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
 
