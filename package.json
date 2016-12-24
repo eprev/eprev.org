@@ -10,5 +10,12 @@
   "bugs": {
     "url": "https://github.com/eprev/eprev.org/issues"
   },
-  "homepage": "http://eprev.org"
+  "homepage": "http://eprev.org",
+  "scripts": {
+      "start": "webpack --config webpack.config.js",
+      "watch": "webpack --progress --watch webpack.config.js"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.0-rc.2"
+  }
 }

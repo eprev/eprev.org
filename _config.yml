@@ -33,7 +33,9 @@ exclude:
   - Gemfile.lock
   - Makefile
   - package.json
+  - npm-debug.log
   - node_modules
+  - js/src
 
 tag_dir: tags
 

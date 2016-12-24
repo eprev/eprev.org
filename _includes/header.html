@@ -4,7 +4,7 @@
 {% else %}
     {% assign site_url = "" %}
 {% endif %}
-<html lang="en" class="theme--dark">
+<html lang="en" class="theme--light">
     <meta charset="utf-8">
     {% if page.title %}
         <title>{{ page.title }} – {{ site.title }}</title>
@@ -21,6 +21,10 @@
         <style>{% include main.min.css %}</style>
     {% else %}
         <link href="{{ site_url }}/main.css" rel="stylesheet" media="all">
+    {% endif %}
+    {% if jekyll.environment == "production" %}
+    {% else %}
+        <script src="{{ site_url }}/main.js" defer></script>
     {% endif %}
     <link rel="shortcut icon" href="{{ site_url }}/images/icon.png">
     <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ site_url }}/atom.xml">
