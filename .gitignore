@@ -2,3 +2,5 @@ npm-debug.log
 _site
 assets
 _data/manifest.json
+node_modules
+
