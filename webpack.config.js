@@ -16,11 +16,14 @@ module.exports = (options) => {
     );
   }
   if (!options.build) {
-    fs.unlinkSync(manifestFileName);
+    try {
+        fs.unlinkSync(manifestFileName);
+    } catch (e) {}
   }
   return {
     devServer: {
       contentBase: path.join(__dirname, '_site'),
+      // host: '192.168.1.100',
       clientLogLevel: 'none',
       compress: true,
       port: 4000,

@@ -19,8 +19,7 @@ build:
 	$(HTML) $(HTMLFLAGS) --input-dir _site --file-ext html --output-dir _site
 
 reset:
-	git --git-dir=_site/.git reset --hard
-	git --git-dir=_site/.git checkout gh-pages
+	git --git-dir=_site/.git reset --hard origin/gh-pages
 	git --git-dir=_site/.git pull origin gh-pages
 
 deploy: reset build
