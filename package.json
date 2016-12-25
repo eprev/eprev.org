@@ -12,10 +12,14 @@
   },
   "homepage": "http://eprev.org",
   "scripts": {
-      "start": "webpack --config webpack.config.js",
-      "watch": "webpack --progress --watch webpack.config.js"
+    "start": "webpack-dev-server --env.dev",
+    "build": "webpack --env build",
+    "watch-build": "webpack --progress --watch --env build"
   },
   "devDependencies": {
-    "webpack": "^2.2.0-rc.2"
+    "babili-webpack-plugin": "0.0.7",
+    "webpack": "^2.2.0-rc.2",
+    "webpack-dev-server": "^2.2.0-rc.0",
+    "webpack-manifest-plugin": "^1.1.0"
   }
 }
