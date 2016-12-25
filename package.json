@@ -13,11 +13,13 @@
   "homepage": "http://eprev.org",
   "scripts": {
     "start": "webpack-dev-server --env.dev",
-    "build": "webpack --env build",
-    "watch-build": "webpack --progress --watch --env build"
+    "build": "webpack --env.build",
+    "watch-build": "webpack --progress --watch --env.build"
   },
   "devDependencies": {
     "babili-webpack-plugin": "0.0.7",
+    "csso": "^2.3.0",
+    "html-minifier": "^3.2.3",
     "webpack": "^2.2.0-rc.2",
     "webpack-dev-server": "^2.2.0-rc.0",
     "webpack-manifest-plugin": "^1.1.0"

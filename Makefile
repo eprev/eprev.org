@@ -4,12 +4,16 @@ SHELL := /bin/bash
 
 all: build
 
+NPM=npm
 CSSO=./node_modules/.bin/csso
 HTML=./node_modules/.bin/html-minifier
 
 HTMLFLAGS=--collapse-whitespace --remove-comments --minify-js
 
 build:
+	rm -rf assets/*
+	rm -f _data/manifest.json
+	$(NPM) run build
 	$(CSSO) --input main.css --output _includes/main.min.css
 	JEKYLL_ENV=production bundle exec jekyll build
 	$(HTML) $(HTMLFLAGS) --input-dir _site --file-ext html --output-dir _site

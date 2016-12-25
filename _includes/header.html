@@ -22,7 +22,8 @@
     {% else %}
         <link href="{{ site_url }}/main.css" rel="stylesheet" media="all">
     {% endif %}
-    {% if jekyll.environment == "production" %}
+    {% if site.data.manifest %}
+        <script src="{{ site_url }}/assets/{{ site.data.manifest['bundle.js'] }}" defer></script>
     {% else %}
         <script src="{{ site_url }}/assets/bundle.js" defer></script>
     {% endif %}

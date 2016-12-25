@@ -1,18 +1,22 @@
 const path = require('path');
-// const webpack = require('webpack');
+const fs = require('fs');
 const BabiliPlugin = require('babili-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = (options) => {
   const plugins = [
-    new ManifestPlugin({
-      fileName: path.join('..', '_data', 'manifest.json'),
-    }),
   ];
-  if (!options.dev) {
+  const manifestFileName = path.join('_data', 'manifest.json');
+  if (options.build) {
     plugins.push(
+      new ManifestPlugin({
+        fileName: path.join('..', manifestFileName),
+      }),
       new BabiliPlugin()
     );
+  }
+  if (!options.build) {
+    fs.unlinkSync(manifestFileName);
   }
   return {
     devServer: {
@@ -21,14 +25,14 @@ module.exports = (options) => {
       compress: true,
       port: 4000,
     },
-    devtool: options.dev ? 'cheap-module-eval-source-map' : 'hidden-source-map',
+    devtool: options.build ? 'hidden-source-map' : 'cheap-module-eval-source-map',
     entry: {
       bundle: './js/main.js',
     },
     output: {
       path: path.join(__dirname, 'assets'),
       publicPath: 'assets/',
-      filename: '[name].[chunkhash].js',
+      filename: options.build ? '[name].[chunkhash].js' : '[name].js',
     },
     performance: {
       hints: false,
