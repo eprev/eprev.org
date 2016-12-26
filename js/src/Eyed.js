@@ -1,10 +1,18 @@
-const EYE_RADIUS = 24;
-
-// TODO: Move eyes only when the head is in the viewport
-
-// import { observer } from './ViewObserver';
-
 const { PI, abs, min, sin, cos, atan } = Math;
+
+const throttle = function (fn, context) {
+    let running = false;
+    return function throttled(...args) {
+        if (running) {
+            return;
+        }
+        running = true;
+        requestAnimationFrame(() => {
+            fn.apply(context, args);
+            running = false;
+        });
+    };
+};
 
 export class Eyed {
   constructor(el) {
@@ -23,23 +31,46 @@ export class Eyed {
       transitionProperty: 'transform',
     });
 
-    this.onResize();
-    this.onResize = this.onResize.bind(this);
-    this.onMouseMove = this.onMouseMove.bind(this);
-    this.onMouseOver = this.onMouseOver.bind(this);
-    this.onMouseOut = this.onMouseOut.bind(this);
-    this.mouseEventTimer = null;
-    window.addEventListener('resize', this.onResize);
-    document.body.addEventListener('mousemove', this.onMouseMove);
-    document.body.addEventListener('mouseover', this.onMouseOver);
-    document.body.addEventListener('mouseout', this.onMouseOut);
-    // observer.watchFor(this.el);
-    // this.el.addEventListener('viewenter', () => {
-    // });
-    // this.el.addEventListener('viewleave', () => {
-    // });
+    this.checkVisibility = throttle(this.checkVisibility, this);
+    this.updateEyesPosition = throttle(this.updateEyesPosition, this);
+    this.onMouseMove = throttle(this.onMouseMove, this);
+    this.onMouseOver = throttle(this.onMouseOver, this);
+    this.onMouseOut = throttle(this.onMouseOut, this);
+
+    this.updateEyesPosition();
+
+    window.addEventListener('scroll', this.checkVisibility, {passive: true});
+    window.addEventListener('resize', this.checkVisibility);
+
+    this.addListeners();
   }
-  onResize() {
+  addListeners() {
+    window.addEventListener('resize', this.updateEyesPosition);
+    document.addEventListener('mouseover', this.onMouseOver);
+    document.addEventListener('mouseout', this.onMouseOut);
+    document.addEventListener('mousemove', this.onMouseMove);
+  }
+  removeListeners() {
+    window.removeEventListener('resize', this.updateEyesPosition);
+    document.removeEventListener('mouseover', this.onMouseOver);
+    document.removeEventListener('mouseout', this.onMouseOut);
+    document.removeEventListener('mousemove', this.onMouseMove);
+  }
+  checkVisibility() {
+    const windowHeight = window.innerHeight;
+    const { top, bottom, height } = this.el.getBoundingClientRect();
+    if (
+         top >= 0 && top < windowHeight
+      || bottom > 0 && bottom <= windowHeight
+      || top < 0 && bottom > windowHeight && height > windowHeight
+    ) {
+        this.addListeners();
+    } else {
+        this.resetMouth();
+        this.removeListeners();
+    }
+  }
+  updateEyesPosition() {
     this.eyes.forEach((o) => {
       const { left, top, width, height } = o.el.getBoundingClientRect();
       o.left = left + window.pageXOffset + width / 2;
@@ -65,9 +96,12 @@ export class Eyed {
   }
   onMouseOut(e) {
     if (this.isMouseAt(e, 'a')) {
-      clearTimeout(this.mouseEventTimer);
-      this.mouseEventTimer = setTimeout(() => this.mouth.style.transform = 'scaleX(1)', 250);
+      this.resetMouth();
     }
+  }
+  resetMouth() {
+    clearTimeout(this.mouseEventTimer);
+    this.mouseEventTimer = setTimeout(() => this.mouth.style.transform = 'scaleX(1)', 125);
   }
   onMouseMove(e) {
     this.eyes.forEach((o) => {
@@ -80,8 +114,8 @@ export class Eyed {
     const ax = abs(x);
     const ay = abs(y);
 
-    const dx = min(EYE_RADIUS, ax) * cos(angle);
-    const dy = min(EYE_RADIUS, ay) * sin(angle) * -1;
+    const dx = min(24, ax) * cos(angle);
+    const dy = min(24, ay) * sin(angle) * -1;
 
     el.style.transform = `translate(${dx}px, ${dy}px)`;
   }
