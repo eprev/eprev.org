@@ -67,7 +67,7 @@
     "brace-style": "error",
     "camelcase": "error",
     "consistent-this": ["error", "self"],
-    "func-names": "error",
+    "func-names": "as-needed",
     "jsx-quotes": ["error", "prefer-double"],
     "indent": ["error", 2, {"SwitchCase": 1}],
     "no-mixed-spaces-and-tabs": "error",

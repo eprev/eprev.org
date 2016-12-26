@@ -1,4 +1,4 @@
-const { PI, abs, min, sin, cos, atan } = Math;
+const { abs, min, sin, cos, atan } = Math;
 
 const throttle = function (fn, context) {
   let running = false;
@@ -16,107 +16,118 @@ const throttle = function (fn, context) {
 
 export class Eyed {
   constructor(el) {
-    this.el = el;
-    this.eyes = [
-      {el: this.el.querySelector('[data-id=right-eye]')},
-      {el: this.el.querySelector('[data-id=left-eye]')},
+    // "Eyes" and "mouth" elements
+    this._el = el;
+    this._eyes = [
+      {el: this._el.querySelector('[data-id=right-eye]')},
+      {el: this._el.querySelector('[data-id=left-eye]')},
     ];
-    this.mouth = this.el.querySelector('[data-id=mouth]');
+    this._mouthEl = this._el.querySelector('[data-id=mouth]');
 
-    this.eyes.forEach((o) => o.el.style.willChange = 'transform');
-    Object.assign(this.mouth.style, {
+    // Set initial styles
+    this._eyes.forEach((eye) => eye.el.style.willChange = 'transform');
+    Object.assign(this._mouthEl.style, {
       willChange: 'transform',
       transformOrigin: 'center',
       transitionDuration: '.25s',
       transitionProperty: 'transform',
     });
 
-    this.checkVisibility = throttle(this.checkVisibility, this);
-    this.updateEyesPosition = throttle(this.updateEyesPosition, this);
-    this.onMouseMove = throttle(this.onMouseMove, this);
-    this.onMouseOver = throttle(this.onMouseOver, this);
-    this.onMouseOut = throttle(this.onMouseOut, this);
+    // Re-bind event listeners
+    this._onWindowScroll = throttle(this.onWindowScroll, this);
+    this._onMouseMove = throttle(this.onMouseMove, this);
+    this._onMouseOver = throttle(this.onMouseOver, this);
+    this._onMouseOut = throttle(this.onMouseOut, this);
 
-    this.updateEyesPosition();
+    this._mouthTransformTimer = null;
 
-    window.addEventListener('scroll', this.checkVisibility, {passive: true});
-    window.addEventListener('resize', this.checkVisibility);
+    // Listen for scroll and resize events and check if the 4-eyed head
+    // is within the viewport
+    window.addEventListener('scroll', this._onWindowScroll, {passive: true});
+    window.addEventListener('resize', this._onWindowScroll);
 
-    this.addListeners();
+    this._checkVisibility();
   }
-  addListeners() {
-    window.addEventListener('resize', this.updateEyesPosition);
-    document.addEventListener('mouseover', this.onMouseOver);
-    document.addEventListener('mouseout', this.onMouseOut);
-    document.addEventListener('mousemove', this.onMouseMove);
+  resume() {
+    // Get the position of the every eye
+    this._eyes.forEach((eye) => {
+      const { left, top, width, height } = eye.el.getBoundingClientRect();
+      eye.left = left + window.pageXOffset + width / 2;
+      eye.top = top + window.pageYOffset + height / 2;
+    });
+
+    document.addEventListener('mouseover', this._onMouseOver);
+    document.addEventListener('mouseout', this._onMouseOut);
+    document.addEventListener('mousemove', this._onMouseMove);
   }
-  removeListeners() {
-    window.removeEventListener('resize', this.updateEyesPosition);
-    document.removeEventListener('mouseover', this.onMouseOver);
-    document.removeEventListener('mouseout', this.onMouseOut);
-    document.removeEventListener('mousemove', this.onMouseMove);
+  pause() {
+    this._closeMouth();
+
+    document.removeEventListener('mouseover', this._onMouseOver);
+    document.removeEventListener('mouseout', this._onMouseOut);
+    document.removeEventListener('mousemove', this._onMouseMove);
   }
-  checkVisibility() {
+  _checkVisibility() {
     const windowHeight = window.innerHeight;
-    const { top, bottom, height } = this.el.getBoundingClientRect();
+    const { top, bottom, height } = this._el.getBoundingClientRect();
     if (
          top >= 0 && top < windowHeight
       || bottom > 0 && bottom <= windowHeight
-      || top < 0 && bottom > windowHeight && height > windowHeight
+      || height > windowHeight && top < 0 && bottom > windowHeight
     ) {
-        this.addListeners();
+        this.resume();
     } else {
-        this.resetMouth();
-        this.removeListeners();
+        this.pause();
     }
   }
-  updateEyesPosition() {
-    this.eyes.forEach((o) => {
-      const { left, top, width, height } = o.el.getBoundingClientRect();
-      o.left = left + window.pageXOffset + width / 2;
-      o.top = top + window.pageYOffset + height / 2;
-    });
+  _onWindowScroll() {
+    this._checkVisibility();
   }
-  isMouseAt(e, selector) {
+  _isMouseAt(e, selector) {
     const target = e.target;
     if (target.closest(selector)) {
-      let relatedTarget = e.relatedTarget;
-      while (relatedTarget && relatedTarget !== target) {
-        relatedTarget = relatedTarget.parentNode;
+      // Bail out if the related element is inside the target element
+      let related = e.relatedTarget;
+      while (related && related !== target) {
+        related = related.parentNode;
       }
-      return (relatedTarget !== target);
+      return (related !== target);
     }
     return false;
   }
-  onMouseOver(e) {
-    if (this.isMouseAt(e, 'a')) {
-      clearTimeout(this.mouseEventTimer);
-      this.mouseEventTimer = setTimeout(() => this.mouth.style.transform = 'scaleX(.25)', 250);
+  _onMouseOver(e) {
+    if (this._isMouseAt(e, 'a')) {
+      clearTimeout(this._mouthTransformTimer);
+      this._mouthTransformTimer = setTimeout(
+        () => this._mouthEl.style.transform = 'scaleX(.25)',
+        250
+      );
     }
   }
-  onMouseOut(e) {
-    if (this.isMouseAt(e, 'a')) {
-      this.resetMouth();
+  _onMouseOut(e) {
+    if (this._isMouseAt(e, 'a')) {
+      this._closeMouth();
     }
   }
-  resetMouth() {
-    clearTimeout(this.mouseEventTimer);
-    this.mouseEventTimer = setTimeout(() => this.mouth.style.transform = 'scaleX(1)', 125);
+  _closeMouth() {
+    clearTimeout(this._mouthTransformTimer);
+    this._mouthTransformTimer = setTimeout(
+      () => this._mouthEl.style.transform = 'scaleX(1)',
+      125
+    );
   }
-  onMouseMove(e) {
-    this.eyes.forEach((o) => {
-      this.moveEye(o.el, e.pageX - o.left, o.top - e.pageY);
+  _onMouseMove(e) {
+    this._eyes.forEach((eye) => {
+      const x = e.pageX - eye.left;
+      const y = eye.top - e.pageY;
+
+      const angle = x >= 0 ? atan( y / x ) : atan( x / y );
+      const dx = min(24, abs(x)) * cos(angle);
+      const dy = min(24, abs(y)) * sin(angle) * -1;
+
+      // Edge IE doesn't apply CSS transforms on SVG elements
+      // eye.el.style.transform = `translate(${dx}px, ${dy}px)`;
+      eye.el.setAttribute('transform',  `translate(${dx} ${dy})`);
     });
-  }
-  moveEye(el, x, y) {
-    const angle = x < 0 ? PI + atan( y / x ) : atan( y / x );
-
-    const ax = abs(x);
-    const ay = abs(y);
-
-    const dx = min(24, ax) * cos(angle);
-    const dy = min(24, ay) * sin(angle) * -1;
-
-    el.style.transform = `translate(${dx}px, ${dy}px)`;
   }
 }
