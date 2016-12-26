@@ -34,10 +34,10 @@ export class Eyed {
     });
 
     // Re-bind event listeners
-    this._onWindowScroll = throttle(this.onWindowScroll, this);
-    this._onMouseMove = throttle(this.onMouseMove, this);
-    this._onMouseOver = throttle(this.onMouseOver, this);
-    this._onMouseOut = throttle(this.onMouseOut, this);
+    this._onWindowScroll = throttle(this._onWindowScroll, this);
+    this._onMouseMove = throttle(this._onMouseMove, this);
+    this._onMouseOver = throttle(this._onMouseOver, this);
+    this._onMouseOut = throttle(this._onMouseOut, this);
 
     this._mouthTransformTimer = null;
 
