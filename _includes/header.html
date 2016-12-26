@@ -60,6 +60,9 @@
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
         ga('create', 'UA-12144011-2', 'auto');
         ga('send', 'pageview');
+        window.addEventListener('error', function(e) {
+            ga('send', 'event', 'JavaScript Error', e.message, e.filename ? (e.filename + ':' + e.lineno) : 'N/A', {nonInteraction: 1});
+        });
         </script>
     {% endif %}
     <div class="page">
