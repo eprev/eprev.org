@@ -1,4 +1,4 @@
-const { abs, min, sin, cos, atan } = Math;
+const { PI, abs, min, sin, cos, atan } = Math;
 
 const throttle = function (fn, context) {
   let running = false;
@@ -121,7 +121,9 @@ export class Eyed {
       const x = e.pageX - eye.left;
       const y = eye.top - e.pageY;
 
-      const angle = x >= 0 ? atan( y / x ) : atan( x / y );
+      const angle = x
+        ? (x < 0 ? PI + atan( y / x ) : atan( y / x ))
+        : 0;
       const dx = min(24, abs(x)) * cos(angle);
       const dy = min(24, abs(y)) * sin(angle) * -1;
 
