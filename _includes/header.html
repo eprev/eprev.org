@@ -29,6 +29,7 @@
     {% endif %}
     <link rel="shortcut icon" href="{{ site_url }}/images/icon.png">
     <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ site_url }}/atom.xml">
+    <link rel="canonical" href="{{ site_url }}{{ page.url }}">
     {% if page.excerpt %}
         <meta property="og:url" content="{{ site_url }}{{ page.url }}">
         <meta property="og:title" content="{{ page.title }}">
