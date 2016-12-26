@@ -1,17 +1,17 @@
 const { PI, abs, min, sin, cos, atan } = Math;
 
 const throttle = function (fn, context) {
-    let running = false;
-    return function throttled(...args) {
-        if (running) {
-            return;
-        }
-        running = true;
-        requestAnimationFrame(() => {
-            fn.apply(context, args);
-            running = false;
-        });
-    };
+  let running = false;
+  return function throttled(...args) {
+    if (running) {
+      return;
+    }
+    running = true;
+    requestAnimationFrame(() => {
+      fn.apply(context, args);
+      running = false;
+    });
+  };
 };
 
 export class Eyed {
