@@ -1,4 +1,4 @@
 // import './src/dom.js';
-import { Eyed } from './src/Eyed.js';
+import { Eyed } from './src/Eyed';
 
-const eyed = new Eyed( document.querySelector('.page__user-picture') );
+new Eyed( document.querySelector('.page__user-picture') );
