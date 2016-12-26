@@ -3,7 +3,10 @@ ruby RUBY_VERSION
 
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
-# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
+# file and run `bundle install`. You might need to run
+# `xcode-select --install` first on OS X.
+#
+# Run Jekyll with `bundle exec`, like so:
 #
 #     bundle exec jekyll serve
 #
