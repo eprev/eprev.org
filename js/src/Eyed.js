@@ -2,6 +2,10 @@ const EYE_RADIUS = 24;
 
 // TODO: Move eyes only when the head is in the viewport
 
+// import { observer } from './ViewObserver';
+
+const { PI, abs, min, sin, cos, atan } = Math;
+
 export class Eyed {
   constructor(el) {
     this.el = el;
@@ -15,6 +19,11 @@ export class Eyed {
     this.onMouseMove = this.onMouseMove.bind(this);
     window.addEventListener('resize', this.onResize);
     document.body.addEventListener('mousemove', this.onMouseMove);
+    // observer.watchFor(this.el);
+    // this.el.addEventListener('viewenter', () => {
+    // });
+    // this.el.addEventListener('viewleave', () => {
+    // });
   }
   onResize() {
     this.eyes.forEach((o) => {
@@ -29,13 +38,14 @@ export class Eyed {
     });
   }
   moveEye(el, x, y) {
-    const angle = x < 0 ? Math.PI + Math.atan( y / x ) : Math.atan( y / x );
 
-    const ax = Math.abs(x);
-    const ay = Math.abs(y);
+    const angle = x < 0 ? PI + atan( y / x ) : atan( y / x );
 
-    const dx = Math.min(EYE_RADIUS, ax) * Math.cos(angle);
-    const dy = Math.min(EYE_RADIUS, ay) * Math.sin(angle) * -1;
+    const ax = abs(x);
+    const ay = abs(y);
+
+    const dx = min(EYE_RADIUS, ax) * cos(angle);
+    const dy = min(EYE_RADIUS, ay) * sin(angle) * -1;
 
     // console.log({x, y, angle, dx, dy});
 
