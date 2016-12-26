@@ -17,10 +17,10 @@ export class Eyed {
 
     this.eyes.forEach((o) => o.el.style.willChange = 'transform');
     Object.assign(this.mouth.style, {
-        willChange: 'transform',
-        transformOrigin: 'center',
-        transitionDuration: '.25s',
-        transitionProperty: 'transform',
+      willChange: 'transform',
+      transformOrigin: 'center',
+      transitionDuration: '.25s',
+      transitionProperty: 'transform',
     });
 
     this.onResize();
@@ -50,8 +50,8 @@ export class Eyed {
     const target = e.target;
     if (target.closest(selector)) {
       let relatedTarget = e.relatedTarget;
-      while (relatedTarget && relatedTarget !== target && relatedTarget !== document.body) {
-          relatedTarget = relatedTarget.parentNode;
+      while (relatedTarget && relatedTarget !== target) {
+        relatedTarget = relatedTarget.parentNode;
       }
       return (relatedTarget !== target);
     }
@@ -75,7 +75,6 @@ export class Eyed {
     });
   }
   moveEye(el, x, y) {
-
     const angle = x < 0 ? PI + atan( y / x ) : atan( y / x );
 
     const ax = abs(x);

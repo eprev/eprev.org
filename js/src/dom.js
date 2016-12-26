@@ -1,19 +1,19 @@
 const ElementPrototype = Element.prototype;
 if (typeof ElementPrototype.matches !== 'function') {
-    ElementPrototype.matches = ElementPrototype.msMatchesSelector;
+  ElementPrototype.matches = ElementPrototype.msMatchesSelector;
 }
 
 if (typeof ElementPrototype.closest !== 'function') {
-    ElementPrototype.closest = function closest(selector) {
-        var element = this;
+  ElementPrototype.closest = function closest(selector) {
+    let element = this; // eslint-disable-line consistent-this
 
-        while (element && element.nodeType === 1) {
-            if (element.matches(selector)) {
-                return element;
-            }
-            element = element.parentNode;
-        }
+    while (element && element.nodeType === 1) {
+      if (element.matches(selector)) {
+        return element;
+      }
+      element = element.parentNode;
+    }
 
-        return null;
-    };
+    return null;
+  };
 }
