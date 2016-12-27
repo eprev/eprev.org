@@ -46,12 +46,14 @@ export function Eyed(rootEl) {
   ];
   const mouthEl = rootEl.querySelector('[data-id=mouth]');
 
-  eyes.forEach((eye) => eye.el.style.willChange = 'transform');
-  Object.assign(mouthEl.style, {
-    willChange: 'transform',
-    transitionDuration: '.25s',
-    transitionProperty: 'transform',
-  });
+  if (isCSSTransformSupportedOnSVG) {
+    eyes.forEach((eye) => eye.el.style.willChange = 'transform');
+    Object.assign(mouthEl.style, {
+      willChange: 'transform',
+      transitionDuration: '.25s',
+      transitionProperty: 'transform',
+    });
+  }
 
   let mouthTransformTimer = null;
 
