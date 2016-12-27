@@ -28,7 +28,7 @@ module.exports = (options) => {
       compress: true,
       port: 4000,
     },
-    devtool: options.build ? 'hidden-source-map' : 'cheap-module-eval-source-map',
+    devtool: options.build ? 'hidden-source-map' : 'cheap-source-map',
     entry: {
       bundle: './js/main.js',
     },

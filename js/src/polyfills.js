@@ -4,7 +4,7 @@ if (typeof ElementPrototype.matches !== 'function') {
 }
 
 if (typeof ElementPrototype.closest !== 'function') {
-  ElementPrototype.closest = function closest(selector) {
+  ElementPrototype.closest = function (selector) {
     let element = this; // eslint-disable-line consistent-this
 
     while (element && element.nodeType === 1) {
