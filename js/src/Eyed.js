@@ -47,7 +47,7 @@ export function Eyed(rootEl) {
   const mouthEl = rootEl.querySelector('[data-id=mouth]');
 
   if (isCSSTransformSupportedOnSVG) {
-    eyes.forEach((eye) => eye.el.style.willChange = 'transform');
+    eyes.forEach(eye => eye.el.style.willChange = 'transform');
     Object.assign(mouthEl.style, {
       willChange: 'transform',
       transitionDuration: '.25s',
@@ -61,8 +61,8 @@ export function Eyed(rootEl) {
   const onWindowScroll = throttle(() => {
     checkVisibility();
   });
-  const onMouseMove = throttle((e) => {
-    eyes.forEach((eye) => {
+  const onMouseMove = throttle(e => {
+    eyes.forEach(eye => {
       moveEye(eye.el, e.pageX - eye.left, eye.top - e.pageY);
     });
     if (e.target.closest('a')) {
@@ -101,18 +101,16 @@ export function Eyed(rootEl) {
 
   function resume() {
     // Get the position of the every eye
-    eyes.forEach((eye) => {
+    eyes.forEach(eye => {
       const { left, top, width, height } = eye.el.getBoundingClientRect();
       eye.left = left + window.pageXOffset + width / 2;
       eye.top = top + window.pageYOffset + height / 2;
     });
-
     document.addEventListener('mousemove', onMouseMove);
   }
 
   function pause() {
     closeMouth();
-
     document.removeEventListener('mousemove', onMouseMove);
   }
 
@@ -145,7 +143,6 @@ export function Eyed(rootEl) {
       : 0;
     const dx = min(EYE_MAX_RADIUS, abs(x)) * cos(angle);
     const dy = min(EYE_MAX_RADIUS, abs(y)) * sin(angle) * -1;
-
     translate(el, dx, dy);
   }
 
@@ -154,8 +151,7 @@ export function Eyed(rootEl) {
       isMouthOpen = true;
       clearTimeout(mouthTransformTimer);
       mouthTransformTimer = setTimeout(
-        () => scale(mouthEl, MOUTH_SCALE_X, MOUTH_SCALE_Y, MOUTH_CX, MOUTH_CY),
-        250
+        () => scale(mouthEl, MOUTH_SCALE_X, MOUTH_SCALE_Y, MOUTH_CX, MOUTH_CY), 250
       );
     }
   }
@@ -165,8 +161,7 @@ export function Eyed(rootEl) {
       isMouthOpen = false;
       clearTimeout(mouthTransformTimer);
       mouthTransformTimer = setTimeout(
-        () => scale(mouthEl),
-        125
+        () => scale(mouthEl), 125
       );
     }
   }
