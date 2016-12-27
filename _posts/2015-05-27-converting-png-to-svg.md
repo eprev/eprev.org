@@ -5,6 +5,7 @@ tags:
     - svg
 excerpt: There is an easy way to convert bit-mapped images into SVG using command-line tool called Potrace.
 share-image: share-party-never.png
+ghIssueId: 10
 ---
 
 Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called [Potrace](http://potrace.sourceforge.net).

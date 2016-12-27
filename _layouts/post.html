@@ -4,7 +4,12 @@
 {% assign include_post_meta = page %}
 {% assign include_post_content = content %}
 {% include post.html %}
+{% if page.ghIssueId %}
+<div class="post__comments">
+  Want to leave a comment? Visit <a href="https://github.com/eprev/eprev.org/issues/{{page.ghIssueId}}"> this post’s issue page</a> on GitHub.
+</div>
+{% endif %}
 <div class="post-special-home">
-    <a href="/">Home</a>
+  <a href="/">Home</a>
 </div>
 {% include footer.html %}

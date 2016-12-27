@@ -4,6 +4,7 @@ layout: post
 tags:
     - os-x
 excerpt: How to change automatically OS X’s network location based on the name of Wi-Fi network and run arbitrary scrips when it happens.
+ghIssueId: 9
 ---
 
 You might have heard about [Network locations](https://support.apple.com/en-us/HT202480) in OS X.
