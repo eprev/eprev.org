@@ -35,7 +35,8 @@ exclude:
   - package.json
   - npm-debug.log
   - node_modules
-  - js/src
+  - yarn.lock
+  - js/*.js
 
 tag_dir: tags
 
