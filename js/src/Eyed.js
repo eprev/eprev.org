@@ -28,7 +28,9 @@ export class Eyed {
     this._eyes.forEach((eye) => eye.el.style.willChange = 'transform');
     Object.assign(this._mouthEl.style, {
       willChange: 'transform',
-      transformOrigin: 'center',
+      transformOrigin: '208px 436px 0', // This is `center center 0`, keywords and percentages refer
+                                        // to the canvas instead of the object itself in FF:
+                                        // https://bugzilla.mozilla.org/show_bug.cgi?id=1209061
       transitionDuration: '.25s',
       transitionProperty: 'transform',
     });
@@ -99,7 +101,7 @@ export class Eyed {
     if (this._isMouseAt(e, 'a')) {
       clearTimeout(this._mouthTransformTimer);
       this._mouthTransformTimer = setTimeout(
-        () => this._mouthEl.style.transform = 'scaleX(.25)',
+        () => this._mouthEl.style.transform = 'scale(.25, 1.5)',
         250
       );
     }
@@ -112,7 +114,7 @@ export class Eyed {
   _closeMouth() {
     clearTimeout(this._mouthTransformTimer);
     this._mouthTransformTimer = setTimeout(
-      () => this._mouthEl.style.transform = 'scaleX(1)',
+      () => this._mouthEl.style.transform = 'scale(1, 1)',
       125
     );
   }
