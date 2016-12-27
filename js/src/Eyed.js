@@ -14,6 +14,7 @@ function throttle(fn, context) {
   };
 }
 
+// Edge IE doesn't apply CSS transforms on SVG elements
 const isCSSTransformSupportedOnSVG = (() => {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('viewBox', '0 0 2 2');
@@ -30,8 +31,6 @@ const isCSSTransformSupportedOnSVG = (() => {
   svg.parentNode.removeChild(svg);
   return result;
 })();
-
-console.log({isCSSTransformSupportedOnSVG});
 
 const EYE_MAX_RADIUS = 24;
 const MOUTH_CX = 208;
@@ -52,11 +51,6 @@ export function Eyed(rootEl) {
     willChange: 'transform',
     transitionDuration: '.25s',
     transitionProperty: 'transform',
-
-    // This is `center center 0`, keywords and percentages refer
-    // to the canvas instead of the object itself in FF:
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=1209061
-    // transformOrigin: `${MOUTH_CX}px ${MOUTH_CY}px 0`,
   });
 
   let mouthTransformTimer = null;
@@ -141,6 +135,29 @@ export function Eyed(rootEl) {
     return false;
   }
 
+  function translate(el, dx, dy) {
+    if (isCSSTransformSupportedOnSVG) {
+      el.style.transform = `translate(${dx}px, ${dy}px)`;
+    } else {
+      el.setAttribute('transform', `translate(${dx} ${dy})`);
+    }
+  }
+
+  function scale(el, sx = 1, sy = 1, cx = 0, cy = 0) {
+    // We could use `scale()` function and `transform-origin: center`, but:
+    // 1) the later doesn't work properly in FF: keywords and percentages refer
+    //    to the canvas instead of the object itself (see
+    //    https://bugzilla.mozilla.org/show_bug.cgi?id=1209061)
+    // 2) there's no such thing as `transform-origin` in SVG.
+    // Hence we are gonna use `matrix` function instead.
+    const transform = `matrix(${sx}, 0, 0, ${sy}, ${cx * (1 - sx)}, ${cy * (1 - sy)})`;
+    if (isCSSTransformSupportedOnSVG) {
+      mouthEl.style.transform = transform;
+    } else {
+      mouthEl.setAttribute('transform', transform);
+    }
+  }
+
   function moveEye(el, x, y) {
     const angle = x
       ? (x < 0 ? PI + atan( y / x ) : atan( y / x ))
@@ -148,16 +165,13 @@ export function Eyed(rootEl) {
     const dx = min(EYE_MAX_RADIUS, abs(x)) * cos(angle);
     const dy = min(EYE_MAX_RADIUS, abs(y)) * sin(angle) * -1;
 
-    // Edge IE doesn't apply CSS transforms on SVG elements
-    // el.style.transform = `translate(${dx}px, ${dy}px)`;
-    el.setAttribute('transform',  `translate(${dx} ${dy})`);
+    translate(el, dx, dy);
   }
 
   function openMouth() {
     clearTimeout(mouthTransformTimer);
     mouthTransformTimer = setTimeout(
-      () => mouthEl.style.transform = `scale(${MOUTH_SCALE_X}, ${MOUTH_SCALE_Y})`,
-      // () => mouthEl.setAttribute('transform', `matrix(${MOUTH_SCALE_X}, 0, 0, ${MOUTH_SCALE_Y}, ${MOUTH_CX * (1 - MOUTH_SCALE_X)}, ${MOUTH_CY * (1 - MOUTH_SCALE_Y)})`),
+      () => scale(mouthEl, MOUTH_SCALE_X, MOUTH_SCALE_Y, MOUTH_CX, MOUTH_CY),
       250
     );
   }
@@ -165,8 +179,7 @@ export function Eyed(rootEl) {
   function closeMouth() {
     clearTimeout(mouthTransformTimer);
     mouthTransformTimer = setTimeout(
-      () => mouthEl.style.transform = '',
-      // () => mouthEl.setAttribute('transform', ''),
+      () => scale(mouthEl),
       125
     );
   }
