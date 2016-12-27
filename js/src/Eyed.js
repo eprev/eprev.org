@@ -14,7 +14,7 @@ function throttle(fn, context) {
   };
 }
 
-// Edge IE doesn't apply CSS transforms on SVG elements
+// Edge doesn't apply CSS transforms on SVG elements
 const isCSSTransformSupportedOnSVG = (() => {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('viewBox', '0 0 2 2');
