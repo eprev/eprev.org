@@ -181,10 +181,10 @@ a {
     box-shadow: 1.5rem 0 #f9f9f9, -1.5rem 0 #f9f9f9;
 }
 
-.post__comments {
+.post-comments {
     margin-bottom: 1.5rem /* Vertical rhythm */
 }
-    .post__comments::before {
+    .post-comments::before {
         display: block;
         content: '\00F7';
         text-align: center;
