@@ -17,7 +17,7 @@ MANIFEST_FILE=_data/manifest.yml
 
 JS_DIRECTORY=js
 ASSETS_DIRECTORY=assets
-JS_ASSETS=$(subst js/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
+JS_ASSETS=$(subst $(JS_DIRECTORY)/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
 
 server:
 	bundle exec jekyll serve
