@@ -56,6 +56,7 @@ export function Eyed(rootEl) {
   }
 
   let mouthTransformTimer = null;
+  let isMouthOpen = false;
 
   const onWindowScroll = throttle(() => {
     checkVisibility();
@@ -64,14 +65,9 @@ export function Eyed(rootEl) {
     eyes.forEach((eye) => {
       moveEye(eye.el, e.pageX - eye.left, eye.top - e.pageY);
     });
-  });
-  const onMouseOver = throttle((e) => {
-    if (isMouseAt(e, 'a')) {
+    if (e.target.closest('a')) {
       openMouth();
-    }
-  });
-  const onMouseOut = throttle((e) => {
-    if (isMouseAt(e, 'a')) {
+    } else {
       closeMouth();
     }
   });
@@ -111,30 +107,13 @@ export function Eyed(rootEl) {
       eye.top = top + window.pageYOffset + height / 2;
     });
 
-    document.addEventListener('mouseover', onMouseOver);
-    document.addEventListener('mouseout', onMouseOut);
     document.addEventListener('mousemove', onMouseMove);
   }
 
   function pause() {
     closeMouth();
 
-    document.removeEventListener('mouseover', onMouseOver);
-    document.removeEventListener('mouseout', onMouseOut);
     document.removeEventListener('mousemove', onMouseMove);
-  }
-
-  function isMouseAt(e, selector) {
-    const target = e.target;
-    if (target.closest(selector)) {
-      // Bail out if the related element is inside the target element
-      let related = e.relatedTarget;
-      while (related && related !== target) {
-        related = related.parentNode;
-      }
-      return (related !== target);
-    }
-    return false;
   }
 
   function translate(el, dx, dy) {
@@ -171,19 +150,25 @@ export function Eyed(rootEl) {
   }
 
   function openMouth() {
-    clearTimeout(mouthTransformTimer);
-    mouthTransformTimer = setTimeout(
-      () => scale(mouthEl, MOUTH_SCALE_X, MOUTH_SCALE_Y, MOUTH_CX, MOUTH_CY),
-      250
-    );
+    if (!isMouthOpen) {
+      isMouthOpen = true;
+      clearTimeout(mouthTransformTimer);
+      mouthTransformTimer = setTimeout(
+        () => scale(mouthEl, MOUTH_SCALE_X, MOUTH_SCALE_Y, MOUTH_CX, MOUTH_CY),
+        250
+      );
+    }
   }
 
   function closeMouth() {
-    clearTimeout(mouthTransformTimer);
-    mouthTransformTimer = setTimeout(
-      () => scale(mouthEl),
-      125
-    );
+    if (isMouthOpen) {
+      isMouthOpen = false;
+      clearTimeout(mouthTransformTimer);
+      mouthTransformTimer = setTimeout(
+        () => scale(mouthEl),
+        125
+      );
+    }
   }
 
 }
