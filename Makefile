@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: all clean clean-assets clean-manifest build build-assets compress-assets build-manifest build-deploy watch reset-site deploy
+.PHONY: all server clean clean-assets clean-manifest build build-assets compress-assets build-manifest build-deploy watch reset-site deploy
 
 all: build-assets
 
@@ -9,6 +9,7 @@ BABILI=./node_modules/.bin/babili
 CSSO=./node_modules/.bin/csso
 HTML=./node_modules/.bin/html-minifier
 
+BABILIFLAGS=--no-comments
 HTMLFLAGS=--collapse-whitespace --remove-comments --minify-js
 ROLLUPFLAGS=--format=iife --sourcemap
 
@@ -17,6 +18,9 @@ MANIFEST_FILE=_data/manifest.yml
 JS_DIRECTORY=js
 ASSETS_DIRECTORY=assets
 JS_ASSETS=$(subst js/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
+
+server:
+	bundle exec jekyll serve
 
 clean-manifest:
 	rm -f $(MANIFEST_FILE)
@@ -35,7 +39,7 @@ $(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
 build-assets: clean-assets $(JS_ASSETS)
 
 compress-assets: build-assets
-	$(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) --no-comments
+	$(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) $(BABILIFLAGS)
 
 build-manifest: compress-assets
 	@for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
