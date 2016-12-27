@@ -52,6 +52,8 @@ build-manifest: compress-assets
 build: build-manifest
 
 build-deploy: build
+	find $(ASSETS_DIRECTORY) -type f -not -regex '.*-[a-f0-9]*.*' -delete
+	find $(ASSETS_DIRECTORY) -type f -regex '.*.js.map' -delete
 	$(CSSO) --input main.css --output _includes/main.min.css
 	JEKYLL_ENV=production bundle exec jekyll build
 	$(HTML) $(HTMLFLAGS) --input-dir _site --file-ext html --output-dir _site
