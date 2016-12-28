@@ -201,6 +201,7 @@ a {
 /*ul*/.post__content-list li {
     margin-bottom: 1.5rem; /* Vertical rhythm */
 }
+.post__content video,
 .post__content img {
     display: block;
     margin: 1.5rem auto;
