@@ -72,13 +72,11 @@ export function eyed(rootEl) {
     }
   });
   const onTouchStart = throttle(() => {
-    openMouth(0);
-  });
-  const onTouchMove = throttle(e => {
     const touch = e.touches.item(0);
     eyes.forEach(eye => {
       moveEye(eye.el, touch.pageX - eye.left, eye.top - touch.pageY);
     });
+    openMouth(0);
   });
   const onTouchEnd = throttle(() => {
     closeMouth(0);
@@ -120,7 +118,6 @@ export function eyed(rootEl) {
     });
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('touchstart', onTouchStart);
-    document.addEventListener('touchmove', onTouchMove);
     document.addEventListener('touchend', onTouchEnd);
     document.addEventListener('touchcancel', onTouchEnd);
   }
@@ -129,7 +126,6 @@ export function eyed(rootEl) {
     closeMouth();
     document.removeEventListener('mousemove', onMouseMove);
     document.removeEventListener('touchstart', onTouchStart);
-    document.removeEventListener('touchmove', onTouchMove);
     document.removeEventListener('touchend', onTouchEnd);
     document.removeEventListener('touchcancel', onTouchEnd);
   }
