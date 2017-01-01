@@ -10,7 +10,7 @@ ghIssueId: 10
 
 Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called [Potrace](http://potrace.sourceforge.net).
 
-### Installation
+## Installation
 
 It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including [Homebrew](http://brew.sh/):
 
@@ -26,7 +26,7 @@ $ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
 $ sudo cp mkbitmap potrace /usr/local/bin
 {% endhighlight %}
 
-### Usage
+## Usage
 
 Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using [ImageMagick](http://www.imagemagick.org)’s `convert` program. If you don’t have it installed, you can use Homebrew to get it:
 
