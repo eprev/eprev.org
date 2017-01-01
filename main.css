@@ -91,7 +91,7 @@ p {
 }
 code {
     font-size: 0.92rem; /* Traditional scale [3] */
-    font-family: "Courier New", Courier, monospace;
+    font-family: Courier, monospace;
     line-height: 1; /* Not to change the line-height of the paragraph. */
 }
 abbr {
@@ -358,7 +358,7 @@ a {
 .highlight .c1,  /* Comment.Single */
 .highlight .cs { /* Comment.Special */
     color: #a5abb1;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .highlight .gp { /* Generic.Prompt */
@@ -371,7 +371,7 @@ a {
     font-weight: bold;
 }
 .highlight .ge { /* Generic.Emph */
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .highlight .k,   /* Keyword */
