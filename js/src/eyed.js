@@ -71,7 +71,7 @@ export function eyed(rootEl) {
       closeMouth();
     }
   });
-  const onTouchStart = throttle(() => {
+  const onTouchStart = throttle(e => {
     const touch = e.touches.item(0);
     eyes.forEach(eye => {
       moveEye(eye.el, touch.pageX - eye.left, eye.top - touch.pageY);
