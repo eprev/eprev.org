@@ -319,6 +319,8 @@ a {
     }
     /*ul*/.page__nav li::after {
         content: '\a0\25aa\a0';
+        font-size: 1.16rem;
+        line-height: 1;
     }
     /*ul*/.page__nav li:last-child::after {
         content: '';
