@@ -121,14 +121,6 @@ a {
         color: #fff;
     }
 }
-.archive__header,
-.post__header {
-    --highlight-color: #ffd400;
-}
-.page__user-name {
-    --highlight-color: #ff2600;
-}
-
 
 /*
   Resources:
@@ -170,6 +162,8 @@ a {
 }
 
 /*h1,a*/.page__user-name {
+    --highlight-color: #ffd400;
+
     display: inline-block;
     margin-bottom: 1.5rem; /* Vertical rhythm */
     text-transform: none;
@@ -185,6 +179,8 @@ a {
 }
 
 .post__header {
+    --highlight-color: #ffd400;
+
     display: inline-block;
     margin-bottom: 0;
 }
@@ -259,6 +255,8 @@ a {
     line-height: 1.5rem;
 }
 .archive__header {
+    --highlight-color: #ffd400;
+
     font-size: 1.16rem;  /* Traditional scale [3] */
     line-height: 1.5rem; /* Vertical rhythm */
 }
