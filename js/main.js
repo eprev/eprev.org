@@ -1,4 +1,4 @@
 import './src/polyfills';
-import { Eyed } from './src/Eyed';
+import { eyed } from './src/eyed';
 
-Eyed( document.querySelector('.page__user-picture') );
+eyed( document.querySelector('.page__user-picture') );

@@ -38,7 +38,7 @@ const MOUTH_CY = 436;
 const MOUTH_SCALE_X = 0.25;
 const MOUTH_SCALE_Y = 1.5;
 
-export function Eyed(rootEl) {
+export function eyed(rootEl) {
 
   const eyes = [
     {el: rootEl.querySelector('[data-id=right-eye]')},
@@ -70,6 +70,18 @@ export function Eyed(rootEl) {
     } else {
       closeMouth();
     }
+  });
+  const onTouchStart = throttle(() => {
+    openMouth(0);
+  });
+  const onTouchMove = throttle(e => {
+    const touch = e.touches.item(0);
+    eyes.forEach(eye => {
+      moveEye(eye.el, touch.pageX - eye.left, eye.top - touch.pageY);
+    });
+  });
+  const onTouchEnd = throttle(() => {
+    closeMouth(0);
   });
 
   // Listen for scroll and resize events and check if the 4-eyed head
@@ -107,11 +119,19 @@ export function Eyed(rootEl) {
       eye.top = top + window.pageYOffset + height / 2;
     });
     document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('touchstart', onTouchStart);
+    document.addEventListener('touchmove', onTouchMove);
+    document.addEventListener('touchend', onTouchEnd);
+    document.addEventListener('touchcancel', onTouchEnd);
   }
 
   function pause() {
     closeMouth();
     document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('touchstart', onTouchStart);
+    document.removeEventListener('touchmove', onTouchMove);
+    document.removeEventListener('touchend', onTouchEnd);
+    document.removeEventListener('touchcancel', onTouchEnd);
   }
 
   function translate(el, dx, dy) {
@@ -146,22 +166,22 @@ export function Eyed(rootEl) {
     translate(el, dx, dy);
   }
 
-  function openMouth() {
+  function openMouth(delay = 250) {
     if (!isMouthOpen) {
       isMouthOpen = true;
       clearTimeout(mouthTransformTimer);
       mouthTransformTimer = setTimeout(
-        () => scale(mouthEl, MOUTH_SCALE_X, MOUTH_SCALE_Y, MOUTH_CX, MOUTH_CY), 250
+        () => scale(mouthEl, MOUTH_SCALE_X, MOUTH_SCALE_Y, MOUTH_CX, MOUTH_CY), delay
       );
     }
   }
 
-  function closeMouth() {
+  function closeMouth(delay = 125) {
     if (isMouthOpen) {
       isMouthOpen = false;
       clearTimeout(mouthTransformTimer);
       mouthTransformTimer = setTimeout(
-        () => scale(mouthEl), 125
+        () => scale(mouthEl), delay
       );
     }
   }
