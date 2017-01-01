@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2017-01-01T17:24:14+01:00</updated>
+    <updated>2017-01-01T17:45:58+01:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -144,7 +144,7 @@ you want to…&lt;/p&gt;
             <id>http://eprev.org/2015/05/27/converting-png-to-svg</id>
             <content type="html">&lt;p&gt;Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called &lt;a href=&quot;http://potrace.sourceforge.net&quot;&gt;Potrace&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;installation&quot;&gt;Installation&lt;/h3&gt;
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
 
 &lt;p&gt;It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;
 
@@ -156,7 +156,7 @@ you want to…&lt;/p&gt;
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap.1 potrace.1 /usr/share/man/
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
 &lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org&quot;&gt;ImageMagick&lt;/a&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;convert&lt;/code&gt; program. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;
 
