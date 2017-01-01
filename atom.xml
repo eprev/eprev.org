@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2017-01-01T11:44:10+01:00</updated>
+    <updated>2017-01-01T17:24:14+01:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -106,12 +106,13 @@ your corporate wireless network is “Corp Wi-Fi”, you have to create a new lo
 If you connect to a wireless network that you don’t have a specific location for, then
 the default location “Automatic” will be used.&lt;/p&gt;
 
-&lt;p&gt;And of course we need a &lt;a href=&quot;https://github.com/eprev/locationchanger&quot;&gt;tool&lt;/a&gt; for doing that.
-The installation process is extremely easy:&lt;/p&gt;
+&lt;p&gt;Then, we need to install &lt;a href=&quot;https://github.com/eprev/locationchanger&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;locationchanger&lt;/code&gt;&lt;/a&gt;. It‘s a tool
+that watches for wireless network changes and responds accordingly. Its installation process
+is extremely easy:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;It will ask only for a root password to install &lt;code class=&quot;highlighter-rouge&quot;&gt;locationchanger&lt;/code&gt;. Now, every time you connect to
+&lt;p&gt;It will ask only for a root password to install &lt;code class=&quot;highlighter-rouge&quot;&gt;locationchanger&lt;/code&gt; service. Now, every time you connect to
 a wireless network it will change the location to either the corresponding or the default one.&lt;/p&gt;
 
 &lt;p&gt;That’s not all. We still want to change Security Preferences automatically when the location
@@ -130,7 +131,7 @@ osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Eve
 &lt;span class=&quot;c&quot;&gt;# Don’t require password after sleep or screen saver&lt;/span&gt;
 osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Save them as &lt;em&gt;~/.locations/Corp Wi-Fi&lt;/em&gt; and &lt;em&gt;~/.locations/Automatic&lt;/em&gt; respectively. Voilà!
+&lt;p&gt;Save them as &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.locations/Corp Wi-Fi&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.locations/Automatic&lt;/code&gt; respectively. Voilà!
 You’re not limited by changing only the security preferences, you can do whatever
 you want to…&lt;/p&gt;
 </content>
