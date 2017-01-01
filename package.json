@@ -13,7 +13,8 @@
   "homepage": "http://eprev.org",
   "dependencies": {
     "babili": "^0.0.9",
-    "csso": "^2.3.0",
+    "cssnano": "^3.9.1",
+    "cssnano-cli": "^1.0.5",
     "html-minifier": "^3.2.3",
     "rollup": "^0.38.0",
     "rollup-watch": "^2.5.0"

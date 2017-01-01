@@ -4,7 +4,7 @@
 {% else %}
     {% assign site_url = "" %}
 {% endif %}
-<html lang="en" class="theme--light">
+<html lang="en">
     <meta charset="utf-8">
     {% if page.title %}
         <title>{{ page.title }} – {{ site.title }}</title>
@@ -71,7 +71,7 @@
                 {% if page.url == "/" %}
                     <h1 class="page__user-name">@{{ site.twitter }}</h1>
                 {% else %}
-                    <h2 class="page__user-name"><a class="page__user-name-link" href="/">@{{ site.twitter }}</a></h2>
+                    <a class="page__user-name" href="/">@{{ site.twitter }}</a>
                 {% endif %}
                 <svg class="page__user-picture" viewBox="0 0 484 570">
                     <path d="M39 503v67h343v-67H39z" fill="#feffff"/>

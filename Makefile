@@ -6,7 +6,7 @@ all: build-assets
 
 ROLLUP=./node_modules/.bin/rollup
 BABILI=./node_modules/.bin/babili
-CSSO=./node_modules/.bin/csso
+CSSNANO=./node_modules/.bin/cssnano
 HTML=./node_modules/.bin/html-minifier
 
 BABILIFLAGS=--no-comments
@@ -54,7 +54,7 @@ build: build-manifest
 build-deploy: build
 	find $(ASSETS_DIRECTORY) -type f -not -regex '.*-[a-f0-9]*.*' -delete
 	find $(ASSETS_DIRECTORY) -type f -regex '.*.js.map' -delete
-	$(CSSO) --input main.css --output _includes/main.min.css
+	$(CSSNANO) main.css _includes/main.min.css
 	JEKYLL_ENV=production bundle exec jekyll build
 	$(HTML) $(HTMLFLAGS) --input-dir _site --file-ext html --output-dir _site
 
