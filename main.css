@@ -190,17 +190,18 @@ a {
     margin-top: 0;
 }
 
-.post__content figure.highlight {
-    margin: 0;
+.post__content .highlight {
+    margin-bottom: 1.5rem; /* Vertical rhythm */
     background-color: currentColor;
     box-shadow: 1.5rem 0 currentColor, -1.5rem 0 currentColor;
     color: #f9f9f9;
 }
-.post__content pre code {
+.highlight code {
     display: block;
     overflow: auto;
     padding: 1.5rem 0; /* Vertical rhythm */
     line-height: 1.5;  /* Restore line-height for the block elements */
+    white-space: pre;
 }
 
 .post-comments {
