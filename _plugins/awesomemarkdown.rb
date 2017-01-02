@@ -1,10 +1,12 @@
 module Jekyll
   module Converters
+
     class Markdown::AwesomeMarkdown < Markdown::KramdownParser
       def convert(content)
         Kramdown::Document.new(content, @config).to_awesomeHtml
       end
     end
+
   end
 end
 
@@ -49,15 +51,18 @@ module Kramdown
     def add_syntax_highlighter_to_class_attr(attr, lang = nil)
       # Don't add `language-*` to the class attribute
     end
+
   end
 end
 
 module Jekyll
   module Tags
+
     class AwesomeHighlightBlock < HighlightBlock
       def add_code_tag(code)
         "<figure class=\"highlight\"><pre><code>#{code.chomp}</code></pre></figure>"
       end
+ 
     end
   end
 end
