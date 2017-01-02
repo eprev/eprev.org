@@ -342,7 +342,7 @@ a {
 
 }
 
-@media (max-width: 667px) {
+@media (max-width: 666px) {
     /* iPhone 6 375x667 */
     html {
         font-size: 16px;
