@@ -45,6 +45,7 @@ module Kramdown
         super_convert_img(el, indent)
       end
     end
+
     def add_syntax_highlighter_to_class_attr(attr, lang = nil)
       # Don't add `language-*` to the class attribute
     end
