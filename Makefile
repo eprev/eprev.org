@@ -26,7 +26,10 @@ clean-manifest:
 clean-assets: clean-manifest
 	rm -rf $(ASSETS_DIRECTORY)/*
 
-clean: clean-assets
+clean-includes:
+	rm -f _includes/main.min.css
+
+clean: clean-assets clean-includes
 
 watch: clean-manifest
 	@$(ROLLUP) $(ROLLUPFLAGS) --watch -i $(JS_DIRECTORY)/$${entry-main}.js -o $(ASSETS_DIRECTORY)/$${entry-main}.js
