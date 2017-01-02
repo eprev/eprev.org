@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2017-01-02T17:27:26+01:00</updated>
+    <updated>2017-01-02T17:34:27+01:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -284,11 +284,12 @@ touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quo
             <link href="http://eprev.org/2014/01/19/chrome-tab-tooltips/"/>
             <updated>2014-01-19T00:00:00+01:00</updated>
             <id>http://eprev.org/2014/01/19/chrome-tab-tooltips</id>
-            <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.
+            <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.&lt;/p&gt;
+
 &lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 351px&quot;&gt;&lt;div style=&quot;padding-bottom: 41.31%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
-And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.
-&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 351px&quot;&gt;&lt;div style=&quot;padding-bottom: 20.8%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
+&lt;p&gt;And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.&lt;/p&gt;
+
+&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 351px&quot;&gt;&lt;div style=&quot;padding-bottom: 20.8%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;</content>
         </entry>
     
         <entry>
