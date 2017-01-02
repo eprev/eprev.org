@@ -1,6 +1,7 @@
 npm-debug.log
 _site
 assets
+_includes/main.min.css
 _data/manifest.yml
 node_modules
 
