@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2017-01-02T16:56:43+01:00</updated>
+    <updated>2017-01-02T17:27:26+01:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -110,7 +110,7 @@ the default location “Automatic” will be used.&lt;/p&gt;
 that watches for wireless network changes and responds accordingly. Its installation process
 is extremely easy:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash&lt;/code&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;It will ask only for a root password to install &lt;code&gt;locationchanger&lt;/code&gt; service. Now, every time you connect to
 a wireless network it will change the location to either the corresponding or the default one.&lt;/p&gt;
@@ -119,17 +119,17 @@ a wireless network it will change the location to either the corresponding or th
 has been changed. Let’s create scripts that will be executed every time it happens. One is
 for “Corp Wi-Fi” location:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;# Require password immediately after sleep or screen saver&lt;/span&gt;
-osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Events&quot; to set require password to wake of security preferences to true'&lt;/span&gt;&lt;/code&gt;&lt;/div&gt;
+osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Events&quot; to set require password to wake of security preferences to true'&lt;/span&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Another is for the default location:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;# Don’t require password after sleep or screen saver&lt;/span&gt;
-osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/span&gt;&lt;/code&gt;&lt;/div&gt;
+osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/span&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Save them as &lt;code&gt;~/.locations/Corp Wi-Fi&lt;/code&gt; and &lt;code&gt;~/.locations/Automatic&lt;/code&gt; respectively. Voilà!
 You’re not limited by changing only the security preferences, you can do whatever
@@ -148,33 +148,35 @@ you want to…&lt;/p&gt;
 
 &lt;p&gt;It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install potrace&lt;/code&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install potrace&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;The manual installation is super easy, however. For OS X do the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;potrace-1.12.mac-i386
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;potrace-1.12.mac-i386
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap.1 potrace.1 /usr/share/man/
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/div&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
 &lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org&quot;&gt;ImageMagick&lt;/a&gt;’s &lt;code&gt;convert&lt;/code&gt; program. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install imagemagick&lt;/code&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install imagemagick&lt;/code&gt;&lt;/figure&gt;
 
-&lt;p&gt;Alright. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:
-&lt;div class=&quot;responsive-image&quot; style=&quot;max-width: 449px&quot;&gt;&lt;div style=&quot;padding-bottom: 103.12%&quot;&gt;&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-All you need to do is to run this:&lt;/p&gt;
+&lt;p&gt;Alright. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda-blog.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;convert -alpha remove party-never.png pgm: &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 449px&quot;&gt;&lt;div style=&quot;padding-bottom: 103.12%&quot;&gt;&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;p&gt;All you need to do is to run this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;convert -alpha remove party-never.png pgm: &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 | mkbitmap -f 32 -t 0.4 - -o - &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-| potrace --svg -o party-never.svg&lt;/code&gt;&lt;/div&gt;
+| potrace --svg -o party-never.svg&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of &lt;code&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code&gt;-f&lt;/code&gt;) and thresholding (&lt;code&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;
 
-&lt;p&gt;As a result you might have now:
-&lt;div class=&quot;responsive-image&quot; style=&quot;max-width: 449px&quot;&gt;&lt;div style=&quot;padding-bottom: 103.12%&quot;&gt;&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-That’s it.&lt;/p&gt;
+&lt;p&gt;As a result you might have now:&lt;/p&gt;
+
+&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 449px&quot;&gt;&lt;div style=&quot;padding-bottom: 103.12%&quot;&gt;&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;p&gt;That’s it.&lt;/p&gt;
 </content>
         </entry>
     
@@ -210,13 +212,13 @@ That’s it.&lt;/p&gt;
             <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
 I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;vim -p &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | sed &lt;span class=&quot;s2&quot;&gt;&quot;s,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git rev-parse --show-prefix&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,,&quot;&lt;/span&gt; | tr &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;vim -p &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | sed &lt;span class=&quot;s2&quot;&gt;&quot;s,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git rev-parse --show-prefix&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,,&quot;&lt;/span&gt; | tr &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code&gt;.bashrc&lt;/code&gt;,
 but adding this to &lt;code&gt;.gitconfig&lt;/code&gt; seems like a better option. This is what you need to add to your &lt;code&gt;~/.gitconfig&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-open &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;!vim -c &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;cd &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$GIT_PREFIX&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; -p &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | tr &lt;span class=&quot;s1&quot;&gt;'\\n'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+open &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;!vim -c &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;cd &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$GIT_PREFIX&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; -p &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | tr &lt;span class=&quot;s1&quot;&gt;'\\n'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;To run this command you need to type &lt;code&gt;git open&lt;/code&gt; in the terminal. Since all commands prefixed with an exclamation
 point are executed from the top-level directory of a repository, we need to change working directory in Vim to
@@ -225,8 +227,8 @@ the current one. And of course you can replace Vim by your favorite editor or ev
 &lt;p&gt;Besides, If you use sort of file watchers to perform certain operations when files change, then
 you would find the following command quite helpful. It changes modification time of all modified files at once.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;!touch -c &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | tr &lt;span class=&quot;s1&quot;&gt;'\\n'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;!touch -c &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | tr &lt;span class=&quot;s1&quot;&gt;'\\n'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;You can find more handy aliases in &lt;a href=&quot;https://github.com/eprev/dotfiles/blob/master/gitconfig&quot;&gt;.dotfiles&lt;/a&gt; of mine.&lt;/p&gt;
 </content>
@@ -283,9 +285,9 @@ touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quo
             <updated>2014-01-19T00:00:00+01:00</updated>
             <id>http://eprev.org/2014/01/19/chrome-tab-tooltips</id>
             <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.
-&lt;div class=&quot;responsive-image&quot; style=&quot;max-width: 351px&quot;&gt;&lt;div style=&quot;padding-bottom: 41.31%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 351px&quot;&gt;&lt;div style=&quot;padding-bottom: 41.31%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
 And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.
-&lt;div class=&quot;responsive-image&quot; style=&quot;max-width: 351px&quot;&gt;&lt;div style=&quot;padding-bottom: 20.8%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 351px&quot;&gt;&lt;div style=&quot;padding-bottom: 20.8%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/p&gt;
 </content>
         </entry>
     
@@ -320,7 +322,7 @@ at baggage claim dropped to near zero.&lt;/p&gt;
             <id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</id>
             <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mongo --nodb
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mongo --nodb
 MongoDB shell version: 2.2.0
 &lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;var user &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;name: &lt;span class=&quot;s2&quot;&gt;&quot;Anton Eprev&quot;&lt;/span&gt;, age: 27&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;user
@@ -333,11 +335,11 @@ MongoDB shell version: 2.2.0
 &lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 1,2,3,4,5,6,7,8,9
 &lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;printjson&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;And of course the shell allows you to use loops, user functions and etc.:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;var i &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;i, user[i]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;var i &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;i, user[i]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 name Anton Eprev
 age 27
 &lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;add&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return function&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;x + y &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -350,32 +352,32 @@ age 27
 0
 1
 …
-9&lt;/code&gt;&lt;/div&gt;
+9&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;You can also use the &lt;code&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;var profile &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; cat&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.profile'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;var profile &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; cat&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.profile'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;profile
 &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/local/bin:/opt/local/sbin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
-…&lt;/code&gt;&lt;/div&gt;
+…&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;You may even explore global scope by executing &lt;code&gt;printjson(this)&lt;/code&gt; and find out the following functions:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;ls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;hex_md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/div&gt;
+&lt;span class=&quot;nx&quot;&gt;hex_md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;And finally, you can run a JavaScript file using MongoDB shell.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cat hello.js
+&lt;figure class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cat hello.js
 print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mongo --nodb hello.js
 MongoDB shell version: 2.2.0
-Hello World!&lt;/code&gt;&lt;/div&gt;
+Hello World!&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Happy coding =]&lt;/p&gt;
 </content>

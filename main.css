@@ -191,7 +191,7 @@ a {
 }
 
 .post__content .highlight {
-    margin-bottom: 1.5rem; /* Vertical rhythm */
+    margin: 1.5rem 0; /* Vertical rhythm */
     background-color: currentColor;
     box-shadow: 1.5rem 0 currentColor, -1.5rem 0 currentColor;
     color: #f9f9f9;
