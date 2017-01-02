@@ -191,7 +191,7 @@ a {
 }
 
 .post__content .highlight {
-    margin: 1.5rem 0; /* Vertical rhythm */
+    margin: 0;
     background-color: currentColor;
     box-shadow: 1.5rem 0 currentColor, -1.5rem 0 currentColor;
     color: #f9f9f9;
@@ -201,7 +201,6 @@ a {
     overflow: auto;
     padding: 1.5rem 0; /* Vertical rhythm */
     line-height: 1.5;  /* Restore line-height for the block elements */
-    white-space: pre;
 }
 
 .post-comments {

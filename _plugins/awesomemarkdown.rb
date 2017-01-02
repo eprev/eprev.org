@@ -55,7 +55,7 @@ module Jekyll
   module Tags
     class AwesomeHighlightBlock < HighlightBlock
       def add_code_tag(code)
-        "<figure class=\"highlight\"><code>#{code.chomp}</code></figure>"
+        "<figure class=\"highlight\"><pre><code>#{code.chomp}</code></pre></figure>"
       end
     end
   end
