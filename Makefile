@@ -1,7 +1,5 @@
 SHELL := /bin/bash
 
-.PHONY: all server clean clean-assets clean-manifest build build-assets compress-assets build-manifest build-deploy watch reset-site deploy
-
 all: build-assets
 
 ROLLUP=./node_modules/.bin/rollup
