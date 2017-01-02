@@ -3,7 +3,7 @@
     <title>Anton Eprev</title>
     <link href="http://eprev.org/atom.xml" rel="self" />
     <link href="http://eprev.org/" />
-    <updated>2017-01-01T23:07:05+01:00</updated>
+    <updated>2017-01-02T13:11:47+01:00</updated>
     <id>http://eprev.org/</id>
     <author>
         <name>Anton Eprev</name>
@@ -163,7 +163,7 @@ you want to…&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install imagemagick&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Alright. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:
-&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;
+&lt;div class=&quot;responsive-image&quot; style=&quot;max-width: 449.0px&quot;&gt;&lt;div style=&quot;padding-bottom: 103.12%&quot;&gt;&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 All you need to do is to run this:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;convert -alpha remove party-never.png pgm: &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
@@ -173,7 +173,7 @@ All you need to do is to run this:&lt;/p&gt;
 &lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of &lt;code class=&quot;highlighter-rouge&quot;&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code class=&quot;highlighter-rouge&quot;&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt;) and thresholding (&lt;code class=&quot;highlighter-rouge&quot;&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;
 
 &lt;p&gt;As a result you might have now:
-&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; /&gt;
+&lt;div class=&quot;responsive-image&quot; style=&quot;max-width: 449.0px&quot;&gt;&lt;div style=&quot;padding-bottom: 103.12%&quot;&gt;&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 That’s it.&lt;/p&gt;
 </content>
         </entry>
@@ -282,13 +282,10 @@ touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quo
             <link href="http://eprev.org/2014/01/19/chrome-tab-tooltips/"/>
             <updated>2014-01-19T00:00:00+01:00</updated>
             <id>http://eprev.org/2014/01/19/chrome-tab-tooltips</id>
-            <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; /&gt;&lt;/p&gt;
+            <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.
+&lt;div class=&quot;responsive-image&quot; style=&quot;max-width: 351.0px&quot;&gt;&lt;div style=&quot;padding-bottom: 41.31%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.
+&lt;div class=&quot;responsive-image&quot; style=&quot;max-width: 351.0px&quot;&gt;&lt;div style=&quot;padding-bottom: 20.8%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 </content>
         </entry>
     

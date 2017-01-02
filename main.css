@@ -219,11 +219,8 @@ a {
 /*ul*/.post__content-list li {
     margin-bottom: 1.5rem; /* Vertical rhythm */
 }
-.post__content video,
-.post__content img {
-    display: block;
+.post__content .responsive-image {
     margin: 1.5rem auto;
-    max-width: 100%; /* Makes images to scale properly */
 }
 
 .post-special-home {
@@ -273,6 +270,17 @@ a {
     }
     .tags__item:last-child::after {
         content: '';
+    }
+
+.responsive-image {
+    position: relative;
+    width: 100%;
+}
+    .responsive-image img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
     }
 
 @media (max-width: 979px) {
