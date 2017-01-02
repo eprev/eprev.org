@@ -27,7 +27,7 @@ timezone: Europe/Amsterdam
 permalink: /:year/:month/:day/:title/
 
 # Build settings
-markdown: kramdown
+markdown: AwesomeMarkdown
 exclude:
   - Gemfile
   - Gemfile.lock
