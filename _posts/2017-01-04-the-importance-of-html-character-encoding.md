@@ -29,17 +29,24 @@ of the document is not indicated.
 
 For the demonstration, I made a [simple HTTP server](https://gist.github.com/eprev/322cd355319483aaaebbb2da35052281)
 which flushes early-head of the document immediately and waits for a second before sending the rest of it.
-The early-head contains a `script` tag with the `async` attribute and a `link` tag to the external style sheet.
+The early-head contains a `script` tag with the `async` attribute and a `link` tag to the external stylesheet.
 
 {% highlight html %}
-<script src="…" async onload="console.log({scripts: performance.now()})"></script>
-<link href="…" rel="stylesheet" onload="console.log({styles: performance.now()})">
-<script>document.addEventListener('DOMContentLoaded', () => console.log({DOMContentLoaded: performance.now()}))</script>
+<script src="…" async
+  onload="console.log({scripts: performance.now()})"></script>
+<link href="…" rel="stylesheet"
+  onload="console.log({styles: performance.now()})">
+<script>
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => console.log({DOMContentLoaded: performance.now()})
+  );
+</script>
 {% endhighlight %}
 
 If the character encoding is specified, then the browser (Firefox in this particular case) begins parsing HTML
 immediately along with loading external resources. On the image below, you can see that the script and
-the style sheet have been loaded before DOM becomes interactive.
+the stylesheet have been loaded before DOM becomes interactive.
 
 ![Firefox Web Console: Character encoding is specified]({{site_url}}/images/posts/ff-charset-is-specified.png){: width="729" height="112" layout="responsive" }
 
