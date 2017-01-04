@@ -3,16 +3,16 @@
 /* Normalize {{{ */
 
 body {
-    margin: 0; /* Remove default margin [1]. */
+  margin: 0; /* Remove default margin [1]. */
 }
 
 button,
 input,
 select,
 textarea {
-    margin: 0; /* Addresses margins set differently in Firefox 4+, Safari 5, and Chrome [1]. */
-    font-size: 100%; /* Corrects font size not being inherited in all browsers [1]. */
-    font-family: inherit; /* Corrects font family not being inherited in all browsers [1]. */
+  margin: 0; /* Addresses margins set differently in Firefox 4+, Safari 5, and Chrome [1]. */
+  font-size: 100%; /* Corrects font size not being inherited in all browsers [1]. */
+  font-family: inherit; /* Corrects font family not being inherited in all browsers [1]. */
 }
 
 /*
@@ -27,335 +27,335 @@ textarea {
 /* Traditional scale: 0.5 0.5833 0.6667 0.75 0.83333 0.9167 1 1.1667 1.3333 1.5 1.75 2 3 4 5 6 */
 
 html {
-    font-size: 18px;
-    line-height: 1.5; /* The line height (1.5rem) sets the vertical rhythm. */
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    -ms-text-size-adjust: none;
-    text-size-adjust: none;
+  font-size: 18px;
+  line-height: 1.5; /* The line height (1.5rem) sets the vertical rhythm. */
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 body {
-    color: #222;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; /* 90% Mac  (Optima) & 54% PC (Candara) [5] */
+  color: #222;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; /* 90% Mac  (Optima) & 54% PC (Candara) [5] */
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 1.5rem; /* Vertical rhythm */
-    font-weight: normal;
-    page-break-inside: avoid;
-    text-rendering: optimizeLegibility; /* Enables a font’s native kerning and optional ligatures. */
+  margin: 0 0 1.5rem; /* Vertical rhythm */
+  font-weight: normal;
+  page-break-inside: avoid;
+  text-rendering: optimizeLegibility; /* Enables a font’s native kerning and optional ligatures. */
 }
 h1 {
-    text-transform: uppercase;
-    font-size: 2rem;   /* Traditional scale [3] */
-    line-height: 3rem; /* Vertical rhythm */
+  text-transform: uppercase;
+  font-size: 2rem;   /* Traditional scale [3] */
+  line-height: 3rem; /* Vertical rhythm */
 }
 h2 {
-    font-size: 1.75rem; /* Traditional scale [3] */
-    line-height: 3rem;  /* Vertical rhythm */
+  font-size: 1.75rem; /* Traditional scale [3] */
+  line-height: 3rem;  /* Vertical rhythm */
 }
 h3 {
-    font-size: 1.5rem;   /* Traditional scale [3] */
-    line-height: 1.5rem; /* Vertical rhythm */
+  font-size: 1.5rem;   /* Traditional scale [3] */
+  line-height: 1.5rem; /* Vertical rhythm */
 }
 h4 {
-    font-size: 1.3rem;   /* Traditional scale [3] */
-    line-height: 1.5rem; /* Vertical rhythm */
+  font-size: 1.3rem;   /* Traditional scale [3] */
+  line-height: 1.5rem; /* Vertical rhythm */
 }
 h5 {
-    font-size: 1.16rem;  /* Traditional scale [3] */
-    line-height: 1.5rem; /* Vertical rhythm */
+  font-size: 1.16rem;  /* Traditional scale [3] */
+  line-height: 1.5rem; /* Vertical rhythm */
 }
 h6 {
-    font-size: 1rem; /* Traditional scale [3] */
-    line-height: 1.5rem; /* Vertical rhythm */
+  font-size: 1rem; /* Traditional scale [3] */
+  line-height: 1.5rem; /* Vertical rhythm */
 }
 
 ul, ol, p, pre, blockquote {
-    margin: 1.5rem 0; /* Vertical rhythm */
+  margin: 1.5rem 0; /* Vertical rhythm */
 }
 
 blockquote {
-    padding-left: 1rem;
-    border-left: 4px solid #eee;
-    font-style: italic;
+  padding-left: 1rem;
+  border-left: 4px solid #eee;
+  font-style: italic;
 }
 ul {
-    padding-left: 0;
-    list-style-position: outside;
-    list-style-type: square;
+  padding-left: 0;
+  list-style-position: outside;
+  list-style-type: square;
 }
 p {
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto; /*  Automatically break words at appropriate hyphenation points. */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto; /*  Automatically break words at appropriate hyphenation points. */
 }
 code {
-    font-size: 0.92rem; /* Traditional scale [3] */
-    font-family: Courier, monospace;
-    line-height: 1; /* Not to change the line-height of the paragraph. */
+  font-size: 0.92rem; /* Traditional scale [3] */
+  font-family: Courier, monospace;
+  line-height: 1; /* Not to change the line-height of the paragraph. */
 }
 abbr {
-    letter-spacing: .1em; /* Letterspace abbreviations
-                             (http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.6/). */
+  letter-spacing: .1em; /* Letterspace abbreviations
+               (http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.6/). */
 }
 a {
-    box-shadow: 0 1px currentColor;
-    color: inherit;
-    text-decoration: none;
+  box-shadow: 0 1px currentColor;
+  color: inherit;
+  text-decoration: none;
 }
 
 :root {
-    --highlight-color: #aad6d7;
+  --highlight-color: #aad6d7;
 }
 @supports (--highlight-color: inherit) {
-    a {
-        background-image: linear-gradient(to right, var(--highlight-color), var(--highlight-color));
-        background-position: left bottom;
-        background-size: 1px 1px;
-        background-repeat: repeat-x;
-        box-shadow: 0 2px var(--highlight-color);
-    }
-    a:hover {
-        background-size: 1px 100%;
-        box-shadow: 0 0 0 2px var(--highlight-color);
-        color: #fff;
-    }
+  a {
+    background-image: linear-gradient(to right, var(--highlight-color), var(--highlight-color));
+    background-position: left bottom;
+    background-size: 1px 1px;
+    background-repeat: repeat-x;
+    box-shadow: 0 2px var(--highlight-color);
+  }
+  a:hover {
+    background-size: 1px 100%;
+    box-shadow: 0 0 0 2px var(--highlight-color);
+    color: #fff;
+  }
 }
 
 /*
   Resources:
   1. The Ultimate Guide to Readable Web Typography
-     (http://www.pearsonified.com/2011/12/golden-ratio-typography.php)
+   (http://www.pearsonified.com/2011/12/golden-ratio-typography.php)
   2. The Elements of Typographic Style Applied to the Web
-     (http://webtypography.net/toc)
+   (http://webtypography.net/toc)
   3. Typograph – Scale & Rhythm
-     (http://lamb.cc/typograph/)
+   (http://lamb.cc/typograph/)
   4. Revised Font Stack
-     (http://www.awayback.com/revised-font-stack/)
+   (http://www.awayback.com/revised-font-stack/)
 */
 /* }}} */
 
 /* Layout {{{ */
 
 .g--shady {
-    color: #888;
+  color: #888;
 }
 
 .page {
-    margin: 0 auto;
-    padding: 1.5rem 0;
-    min-width: 320px;
-    max-width: 980px;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  min-width: 320px;
+  max-width: 980px;
 }
 .page__sidebar {
-    display: flex;
-    flex-direction: column;
-    float: left;
-    box-sizing: border-box;
-    padding: 0 1rem 0 1.5rem; /* Left margin is bigger due to the outside position of the menu items */
-    width: 30%;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  box-sizing: border-box;
+  padding: 0 1rem 0 1.5rem; /* Left margin is bigger due to the outside position of the menu items */
+  width: 30%;
 }
 .page__content {
-    box-sizing: border-box;
-    margin-left: 30%;
-    padding: 0 3rem 0 1rem; /* Right margin is bigger due to 1.5rem-wide box-shadow of the code elements */
+  box-sizing: border-box;
+  margin-left: 30%;
+  padding: 0 3rem 0 1rem; /* Right margin is bigger due to 1.5rem-wide box-shadow of the code elements */
 }
 
 /*h1,a*/.page__user-name {
-    --highlight-color: #ffd400;
+  --highlight-color: #ffd400;
 
-    display: inline-block;
-    margin-bottom: 1.5rem; /* Vertical rhythm */
-    text-transform: none;
-    font-size: 2rem;   /* H1 */
-    line-height: 3rem; /* H1 */
+  display: inline-block;
+  margin-bottom: 1.5rem; /* Vertical rhythm */
+  text-transform: none;
+  font-size: 2rem;   /* H1 */
+  line-height: 3rem; /* H1 */
 }
 
 .page__user-picture {
-    display: block;
-    margin: 0 auto 1.5rem; /* Vertical rhythm */
-    height: calc( 6 * 1.5rem ); /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
-                                   and the picture will remain invisible - yay! */
+  display: block;
+  margin: 0 auto 1.5rem; /* Vertical rhythm */
+  height: calc( 6 * 1.5rem ); /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
+                   and the picture will remain invisible - yay! */
 }
 
 .post__header {
-    --highlight-color: #ffd400;
+  --highlight-color: #ffd400;
 
-    display: inline-block;
-    margin-bottom: 0;
+  display: inline-block;
+  margin-bottom: 0;
 }
 
 .post__content ul,
 .post__content p {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .post__content .highlight {
-    margin: 0;
-    background-color: currentColor;
-    box-shadow: 1.5rem 0 currentColor, -1.5rem 0 currentColor;
-    color: #f9f9f9;
+  margin: 0;
+  background-color: currentColor;
+  box-shadow: 1.5rem 0 currentColor, -1.5rem 0 currentColor;
+  color: #f9f9f9;
 }
 .highlight code {
-    display: block;
-    overflow: auto;
-    padding: 1.5rem 0; /* Vertical rhythm */
-    font-size: 0.84rem; /* Traditional scale [3] */
-    line-height: 1.5;  /* Restore line-height for the block elements */
+  display: block;
+  overflow: auto;
+  padding: 1.5rem 0; /* Vertical rhythm */
+  font-size: 0.84rem; /* Traditional scale [3] */
+  line-height: 1.5;  /* Restore line-height for the block elements */
 }
 
 .post-comments {
-    margin-bottom: 1.5rem; /* Vertical rhythm */
-    padding-top: 1.5rem; /* Vertical rhythm */
-    box-shadow: 0 -3px #eee;
+  margin-bottom: 1.5rem; /* Vertical rhythm */
+  padding-top: 1.5rem; /* Vertical rhythm */
+  box-shadow: 0 -3px #eee;
 }
 
 .post__meta {
-    margin: .75rem 0;
-    text-transform: uppercase;
-    font-size: 0.83rem;  /* Traditional scale [3] */
-    line-height: 1.5rem; /* Vertical rhythm */
+  margin: .75rem 0;
+  text-transform: uppercase;
+  font-size: 0.83rem;  /* Traditional scale [3] */
+  line-height: 1.5rem; /* Vertical rhythm */
 }
 
 /*ul*/.post__content-list li {
-    margin-bottom: 1.5rem; /* Vertical rhythm */
+  margin-bottom: 1.5rem; /* Vertical rhythm */
 }
 .post__content .responsive-image {
-    margin: 1.5rem auto;
+  margin: 1.5rem auto;
 }
 
 .post-special-home {
-    position: relative;
-    font-size: 1.5rem;  /* H3 */
-    line-height: 1.5rem; /* H3 */
+  position: relative;
+  font-size: 1.5rem;  /* H3 */
+  line-height: 1.5rem; /* H3 */
 }
-    .post-special-home::before {
-        position: absolute;
-        left: -1rem;
-        content: '\2039';
-    }
+  .post-special-home::before {
+    position: absolute;
+    left: -1rem;
+    content: '\2039';
+  }
 
 .archive {
-    padding: 0;
-    list-style: none;
+  padding: 0;
+  list-style: none;
 }
 .archive__item {
-    display: block;
-    margin-bottom: 1.5rem; /* Vertical rhythm */
+  display: block;
+  margin-bottom: 1.5rem; /* Vertical rhythm */
 }
 .archive__date {
-    text-transform: uppercase;
-    font-size: 0.92rem; /* Traditional scale [3] */
-    line-height: 1.5rem;
+  text-transform: uppercase;
+  font-size: 0.92rem; /* Traditional scale [3] */
+  line-height: 1.5rem;
 }
 .archive__header {
-    --highlight-color: #ffd400;
+  --highlight-color: #ffd400;
 
-    font-size: 1.16rem;  /* Traditional scale [3] */
-    line-height: 1.5rem; /* Vertical rhythm */
+  font-size: 1.16rem;  /* Traditional scale [3] */
+  line-height: 1.5rem; /* Vertical rhythm */
 }
 
 .tags {
-    padding: 0;
-    list-style: none;
+  padding: 0;
+  list-style: none;
 }
 .tags__item {
-    display: inline-block;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    font-size: 1.16rem;  /* Traditional scale [3] */
-    line-height: 1.5rem; /* Vertical rhythm */
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  font-size: 1.16rem;  /* Traditional scale [3] */
+  line-height: 1.5rem; /* Vertical rhythm */
 }
-    .tags__item::after {
-        content: '\a0\25aa\a0';
-    }
-    .tags__item:last-child::after {
-        content: '';
-    }
+  .tags__item::after {
+    content: '\a0\25aa\a0';
+  }
+  .tags__item:last-child::after {
+    content: '';
+  }
 
 .responsive-image {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
-    .responsive-image img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-    }
+  .responsive-image img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
 
 @media (max-width: 979px) {
-    ul {
-        padding-left: 1rem; /* There's no space on the left for markers */
-    }
-    .page {
-        padding-top: 0;
-    }
-    .page__sidebar {
-        float: none;
-        margin-bottom: 1rem; /* This breaks vertical rhythm, though looks much better */
-        padding-top: 1.5rem;
-        padding-left: 1rem;
-        width: auto;
-        box-shadow: 0 1px #eee;
-    }
-    .page__content {
-        margin-left: auto;
-        padding-right: 1rem;
-    }
-    .page__user-picture-story {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.5rem; /* Vertical rhythm */
-    }
-    .page__user-picture {
-        flex-shrink: 0;
-        margin-bottom: 0;
-        padding-right: 1rem;
-        width: calc( 3 * 1.5rem );
-        height: calc( 3 * 1.5rem ); /* Vertical rhythm */
-    }
-    .page__user-name {
-        display: none;
-    }
-    /*ul*/.page__nav {
-        order: -1;
-        margin-top: 0;
-        padding-left: 0;
-    }
-    /*ul*/.page__nav li {
-        display: inline-block;
-    }
-    /*ul*/.page__nav li::after {
-        content: '\a0\25aa\a0';
-        font-size: 1.16rem;
-        line-height: 1;
-    }
-    /*ul*/.page__nav li:last-child::after {
-        content: '';
-    }
-    .post-special-home::before {
-        position: static;
-    }
-    .archive__header {
-        line-height: 2rem; /* This breaks vertical rhythm, though looks much better */
-    }
+  ul {
+    padding-left: 1rem; /* There's no space on the left for markers */
+  }
+  .page {
+    padding-top: 0;
+  }
+  .page__sidebar {
+    float: none;
+    margin-bottom: 1rem; /* This breaks vertical rhythm, though looks much better */
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    width: auto;
+    box-shadow: 0 1px #eee;
+  }
+  .page__content {
+    margin-left: auto;
+    padding-right: 1rem;
+  }
+  .page__user-picture-story {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Vertical rhythm */
+  }
+  .page__user-picture {
+    flex-shrink: 0;
+    margin-bottom: 0;
+    padding-right: 1rem;
+    width: calc( 3 * 1.5rem );
+    height: calc( 3 * 1.5rem ); /* Vertical rhythm */
+  }
+  .page__user-name {
+    display: none;
+  }
+  /*ul*/.page__nav {
+    order: -1;
+    margin-top: 0;
+    padding-left: 0;
+  }
+  /*ul*/.page__nav li {
+    display: inline-block;
+  }
+  /*ul*/.page__nav li::after {
+    content: '\a0\25aa\a0';
+    font-size: 1.16rem;
+    line-height: 1;
+  }
+  /*ul*/.page__nav li:last-child::after {
+    content: '';
+  }
+  .post-special-home::before {
+    position: static;
+  }
+  .archive__header {
+    line-height: 2rem; /* This breaks vertical rhythm, though looks much better */
+  }
 
 }
 
 @media (max-width: 666px) {
-    /* iPhone 6 375x667 */
-    html {
-        font-size: 16px;
-    }
+  /* iPhone 6 375x667 */
+  html {
+    font-size: 16px;
+  }
 }
 @media (max-width: 359px) {
-    /* Galaxy S5 360x640  */
-    html {
-        font-size: 14px;
-    }
+  /* Galaxy S5 360x640  */
+  html {
+    font-size: 14px;
+  }
 }
 
 /* }}} */
@@ -363,28 +363,28 @@ a {
 /* Highlighter {{{ */
 
 .highlight code {
-    color: #485e76;
+  color: #485e76;
 }
 
 .highlight .c,   /* Comment */
 .highlight .cm,  /* Comment.Multiline */
 .highlight .c1,  /* Comment.Single */
 .highlight .cs { /* Comment.Special */
-    color: #a5abb1;
-    /* font-style: italic; */
+  color: #a5abb1;
+  /* font-style: italic; */
 }
 
 .highlight .gp { /* Generic.Prompt */
-    color: #a5abb1;
-    font-weight: bold;
+  color: #a5abb1;
+  font-weight: bold;
 }
 .highlight .gh,  /* Generic.Heading */
 .highlight .gs,  /* Generic.Strong */
 .highlight .gu { /* Generic.Subheading */
-    font-weight: bold;
+  font-weight: bold;
 }
 .highlight .ge { /* Generic.Emph */
-    /* font-style: italic; */
+  /* font-style: italic; */
 }
 
 .highlight .k,   /* Keyword */
@@ -392,7 +392,7 @@ a {
 .highlight .kd,  /* Keyword.Declaration */
 .highlight .kn,  /* Keyword.Namespace */
 .highlight .kr { /* Keyword.Reserved */
-    color: #5e89b9;
+  color: #5e89b9;
 }
 
 .highlight .ni, /* Name.Entity */
@@ -400,11 +400,11 @@ a {
 .highlight .nn, /* Name.Namespace */
 .highlight .nt, /* Name.Tag */
 .highlight .nc { /* Name.Class */
-    color: #d1887b;
+  color: #d1887b;
 }
 
 .highlight .ow { /* Operator.Word */
-    font-weight: bold
+  font-weight: bold
 }
 
 .highlight .s,   /* Literal.String */
@@ -419,6 +419,6 @@ a {
 .highlight .sr,  /* Literal.String.Regex */
 .highlight .s1,  /* Literal.String.Single */
 .highlight .s2 { /* Literal.String.Double */
-    color: #c15847;
+  color: #c15847;
 }
 /* }}} */
