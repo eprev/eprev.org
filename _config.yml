@@ -28,6 +28,9 @@ permalink: /:year/:month/:day/:title/
 
 # Build settings
 markdown: AwesomeMarkdown
+kramdown:
+  site_source: .
+
 exclude:
   - Gemfile
   - Gemfile.lock

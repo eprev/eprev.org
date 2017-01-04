@@ -36,7 +36,7 @@ $ brew install imagemagick
 
 Alright. Let's say you’ve got this image (by [Nation of Amanda](http://nationofamanda-blog.tumblr.com/)) in PNG format with transparency:
 
-![‘Nap all day, sleep all night, party never’ by Nation of Amanda]({{ site_url }}/images/posts/party-never.png){: width="449" height="463" layout="responsive" }
+![‘Nap all day, sleep all night, party never’ by Nation of Amanda]({{ site_url }}/images/posts/party-never.png){: layout="responsive" }
 
 All you need to do is to run this:
 
@@ -50,6 +50,6 @@ It converts PNG file to PGM format, removes image transparency, outputs the resu
 
 As a result you might have now:
 
-![‘Nap all day, sleep all night, party never’ by Nation of Amanda]({{ site_url }}/images/posts/party-never.svg){: width="449" height="463" layout="responsive" }
+![‘Nap all day, sleep all night, party never’ by Nation of Amanda]({{ site_url }}/images/posts/party-never.svg){: layout="responsive" }
 
 That’s it.
