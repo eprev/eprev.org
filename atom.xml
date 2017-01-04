@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-01-04T20:46:15+01:00</updated>
+  <updated>2017-01-04T21:27:03+01:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -40,30 +40,30 @@ of the document is not indicated.&lt;/p&gt;
 which flushes early-head of the document immediately and waits for a second before sending the rest of it.
 The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the &lt;code&gt;async&lt;/code&gt; attribute and a &lt;code&gt;link&lt;/code&gt; tag to the external stylesheet.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;…&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;async&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;onload=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;console.log({scripts: performance.now()})&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;…&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;onload=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;console.log({styles: performance.now()})&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;'DOMContentLoaded'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DOMContentLoaded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;performance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()})&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&quot;…&quot; async
+  onload=&quot;console.log({scripts: performance.now()})&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;link href=&quot;…&quot; rel=&quot;stylesheet&quot;
+  onload=&quot;console.log({styles: performance.now()})&quot;&amp;gt;
+&amp;lt;script&amp;gt;
+  document.addEventListener(
+    'DOMContentLoaded',
+    () =&amp;gt; console.log({DOMContentLoaded: performance.now()})
+  );
+&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;If the character encoding is specified, then the browser (Firefox in this particular case) begins parsing HTML
 immediately along with loading external resources. On the image below, you can see that the script and
 the stylesheet have been loaded before DOM becomes interactive.&lt;/p&gt;
 
-&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 1458px&quot;&gt;&lt;div style=&quot;padding-bottom: 15.36%&quot;&gt;&lt;img src=&quot;/images/posts/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is specified&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is specified&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;When the character encoding is not specified, then the browser starts parsing HTML only after it gets
 the rest of the document (the first 1024 bytes), causing a delay in loading scripts and stylesheets.&lt;/p&gt;
 
-&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 1458px&quot;&gt;&lt;div style=&quot;padding-bottom: 23.32%&quot;&gt;&lt;img src=&quot;/images/posts/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not specified&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;Safari shares similar to Firefox behavior. Chrome and Edge begin parsing HTML right away even if the character
 encoding is not specified or incorrect.&lt;/p&gt;
 
-&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 1234px&quot;&gt;&lt;div style=&quot;padding-bottom: 58.83%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not specified&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;HTML5 specification says that user agents must not support the CESU-8, UTF-7, BOCU-1, SCSU, EBCDIC
 and UTF-32 encodings. Firefox and Safari won’t parse the document UTF-7 encoded until they get
 the first 1024 bytes.&lt;/p&gt;
@@ -79,10 +79,13 @@ it can re-parse the document with the real encoding resulting in additional dela
       <link href="http://eprev.org/2016/08/03/whats-worth-watching/"/>
       <updated>2016-08-03T00:00:00+02:00</updated>
       <id>http://eprev.org/2016/08/03/whats-worth-watching</id>
-      <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/Demruth&quot;&gt;Alexander Bruce&lt;/a&gt; on “&lt;a href=&quot;http://www.gdcvault.com/play/1020776/&quot;&gt;An Overnight Success, Seven Years in the Making&lt;/a&gt;” (2014): a story of creating an (successful) indie game, which shows how high the cost of success can be (financially and psychologically).&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://plus.google.com/+JeffDean/&quot;&gt;Jeffrey Dean&lt;/a&gt; (Google) on “&lt;a href=&quot;https://youtu.be/modXC5IWTJI&quot;&gt;Building Software Systems At Google and Lessons Learned&lt;/a&gt;” (2010): interesting talk on how their technology had evolved over time.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/mathias&quot;&gt;Mathias Bynens&lt;/a&gt; (Opera) on “&lt;a href=&quot;https://vimeo.com/163113209&quot;&gt;Front-End Performance: The Dark Side&lt;/a&gt;” (2016): performance-related APIs can have a negative security impact, making some timing attacks possible on the web.&lt;/li&gt;
+      <content type="html">&lt;ul&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/Demruth&quot;&gt;Alexander Bruce&lt;/a&gt; on “&lt;a href=&quot;http://www.gdcvault.com/play/1020776/&quot;&gt;An Overnight Success, Seven Years in the Making&lt;/a&gt;” (2014): a story of creating an (successful) indie game, which shows how high the cost of success can be (financially and psychologically).&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://plus.google.com/+JeffDean/&quot;&gt;Jeffrey Dean&lt;/a&gt; (Google) on “&lt;a href=&quot;https://youtu.be/modXC5IWTJI&quot;&gt;Building Software Systems At Google and Lessons Learned&lt;/a&gt;” (2010): interesting talk on how their technology had evolved over time.&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/mathias&quot;&gt;Mathias Bynens&lt;/a&gt; (Opera) on “&lt;a href=&quot;https://vimeo.com/163113209&quot;&gt;Front-End Performance: The Dark Side&lt;/a&gt;” (2016): performance-related APIs can have a negative security impact, making some timing attacks possible on the web.&lt;/li&gt;
   &lt;li&gt;Mark Ferrari (Terrible Toybox) on “&lt;a href=&quot;http://gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics&quot;&gt;8 Bit &amp;amp; ‘8 Bitish’ Graphics-Outside the Box&lt;/a&gt;” (2016): how 8 bit graphics are being made nowadays and back then, using of pallet shifting to create complex animation effects.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -93,17 +96,21 @@ it can re-parse the document with the real encoding resulting in additional dela
       <link href="http://eprev.org/2016/07/23/whats-worth-watching/"/>
       <updated>2016-07-23T00:00:00+02:00</updated>
       <id>http://eprev.org/2016/07/23/whats-worth-watching</id>
-      <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
+      <content type="html">&lt;ul&gt;
   &lt;li&gt;Ben Maurer (Facebook) on “&lt;a href=&quot;https://youtu.be/MlNGomWegCE&quot;&gt;Web speed @ Facebook&lt;/a&gt;” (2016): shipping the page incrementally,
 packaging resources based on their usage patterns, early flushing, deferred dependencies, performance measurements,
 JavaScript’s lazy parsing.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/mflaming&quot;&gt;Matthew Flaming&lt;/a&gt; (New Relic) on “&lt;a href=&quot;https://youtu.be/SH8nNANNQ98&quot;&gt;Building a system that never stops&lt;/a&gt;” (2016):
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/mflaming&quot;&gt;Matthew Flaming&lt;/a&gt; (New Relic) on “&lt;a href=&quot;https://youtu.be/SH8nNANNQ98&quot;&gt;Building a system that never stops&lt;/a&gt;” (2016):
 what challenges come with the scaling systems?&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/aerotwist&quot;&gt;Pual Lewis&lt;/a&gt; (Google) on “&lt;a href=&quot;https://youtu.be/thNyy5eYfbc&quot;&gt;High performance web user interfaces&lt;/a&gt;” (2016):
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/aerotwist&quot;&gt;Pual Lewis&lt;/a&gt; (Google) on “&lt;a href=&quot;https://youtu.be/thNyy5eYfbc&quot;&gt;High performance web user interfaces&lt;/a&gt;” (2016):
 applying RAIL (Response-Animation-Idle-Load) principles in practice.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/scottjenson&quot;&gt;Scott Jenson&lt;/a&gt; (Google) on “&lt;a href=&quot;https://youtu.be/7H_E_ZbFAn0&quot;&gt;The Physical Web is a Speed Issue&lt;/a&gt;” (2015):
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/scottjenson&quot;&gt;Scott Jenson&lt;/a&gt; (Google) on “&lt;a href=&quot;https://youtu.be/7H_E_ZbFAn0&quot;&gt;The Physical Web is a Speed Issue&lt;/a&gt;” (2015):
 there is no need to have a gazillion of apps installed on your smartphone in order to interact with things around you.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/guypod&quot;&gt;Guy Podjarny&lt;/a&gt; (Snyk) &amp;amp; &lt;a href=&quot;https://twitter.com/assafhefetz&quot;&gt;Assaf Hefet&lt;/a&gt; (Snyk)
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/guypod&quot;&gt;Guy Podjarny&lt;/a&gt; (Snyk) &amp;amp; &lt;a href=&quot;https://twitter.com/assafhefetz&quot;&gt;Assaf Hefet&lt;/a&gt; (Snyk)
 on “&lt;a href=&quot;https://youtu.be/iXA14OFXxZA&quot;&gt;Tracking Vulnerabilities in Your Third Party Code&lt;/a&gt;” (2015): these guys built a tool
 that helps you track and fix vulnerabilities in your Node.js application dependencies.&lt;/li&gt;
 &lt;/ul&gt;
@@ -115,12 +122,16 @@ that helps you track and fix vulnerabilities in your Node.js application depende
       <link href="http://eprev.org/2016/01/26/whats-worth-watching/"/>
       <updated>2016-01-26T00:00:00+01:00</updated>
       <id>http://eprev.org/2016/01/26/whats-worth-watching</id>
-      <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/yunongx&quot;&gt;Yunong Xiao&lt;/a&gt; (Netflix) on “&lt;a href=&quot;https://youtu.be/O1YP8QP9gLA&quot;&gt;Debugging Node.js in Production&lt;/a&gt;” (2015): what Netflix uses in production to diagnose and fix performance issues, bugs and memory leaks in Node.js applications.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/dan_abramov&quot;&gt;Dan Abramov&lt;/a&gt; on “&lt;a href=&quot;https://youtu.be/xsSnOQynTHs&quot;&gt;Live React: Hot Reloading with Time Travel&lt;/a&gt;” (2015): a story about Redux.&lt;/li&gt;
+      <content type="html">&lt;ul&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/yunongx&quot;&gt;Yunong Xiao&lt;/a&gt; (Netflix) on “&lt;a href=&quot;https://youtu.be/O1YP8QP9gLA&quot;&gt;Debugging Node.js in Production&lt;/a&gt;” (2015): what Netflix uses in production to diagnose and fix performance issues, bugs and memory leaks in Node.js applications.&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/dan_abramov&quot;&gt;Dan Abramov&lt;/a&gt; on “&lt;a href=&quot;https://youtu.be/xsSnOQynTHs&quot;&gt;Live React: Hot Reloading with Time Travel&lt;/a&gt;” (2015): a story about Redux.&lt;/li&gt;
   &lt;li&gt;“&lt;a href=&quot;https://youtu.be/ttavBa4giPc&quot;&gt;Google I/O 2011: The Secrets of Google Pac-Man: A Game Show&lt;/a&gt;” (2011): the entertaining story behind Google Pac-Man doodle.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/erniemiller&quot;&gt;Ernie Miller&lt;/a&gt; on “&lt;a href=&quot;https://youtu.be/7MeBuDLbF98&quot;&gt;How to Build a Skyscraper&lt;/a&gt;” (2015): what we can learn from skyscraper-building experience.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/mathias&quot;&gt;Mathias Bynens&lt;/a&gt; (Opera) on “&lt;a href=&quot;https://youtu.be/0Bj4etSa84c&quot;&gt;RegExp.prototype.unicode&lt;/a&gt;” (2015): what Unicode-related problems are in JavaScript regular expressions and how ES6 helps solve these issues.&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/erniemiller&quot;&gt;Ernie Miller&lt;/a&gt; on “&lt;a href=&quot;https://youtu.be/7MeBuDLbF98&quot;&gt;How to Build a Skyscraper&lt;/a&gt;” (2015): what we can learn from skyscraper-building experience.&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/mathias&quot;&gt;Mathias Bynens&lt;/a&gt; (Opera) on “&lt;a href=&quot;https://youtu.be/0Bj4etSa84c&quot;&gt;RegExp.prototype.unicode&lt;/a&gt;” (2015): what Unicode-related problems are in JavaScript regular expressions and how ES6 helps solve these issues.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </entry>
@@ -130,16 +141,19 @@ that helps you track and fix vulnerabilities in your Node.js application depende
       <link href="http://eprev.org/2016/01/15/whats-worth-watching/"/>
       <updated>2016-01-15T00:00:00+01:00</updated>
       <id>http://eprev.org/2016/01/15/whats-worth-watching</id>
-      <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/leeb&quot;&gt;Lee Byron&lt;/a&gt; (Facebook) on “&lt;a href=&quot;http://youtu.be/WQLzZf34FJ8&quot;&gt;Exploring GraphQL&lt;/a&gt;” (2015): a data fetching language
+      <content type="html">&lt;ul&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/leeb&quot;&gt;Lee Byron&lt;/a&gt; (Facebook) on “&lt;a href=&quot;http://youtu.be/WQLzZf34FJ8&quot;&gt;Exploring GraphQL&lt;/a&gt;” (2015): a data fetching language
 that is widely used at Facebook.&lt;/li&gt;
   &lt;li&gt;Interesting session on “&lt;a href=&quot;http://youtu.be/OcFOWIq3cIc&quot;&gt;Making Robots&lt;/a&gt;” at &lt;a href=&quot;http://www.fab11.org&quot;&gt;Fab11 conference&lt;/a&gt;:
 MIT, Harvard, DARPA, Boston Dynamics and Kiva Systems.&lt;/li&gt;
   &lt;li&gt;Rachel Potvin (Google) on “&lt;a href=&quot;http://youtu.be/W71BTkUbdqE&quot;&gt;Why Google Stores Billions of Lines of Code in a Single Repository&lt;/a&gt;” (2015):
 advantages and trade-offs of having a giant single monolithic source repository.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/cjno&quot;&gt;Christian Johansen&lt;/a&gt; on “&lt;a href=&quot;http://youtu.be/wA98Coal4jk&quot;&gt;Immutable JavaScript: You can’t change this&lt;/a&gt;” (2015):
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/cjno&quot;&gt;Christian Johansen&lt;/a&gt; on “&lt;a href=&quot;http://youtu.be/wA98Coal4jk&quot;&gt;Immutable JavaScript: You can’t change this&lt;/a&gt;” (2015):
 Immutability in React.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/LeaVerou&quot;&gt;Lea Verou&lt;/a&gt; on making CSS pie charts in “&lt;a href=&quot;http://youtu.be/s4HdeJctq-A&quot;&gt;The Missing Slice&lt;/a&gt;” (2015).&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/LeaVerou&quot;&gt;Lea Verou&lt;/a&gt; on making CSS pie charts in “&lt;a href=&quot;http://youtu.be/s4HdeJctq-A&quot;&gt;The Missing Slice&lt;/a&gt;” (2015).&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </entry>
@@ -174,7 +188,7 @@ the default location “Automatic” will be used.&lt;/p&gt;
 that watches for wireless network changes and responds accordingly. Its installation process
 is extremely easy:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;It will ask only for a root password to install &lt;code&gt;locationchanger&lt;/code&gt; service. Now, every time you connect to
 a wireless network it will change the location to either the corresponding or the default one.&lt;/p&gt;
@@ -183,17 +197,17 @@ a wireless network it will change the location to either the corresponding or th
 has been changed. Let’s create scripts that will be executed every time it happens. One is
 for “Corp Wi-Fi” location:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
 
-&lt;span class=&quot;c&quot;&gt;# Require password immediately after sleep or screen saver&lt;/span&gt;
-osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Events&quot; to set require password to wake of security preferences to true'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+# Require password immediately after sleep or screen saver
+osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to true'&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Another is for the default location:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
 
-&lt;span class=&quot;c&quot;&gt;# Don’t require password after sleep or screen saver&lt;/span&gt;
-osascript -e &lt;span class=&quot;s1&quot;&gt;'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+# Don’t require password after sleep or screen saver
+osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Save them as &lt;code&gt;~/.locations/Corp Wi-Fi&lt;/code&gt; and &lt;code&gt;~/.locations/Automatic&lt;/code&gt; respectively. Voilà!
 You’re not limited by changing only the security preferences, you can do whatever
@@ -212,34 +226,34 @@ you want to…&lt;/p&gt;
 
 &lt;p&gt;It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install potrace&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ brew install potrace&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The manual installation is super easy, however. For OS X do the following:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;potrace-1.12.mac-i386
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap.1 potrace.1 /usr/share/man/
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ cd potrace-1.12.mac-i386
+$ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
+$ sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
 &lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org&quot;&gt;ImageMagick&lt;/a&gt;’s &lt;code&gt;convert&lt;/code&gt; program. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install imagemagick&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ brew install imagemagick&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Alright. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda-blog.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:&lt;/p&gt;
 
-&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 449px&quot;&gt;&lt;div style=&quot;padding-bottom: 103.12%&quot;&gt;&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;All you need to do is to run this:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;convert -alpha remove party-never.png pgm: &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-| mkbitmap -f 32 -t 0.4 - -o - &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ convert -alpha remove party-never.png pgm: \
+| mkbitmap -f 32 -t 0.4 - -o - \
 | potrace --svg -o party-never.svg&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of &lt;code&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code&gt;-f&lt;/code&gt;) and thresholding (&lt;code&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;
 
 &lt;p&gt;As a result you might have now:&lt;/p&gt;
 
-&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 449px&quot;&gt;&lt;div style=&quot;padding-bottom: 103.12%&quot;&gt;&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;That’s it.&lt;/p&gt;
 </content>
     </entry>
@@ -249,9 +263,10 @@ you want to…&lt;/p&gt;
       <link href="http://eprev.org/2015/03/29/whats-worth-watching/"/>
       <updated>2015-03-29T00:00:00+01:00</updated>
       <id>http://eprev.org/2015/03/29/whats-worth-watching</id>
-      <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
+      <content type="html">&lt;ul&gt;
   &lt;li&gt;“&lt;a href=&quot;https://www.youtube.com/watch?v=X0VH78ye4yY&quot;&gt;Big Code: Developer Infrastructure at Facebook’s Scale&lt;/a&gt;” (2015): what is it like to be an engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/holman&quot;&gt;Zach Holman&lt;/a&gt; (GitHub) on “&lt;a href=&quot;http://www.bbc.co.uk/academy/technology/article/art20150206154333467&quot;&gt;Move fast and break nothing&lt;/a&gt;” (2014): how to ship software changes fast and not to break things.&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/holman&quot;&gt;Zach Holman&lt;/a&gt; (GitHub) on “&lt;a href=&quot;http://www.bbc.co.uk/academy/technology/article/art20150206154333467&quot;&gt;Move fast and break nothing&lt;/a&gt;” (2014): how to ship software changes fast and not to break things.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </entry>
@@ -261,9 +276,11 @@ you want to…&lt;/p&gt;
       <link href="http://eprev.org/2015/01/26/whats-worth-watching/"/>
       <updated>2015-01-26T00:00:00+01:00</updated>
       <id>http://eprev.org/2015/01/26/whats-worth-watching</id>
-      <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/KirbySayshi&quot;&gt;Drew Petersen&lt;/a&gt; (Spotify) on “&lt;a href=&quot;https://www.youtube.com/watch?v=uNVP5jDOVAY&quot;&gt;Developing Games Using Data not Trees&lt;/a&gt;” (2014): cons and pros of using data-oriented approach in game development.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/danielespeset&quot;&gt;Daniel Espeset&lt;/a&gt; (Etsy) on “&lt;a href=&quot;https://vimeo.com/109912254&quot;&gt;The role of Front-end Infrastructure at Etsy&lt;/a&gt;” (2014): continuos deployment and experimentation-driven development, instruments that help to delete old code constantly.&lt;/li&gt;
+      <content type="html">&lt;ul&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/KirbySayshi&quot;&gt;Drew Petersen&lt;/a&gt; (Spotify) on “&lt;a href=&quot;https://www.youtube.com/watch?v=uNVP5jDOVAY&quot;&gt;Developing Games Using Data not Trees&lt;/a&gt;” (2014): cons and pros of using data-oriented approach in game development.&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://twitter.com/danielespeset&quot;&gt;Daniel Espeset&lt;/a&gt; (Etsy) on “&lt;a href=&quot;https://vimeo.com/109912254&quot;&gt;The role of Front-end Infrastructure at Etsy&lt;/a&gt;” (2014): continuos deployment and experimentation-driven development, instruments that help to delete old code constantly.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </entry>
@@ -276,13 +293,13 @@ you want to…&lt;/p&gt;
       <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
 I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;vim -p &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | sed &lt;span class=&quot;s2&quot;&gt;&quot;s,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git rev-parse --show-prefix&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,,&quot;&lt;/span&gt; | tr &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ vim -p $(git diff --name-only HEAD | sed &quot;s,$(git rev-parse --show-prefix),,&quot; | tr &quot;\n&quot; &quot; &quot;)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code&gt;.bashrc&lt;/code&gt;,
 but adding this to &lt;code&gt;.gitconfig&lt;/code&gt; seems like a better option. This is what you need to add to your &lt;code&gt;~/.gitconfig&lt;/code&gt;.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-open &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;!vim -c &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;cd &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$GIT_PREFIX&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; -p &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | tr &lt;span class=&quot;s1&quot;&gt;'\\n'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;[alias]
+open = &quot;!vim -c \&quot;cd $GIT_PREFIX\&quot; -p $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;To run this command you need to type &lt;code&gt;git open&lt;/code&gt; in the terminal. Since all commands prefixed with an exclamation
 point are executed from the top-level directory of a repository, we need to change working directory in Vim to
@@ -291,8 +308,8 @@ the current one. And of course you can replace Vim by your favorite editor or ev
 &lt;p&gt;Besides, If you use sort of file watchers to perform certain operations when files change, then
 you would find the following command quite helpful. It changes modification time of all modified files at once.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;!touch -c &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git diff --name-only HEAD | tr &lt;span class=&quot;s1&quot;&gt;'\\n'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;[alias]
+touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;You can find more handy aliases in &lt;a href=&quot;https://github.com/eprev/dotfiles/blob/master/gitconfig&quot;&gt;.dotfiles&lt;/a&gt; of mine.&lt;/p&gt;
 </content>
@@ -303,7 +320,7 @@ touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quo
       <link href="http://eprev.org/2014/11/23/whats-worth-watching/"/>
       <updated>2014-11-23T00:00:00+01:00</updated>
       <id>http://eprev.org/2014/11/23/whats-worth-watching</id>
-      <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
+      <content type="html">&lt;ul&gt;
   &lt;li&gt;Bred Victor (MIT) on “&lt;a href=&quot;https://vimeo.com/67076984&quot;&gt;Media for Thinking the Unthinkable&lt;/a&gt;” (2013): incredible ideas that will probably change the way we present and understand things.&lt;/li&gt;
   &lt;li&gt;Douglas Crockford on “&lt;a href=&quot;http://www.youtube.com/watch?v=bo36MrBfTk4&quot;&gt;The Better Parts&lt;/a&gt;” (2014): you aren’t supposed to use every feature of the language to write error-free programs. Douglas is sharing his favorite parts of JavaScript and coming ES6 standard.&lt;/li&gt;
   &lt;li&gt;Facebook’s way to Flux and React in “&lt;a href=&quot;http://www.youtube.com/watch?v=nYkdrAPrdcw&quot;&gt;Rethinking Web App Development at Facebook&lt;/a&gt;” (2014).&lt;/li&gt;
@@ -318,11 +335,12 @@ touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quo
       <link href="http://eprev.org/2014/02/27/whats-worth-watching/"/>
       <updated>2014-02-27T00:00:00+01:00</updated>
       <id>http://eprev.org/2014/02/27/whats-worth-watching</id>
-      <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
+      <content type="html">&lt;ul&gt;
   &lt;li&gt;Pete Hunt (Facebook) on “&lt;a href=&quot;http://2013.jsconf.eu/speakers/pete-hunt-react-rethinking-best-practices.html&quot;&gt;React: rethinking best practices&lt;/a&gt;” (2013).&lt;/li&gt;
   &lt;li&gt;Steven Wittens on “&lt;a href=&quot;http://www.youtube.com/watch?v=Zkx1aKv2z8o&quot;&gt;Making things with maths&lt;/a&gt;” (2013).&lt;/li&gt;
   &lt;li&gt;Interesting talk on &lt;a href=&quot;https://vimeo.com/channels/cssday/70171266&quot;&gt;border-radius&lt;/a&gt; (2013) by Lea Verou.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://vimeo.com/39441590&quot;&gt;Inspiring talk&lt;/a&gt; (2012) by Aaron James Draplin.&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href=&quot;https://vimeo.com/39441590&quot;&gt;Inspiring talk&lt;/a&gt; (2012) by Aaron James Draplin.&lt;/li&gt;
   &lt;li&gt;Jason Santa Maria (A Book Apart) on “&lt;a href=&quot;https://vimeo.com/34178417&quot;&gt;Web typography&lt;/a&gt;” (2011).&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -333,7 +351,7 @@ touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quo
       <link href="http://eprev.org/2014/01/22/whats-worth-watching/"/>
       <updated>2014-01-22T00:00:00+01:00</updated>
       <id>http://eprev.org/2014/01/22/whats-worth-watching</id>
-      <content type="html">&lt;ul class=&quot;post__content-list&quot;&gt;
+      <content type="html">&lt;ul&gt;
   &lt;li&gt;Tim Berglund (GitHub) on “&lt;a href=&quot;https://vimeo.com/49444883&quot;&gt;Advanced Git&lt;/a&gt;” (2012): low-level commands, interactive rebase, external diff &amp;amp; merge tools, reflog and reset.&lt;/li&gt;
   &lt;li&gt;Ilya Grigorik (Google) on “&lt;a href=&quot;http://www.youtube.com/watch?v=Il4swGfTOSM&quot;&gt;Breaking the 1000ms time to glass mobile barrier&lt;/a&gt;” (2013): how to build a mobile website that loads as quickly as possible.&lt;/li&gt;
   &lt;li&gt;Parikh (Facebook) on “&lt;a href=&quot;http://www.youtube.com/watch?v=oodS71YtkGU&quot;&gt;Building for a billion users&lt;/a&gt;” (2012).&lt;/li&gt;
@@ -350,10 +368,10 @@ touch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quo
       <id>http://eprev.org/2014/01/19/chrome-tab-tooltips</id>
       <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.&lt;/p&gt;
 
-&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 351px&quot;&gt;&lt;div style=&quot;padding-bottom: 41.31%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.&lt;/p&gt;
 
-&lt;figure class=&quot;responsive-image&quot; style=&quot;max-width: 351px&quot;&gt;&lt;div style=&quot;padding-bottom: 20.8%&quot;&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot; layout=&quot;responsive&quot;&gt;&lt;/div&gt;&lt;/figure&gt;</content>
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;</content>
     </entry>
   
     <entry>
@@ -387,33 +405,33 @@ at baggage claim dropped to near zero.&lt;/p&gt;
       <id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</id>
       <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mongo --nodb
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ mongo --nodb
 MongoDB shell version: 2.2.0
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;var user &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;name: &lt;span class=&quot;s2&quot;&gt;&quot;Anton Eprev&quot;&lt;/span&gt;, age: 27&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;user
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Anton Eprev&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;age&quot;&lt;/span&gt; : 27 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;object Object]
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;printjson&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt; : &lt;span class=&quot;s2&quot;&gt;&quot;Anton Eprev&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;age&quot;&lt;/span&gt; : 27 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;var numbers &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1, 2, 3, 4, 5, 6, 7, 8, 9]
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&amp;gt; var user = {name: &quot;Anton Eprev&quot;, age: 27}
+&amp;gt; user
+{ &quot;name&quot; : &quot;Anton Eprev&quot;, &quot;age&quot; : 27 }
+&amp;gt; print(user)
+[object Object]
+&amp;gt; printjson(user)
+{ &quot;name&quot; : &quot;Anton Eprev&quot;, &quot;age&quot; : 27 }
+&amp;gt; var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+&amp;gt; print(numbers)
 1,2,3,4,5,6,7,8,9
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;printjson&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&amp;gt; printjson(numbers)
+[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;And of course the shell allows you to use loops, user functions and etc.:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;var i &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;i, user[i]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;&amp;gt; for (var i in user) { print(i, user[i]) }
 name Anton Eprev
 age 27
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;add&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return function&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;x + y &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;add&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&amp;gt; function add(x){ return function(y){ return x + y } }
+&amp;gt; add(3)(4)
 7
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-... &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;var i &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0; i &amp;lt; 10; i++&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-...     print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-... &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&amp;gt; {
+... for (var i = 0; i &amp;lt; 10; i++)
+...     print(i)
+... }
 0
 1
 …
@@ -421,26 +439,26 @@ age 27
 
 &lt;p&gt;You can also use the &lt;code&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;var profile &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; cat&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.profile'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;profile
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/local/bin:/opt/local/sbin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;&amp;gt; var profile = cat('.profile')
+&amp;gt; profile
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 …&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;You may even explore global scope by executing &lt;code&gt;printjson(this)&lt;/code&gt; and find out the following functions:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;ls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;mkdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;hex_md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;pwd()
+ls()
+cd()
+mkdir()
+hostname()
+sleep()
+hex_md5()&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;And finally, you can run a JavaScript file using MongoDB shell.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cat hello.js
-print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mongo --nodb hello.js
+&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ cat hello.js
+print(&quot;Hello World!&quot;);
+$ mongo --nodb hello.js
 MongoDB shell version: 2.2.0
 Hello World!&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
