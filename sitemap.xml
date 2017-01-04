@@ -7,6 +7,12 @@
     </url>
     
         <url>
+            <loc>http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/</loc>
+            <lastmod>2017-01-04</lastmod>
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
             <loc>http://eprev.org/2016/08/03/whats-worth-watching/</loc>
             <lastmod>2016-08-03</lastmod>
             <changefreq>weekly</changefreq>
@@ -237,6 +243,12 @@
     
         <url>
             <loc>http://eprev.org/tags/design/</loc>
+            
+            <changefreq>weekly</changefreq>
+        </url>
+    
+        <url>
+            <loc>http://eprev.org/tags/html/</loc>
             
             <changefreq>weekly</changefreq>
         </url>
