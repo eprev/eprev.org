@@ -38,8 +38,8 @@ module Kramdown
           height = el.attr['height'].to_f
         else
           img = Magick::Image.read(File.join(options[:site_source], el.attr['src'])).first
-          width = img.columns.to_i
-          height = img.rows.to_i
+          width = img.columns.to_f
+          height = img.rows.to_f
         end
         attr = el.attr.reject { |key| [:width, :height, :responsive].include? key.to_sym }
         output =  "<figure class=\"responsive-image\" style=\"max-width: #{ width.to_i }px\">"
