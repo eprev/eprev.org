@@ -3,17 +3,17 @@ layout: default
 ---
 
 {% for post in site.posts %}
-    {% if forloop.index <= 5 %}
-        {% assign include_post_h = 2 %}
-        {% assign include_post_link = true %}
-        {% assign include_post_meta = post %}
-        {% assign include_post_content = post.content %}
-        {% include post.html %}
-    {% endif %}
+  {% if forloop.index <= 5 %}
+    {% assign include_post_h = 2 %}
+    {% assign include_post_link = true %}
+    {% assign include_post_meta = post %}
+    {% assign include_post_content = post.content %}
+    {% include post.html %}
+  {% endif %}
 {% endfor %}
 
 <div class="post">
-    <h3 class="post__header">
-        <a href="/archive/">Archive</a> &rsaquo;
-    </h3>
+  <h3 class="post__header">
+    <a href="/archive/">Archive</a> &rsaquo;
+  </h3>
 </div>

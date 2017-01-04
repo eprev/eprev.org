@@ -2,8 +2,8 @@
 title: What’s worth watching
 layout: post
 tags:
-    - worth-watching
-    - devops
+  - worth-watching
+  - devops
 excerpt: List of favorite talks and performances.
 ---
 

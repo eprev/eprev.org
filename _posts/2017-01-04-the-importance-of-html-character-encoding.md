@@ -2,8 +2,8 @@
 title: The importance of HTML character encoding
 layout: post
 tags:
-    - performance
-    - html
+  - performance
+  - html
 excerpt: Not specifying a character encoding of HTML document can negatively impact the page load time.
 ghIssueId: 14
 ---

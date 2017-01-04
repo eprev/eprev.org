@@ -2,10 +2,10 @@
 title: What’s worth watching
 layout: post
 tags:
-    - worth-watching
-    - javascript
-    - performance
-    - git
+  - worth-watching
+  - javascript
+  - performance
+  - git
 excerpt: List of favorite talks and performances.
 ---
 

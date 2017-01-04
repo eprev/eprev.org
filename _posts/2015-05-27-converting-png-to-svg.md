@@ -2,7 +2,7 @@
 title: Converting PNG to SVG
 layout: post
 tags:
-    - svg
+  - svg
 excerpt: There is an easy way to convert bit-mapped images into SVG using command-line tool called Potrace.
 share-image: share-party-never.png
 ghIssueId: 10

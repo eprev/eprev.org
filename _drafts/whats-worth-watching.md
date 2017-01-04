@@ -2,7 +2,7 @@
 title: What’s worth watching
 layout: post
 tags:
-    - worth-watching
+  - worth-watching
 excerpt: List of favorite talks and performances.
 published: false
 ---

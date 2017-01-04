@@ -2,7 +2,7 @@
 title: Open all modified files in editor
 layout: post
 tags:
-    - git
+  - git
 excerpt: How to open all modified files tracked by Git in your favorite editor.
 ---
 

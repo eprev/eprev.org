@@ -2,7 +2,7 @@
 title: Why waiting is torture
 layout: post
 tags:
-    - gray-matter
+  - gray-matter
 excerpt: Do you know why there are often mirrors next to elevators?
 ---
 

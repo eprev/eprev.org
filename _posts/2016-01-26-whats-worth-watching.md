@@ -2,9 +2,9 @@
 title: What’s worth watching
 layout: post
 tags:
-    - worth-watching
-    - javascript
-    - engineering
+  - worth-watching
+  - javascript
+  - engineering
 excerpt: List of favorite talks and performances.
 ---
 

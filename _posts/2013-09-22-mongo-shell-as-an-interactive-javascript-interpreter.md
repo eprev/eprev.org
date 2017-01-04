@@ -2,8 +2,8 @@
 title: Mongo shell as an interactive JavaScript interpreter
 layout: post
 tags:
-    - javascript
-    - mongodb
+  - javascript
+  - mongodb
 excerpt: Do you know that MongoDB has JavaScript interpreter? And yes, you can use it.
 ---
 

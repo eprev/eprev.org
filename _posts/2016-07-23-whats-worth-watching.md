@@ -2,11 +2,11 @@
 title: What’s worth watching
 layout: post
 tags:
-    - worth-watching
-    - javascript
-    - performance
-    - ux
-    - security
+  - worth-watching
+  - javascript
+  - performance
+  - ux
+  - security
 excerpt: List of favorite talks and performances.
 ---
 

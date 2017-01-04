@@ -2,12 +2,12 @@
 title: What’s worth watching
 layout: post
 tags:
-    - worth-watching
-    - javascript
-    - css
-    - robotics
-    - git
-    - graphql
+  - worth-watching
+  - javascript
+  - css
+  - robotics
+  - git
+  - graphql
 excerpt: List of favorite talks and performances.
 ---
 

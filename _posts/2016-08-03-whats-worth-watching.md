@@ -2,9 +2,9 @@
 title: What’s worth watching
 layout: post
 tags:
-    - worth-watching
-    - performance
-    - design
+  - worth-watching
+  - performance
+  - design
 excerpt: List of favorite talks and performances.
 ---
 

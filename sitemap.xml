@@ -4,25 +4,25 @@ layout: null
 
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  {% for post in site.posts %}
     <url>
-        <loc>{{ site.url }}/</loc>
-        <changefreq>daily</changefreq>
-        <priority>1</priority>
+      <loc>{{ site.url }}{{ post.url }}</loc>
+      <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+      <changefreq>weekly</changefreq>
     </url>
-    {% for post in site.posts %}
-        <url>
-            <loc>{{ site.url }}{{ post.url }}</loc>
-            <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
-            <changefreq>weekly</changefreq>
-        </url>
-    {% endfor %}
-    {% for page in site.pages %}
-        <url>
-            <loc>{{ site.url }}{{ page.dir  }}</loc>
-            {% if page.date %}
-            <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
-            {% endif %}
-            <changefreq>weekly</changefreq>
-        </url>
-    {% endfor %}
+  {% endfor %}
+  {% for page in site.pages %}
+    <url>
+      <loc>{{ site.url }}{{ page.dir  }}</loc>
+      {% if page.date %}
+      <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
+      {% endif %}
+      <changefreq>weekly</changefreq>
+    </url>
+  {% endfor %}
 </urlset>

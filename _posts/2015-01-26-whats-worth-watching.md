@@ -2,9 +2,9 @@
 title: What’s worth watching
 layout: post
 tags:
-    - worth-watching
-    - javascript
-    - devops
+  - worth-watching
+  - javascript
+  - devops
 excerpt: List of favorite talks and performances.
 ---
 
