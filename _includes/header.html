@@ -12,7 +12,9 @@
         <title>{{ site.title }}</title>
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if page.description %}
+    {% if page.excerpt %}
+        <meta name="description" content="{{ page.excerpt }}">
+    {% elsif page.description %}
         <meta name="description" content="{{ page.description }}">
     {% else %}
         <meta name="description" content="{{ site.description }}">
