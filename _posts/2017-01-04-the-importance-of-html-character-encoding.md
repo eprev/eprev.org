@@ -5,7 +5,7 @@ tags:
     - performance
     - html
 excerpt: Not specifying a character encoding of HTML document negatively impacts page load time.
-published: true
+ghIssueId: 14
 ---
 
 W3C/WHATWG HTML5 specification states:
@@ -39,7 +39,7 @@ The early-head contains a `script` tag with the `async` attribute and a `link` t
 
 If the character encoding is specified, then the browser (Firefox in this particular case) begins parsing HTML
 immediately along with loading external resources. On the image below, you can see that the script and
-the stylesheet have been loaded before DOM becomes interactive.
+the style sheet have been loaded before DOM becomes interactive.
 
 ![Firefox Web Console: Character encoding is specified]({{site_url}}/images/posts/ff-charset-is-specified.png){: width="729" height="112" layout="responsive" }
 
