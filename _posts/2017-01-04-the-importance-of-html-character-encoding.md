@@ -4,7 +4,7 @@ layout: post
 tags:
     - performance
     - html
-excerpt: Not specifying a character encoding of HTML document negatively impacts page load time.
+excerpt: Not specifying a character encoding of HTML document can negatively impact the page load time.
 ghIssueId: 14
 ---
 
