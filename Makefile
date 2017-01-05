@@ -17,7 +17,7 @@ JS_DIRECTORY=js
 ASSETS_DIRECTORY=assets
 JS_ASSETS=$(subst $(JS_DIRECTORY)/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
 
-server:
+server: build-assets
 	bundle exec jekyll serve --drafts
 
 clean-manifest:
