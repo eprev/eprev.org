@@ -41,11 +41,17 @@ module Kramdown
           width = img.columns.to_f
           height = img.rows.to_f
         end
-        attr = el.attr.reject { |key| [:width, :height, :responsive].include? key.to_sym }
+        if el.attr.has_key?('title')
+          caption = el.attr['title']
+        end
+        attr = el.attr.reject { |key| [:width, :height, :responsive, :title].include? key.to_sym }
         output =  "<figure class=\"responsive-image\" style=\"max-width: #{ width.to_i }px\">"
         output <<   "<div style=\"padding-bottom: #{ (100 * height / width).round(2) }%\">"
         output <<      "<img#{html_attributes(attr)}>"
         output <<   "</div>"
+        if caption
+          output <<   "<figcaption>#{caption}</figcaption>"
+        end
         output << "</figure>"
         output
       else
