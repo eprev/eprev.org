@@ -8,7 +8,11 @@
   </h{{ include_post_h }}>
   <div class="post__meta g--shady">
     {{ include_post_meta.date | date:"%B %-d, %Y" }}
-      {% if include_post_meta.tags %}
+    {% capture no_words %}{{ include_post_content | number_of_words | minus: 360 }}{% endcapture %}
+    {% unless no_words contains "-" %}
+      ∙ {{ no_words | plus: 360 | divided_by: 180 | append: " minutes read" }}
+    {% endunless %}
+    {% if include_post_meta.tags %}
       ∙
       {% for tag in include_post_meta.tags %}
         <a href="/tags/{{tag}}/">{{tag}}</a>{% if forloop.rindex > 1 %},{% endif %}
