@@ -48,17 +48,20 @@ If the character encoding is specified, then the browser (Firefox in this partic
 immediately along with loading external resources. On the image below, you can see that the script and
 the stylesheet have been loaded before DOM becomes interactive.
 
-![Firefox Web Console: Character encoding is specified]({{site_url}}/images/posts/ff-charset-is-specified.png){: layout="responsive" }
+![Firefox Web Console: Character encoding is specified]({{site_url}}/images/posts/ff-charset-is-specified.png
+"When the character encoding is specified, Firefox starts loading styles and scripts as it is parsing the HTML."){: layout="responsive" }
 
 When the character encoding is not specified, then the browser starts parsing HTML only after it gets
 the rest of the document (the first 1024 bytes), causing a delay in loading scripts and stylesheets.
 
-![Firefox Web Console: Character encoding is not specified]({{site_url}}/images/posts/ff-charset-is-not-specified.png){: layout="responsive" }
+![Firefox Web Console: Character encoding is not specified]({{site_url}}/images/posts/ff-charset-is-not-specified.png
+"When the character encoding is not specified, Firefox will wait for the first 1024 bytes before it can begin loading styles and scripts."){: layout="responsive" }
 
 Safari shares similar to Firefox behavior. Chrome and Edge begin parsing HTML right away even if the character
 encoding is not specified or incorrect.
 
-![Chrome Console: Character encoding is not specified]({{site_url}}/images/posts/chrome-charset-is-not-specified.png){: layout="responsive" }
+![Chrome Console: Character encoding is not specified]({{site_url}}/images/posts/chrome-charset-is-not-specified.png
+"Chrome starts parsing the HTML and loading styles and scripts right away, even when the character encoding is not specified."){: layout="responsive" }
 
 HTML5 specification says that user agents must not support the CESU-8, UTF-7, BOCU-1, SCSU, EBCDIC
 and UTF-32 encodings. Firefox and Safari won’t parse the document UTF-7 encoded until they get
