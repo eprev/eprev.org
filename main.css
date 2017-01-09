@@ -105,6 +105,13 @@ a {
   color: inherit;
   text-decoration: none;
 }
+figcaption {
+  padding-top: .75rem;
+  color: #888;
+  text-align: center;
+  text-align: center;
+  font-size: .83rem;
+}
 
 :root {
   --highlight-color: #aad6d7;
@@ -141,6 +148,9 @@ a {
 
 .g--shady {
   color: #888;
+}
+.g--border {
+  box-shadow: 0 0 0 1px #ccc;
 }
 
 .page {
@@ -281,8 +291,8 @@ a {
 }
   .responsive-image img {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
   }
 
@@ -371,6 +381,7 @@ a {
 .highlight .c1,  /* Comment.Single */
 .highlight .cs { /* Comment.Special */
   color: #a5abb1;
+
   /* font-style: italic; */
 }
 

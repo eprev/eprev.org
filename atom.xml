@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-01-09T22:28:16+01:00</updated>
+  <updated>2017-01-09T22:55:50+01:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -98,15 +98,18 @@ The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the &lt;code&
 immediately along with loading external resources. On the image below, you can see that the script and
 the stylesheet have been loaded before DOM becomes interactive.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is specified&quot; title=&quot;When the character encoding is specified, Firefox starts loading styles and scripts as it is parsing the HTML.&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is specified&quot;&gt;&lt;/div&gt;
+&lt;figcaption&gt;When the character encoding is specified, Firefox starts loading styles and scripts as it is parsing the HTML.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;When the character encoding is not specified, then the browser starts parsing HTML only after it gets
 the rest of the document (the first 1024 bytes), causing a delay in loading scripts and stylesheets.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not specified&quot; title=&quot;When the character encoding is not specified, Firefox will wait for the first 1024 bytes before it can begin loading styles and scripts.&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;
+&lt;figcaption&gt;When the character encoding is not specified, Firefox waits for the first 1024 bytes before it begins loading styles and scripts.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;Safari shares similar to Firefox behavior. Chrome and Edge begin parsing HTML right away even if the character
 encoding is not specified or incorrect.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not specified&quot; title=&quot;Chrome starts parsing the HTML and loading styles and scripts right away, even when the character encoding is not specified.&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;
+&lt;figcaption&gt;Chrome starts parsing the HTML and loading styles and scripts as it is loading the document even if the character encoding is not specified.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;HTML5 specification says that user agents must not support the CESU-8, UTF-7, BOCU-1, SCSU, EBCDIC
 and UTF-32 encodings. Firefox and Safari won’t parse the document UTF-7 encoded until they get
 the first 1024 bytes.&lt;/p&gt;
