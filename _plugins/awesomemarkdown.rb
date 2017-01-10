@@ -44,8 +44,11 @@ module Kramdown
         if el.attr.has_key?('title')
           caption = el.attr['title']
         end
-        attr = el.attr.reject { |key| [:width, :height, :responsive, :title].include? key.to_sym }
-        output =  "<figure class=\"responsive-image\" style=\"max-width: #{ width.to_i }px\">"
+        if el.attr.has_key?('mod')
+          mod = el.attr['mod']
+        end
+        attr = el.attr.reject { |key| [:width, :height, :responsive, :title, :mod].include? key.to_sym }
+        output =  "<figure class=\"responsive-image#{ mod ? " responsive-image--" + mod : "" }\" style=\"max-width: #{ width.to_i }px\">"
         output <<   "<div style=\"padding-bottom: #{ (100 * height / width).round(2) }%\">"
         output <<      "<img#{html_attributes(attr)}>"
         output <<   "</div>"
