@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-01-09T22:55:50+01:00</updated>
+  <updated>2017-01-10T21:59:25+01:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -92,7 +92,8 @@ The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the &lt;code&
     'DOMContentLoaded',
     () =&amp;gt; console.log({DOMContentLoaded: performance.now()})
   );
-&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;figcaption&gt;Part of the early-head contents.&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;If the character encoding is specified, then the browser (Firefox in this particular case) begins parsing HTML
 immediately along with loading external resources. On the image below, you can see that the script and
