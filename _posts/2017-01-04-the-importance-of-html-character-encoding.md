@@ -31,7 +31,9 @@ To demonstrate this I made a [simple HTTP server](https://gist.github.com/eprev/
 which flushes early-head of the document immediately and waits for a second before sending the rest of it.
 The early-head contains a `script` tag with the `async` attribute and a `link` tag to the external stylesheet.
 
-{% highlight html %}
+{% highlight html
+  caption="Part of the early-head contents."
+%}
 <script src="…" async
   onload="console.log({scripts: performance.now()})"></script>
 <link href="…" rel="stylesheet"
