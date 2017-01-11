@@ -63,17 +63,17 @@ the rest of the document (the first 1024 bytes), causing a delay in loading scri
   layout="responsive" mod="wide" .g--border
 }
 
-Safari shares similar to Firefox behavior. Chrome and Edge begin parsing HTML right away even if the character
-encoding is not specified or incorrect.
+Safari shares similar to Firefox behavior. Things are quite different with Chrome and Edge, they begin parsing HTML
+right away even if the character encoding is not specified or incorrect.
 
 ![Chrome Console: Character encoding is not specified]({{site_url}}/images/posts/chrome-charset-is-not-specified.png
 "Chrome starts parsing the HTML and loading styles and scripts as it is loading the document even if the character encoding is not specified."){:
   layout="responsive" mod="wide" .g--border
 }
 
-HTML5 specification says that user agents must not support the CESU-8, UTF-7, BOCU-1, SCSU, EBCDIC
-and UTF-32 encodings. Firefox and Safari won’t parse the document UTF-7 encoded until they get
-the first 1024 bytes.
+What’s incorrect encoding? HTML5 specification says that user agents must not support the CESU-8, UTF-7,
+BOCU-1, SCSU, EBCDIC and UTF-32 encodings. For that reason, Firefox and Safari won’t parse
+the document UTF-7 encoded until they get the first 1024 bytes.
 
 On a final note, it’s important that the character set specified in the `Content-Type` header or `META` tag
 matches the encoding actually used for the document. If the browser detects an incorrect or mismatched encoding,
