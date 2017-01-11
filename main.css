@@ -380,6 +380,22 @@ figcaption {
   }
 }
 
+@media (min-width: 1440px) {
+    .page {
+        padding-right: calc(980px * 0.3 - 1.5rem);
+    }
+}
+
+@media (min-width: 1680px) {
+    html {
+        font-size: 20px;
+    }
+    .page {
+        max-width: 1280px;
+        padding-right: calc(1280px * 0.3 - 1.5rem);
+    }
+}
+
 /* }}} */
 
 /* Highlighter {{{ */
