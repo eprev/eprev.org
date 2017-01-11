@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-01-11T19:44:44+01:00</updated>
+  <updated>2017-01-11T21:01:31+01:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -275,7 +275,7 @@ you want to…&lt;/p&gt;
 
 &lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ brew install potrace&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The manual installation is super easy, however. For OS X do the following:&lt;/p&gt;
+&lt;p&gt;The manual installation is super easy though. For OS X do the following:&lt;/p&gt;
 
 &lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ cd potrace-1.12.mac-i386
 $ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
@@ -289,7 +289,8 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt
 
 &lt;p&gt;Alright. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda-blog.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
+&lt;figcaption&gt;Original black-and-white PNG image.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;All you need to do is to run this:&lt;/p&gt;
 
 &lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ convert -alpha remove party-never.png pgm: \
@@ -300,7 +301,8 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt
 
 &lt;p&gt;As a result you might have now:&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
+&lt;figcaption&gt;Generated SVG image (zoom the page in).&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;That’s it.&lt;/p&gt;
 </content>
     </entry>
