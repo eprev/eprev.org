@@ -1,13 +1,18 @@
 ---
+title: 404
 layout: default
 permalink: /404.html
 ---
 
-<div class="post">
-  <h1 class="post__header">
-    The page cannot be found
-  </h1>
-  <div class="post__content">
-    The page you are looking for might has been removed or something, but whatever, it’s not here.
-  </div>
-</div>
+<h1>The page cannot be found</h1>
+<p>The page you are looking for might has been removed or something, but whatever, it’s not here.</p>
+<h2>Then what?</h2>
+<p>In the meantime, you can check out things I write about:</p>
+<ul class="tags">
+  {% assign site_tags = site.tags | sort %}
+  {% for tag_and_posts in site_tags %}{% assign tag = tag_and_posts | first %}
+  <li class="tags__item">
+    <a href="/tags/{{ tag }}/">{{ tag }}</a>
+  </li>
+  {% endfor %}
+</ul>

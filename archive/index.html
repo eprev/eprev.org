@@ -1,17 +1,16 @@
 ---
-layout: null
+title: Archive
+layout: default
 ---
 
-{% include header.html swiped=true %}
 <h1>Archive</h1>
 <ul class="archive">
-    {% for post in site.posts %}
-        <li class="archive__item">
-            <div class="archive__date g--shady">{{ post.date | date:"%B %-d, %Y" }}</div>
-            <div class="archive__header">
-                <a href="{{ post.url }}">{{ post.title }}</a>
-            </div>
-        </li>
-    {% endfor %}
+  {% for post in site.posts %}
+  <li class="archive__item">
+    <div class="archive__date g--shady">{{ post.date | date:"%B %-d, %Y" }}</div>
+    <div class="archive__header">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+  </li>
+  {% endfor %}
 </ul>
-{% include footer.html %}

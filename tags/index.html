@@ -1,20 +1,14 @@
 ---
-layout: null
+title: Tags
+layout: default
 ---
-
-{% include header.html %}
-
-{% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-{% capture tags_count %}{{ site_tags | split:',' | size }}{% endcapture %}
-{% assign tag_values = site_tags | split:',' | sort %}
 
 <h1>Tags</h1>
 <ul class="tags">
-    {% for item in (0..tags_count) %}{% unless forloop.last %}
-        {% capture tag %}{{ tag_values[item] | strip_newlines }}{% endcapture %}
-        <li class="tags__item">
-            <a href="/tags/{{ tag }}/">{{ tag }}</a>
-        </li>
-    {% endunless %}{% endfor %}
+  {% assign site_tags = site.tags | sort %}
+  {% for tag_and_posts in site_tags %}{% assign tag = tag_and_posts | first %}
+    <li class="tags__item">
+      <a href="/tags/{{ tag }}/">{{ tag }}</a>
+    </li>
+    {% endfor %}
 </ul>
-{% include footer.html %}
