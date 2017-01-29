@@ -117,10 +117,19 @@ abbr {
                (http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.6/). */
 }
 a {
-  box-shadow: 0 1px currentColor;
+  box-shadow: 0 2px #ececec;
+  background-image: linear-gradient(to right, #ececec, #ececec);
+  background-position: left bottom;
+  background-size: 1px 2px;
+  background-repeat: repeat-x;
   color: inherit;
   text-decoration: none;
 }
+  a:hover {
+    box-shadow: 0 2px #d0e0f0;
+    background-image: linear-gradient(to right, #d0e0f0, #d0e0f0);
+  }
+
 figure {
     margin: 1.5rem 0; /* Vertical rhythm */
 }
@@ -129,24 +138,6 @@ figcaption {
   color: #888;
   text-align: center;
   font-size: .83rem;
-}
-
-:root {
-  --highlight-color: #aad6d7;
-}
-@supports (--highlight-color: inherit) {
-  a {
-    background-image: linear-gradient(to right, var(--highlight-color), var(--highlight-color));
-    background-position: left bottom;
-    background-size: 1px 2px;
-    background-repeat: repeat-x;
-    box-shadow: 0 2px var(--highlight-color);
-  }
-  a:hover {
-    background-size: 1px 100%;
-    box-shadow: 0 0 0 2px var(--highlight-color);
-    color: #fff;
-  }
 }
 
 /*
@@ -192,8 +183,6 @@ figcaption {
 }
 
 /*h1,a*/.page__user-name {
-  --highlight-color: #ffd400;
-
   display: inline-block;
   margin-bottom: 1.5rem; /* Vertical rhythm */
   text-transform: none;
@@ -209,8 +198,6 @@ figcaption {
 }
 
 .post__header {
-  --highlight-color: #ffd400;
-
   display: inline-block;
   margin-bottom: 0;
 }
@@ -274,6 +261,7 @@ figcaption {
   }
 }
 
+.post-special-archive,
 .post-special-home {
   position: relative;
   font-size: 1.5rem;  /* H3 */
@@ -298,8 +286,6 @@ figcaption {
   line-height: 1.5rem;
 }
 .archive__header {
-  --highlight-color: #ffd400;
-
   font-size: 1.16rem;  /* Traditional scale [3] */
   line-height: 1.5rem; /* Vertical rhythm */
 }
@@ -401,11 +387,11 @@ figcaption {
 
 @media (min-width: 1680px) {
     html {
-        font-size: 18px;
+        font-size: 20px;
     }
     .page {
-        max-width: 1080px;
-        padding-right: calc(1080px * 0.3 - 1.5rem);
+        max-width: 1280px;
+        padding-right: calc(1280px * 0.3 - 1.5rem);
     }
 }
 
@@ -422,8 +408,6 @@ figcaption {
 .highlight .c1,  /* Comment.Single */
 .highlight .cs { /* Comment.Special */
   color: #a5abb1;
-
-  /* font-style: italic; */
 }
 
 .highlight .gp { /* Generic.Prompt */
@@ -434,9 +418,6 @@ figcaption {
 .highlight .gs,  /* Generic.Strong */
 .highlight .gu { /* Generic.Subheading */
   font-weight: bold;
-}
-.highlight .ge { /* Generic.Emph */
-  /* font-style: italic; */
 }
 
 .highlight .k,   /* Keyword */
