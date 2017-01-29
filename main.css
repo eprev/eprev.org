@@ -301,7 +301,7 @@ figcaption {
   line-height: 1.5rem; /* Vertical rhythm */
 }
   .tags__item::after {
-    content: '\a0\25aa\a0';
+    content: '\a0\25a0\a0';
   }
   .tags__item:last-child::after {
     content: '';
@@ -350,7 +350,7 @@ figcaption {
     display: inline-block;
   }
   /*ul*/.page__nav li::after {
-    content: '\a0\25aa\a0';
+    content: '\a0\25a0\a0';
     font-size: 1.16rem;
     line-height: 1;
   }
