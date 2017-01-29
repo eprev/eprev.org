@@ -20,6 +20,47 @@ textarea {
   1. Normalize.css (http://necolas.github.io/normalize.css/)
 */
 
+/* Web Fonts {{{  */
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Merriweather Regular'), local('Merriweather-Regular'),
+    url(/fonts/merriweather-regular.woff2) format('woff2'),
+    url(/fonts/merriweather-regular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local('Merriweather Sans Light'), local('MerriweatherSans-Light'),
+    url(/fonts/merriweathersans-light.woff2) format('woff2'),
+    url(/fonts/merriweathersans-light.woff) format('woff');
+}
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('Merriweather Sans Bold'), local('MerriweatherSans-Bold'),
+    url(/fonts/merriweathersans-bold.woff2) format('woff2'),
+    url(/fonts/merriweathersans-bold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: italic;
+  font-weight: 300;
+  src:
+    local('Merriweather Sans Light Italic'), local('MerriweatherSans-LightItalic'),
+    url(/fonts/merriweathersans-lightitalic.woff2) format('woff2'),
+    url(/fonts/merriweathersans-lightitalic.woff) format('woff');
+}
+
+/* }}} */
+
 /* }}} */
 
 /* Typography {{{ */
