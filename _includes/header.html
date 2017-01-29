@@ -4,6 +4,13 @@
 {% else %}
   {% assign site_url = "" %}
 {% endif %}
+{% if site.data.manifest %}
+  {% capture js_main  %}{{ site_url }}/assets/{{ site.data.manifest['main.js'] }}{% endcapture %}
+  {% capture js_fontfaceobserver  %}{{ site_url }}/assets/{{ site.data.manifest['fontfaceobserver.js'] }}{% endcapture %}
+{% else %}
+  {% capture js_main %}{{ site_url }}/assets/main.js{% endcapture %}
+  {% capture js_fontfaceobserver %}{{ site_url }}/assets/fontfaceobserver.js{% endcapture %}
+{% endif %}
 <html lang="en">
   <meta charset="utf-8">
   {% if page_title %}
@@ -26,11 +33,7 @@
   {% else %}
     <link href="{{ site_url }}/main.css" rel="stylesheet" media="all">
   {% endif %}
-  {% if site.data.manifest %}
-    <script src="{{ site_url }}/assets/{{ site.data.manifest['main.js'] }}" defer></script>
-  {% else %}
-    <script src="{{ site_url }}/assets/main.js" defer></script>
-  {% endif %}
+  <script src="{{ js_main }}" defer></script>
   <link rel="shortcut icon" href="{{ site_url }}/images/icon.png">
   <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ site_url }}/atom.xml">
   <link rel="canonical" href="{{ site_url }}{{ page.url }}">
@@ -84,8 +87,25 @@
         });
       }
       {% endif %}
+      var html = document.documentElement;
       if (sessionStorage.fontsLoaded) {
-          document.documentElement.classList.add('fonts-loaded');
+        html.classList.add('fonts-loaded');
+      } else {
+        var script = document.createElement('script');
+        script.src = '{{ js_fontfaceobserver }}';
+        script.async = true;
+        script.onload = function () {
+          Promise.all([
+            (new FontFaceObserver('Merriweather Sans', {weight: 300})).load(),
+            (new FontFaceObserver('Merriweather Sans', {weight: 700})).load(),
+            (new FontFaceObserver('Merriweather Sans', {weight: 300, style: 'italic'})).load(),
+            (new FontFaceObserver('Merriweather', {weight: 400})).load(),
+          ]).then(function () {
+            html.classList.add('fonts-loaded');
+            sessionStorage.fontsLoaded = 'yes';
+          });
+        }
+        document.head.appendChild(script);
       }
     </script>
   <div class="page">
