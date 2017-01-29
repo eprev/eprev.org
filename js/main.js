@@ -10,7 +10,7 @@ Promise.all([
   (new FontFaceObserver('Merriweather Sans', {weight: 300, style: 'italic'})).load(),
   (new FontFaceObserver('Merriweather', {weight: 400})).load(),
 ]).then(() => {
+  sessionStorage.fontsLoaded = 'yes';
   document.documentElement.classList.add('fonts-loaded');
-  sessionStorage.setItem('fonts-loaded', 'yes');
 });
 
