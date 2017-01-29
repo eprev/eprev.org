@@ -5,6 +5,7 @@ tags:
   - worth-watching
   - devops
 excerpt: List of favorite talks and performances.
+share-image: whats-worth-watching.png
 ---
 
 - “[Big Code: Developer Infrastructure at Facebook's Scale](https://www.youtube.com/watch?v=X0VH78ye4yY)” (2015): what is it like to be an engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.

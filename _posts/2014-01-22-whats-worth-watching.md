@@ -7,6 +7,7 @@ tags:
   - performance
   - git
 excerpt: List of favorite talks and performances.
+share-image: whats-worth-watching.png
 ---
 
 - Tim Berglund (GitHub) on “[Advanced Git](https://vimeo.com/49444883)” (2012): low-level commands, interactive rebase, external diff & merge tools, reflog and reset.

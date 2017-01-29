@@ -6,6 +6,7 @@ tags:
   - javascript
   - engineering
 excerpt: List of favorite talks and performances.
+share-image: whats-worth-watching.png
 ---
 
 - Yunong Xiao (Netflix) on “[Debugging Node.js in Production](https://youtu.be/O1YP8QP9gLA)” (2015): what Netflix uses in production to diagnose and fix performance issues, bugs and memory leaks in Node.js applications.

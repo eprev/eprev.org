@@ -38,15 +38,16 @@ html {
 body {
   color: #222;
   font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+  font-weight: 300;
 }
 
 h1, h2, h3, h4, h5, h6, .g--ff-serif {
   font-family: Georgia, serif;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 1.5rem; /* Vertical rhythm */
-  font-weight: normal;
   page-break-inside: avoid;
   text-rendering: optimizeLegibility; /* Enables a font’s native kerning and optional ligatures. */
 }

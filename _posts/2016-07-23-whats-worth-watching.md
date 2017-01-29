@@ -8,6 +8,7 @@ tags:
   - ux
   - security
 excerpt: List of favorite talks and performances.
+share-image: whats-worth-watching.png
 ---
 
 - Ben Maurer (Facebook) on “[Web speed @ Facebook](https://youtu.be/MlNGomWegCE)” (2016): shipping the page incrementally,

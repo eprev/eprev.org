@@ -8,6 +8,7 @@ tags:
   - ux
   - typography
 excerpt: List of favorite talks and performances.
+share-image: whats-worth-watching.png
 ---
 
 - Pete Hunt (Facebook) on “[React: rethinking best practices](http://2013.jsconf.eu/speakers/pete-hunt-react-rethinking-best-practices.html)” (2013).

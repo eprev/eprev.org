@@ -5,6 +5,7 @@ tags:
   - performance
   - html
 excerpt: Not specifying a character encoding of HTML document can negatively impact the page load time.
+share-image: the-importance-of-html-character-encoding.png
 ghIssueId: 14
 ---
 

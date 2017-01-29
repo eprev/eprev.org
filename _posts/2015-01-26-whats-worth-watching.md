@@ -6,6 +6,7 @@ tags:
   - javascript
   - devops
 excerpt: List of favorite talks and performances.
+share-image: whats-worth-watching.png
 ---
 
 - Drew Petersen (Spotify) on “[Developing Games Using Data not Trees](https://www.youtube.com/watch?v=uNVP5jDOVAY)” (2014): cons and pros of using data-oriented approach in game development.

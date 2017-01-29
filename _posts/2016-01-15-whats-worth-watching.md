@@ -9,6 +9,7 @@ tags:
   - git
   - graphql
 excerpt: List of favorite talks and performances.
+share-image: whats-worth-watching.png
 ---
 
 - Lee Byron (Facebook) on “[Exploring GraphQL](http://youtu.be/WQLzZf34FJ8)” (2015): a data fetching language

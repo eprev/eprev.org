@@ -6,6 +6,7 @@ tags:
   - performance
   - design
 excerpt: List of favorite talks and performances.
+share-image: whats-worth-watching.png
 ---
 
 - Alexander Bruce on “[An Overnight Success, Seven Years in the Making](http://www.gdcvault.com/play/1020776/)”&nbsp;(2014): a story of creating an (successful) indie game, which shows how high the cost of success can be (financially and psychologically).

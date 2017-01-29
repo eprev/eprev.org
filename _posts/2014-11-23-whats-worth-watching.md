@@ -7,6 +7,7 @@ tags:
   - performance
   - media
 excerpt: List of favorite talks and performances.
+share-image: whats-worth-watching.png
 ---
 
 - Bred Victor (MIT) on “[Media for Thinking the Unthinkable](https://vimeo.com/67076984)” (2013): incredible ideas that will probably change the way we present and understand things.
