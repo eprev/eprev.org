@@ -27,7 +27,7 @@ textarea {
 /* Traditional scale: 0.5 0.5833 0.6667 0.75 0.83333 0.9167 1 1.1667 1.3333 1.5 1.75 2 3 4 5 6 */
 
 html {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5; /* The line height (1.5rem) sets the vertical rhythm. */
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
@@ -37,7 +37,11 @@ html {
 
 body {
   color: #222;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; /* 90% Mac  (Optima) & 54% PC (Candara) [5] */
+  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .g--ff-serif {
+  font-family: Georgia, serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,8 +50,20 @@ h1, h2, h3, h4, h5, h6 {
   page-break-inside: avoid;
   text-rendering: optimizeLegibility; /* Enables a font’s native kerning and optional ligatures. */
 }
+  .fonts-loaded body {
+    font-family: 'Merriweather Sans', 'Helvetica Neue', 'Segoe UI', sans-serif;
+  }
+  .fonts-loaded h1,
+  .fonts-loaded h2,
+  .fonts-loaded h3,
+  .fonts-loaded h4,
+  .fonts-loaded h5,
+  .fonts-loaded h6,
+  .fonts-loaded .g--ff-serif {
+    font-family: 'Merriweather', Georgia, serif;
+  }
+
 h1 {
-  text-transform: uppercase;
   font-size: 2rem;   /* Traditional scale [3] */
   line-height: 3rem; /* Vertical rhythm */
 }
@@ -214,7 +230,6 @@ figcaption {
   display: block;
   overflow: auto;
   padding: 1.5rem 0; /* Vertical rhythm */
-  font-size: 0.84rem; /* Traditional scale [3] */
   line-height: 1.5;  /* Restore line-height for the block elements */
 }
 
@@ -370,13 +385,13 @@ figcaption {
 @media (max-width: 666px) {
   /* iPhone 6 375x667 */
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 @media (max-width: 359px) {
   /* Galaxy S5 360x640  */
   html {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
@@ -388,11 +403,11 @@ figcaption {
 
 @media (min-width: 1680px) {
     html {
-        font-size: 20px;
+        font-size: 18px;
     }
     .page {
-        max-width: 1280px;
-        padding-right: calc(1280px * 0.3 - 1.5rem);
+        max-width: 1080px;
+        padding-right: calc(1080px * 0.3 - 1.5rem);
     }
 }
 
