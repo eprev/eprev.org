@@ -8,7 +8,8 @@ layout: default
   {% assign site_tags = site.tags | sort %}
   {% for tag_and_posts in site_tags %}{% assign tag = tag_and_posts | first %}
     <li class="tags__item">
-      <a href="/tags/{{ tag }}/">{{ tag }}</a>
+      {% assign tag_key = tag %}{% include tag-name.html %}
+      <a href="/tags/{{ tag }}/">{{ tag_name }}</a>
     </li>
     {% endfor %}
 </ul>

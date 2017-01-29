@@ -15,7 +15,7 @@
     {% if include_post_meta.tags %}
       ∙
       {% for tag in include_post_meta.tags %}
-        <a href="/tags/{{tag}}/">{{tag}}</a>{% if forloop.rindex > 1 %},{% endif %}
+        <a href="/tags/{{tag}}/">{{ tag }}</a>{% if forloop.rindex > 1 %},{% endif %}
       {% endfor %}
     {% endif %}
   </div>

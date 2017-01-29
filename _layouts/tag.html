@@ -1,5 +1,9 @@
+{% assign tag_key = page.tag %}{% include tag-name.html %}
+
+{% capture page_title %}{{ tag_name }} – Tags{% endcapture %}
+
 {% include header.html %}
-<h1>{{page.tag}}</h1>
+<h1>{{ tag_name }}</h1>
 <ul class="archive">
   {% for post in site.posts %}
     {% for tag in post.tags %}

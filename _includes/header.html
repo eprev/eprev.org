@@ -6,7 +6,9 @@
 {% endif %}
 <html lang="en">
   <meta charset="utf-8">
-  {% if page.title %}
+  {% if page_title %}
+    <title>{{ page_title }} – {{ site.title }}</title>
+  {% elsif page.title %}
     <title>{{ page.title }} – {{ site.title }}</title>
   {% else %}
     <title>{{ site.title }}</title>
