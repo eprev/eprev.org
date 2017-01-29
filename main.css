@@ -37,7 +37,7 @@ html {
 
 body {
   color: #222;
-  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, .g--ff-serif {
@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility; /* Enables a font’s native kerning and optional ligatures. */
 }
   .fonts-loaded body {
-    font-family: 'Merriweather Sans', 'Helvetica Neue', 'Segoe UI', sans-serif;
+    font-family: 'Merriweather Sans', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
   }
   .fonts-loaded h1,
   .fonts-loaded h2,
