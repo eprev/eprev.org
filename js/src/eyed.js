@@ -15,7 +15,7 @@ function throttle(fn, context) {
 }
 
 // Edge doesn't apply CSS transforms on SVG elements
-const isCSSTransformSupportedOnSVG = (() => {
+const supportsCSSTransformsOnSVG = (() => {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('viewBox', '0 0 2 2');
   Object.assign(svg.style, {
@@ -46,7 +46,7 @@ export function eyed(rootEl) {
   ];
   const mouthEl = rootEl.querySelector('[data-id=mouth]');
 
-  if (isCSSTransformSupportedOnSVG) {
+  if (supportsCSSTransformsOnSVG) {
     eyes.forEach(eye => eye.el.style.willChange = 'transform');
     Object.assign(mouthEl.style, {
       willChange: 'transform',
@@ -131,7 +131,7 @@ export function eyed(rootEl) {
   }
 
   function translate(el, dx, dy) {
-    if (isCSSTransformSupportedOnSVG) {
+    if (supportsCSSTransformsOnSVG) {
       el.style.transform = `translate(${dx}px, ${dy}px)`;
     } else {
       el.setAttribute('transform', `translate(${dx} ${dy})`);
@@ -146,7 +146,7 @@ export function eyed(rootEl) {
     // 2) there's no such thing as `transform-origin` in SVG.
     // Hence we are gonna use `matrix` function instead.
     const transform = `matrix(${sx}, 0, 0, ${sy}, ${cx * (1 - sx)}, ${cy * (1 - sy)})`;
-    if (isCSSTransformSupportedOnSVG) {
+    if (supportsCSSTransformsOnSVG) {
       mouthEl.style.transform = transform;
     } else {
       mouthEl.setAttribute('transform', transform);
