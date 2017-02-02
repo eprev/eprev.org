@@ -1,10 +1,21 @@
-<!DOCTYPE html><html lang="en"><meta charset="utf-8"><title>Hand-picked GIFs</title><link rel="shortcut icon" href="/images/icon.png"><script>!function(e,n,t,a,i,o,s){e.GoogleAnalyticsObject=i,e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},e[i].l=1*new Date,o=n.createElement(t),s=n.getElementsByTagName(t)[0],o.async=1,o.src=a,s.parentNode.insertBefore(o,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-12144011-4",{siteSpeedSampleRate:100}),ga("send","pageview"),window.addEventListener("error",function(e){ga("send","event","JavaScript Error",e.message,e.filename?e.filename+":"+e.lineno:"N/A",{nonInteraction:1})})</script><style>body {
+<!DOCTYPE html><html lang="en"><meta charset="utf-8"><title>Hand-picked GIFs</title><link rel="shortcut icon" href="/images/icon.png"><script>!function(e,n,t,a,i,o,s){e.GoogleAnalyticsObject=i,e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},e[i].l=1*new Date,o=n.createElement(t),s=n.getElementsByTagName(t)[0],o.async=1,o.src=a,s.parentNode.insertBefore(o,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-12144011-4",{siteSpeedSampleRate:100}),ga("send","pageview"),window.addEventListener("error",function(e){ga("send","event","JavaScript Error",e.message,e.filename?e.filename+":"+e.lineno:"N/A",{nonInteraction:1})})</script><style>html {
+      background-color: #000;
+    }
+    body {
       margin: 0;
     }
     .gifs {
       -moz-column-count: 3;
       column-count: 3;
       font-size: 0;
+    }
+    .loading {
+      animation: 1s linear infinite alternate loading;
+    }
+    @keyframes loading {
+      50% {
+        opacity: .5;
+      }
     }
     @media (min-width: 1024px) {
       .gifs {
@@ -58,12 +69,25 @@
       }
     });
 
+    const imgMap = new WeakMap();
+
     document.body.addEventListener('mouseover', e => {
       const el = e.target;
       if (el.matches('.gifs img:not(.playing)')) {
         el.classList.add('playing');
-        el.dataset.frameSrc = el.src;
-        el.src = el.dataset.src;
+        if (imgMap.has(el)) {
+            el.src = el.dataset.src;
+        } else {
+          el.dataset.frameSrc = el.src;
+          el.classList.add('loading');
+          const img = new Image();
+          imgMap.set(el, img);
+          img.src = el.dataset.src;
+          img.onload = () => {
+            el.classList.remove('loading');
+            el.src = img.src;
+          };
+        }
       }
     });
 
@@ -71,6 +95,13 @@
       const el = e.target;
       if (el.matches('.gifs img.playing')) {
         el.classList.remove('playing');
+        const img = imgMap.get(el);
+        if (!img.complete) {
+          el.classList.remove('loading');
+          img.onload = undefined;
+          img.src = '';
+          imgMap.delete(el);
+        }
         el.src = el.dataset.frameSrc;
       }
     });</script></html>
