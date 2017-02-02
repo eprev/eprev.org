@@ -44,3 +44,6 @@ exclude:
 
 tag_dir: tags
 
+webrick:
+  headers:
+    Cache-Control: private, max-age=600
