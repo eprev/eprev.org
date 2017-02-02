@@ -83,6 +83,9 @@
           const img = new Image();
           imgMap.set(el, img);
           img.src = el.dataset.src;
+          img.onerror = () => {
+            el.classList.remove('loading');
+          };
           img.onload = () => {
             el.classList.remove('loading');
             el.src = img.src;
@@ -99,6 +102,7 @@
         if (!img.complete) {
           el.classList.remove('loading');
           img.onload = undefined;
+          img.onerror = undefined;
           img.src = '';
           imgMap.delete(el);
         }
