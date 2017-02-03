@@ -24,6 +24,7 @@ echo "Generating markup..."
 for f in *.gif; do
   if ! grep -Fq "$f" index.html; then
     f_png=${f%%.*}.png
-    echo "<img src=\"/gif/$f_png\" data-src=\"/gif/$f\" alt=\"\">"
+    f_ratio=$(identify -format "%[fx:100*h/w]%%" $f_png)
+    echo "<div style=\"padding-top: $f_ratio;\"><img src=\"/gif/$f_png\" data-src=\"/gif/$f\" alt=\"\"></div>"
   fi
 done
