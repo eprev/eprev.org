@@ -100,6 +100,11 @@
     <div style="padding-top: 75.6667%;"><img src="/gif/ffc369a9ec66eba18a862eb785cd7667.png" data-src="/gif/ffc369a9ec66eba18a862eb785cd7667.gif" alt=""></div>
   </div>
   <script>
+    const ElementPrototype = Element.prototype;
+    if (typeof ElementPrototype.matches !== 'function') {
+      ElementPrototype.matches = ElementPrototype.msMatchesSelector;
+    }
+
     const copyToClipboard = (function(){
       let textToCopy;
       let clearSelection = false;
