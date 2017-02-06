@@ -40,7 +40,8 @@ exclude:
   - node_modules
   - yarn.lock
   - js/*.js
-  - gif/*.sh
+  - gif/Makefile
+  - gif/src
 
 tag_dir: tags
 
