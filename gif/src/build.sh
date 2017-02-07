@@ -33,3 +33,4 @@ for f in *.gif; do
 done
 cat src/footer.html >> index.html
 
+popd
