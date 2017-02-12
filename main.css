@@ -2,6 +2,11 @@
 
 /* Normalize {{{ */
 
+/*
+  Resources:
+  1. Normalize.css (http://necolas.github.io/normalize.css/)
+*/
+
 body {
   margin: 0; /* Remove default margin [1]. */
 }
@@ -15,44 +20,41 @@ textarea {
   font-family: inherit; /* Corrects font family not being inherited in all browsers [1]. */
 }
 
-/*
-  Resources:
-  1. Normalize.css (http://necolas.github.io/normalize.css/)
-*/
+/* }}} */
 
 /* Web Fonts {{{  */
 
 @font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
+  font-family: 'Merriweather';
   src:
     local('Merriweather Regular'), local('Merriweather-Regular'),
     url(/fonts/merriweather-regular.woff2) format('woff2'),
     url(/fonts/merriweather-regular.woff) format('woff');
 }
 @font-face {
-  font-family: 'Merriweather Sans';
-  font-style: normal;
   font-weight: 300;
+  font-style: normal;
+  font-family: 'Merriweather Sans';
   src:
     local('Merriweather Sans Light'), local('MerriweatherSans-Light'),
     url(/fonts/merriweathersans-light.woff2) format('woff2'),
     url(/fonts/merriweathersans-light.woff) format('woff');
 }
 @font-face {
-  font-family: 'Merriweather Sans';
-  font-style: normal;
   font-weight: 700;
+  font-style: normal;
+  font-family: 'Merriweather Sans';
   src:
     local('Merriweather Sans Bold'), local('MerriweatherSans-Bold'),
     url(/fonts/merriweathersans-bold.woff2) format('woff2'),
     url(/fonts/merriweathersans-bold.woff) format('woff');
 }
 @font-face {
-  font-family: 'Merriweather Sans';
-  font-style: italic;
   font-weight: 300;
+  font-style: italic;
+  font-family: 'Merriweather Sans';
   src:
     local('Merriweather Sans Light Italic'), local('MerriweatherSans-LightItalic'),
     url(/fonts/merriweathersans-lightitalic.woff2) format('woff2'),
@@ -61,11 +63,22 @@ textarea {
 
 /* }}} */
 
-/* }}} */
-
 /* Typography {{{ */
 
-/* Traditional scale: 0.5 0.5833 0.6667 0.75 0.83333 0.9167 1 1.1667 1.3333 1.5 1.75 2 3 4 5 6 */
+/*
+  Resources:
+  1. The Ultimate Guide to Readable Web Typography
+   (http://www.pearsonified.com/2011/12/golden-ratio-typography.php)
+  2. The Elements of Typographic Style Applied to the Web
+   (http://webtypography.net/toc)
+  3. Typograph – Scale & Rhythm
+   (http://lamb.cc/typograph/)
+  4. Revised Font Stack
+   (http://www.awayback.com/revised-font-stack/)
+
+  Traditional scale: 0.5 0.5833 0.6667 0.75 0.83333 0.9167 1 1.1667 1.3333 1.5 1.75 2 3 4 5 6
+
+*/
 
 html {
   font-size: 16px;
@@ -78,13 +91,13 @@ html {
 
 body {
   color: #222;
-  font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
   font-weight: 300;
+  font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, .g--ff-serif {
-  font-family: Georgia, serif;
   font-weight: 400;
+  font-family: Georgia, serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -159,17 +172,17 @@ abbr {
                (http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.6/). */
 }
 a {
-  box-shadow: 0 2px #ececec;
   background-image: linear-gradient(to right, #ececec, #ececec);
   background-position: left bottom;
   background-size: 1px 2px;
   background-repeat: repeat-x;
+  box-shadow: 0 2px #ececec;
   color: inherit;
   text-decoration: none;
 }
   a:hover {
-    box-shadow: 0 2px #d0e0f0;
     background-image: linear-gradient(to right, #d0e0f0, #d0e0f0);
+    box-shadow: 0 2px #d0e0f0;
   }
 
 figure {
@@ -182,17 +195,6 @@ figcaption {
   font-size: .83rem;
 }
 
-/*
-  Resources:
-  1. The Ultimate Guide to Readable Web Typography
-   (http://www.pearsonified.com/2011/12/golden-ratio-typography.php)
-  2. The Elements of Typographic Style Applied to the Web
-   (http://webtypography.net/toc)
-  3. Typograph – Scale & Rhythm
-   (http://lamb.cc/typograph/)
-  4. Revised Font Stack
-   (http://www.awayback.com/revised-font-stack/)
-*/
 /* }}} */
 
 /* Layout {{{ */
@@ -223,6 +225,9 @@ figcaption {
   margin-left: 30%;
   padding: 0 3rem 0 1rem; /* Right margin is bigger due to 1.5rem-wide box-shadow of the code elements */
 }
+.page__header {
+  text-align: center;
+}
 
 /*h1,a*/.page__user-name {
   display: inline-block;
@@ -240,8 +245,8 @@ figcaption {
 }
 
 .post__header {
-  display: inline-block;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .post__content ul,
@@ -263,14 +268,15 @@ figcaption {
 }
 
 .post-comments {
-  font-size: 0.92rem; /* Traditional scale [3] */
   margin-bottom: 1.5rem; /* Vertical rhythm */
   padding-top: 1.5rem; /* Vertical rhythm */
   box-shadow: 0 -3px #eee;
+  font-size: 0.92rem; /* Traditional scale [3] */
 }
 
 .post__meta {
-  margin: .75rem 0;
+  margin: .75rem 0 calc( .75rem + 1.5rem ); /* Vertical rhythm */
+  text-align: center;
   font-size: 0.83rem;  /* Traditional scale [3] */
   line-height: 1.5rem; /* Vertical rhythm */
 }
@@ -280,8 +286,8 @@ figcaption {
 }
 /*figure*/.responsive-image {
   position: relative;
-  width: 100%;
   margin: 1.5rem auto;
+  width: 100%;
 }
   /*figure*/.responsive-image img {
     position: absolute;
@@ -293,12 +299,12 @@ figcaption {
 @media (min-width: 980px) {
   @supports (width: calc(100%)) {
     /*figure*/.responsive-image--wide {
-      transform: translateX(-1.5rem);
       width: calc(100% + 3rem);
+      transform: translateX(-1.5rem);
     }
     /*figure*/.responsive-image--wide figcaption {
-      padding-left: 1.5rem;
       padding-right: 1.5rem;
+      padding-left: 1.5rem;
     }
   }
 }
@@ -324,17 +330,20 @@ figcaption {
   margin-bottom: 1.5rem; /* Vertical rhythm */
 }
 .archive__date {
+  float: left;
+  padding-right: 1rem;
+  width: 4rem;
   font-size: 0.92rem; /* Traditional scale [3] */
-  line-height: 1.5rem;
+  text-align: right;
 }
 .archive__header {
-  font-size: 1.16rem;  /* Traditional scale [3] */
-  line-height: 1.5rem; /* Vertical rhythm */
+  margin-left: 5rem;
 }
 
 .tags {
   padding: 0;
   list-style: none;
+  text-align: center;
 }
 .tags__item {
   display: inline-block;
@@ -355,6 +364,8 @@ figcaption {
   }
   .page {
     padding-top: 0;
+    margin: auto;
+    max-width: 42rem;
   }
   .page__sidebar {
     float: none;
@@ -387,6 +398,7 @@ figcaption {
     order: -1;
     margin-top: 0;
     padding-left: 0;
+    text-align: center;
   }
   /*ul*/.page__nav li {
     display: inline-block;
@@ -402,6 +414,7 @@ figcaption {
   .post-special-home::before {
     position: static;
   }
+  .archive__date,
   .archive__header {
     line-height: 2rem; /* This breaks vertical rhythm, though looks much better */
   }
