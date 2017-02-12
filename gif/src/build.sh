@@ -29,7 +29,8 @@ cat src/header.html > index.html
 for f in *.gif; do
   f_png=${f%%.*}.png
   f_ratio=$(identify -format "%[fx:100*h/w]%%" $f_png)
-  echo "<div style=\"padding-top: $f_ratio;\"><img src=\"/gif/$f_png\" data-src=\"/gif/$f\" alt=\"\"></div>" >> index.html
+  echo "<a href=\"/gif/$f\" target=\"_blank\" rel="noopener" style=\"padding-top: $f_ratio;\"><img src=\"/gif/$f_png\" data-src=\"/gif/$f\" alt=\"\"></a>" >> index.html
 done
 cat src/footer.html >> index.html
 
+echo "All done!"

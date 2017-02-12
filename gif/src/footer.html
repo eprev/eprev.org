@@ -8,11 +8,13 @@
     const copyToClipboard = (function(){
       let textToCopy;
       let clearSelection = false;
+      let didCopy = false;
       document.addEventListener('copy', e => {
         if (textToCopy !== undefined) {
           try {
             e.clipboardData.setData('text/plain', textToCopy);
             e.preventDefault();
+            didCopy = true;
           } finally {
             textToCopy = undefined;
           }
@@ -28,17 +30,24 @@
           sel.addRange(range);
           clearSelection = true;
         }
+        didCopy = false;
         document.execCommand('copy');
         if (clearSelection) {
           clearSelection = false;
           document.getSelection().removeAllRanges();
         }
+        return didCopy;
       };
     })();
 
     document.body.addEventListener('click', e => {
       if (e.target.matches('img')) {
-        copyToClipboard(e.target.src);
+        if (copyToClipboard(e.target.src)) {
+          e.preventDefault();
+          const link = e.target.closest('a');
+          link.classList.add('copied');
+          setTimeout(() => link.classList.remove('copied'), 250);
+        }
       }
     });
 

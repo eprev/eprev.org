@@ -17,6 +17,8 @@
   <style>
     html {
       background-color: #000;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
     }
     body {
       margin: 0;
@@ -26,12 +28,27 @@
       column-count: 3;
       font-size: 0;
     }
-    .gifs div {
+    .gifs a {
       position: relative;
       display: inline-block;
       width: 100%;
     }
-    .gifs div img {
+    .gifs a.copied::after {
+      content: 'Copied';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      background-color: rgba(0, 0, 0, .75);
+      border-radius: .1rem;
+      padding: 0 .5rem;
+      line-height: 2rem;
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    .gifs a img {
       position: absolute;
       top: 0;
     }
@@ -57,6 +74,7 @@
     }
     .gifs img {
       width: 100%;
+      cursor: pointer;
     }
   </style>
   <div class="gifs">
