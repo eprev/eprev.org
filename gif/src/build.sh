@@ -34,3 +34,4 @@ done
 cat src/footer.html >> index.html
 
 echo "All done!"
+popd
