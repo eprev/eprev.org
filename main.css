@@ -148,8 +148,7 @@ ul, ol, p, pre, blockquote {
 }
 
 blockquote {
-  padding-left: 1rem;
-  border-left: 4px solid #eee;
+  padding-left: 1.5rem;
   font-style: italic;
 }
 ul {
@@ -256,8 +255,8 @@ figcaption {
 
 /*figure*/.highlight pre {
   margin: 0;
+  padding: 0 1.5rem;
   background-color: currentColor;
-  box-shadow: 1.5rem 0 currentColor, -1.5rem 0 currentColor;
   color: #f9f9f9;
 }
 /*figure*/.highlight code {
@@ -267,11 +266,25 @@ figcaption {
   line-height: 1.5;  /* Restore line-height for the block elements */
 }
 
+.post-share {
+  padding: 1.5rem 0; /* Vertical rhythm */
+  box-sizing: border-box;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 1.5rem; /* Vertical rhythm */
+  font-size: 0.92rem; /* Traditional scale [3] */
+  text-align: center;
+}
+  .post-share__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
 .post-comments {
   margin-bottom: 1.5rem; /* Vertical rhythm */
-  padding-top: 1.5rem; /* Vertical rhythm */
-  box-shadow: 0 -3px #eee;
-  font-size: 0.92rem; /* Traditional scale [3] */
 }
 
 .post__meta {
@@ -306,6 +319,10 @@ figcaption {
       padding-right: 1.5rem;
       padding-left: 1.5rem;
     }
+  }
+  /*figure*/.highlight pre {
+    padding: 0;
+    box-shadow: 1.5rem 0 currentColor, -1.5rem 0 currentColor;
   }
 }
 
@@ -373,7 +390,7 @@ figcaption {
     padding-top: 1.5rem;
     padding-left: 1rem;
     width: auto;
-    box-shadow: 0 1px #eee;
+    box-shadow: 0 1px #ececec;
   }
   .page__content {
     margin-left: auto;

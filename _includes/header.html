@@ -66,6 +66,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-12144011-2', {'siteSpeedSampleRate': 100});
+      ga('set', 'transport', 'beacon');
       ga('send', 'pageview');
       window.addEventListener('error', function(e) {
         ga('send', 'event', 'JavaScript Error', e.message, e.filename ? (e.filename + ':' + e.lineno) : 'N/A', {nonInteraction: 1});
@@ -86,6 +87,10 @@
           ga('send', 'timing', 'Engagement', 'Time On Page', timeOnPage, {transport: 'beacon'});
         });
       }
+      {% else %}
+      window.ga = function (...args) {
+        console.log('ga', args);
+      };
       {% endif %}
       var html = document.documentElement;
       if (sessionStorage.fontsLoaded) {
