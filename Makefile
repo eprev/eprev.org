@@ -38,7 +38,7 @@ clean-includes:
 clean: clean-assets clean-includes
 
 watch: clean-manifest
-	@$(ROLLUP) $(ROLLUPFLAGS) --watch -i $(JS_DIRECTORY)/$${entry-main}.js -o $(ASSETS_DIRECTORY)/$${entry-main}.js
+	fswatch -o $(JS_DIRECTORY) | xargs -n1 -I{} $(MAKE) build-assets
 
 $(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
 	$(ROLLUP) $(ROLLUPFLAGS) -i $< -o $@
