@@ -151,6 +151,11 @@ blockquote {
   padding-left: 1.5rem;
   font-style: italic;
 }
+  blockquote.epigraph {
+    padding-left: 0;
+    text-align: right;
+  }
+
 ul {
   padding-left: 0;
   list-style-position: outside;
@@ -165,6 +170,14 @@ code {
   font-size: 0.92rem; /* Traditional scale [3] */
   font-family: Courier, monospace;
   line-height: 1; /* Not to change the line-height of the paragraph. */
+}
+ul code,
+p code {
+  background-color: #f9f9f9;
+  padding: 2px 4px;
+}
+a > code {
+  background-color: transparent;
 }
 abbr {
   letter-spacing: .1em; /* Letterspace abbreviations
@@ -242,7 +255,9 @@ figcaption {
   height: calc( 6 * 1.5rem ); /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
                    and the picture will remain invisible - yay! */
 }
-
+.post {
+  margin-bottom: 3rem; /* Vertical rhythm */
+}
 .post__header {
   margin-bottom: 0;
   text-align: center;
@@ -251,6 +266,15 @@ figcaption {
 .post__content ul,
 .post__content p {
   margin-top: 0;
+}
+
+.post__content h2 {
+  box-shadow: 0 1px #ececec;
+}
+.post__read-more {
+  text-align: center;
+  font-size: 0.92rem;
+  font-style: italic;
 }
 
 /*figure*/.highlight pre {
@@ -264,6 +288,8 @@ figcaption {
   overflow: auto;
   padding: 1.5rem 0; /* Vertical rhythm */
   line-height: 1.5;  /* Restore line-height for the block elements */
+  box-shadow: none;
+  background-color: transparent;
 }
 
 .post-share {
@@ -494,6 +520,7 @@ figcaption {
 .highlight .ne, /* Name.Exception */
 .highlight .nn, /* Name.Namespace */
 .highlight .nt, /* Name.Tag */
+.highlight .nl,
 .highlight .nc { /* Name.Class */
   color: #5e89b9;
 }
@@ -516,4 +543,10 @@ figcaption {
 .highlight .s2 { /* Literal.String.Double */
   color: #c15847;
 }
+
+.highlight--lang-make .s1,
+.highlight--lang-make .s2 {
+  color: inherit;
+}
+
 /* }}} */

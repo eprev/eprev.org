@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-02-13T22:43:46+01:00</updated>
+  <updated>2017-02-19T23:57:47+01:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -21,6 +21,8 @@ and neither apply CSS transitions. Moreover, SVG animations might not be an opti
 deprecated SMIL&lt;/a&gt;
 in favor of CSS animations. How come? Probably you’re thinking now of using CSS when it’s available
 and falling back to SVG &lt;code&gt;transform&lt;/code&gt; attribute.&lt;/p&gt;
+
+&lt;!-- Read More --&gt;
 
 &lt;p&gt;So how to check whether or not the browser supports CSS transforms on SVG elements? I came up with
 the following approach:&lt;/p&gt;
@@ -78,6 +80,8 @@ will “idle” before it actually can start parsing HTML and loading other impo
 This negatively impacts the page load time, especially on a slow connection or when the server flushes
 the early-head. The later can be completely meaningless when it’s under 1024 bytes and the character encoding
 of the document is not indicated.&lt;/p&gt;
+
+&lt;!-- Read More --&gt;
 
 &lt;p&gt;To demonstrate this I made a &lt;a href=&quot;https://gist.github.com/eprev/322cd355319483aaaebbb2da35052281&quot;&gt;simple HTTP server&lt;/a&gt;
 which flushes early-head of the document immediately and waits for a second before sending the rest of it.
@@ -211,6 +215,8 @@ to have it at home.&lt;/p&gt;
 &lt;p&gt;So, how to change automatically OS X’s network location based on the name of Wi-Fi network or run
 arbitrary scrips when it happens? Pretty easy! We will be following a convention over configuration
 paradigm to reduce the overall complexity.&lt;/p&gt;
+
+&lt;!-- Read More --&gt;
 
 &lt;p&gt;First of all, we have to name locations after Wi-Fi network names. For instance, if the name of
 your corporate wireless network is “Corp Wi-Fi”, you have to create a new location “Corp Wi-Fi”.
