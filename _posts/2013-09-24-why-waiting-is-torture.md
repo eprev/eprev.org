@@ -3,7 +3,7 @@ title: Why waiting is torture
 layout: post
 tags:
   - gray-matter
-excerpt: Do you know why there are often mirrors next to elevators?
+description: Do you know why there are often mirrors next to elevators?
 ---
 
 This is excerpts from “[Why Waiting Is Torture](http://www.nytimes.com/2012/08/19/opinion/sunday/why-waiting-in-line-is-torture.html)” by Alex Stone, The New York Times.

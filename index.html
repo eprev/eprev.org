@@ -3,15 +3,25 @@ layout: default
 ---
 
 {% for post in site.posts %}
-  {% if forloop.index <= 5 %}
+  {% if forloop.index <= 7 %}
     {% assign include_post_h = 2 %}
     {% assign include_post_link = true %}
     {% assign include_post_meta = post %}
-    {% assign include_post_content = post.content %}
+    {% if post.excerpt == post.content %}
+      {% assign include_post_more_link = false %}
+    {% else %}
+      {% assign include_post_more_link = true %}
+    {% endif %}
+    {% assign include_post_content = post.excerpt %}
     {% include post.html %}
   {% endif %}
 {% endfor %}
 
 <div class="post-special-archive">
-  <a href="/archive/">Archive</a> &rsaquo;
+  <a
+    href="/archive/"
+    data-ga-on="click"
+    data-ga-category="Click"
+    data-ga-action="Archive"
+  >Archive</a> &rsaquo;
 </div>

@@ -25,6 +25,17 @@
         <div class="post__image" style="background-image: url('/assets/posts/{{ include_post_meta.image }}')"></div>
       {% endif %}
       {{ include_post_content }}
+      {% if include_post_more_link %}
+      <div class="post__read-more">
+        <a
+          href="{{ include_post_meta.url }}"
+          data-ga-on="click"
+          data-ga-category="Click"
+          data-ga-action="Read More"
+          data-ga-label="{{ include_post_meta.url }}"
+        >Continue reading</a> &rsaquo;
+      </div>
+      {% endif %}
     </div>
   {% endif %}
 </div>

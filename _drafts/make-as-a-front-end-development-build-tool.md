@@ -4,7 +4,7 @@ layout: post
 tags:
   - makefile
   - devops
-excerpt: A practical introduction to Make as a front-end development build tool.
+description: A practical introduction to Make as a front-end development build tool.
 share-image: make-as-a-front-end-development-build-tool.png
 ghIssueId: 18
 ---
@@ -24,6 +24,8 @@ Why even bother with `make`? Make is not limited to building packages. You can u
 - Deploying the web site to GitHub Pages
 
 And that makefile is less than 80 lines of code!
+
+<!-- Read More -->
 
 ## Makefile basics
 

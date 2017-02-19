@@ -21,9 +21,7 @@
     <title>{{ site.title }}</title>
   {% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% if page.excerpt %}
-    <meta name="description" content="{{ page.excerpt }}">
-  {% elsif page.description %}
+  {% if page.description %}
     <meta name="description" content="{{ page.description }}">
   {% else %}
     <meta name="description" content="{{ site.description }}">
@@ -37,12 +35,12 @@
   <link rel="shortcut icon" href="{{ site_url }}/images/icon.png">
   <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ site_url }}/atom.xml">
   <link rel="canonical" href="{{ site_url }}{{ page.url }}">
-  {% if page.excerpt %}
+  {% if page.description %}
     <meta property="og:url" content="{{ site_url }}{{ page.url }}">
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="{{ page.excerpt }}">
+    <meta property="og:description" content="{{ page.description }}">
     {% if page.image %}
       <meta property="og:image" content="{{ site_url }}/images/posts/{{ page.image }}">
       <meta name="twitter:card" content="summary_large_image">
@@ -57,7 +55,7 @@
     {% endif %}
     <meta name="twitter:creator" content="@{{ site.twitter }}">
     <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.excerpt }}">
+    <meta name="twitter:description" content="{{ page.description }}">
   {% endif %}
     <script>
       {% if jekyll.environment == "production" %}

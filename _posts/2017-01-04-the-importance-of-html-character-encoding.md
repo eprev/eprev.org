@@ -4,7 +4,7 @@ layout: post
 tags:
   - performance
   - html
-excerpt: Not specifying a character encoding of HTML document can negatively impact the page load time.
+description: Not specifying a character encoding of HTML document can negatively impact the page load time.
 share-image: the-importance-of-html-character-encoding.png
 ghIssueId: 14
 ---
@@ -27,6 +27,8 @@ will “idle” before it actually can start parsing HTML and loading other impo
 This negatively impacts the page load time, especially on a slow connection or when the server flushes
 the early-head. The later can be completely meaningless when it’s under 1024 bytes and the character encoding
 of the document is not indicated.
+
+<!-- Read More -->
 
 To demonstrate this I made a [simple HTTP server](https://gist.github.com/eprev/322cd355319483aaaebbb2da35052281)
 which flushes early-head of the document immediately and waits for a second before sending the rest of it.

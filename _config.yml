@@ -45,6 +45,8 @@ exclude:
 
 tag_dir: tags
 
+excerpt_separator: <!-- Read More -->
+
 webrick:
   headers:
     Cache-Control: private, max-age=600

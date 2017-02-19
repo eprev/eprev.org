@@ -255,7 +255,9 @@ figcaption {
   height: calc( 6 * 1.5rem ); /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
                    and the picture will remain invisible - yay! */
 }
-
+.post {
+  margin-bottom: 3rem; /* Vertical rhythm */
+}
 .post__header {
   margin-bottom: 0;
   text-align: center;
@@ -268,6 +270,11 @@ figcaption {
 
 .post__content h2 {
   box-shadow: 0 1px #ececec;
+}
+.post__read-more {
+  text-align: center;
+  font-size: 0.92rem;
+  font-style: italic;
 }
 
 /*figure*/.highlight pre {

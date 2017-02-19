@@ -3,7 +3,7 @@ title: Chrome tab tooltips
 layout: post
 tags:
   - ux
-excerpt: Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background. And that’s not all.
+description: Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background. And that’s not all.
 share-image: chrome-volume.png
 ---
 

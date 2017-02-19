@@ -3,7 +3,7 @@ title: Open all modified files in editor
 layout: post
 tags:
   - git
-excerpt: How to open all modified files tracked by Git in your favorite editor.
+description: How to open all modified files tracked by Git in your favorite editor.
 ---
 
 Often I finish working day without committing changes to the repository. Thus, next morning

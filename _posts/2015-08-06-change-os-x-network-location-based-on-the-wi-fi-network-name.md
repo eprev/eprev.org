@@ -3,7 +3,7 @@ title: Change OS X network location based on the Wi-Fi network name
 layout: post
 tags:
   - os-x
-excerpt: How to change automatically OS X’s network location based on the name of Wi-Fi network and run arbitrary scrips when it happens.
+description: How to change automatically OS X’s network location based on the name of Wi-Fi network and run arbitrary scrips when it happens.
 ghIssueId: 9
 ---
 
@@ -22,6 +22,8 @@ to have it at home.
 So, how to change automatically OS X’s network location based on the name of Wi-Fi network or run
 arbitrary scrips when it happens? Pretty easy! We will be following a convention over configuration
 paradigm to reduce the overall complexity.
+
+<!-- Read More -->
 
 First of all, we have to name locations after Wi-Fi network names. For instance, if the name of
 your corporate wireless network is “Corp Wi-Fi”, you have to create a new location “Corp Wi-Fi”.

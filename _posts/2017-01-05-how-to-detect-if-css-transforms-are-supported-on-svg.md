@@ -5,7 +5,7 @@ tags:
   - svg
   - html
   - javascript
-excerpt: How to check whether or not the browser supports CSS transforms on SVG elements.
+description: How to check whether or not the browser supports CSS transforms on SVG elements.
 ghIssueId: 15
 ---
 
@@ -15,6 +15,8 @@ and neither apply CSS transitions. Moreover, SVG animations might not be an opti
 deprecated SMIL](https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/5o0yiO440LM%5B1-25%5D)
 in favor of CSS animations. How come? Probably you’re thinking now of using CSS when it’s available
 and falling back to SVG `transform` attribute.
+
+<!-- Read More -->
 
 So how to check whether or not the browser supports CSS transforms on SVG elements? I came up with
 the following approach:

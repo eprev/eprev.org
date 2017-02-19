@@ -8,7 +8,7 @@ tags:
   - robotics
   - git
   - graphql
-excerpt: List of favorite talks and performances.
+description: List of favorite talks and performances.
 share-image: whats-worth-watching.png
 ---
 
