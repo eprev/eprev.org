@@ -51,9 +51,9 @@ compress-assets: build-assets
 build-manifest: compress-assets
 	@for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
 		hash=$$(md5 -q $(ASSETS_DIRECTORY)/$$filename); \
-		hashed="$${filename%%.*}-$$hash.$${filename#*.}"; \
-		cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed; \
-		echo "$$filename: $$hashed" >> $(MANIFEST_FILE); \
+		hashed_filename="$${filename%%.*}-$$hash.$${filename#*.}"; \
+		cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed_filename; \
+		echo "$$filename: $$hashed_filename" >> $(MANIFEST_FILE); \
 	done
 
 build: build-manifest
