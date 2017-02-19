@@ -1,21 +1,21 @@
-SHELL := /bin/bash
+SHELL   := /bin/bash
+
+ROLLUP  := ./node_modules/.bin/rollup
+BABILI  := ./node_modules/.bin/babili
+CSSNANO := ./node_modules/.bin/cssnano
+HTML    := ./node_modules/.bin/html-minifier
+
+BABILIFLAGS := --no-comments
+HTMLFLAGS   := --collapse-whitespace --remove-comments --minify-js
+ROLLUPFLAGS := --format=iife --sourcemap
+
+MANIFEST_FILE := _data/manifest.yml
+
+JS_DIRECTORY := js
+ASSETS_DIRECTORY := assets
+JS_ASSETS := $(subst $(JS_DIRECTORY)/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
 
 all: build-assets
-
-ROLLUP=./node_modules/.bin/rollup
-BABILI=./node_modules/.bin/babili
-CSSNANO=./node_modules/.bin/cssnano
-HTML=./node_modules/.bin/html-minifier
-
-BABILIFLAGS=--no-comments
-HTMLFLAGS=--collapse-whitespace --remove-comments --minify-js
-ROLLUPFLAGS=--format=iife --sourcemap
-
-MANIFEST_FILE=_data/manifest.yml
-
-JS_DIRECTORY=js
-ASSETS_DIRECTORY=assets
-JS_ASSETS=$(subst $(JS_DIRECTORY)/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
 
 init:
 	git submodule init
