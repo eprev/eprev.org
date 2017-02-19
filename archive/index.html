@@ -3,7 +3,7 @@ title: Archive
 layout: default
 ---
 
-<h1>Archive</h1>
+<h1 class="page__header">Archive</h1>
 {% assign curr_year = "" %}
 {% for post in site.posts %}
   {% capture post_year %}{{ post.date | date:"%Y" }}{% endcapture %}
@@ -16,7 +16,7 @@ layout: default
     <ul class="archive">
   {% endif %}
   <li class="archive__item">
-    <div class="archive__date g--shady">{{ post.date | date:"%B %-d" }}</div>
+    <div class="archive__date g--shady">{{ post.date | date:"%b %-d" }}</div>
     <div class="archive__header">
       <a href="{{ post.url }}">{{ post.title }}</a>
     </div>
