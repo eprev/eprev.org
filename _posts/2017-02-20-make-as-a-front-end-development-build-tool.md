@@ -12,9 +12,9 @@ ghIssueId: 18
 > Make is turning 40 in 2017.
 {:.epigraph}
 
-This is a practical introduction to `make` as a front-end development build tool. I will give the basic understanding of how makefiles work and show how to get the most common front-end tasks done using Make. However I encourage you to read the [official manual](http://www.gnu.org/software/make/manual/make.html) through.
+This is a practical introduction to Make as a front-end development build tool. I will give the basic understanding of how makefiles work and show how to get the most common front-end tasks done using Make. However I encourage you to read the [official manual](http://www.gnu.org/software/make/manual/make.html) through.
 
-Why even bother with `make`? Make is not limited to building packages. You can use it for anything you do from copying files or running webpack to deploying your project. I use this [makefile](https://raw.githubusercontent.com/eprev/eprev.org/df2e82563c2e444f8116dc4e9fe1f56dcdc56984/Makefile) to build and deploy this very web site. These are the tasks that it carries out for me:
+Why even bother with Make? Make is a powerful tool which is not limited to building packages. You can use it for anything you do from copying files or running webpack to deploying your project. I use this [makefile](https://raw.githubusercontent.com/eprev/eprev.org/df2e82563c2e444f8116dc4e9fe1f56dcdc56984/Makefile) to build and deploy this very web site. These are the tasks that it carries out for me:
 
 - Running Jekyll
 - Watching for changes in JavaScript source files
@@ -47,7 +47,7 @@ dist/main.js: src/main.js
     cp src/main.js dist/main.js
 {% endhighlight %}
 
-On the first line we have the `dist/main.js` target and the `src/main.js` file as the only dependency. In order to build this target, `make` will execute `mkdir` and `cp` commands. The former creates the directory if it doesn’t exist and the later puts a copy of the source file to that directory.
+On the first line we have the `dist/main.js` target with the `src/main.js` file as the only dependency. In order to build this target, Make will execute `mkdir` and `cp` commands. The former creates the directory if it doesn’t exist and the later puts a copy of the source file to that directory.
 
 To use this makefile to create the target file, type `make`:
 
@@ -57,7 +57,7 @@ mkdir -p dist
 cp src/main.js dist/main.js
 {% endhighlight %}
 
-If no dependencies have changed after the target was generated, `make` won’t update that target. That’s why if you run it twice in a row, `make` wont’ copy any files on the second run:
+If no dependencies have changed after the target was generated, `make` won’t update that target. That’s why if you run it twice in a row, `make` won’t copy any files on the second run:
 
 {% highlight shell %}
 $ make
@@ -95,7 +95,7 @@ $ make
 make: *** No targets.  Stop.
 {% endhighlight %}
 
-It doesn’t know which target it should be building now, since there’s no longer explicit rules in the makefile. You’d need to pass the desired target name in the arguments:
+It doesn’t know which target it should be building now, since there’s no longer explicit rules in the makefile. You would need to pass the desired target name in the arguments:
 
 {% highlight shell %}
 $ make dist/main.js
@@ -103,7 +103,7 @@ mkdir -p dist
 cp src/main.js dist/main.js
 {% endhighlight %}
 
-This doesn’t seem handy though. Instead, we could define a new rule with an empty recipe and specify `dist/main.js` as the dependency file for it:
+This doesn’t seem handy though. Instead, we could define a new rule called `all` with the `dist/main.js` file as the dependency and an empty recipe:
 
 {% highlight make %}
 all: dist/main.js
@@ -115,7 +115,7 @@ dist/%.js: src/%.js
 
 Now, `make` will start with the `all` target. In order to “build” it, it has to find the dependency file `dist/main.js`, and if the later doesn’t exist, it will look for a rule to create it.
 
-But this doesn’t seem to be a scalable solution either. What if `make` could actually find the existing files in the `src` directory and based on them create the list of dependencies for the `all` target? Now we’re getting somewhere:
+But this doesn’t seem to be a scalable solution either. What if Make could actually find the existing files in the `src` directory and based on them create the list of dependencies for the `all` target? Now we’re getting somewhere:
 
 {% highlight make %}
 all: $(subst src/,dist/,$(wildcard src/*.js))
@@ -125,9 +125,9 @@ dist/%.js: src/%.js
     cp $< $@
 {% endhighlight %}
 
-Those `wildcard` and `subst` are [functions](https://www.gnu.org/software/make/manual/make.html#Functions). The former returns a space-separated list of names of existing files that match the given pattern `src/*.js`, and the later replaces `src/` with `dist/` in that list.
+Those `wildcard` and `subst` are Make’s [functions](https://www.gnu.org/software/make/manual/make.html#Functions). The former returns a space-separated list of names of existing files that match the given pattern `src/*.js`, and the later replaces `src/` with `dist/` in that list.
 
-And finally, we could use [variables](https://www.gnu.org/software/make/manual/make.html#Using-Variables) to store the names of directories, so we won’t have to update rules in the makefile if the structure of  our project changes:
+And finally, we could use [variables](https://www.gnu.org/software/make/manual/make.html#Using-Variables) to store the directory names, so we won’t have to update rules in the makefile if the structure of  our project changes:
 
 {% highlight make %}
 SRC_DIR  := src
@@ -140,13 +140,13 @@ $(DIST_DIR)/%.js: $(SRC_DIR)/%.js
     cp $< $@
 {% endhighlight %}
 
-## Practical examples
+## Make by example
 
-In the next sections I will explain some parts of the [makefile](https://raw.githubusercontent.com/eprev/eprev.org/df2e82563c2e444f8116dc4e9fe1f56dcdc56984/Makefile) I use to build and deploy this web site.
+In the next sections I will explain some parts of the [makefile](https://raw.githubusercontent.com/eprev/eprev.org/df2e82563c2e444f8116dc4e9fe1f56dcdc56984/Makefile) that I use to build and deploy this web site. I hope these examples are good enough for you to get started.
 
 ### Building JavaScript bundles
 
-I keep all JavaScript files in the `js` directory. All the files contained within the `js` directory are bundles, that import other source files from the subdirectories. Basically, the folder structure looks like this:
+I keep JavaScript files in the `js` directory. All the files contained within the `js` directory are bundles, that may import other source files from the subdirectories. Basically, the folder structure looks like this:
 
 {% highlight text %}
 .
@@ -178,7 +178,7 @@ $(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
 build-assets: clean-assets $(JS_ASSETS)
 {% endhighlight %}
 
-This looks similar to what we discussed earlier, you should not have problems understanding this.
+This looks similar to what we discussed earlier, I believe you don’t have problems understanding this.
 
 ### Watching for changes
 
@@ -230,9 +230,7 @@ Caching is important, so is a strategy for breaking the cache and making the bro
 
 The popular approach is to include the hash of the file contents in its name, eg. `assets/main-a2f40c.js`. This way it guarantees the file name won't change during the building process if its contents remains the same.
 
-If you choose this approach, you will have to generate the manifest file in order to reference those files in the HTML or CSS.
-
-Here is the `build-manifest` target in the makefile:
+If you choose this approach, you will have to generate the manifest file in order to reference those files in the HTML or CSS. And here is the `build-manifest` target in the makefile that does it:
 
 {% highlight make %}
 MANIFEST_FILE := _data/manifest.yml
@@ -249,11 +247,11 @@ build-manifest: clean-manifest compress-assets
     done
 {% endhighlight %}
 
-Note, `make` executes each line in a recipe separately. And if you need to write multi-line command, then you can use line continuations. Make also prints out each command before it gets executed, and the `@` character in the start of the line prevents the command from such echoing.
+Firstly, Make executes each line in a recipe separately. And if you need to write multi-line command, then you can use line continuations. Make also prints out each command before it gets executed, and the `@` character in the start of the line prevents the command from such echoing.
 
-The `$` character is used to reference variables in the makefile, so does the shell. And in order to get `$filename` passed to the shell, rather than having `make` trying to find a variable called `filename`, we have to write `$$filename` instead.
+Secondly, the `$` character is used to reference variables in makefiles, so does the shell. And in order to get `$filename` passed to the shell, rather than having Make trying to find a variable called `filename`, we need to write `$$filename`.
 
-Thus, this is actually what `make` will pass to the shell (Bash) when running `build-manifest`:
+Thus, this is actually what Make will pass to the shell (Bash) when running `build-manifest`:
 
 {% highlight shell %}
 for filename in $( find assets -type f -exec basename {} \; ); do \
@@ -272,7 +270,7 @@ This command performs the following operations:
 - The `${filename#*.}` operation will delete the shortest match of `*.` from the front of `$filename`. If `$filename` was containing `main.js.map`, it would keep the `js.map` part only.
 - The `echo "…" >> _data/manifest.yml` command will append a string containing both file names to the manifest file.
 
-Basically, for each file that it finds in the `assets` directory, it will calculate the checksum, make a copy of the file and generate the manifest file containing key-value pairs:
+Basically, for each file that it finds in the `assets` directory, it will calculate a checksum, make a copy of the file and generate the manifest file containing key-value pairs:
 
 {% highlight text %}
 main.js: main-a2f40c69875a90f46f961febe52d4989.js
@@ -311,5 +309,5 @@ deploy: reset-site build-deploy
 
 ## Conclusion
 
-I hope this article has sparked your interest in learning more and getting out of your comfort zone as a front-end developer.
+Make is a great cross-platform tool suitable for projects of different sizes and complexities. I hope this article has sparked your interest in learning and getting out of your comfort zone as a front-end developer.
 
