@@ -494,6 +494,7 @@ figcaption {
 .highlight .ne, /* Name.Exception */
 .highlight .nn, /* Name.Namespace */
 .highlight .nt, /* Name.Tag */
+.highlight .nl,
 .highlight .nc { /* Name.Class */
   color: #5e89b9;
 }
@@ -516,4 +517,10 @@ figcaption {
 .highlight .s2 { /* Literal.String.Double */
   color: #c15847;
 }
+
+.highlight--lang-make .s1,
+.highlight--lang-make .s2 {
+  color: inherit;
+}
+
 /* }}} */

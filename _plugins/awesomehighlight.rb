@@ -30,7 +30,14 @@ eos
         suffix = context["highlighter_suffix"] || ""
         code = super.to_s.gsub(%r!\A(\n|\r)+|(\n|\r)+\z!, "")
 
+        if @lang === 'make'
+          code.gsub!('    ', "\t")
+          code += "\n"
+        end
         output = render_rouge(code)
+        if @lang === 'make'
+          output.gsub!("\t", '    ')
+        end
 
         rendered_output = add_code_tag(output)
         prefix + rendered_output + suffix
@@ -68,7 +75,7 @@ eos
       end
 
       def add_code_tag(code)
-        html  = "<figure class=\"highlight\"><pre><code>#{code.chomp}</code></pre>"
+        html  = "<figure class=\"highlight highlight--lang-#{@lang}\"><pre><code>#{code.chomp}</code></pre>"
         html +=   "<figcaption>#{@highlight_options[:caption]}</figcaption>" if @highlight_options[:caption]
         html += "</figure>"
         html
