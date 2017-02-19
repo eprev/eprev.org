@@ -7,6 +7,12 @@
   </url>
   
     <url>
+      <loc>http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/</loc>
+      <lastmod>2017-02-20</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
       <loc>http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/</loc>
       <lastmod>2017-01-05</lastmod>
       <changefreq>weekly</changefreq>
@@ -255,6 +261,12 @@
   
     <url>
       <loc>http://eprev.org/tags/html/</loc>
+      
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://eprev.org/tags/makefile/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
