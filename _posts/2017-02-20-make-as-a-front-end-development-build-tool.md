@@ -309,5 +309,7 @@ deploy: reset-site build-deploy
 
 ## Conclusion
 
-Make is a great cross-platform tool suitable for projects of different sizes and complexities. I hope this article has sparked your interest in learning and getting out of your comfort zone as a front-end developer.
+Make is a great cross-platform tool suitable for projects of different sizes and complexities. More powerful and expressive than NPM scripts, Grunt or Gulp.
+
+And I hope this article has sparked your interest in learning and getting out of your comfort zone as a front-end developer.
 
