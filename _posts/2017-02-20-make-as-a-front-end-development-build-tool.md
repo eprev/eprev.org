@@ -178,7 +178,7 @@ $(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
 build-assets: clean-assets $(JS_ASSETS)
 {% endhighlight %}
 
-This looks similar to what we discussed earlier, I believe you don’t have problems understanding this.
+This is very similar to what we have done earlier to copy multiple JavaScript files.
 
 ### Watching for changes
 
