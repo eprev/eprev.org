@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-02-20T20:36:34+01:00</updated>
+  <updated>2017-02-21T23:58:46+01:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -166,7 +166,7 @@ $(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
 
 build-assets: clean-assets $(JS_ASSETS)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;This looks similar to what we discussed earlier, I believe you don’t have problems understanding this.&lt;/p&gt;
+&lt;p&gt;This is very similar to what we have done earlier to copy multiple JavaScript files.&lt;/p&gt;
 
 &lt;h3 id=&quot;watching-for-changes&quot;&gt;Watching for changes&lt;/h3&gt;
 
