@@ -24,7 +24,12 @@ init:
 	npm install
 
 server: build-assets
-	bundle exec jekyll serve --drafts
+## In the "development" environment Jekyll ignores `url` set in _config_dev.yml
+## See https://github.com/jekyll/jekyll/pull/5431
+	JEKYLL_ENV=dev bundle exec jekyll serve --draft --config _config.yml,_config_dev.yml
+
+server-build: build
+	JEKYLL_ENV=production bundle exec jekyll serve --no-watch --config _config.yml,_config_dev.yml
 
 clean-manifest:
 	rm -f $(MANIFEST_FILE)
@@ -62,7 +67,7 @@ build-deploy: build
 	find $(ASSETS_DIRECTORY) -type f -not -regex '.*-[a-f0-9]*.*' -delete
 	find $(ASSETS_DIRECTORY) -type f -regex '.*.js.map' -delete
 	$(CSSNANO) main.css _includes/main.min.css
-	JEKYLL_ENV=production bundle exec jekyll build
+	JEKYLL_ENV=production bundle exec jekyll build --config _config.yml
 	$(HTML) $(HTMLFLAGS) --input-dir _site --file-ext html --output-dir _site
 
 reset-site:

@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-{% if jekyll.environment == "production" %}
-  {% assign site_url = site.url %}
-{% else %}
-  {% assign site_url = "" %}
-{% endif %}
 {% if site.data.manifest %}
-  {% capture js_main  %}{{ site_url }}/assets/{{ site.data.manifest['main.js'] }}{% endcapture %}
-  {% capture js_fontfaceobserver  %}{{ site_url }}/assets/{{ site.data.manifest['fontfaceobserver.js'] }}{% endcapture %}
+  {% capture js_main  %}{{ site.url }}/assets/{{ site.data.manifest['main.js'] }}{% endcapture %}
+  {% capture js_fontfaceobserver  %}{{ site.url }}/assets/{{ site.data.manifest['fontfaceobserver.js'] }}{% endcapture %}
 {% else %}
-  {% capture js_main %}{{ site_url }}/assets/main.js{% endcapture %}
-  {% capture js_fontfaceobserver %}{{ site_url }}/assets/fontfaceobserver.js{% endcapture %}
+  {% capture js_main %}{{ site.url }}/assets/main.js{% endcapture %}
+  {% capture js_fontfaceobserver %}{{ site.url }}/assets/fontfaceobserver.js{% endcapture %}
 {% endif %}
 <html lang="en">
   <meta charset="utf-8">
@@ -29,28 +24,28 @@
   {% if jekyll.environment == "production" %}
     <style>{% include main.min.css %}</style>
   {% else %}
-    <link href="{{ site_url }}/main.css" rel="stylesheet" media="all">
+    <link href="{{ site.url }}/main.css" rel="stylesheet" media="all">
   {% endif %}
   <script src="{{ js_main }}" defer></script>
-  <link rel="shortcut icon" href="{{ site_url }}/images/icon.png">
-  <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ site_url }}/atom.xml">
-  <link rel="canonical" href="{{ site_url }}{{ page.url }}">
+  <link rel="shortcut icon" href="{{ site.url }}/images/icon.png">
+  <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ site.url }}/atom.xml">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   {% if page.description %}
-    <meta property="og:url" content="{{ site_url }}{{ page.url }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:type" content="article">
     <meta property="og:description" content="{{ page.description }}">
     {% if page.image %}
-      <meta property="og:image" content="{{ site_url }}/images/posts/{{ page.image }}">
+      <meta property="og:image" content="{{ site.url }}/images/posts/{{ page.image }}">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:image" content="{{ site.utl }}/images/posts/{{ page.image }}">
     {% elsif page.share-image %}
-      <meta property="og:image" content="{{ site_url }}/images/posts/{{ page.share-image }}">
+      <meta property="og:image" content="{{ site.url }}/images/posts/{{ page.share-image }}">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:image" content="{{ site_url }}/images/posts/{{ page.share-image }}">
+      <meta name="twitter:image" content="{{ site.url }}/images/posts/{{ page.share-image }}">
     {% else %}
-      <meta property="og:image" content="{{ site_url }}/images/default-share-image.png">
+      <meta property="og:image" content="{{ site.url }}/images/default-share-image.png">
       <meta name="twitter:card" content="summary">
     {% endif %}
     <meta name="twitter:creator" content="@{{ site.twitter }}">

@@ -53,7 +53,7 @@ If the character encoding is specified, then the browser (Firefox in this partic
 immediately along with loading external resources. On the image below, you can see that the script and
 the stylesheet have been loaded before DOM becomes interactive.
 
-![Firefox Web Console: Character encoding is specified]({{site_url}}/images/posts/ff-charset-is-specified.png
+![Firefox Web Console: Character encoding is specified]({{site.url}}/images/posts/ff-charset-is-specified.png
 "When the character encoding is specified, Firefox starts loading styles and scripts as it is parsing the HTML."){:
   layout="responsive" mod="wide" .g--border
 }
@@ -61,7 +61,7 @@ the stylesheet have been loaded before DOM becomes interactive.
 When the character encoding is not specified, then the browser starts parsing HTML only after it gets
 the rest of the document (the first 1024 bytes), causing a delay in loading scripts and stylesheets.
 
-![Firefox Web Console: Character encoding is not specified]({{site_url}}/images/posts/ff-charset-is-not-specified.png
+![Firefox Web Console: Character encoding is not specified]({{site.url}}/images/posts/ff-charset-is-not-specified.png
 "When the character encoding is not specified, Firefox waits for the first 1024 bytes before it begins loading styles and scripts."){:
   layout="responsive" mod="wide" .g--border
 }
@@ -69,7 +69,7 @@ the rest of the document (the first 1024 bytes), causing a delay in loading scri
 Safari shares similar to Firefox behavior. Things are quite different with Chrome and Edge, they begin parsing HTML
 right away even if the character encoding is not specified or incorrect.
 
-![Chrome Console: Character encoding is not specified]({{site_url}}/images/posts/chrome-charset-is-not-specified.png
+![Chrome Console: Character encoding is not specified]({{site.url}}/images/posts/chrome-charset-is-not-specified.png
 "Chrome starts parsing the HTML and loading styles and scripts as it is loading the document even if the character encoding is not specified."){:
   layout="responsive" mod="wide" .g--border
 }
