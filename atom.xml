@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-02-21T23:58:46+01:00</updated>
+  <updated>2017-02-26T14:36:15+01:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -382,17 +382,17 @@ The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the &lt;code&
 immediately along with loading external resources. On the image below, you can see that the script and
 the stylesheet have been loaded before DOM becomes interactive.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is specified&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is specified&quot;&gt;&lt;/div&gt;
 &lt;figcaption&gt;When the character encoding is specified, Firefox starts loading styles and scripts as it is parsing the HTML.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;When the character encoding is not specified, then the browser starts parsing HTML only after it gets
 the rest of the document (the first 1024 bytes), causing a delay in loading scripts and stylesheets.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;
 &lt;figcaption&gt;When the character encoding is not specified, Firefox waits for the first 1024 bytes before it begins loading styles and scripts.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;Safari shares similar to Firefox behavior. Things are quite different with Chrome and Edge, they begin parsing HTML
 right away even if the character encoding is not specified or incorrect.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;
 &lt;figcaption&gt;Chrome starts parsing the HTML and loading styles and scripts as it is loading the document even if the character encoding is not specified.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;What’s incorrect encoding? HTML5 specification says that user agents must not support the CESU-8, UTF-7,
 BOCU-1, SCSU, EBCDIC and UTF-32 encodings. For that reason, Firefox and Safari won’t parse
@@ -560,7 +560,7 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt
 
 &lt;p&gt;Alright. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda-blog.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
 &lt;figcaption&gt;Original black-and-white PNG image.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;All you need to do is to run this:&lt;/p&gt;
 
@@ -572,7 +572,7 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt
 
 &lt;p&gt;As a result you might have now:&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
 &lt;figcaption&gt;Generated SVG image (zoom the page in).&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;That’s it.&lt;/p&gt;
 </content>
@@ -685,10 +685,10 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/co
       <id>http://eprev.org/2014/01/19/chrome-tab-tooltips</id>
       <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;</content>
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;</content>
     </entry>
   
     <entry>

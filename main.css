@@ -277,19 +277,41 @@ figcaption {
   font-style: italic;
 }
 
-/*figure*/.highlight pre {
-  margin: 0;
-  padding: 0 1.5rem;
+/*figure*/.highlight {
   background-color: currentColor;
   color: #f9f9f9;
+  padding: 0 1.5rem;
+}
+/*figure*/.highlight pre {
+  margin: 0;
 }
 /*figure*/.highlight code {
   display: block;
-  overflow: auto;
   padding: 1.5rem 0; /* Vertical rhythm */
   line-height: 1.5;  /* Restore line-height for the block elements */
-  box-shadow: none;
   background-color: transparent;
+}
+
+.scrollable {
+  overflow: auto;
+  position: relative;
+}
+.scrollable--enabled {
+  overflow: hidden;
+}
+.scrollbar {
+  position: absolute;
+  background-color: rgba(0, 0, 0, .05);
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+}
+  .scrollbar:hover,
+  .scrollbar--active {
+    background-color: rgba(0, 0, 0, .1);
+  }
+.scrollbar--horizontal {
+  height: 8px;
+  bottom: 0;
 }
 
 .post-share {
@@ -346,7 +368,7 @@ figcaption {
       padding-left: 1.5rem;
     }
   }
-  /*figure*/.highlight pre {
+  /*figure*/.highlight {
     padding: 0;
     box-shadow: 1.5rem 0 currentColor, -1.5rem 0 currentColor;
   }
