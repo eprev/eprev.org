@@ -37,7 +37,9 @@ module Kramdown
           width = el.attr['width'].to_f
           height = el.attr['height'].to_f
         else
-          img = Magick::Image.read(File.join(options[:site_source], el.attr['src'])).first
+          src = el.attr['src'].dup
+          src.sub!(options[:site_url], '') if options[:site_url]
+          img = Magick::Image.read(File.join(options[:site_source], src)).first
           width = img.columns.to_f
           height = img.rows.to_f
         end
