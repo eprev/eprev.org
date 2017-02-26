@@ -1,5 +1,3 @@
-// TODO: scroll on select
-
 import { throttle } from './utils';
 
 const { min, max, abs, floor } = Math;
@@ -42,7 +40,7 @@ function scrollable(targetEl) {
     }
     isLocked = true;
 
-    let clientX = e.clientX;
+    const clientX = e.clientX;
     let currScrollLeft = scrollLeft;
 
     const onMouseMove = e => {
@@ -62,14 +60,45 @@ function scrollable(targetEl) {
     document.addEventListener('mouseup', onMouseUp);
   };
 
+  function targetOnMouseDown(e) {
+    if (isLocked) {
+      return;
+    }
+    isLocked = true;
+
+    const targetX = window.pageXOffset + targetEl.getBoundingClientRect().left;
+    const leftX = targetX + clientWidth * .9;
+    const rightX = targetX + clientWidth * .1;
+
+    let currScrollLeft = scrollLeft;
+
+    const onMouseMove = e => {
+      if (e.clientX > leftX) {
+        currScrollLeft = scrollBy(scrollWidth);
+      } else if (e.clientX < rightX) {
+        currScrollLeft = scrollBy(-scrollWidth);
+      }
+    };
+
+    const onMouseUp = e => {
+      scrollLeft = currScrollLeft;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+      isLocked = false;
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  };
+
   function targetOnTouchStart(e) {
     if (isLocked || e.touches.length > 1) {
       return;
     }
     isLocked = true;
 
-    let clientX = e.touches[0].clientX;
-    let clientY = e.touches[0].clientY;
+    const clientX = e.touches[0].clientX;
+    const clientY = e.touches[0].clientY;
     let currScrollLeft = scrollLeft;
 
     let isDetected = false;
@@ -116,6 +145,7 @@ function scrollable(targetEl) {
 
     targetEl.addEventListener('wheel', targetOnMouseWheel);
     targetEl.addEventListener('touchstart', targetOnTouchStart);
+    targetEl.addEventListener('mousedown', targetOnMouseDown);
     sbEl.addEventListener('mousedown', scrollBarOnMouseDown);
   }
 
@@ -135,6 +165,7 @@ function scrollable(targetEl) {
   function removeScrollBar() {
     targetEl.removeEventListener('wheel', targetOnMouseWheel);
     targetEl.removeEventListener('touchstart', targetOnTouchStart);
+    targetEl.removeEventListener('mousedown', targetOnMouseDown);
     sbEl.removeEventListener('mousedown', scrollBarOnMouseDown);
 
     targetEl.removeChild(sbEl);
