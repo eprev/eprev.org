@@ -45,11 +45,11 @@ function scrollable(targetEl) {
     let clientX = e.clientX;
     let currScrollLeft = scrollLeft;
 
-    function onMouseMove(e) {
+    const onMouseMove = e => {
       currScrollLeft = scrollBy(e.clientX - clientX);
-    }
+    };
 
-    function onMouseUp(e) {
+    const onMouseUp = e => {
       sbEl.classList.remove('scrollbar--active');
       scrollLeft = currScrollLeft;
       document.removeEventListener('mousemove', onMouseMove);
@@ -75,7 +75,7 @@ function scrollable(targetEl) {
     let isDetected = false;
     let isAllowed = false;
 
-    function onTouchMove(e) {
+    const onTouchMove = e => {
       if (e.touches.length > 1) {
         return;
       }
@@ -92,13 +92,13 @@ function scrollable(targetEl) {
       }
     };
 
-    function onTouchEnd(e) {
+    const onTouchEnd = e => {
       isLocked = false;
       scrollLeft = currScrollLeft;
       document.removeEventListener('touchmove', onTouchMove);
       document.removeEventListener('touchen', onTouchEnd);
       document.removeEventListener('touchcancel', onTouchEnd);
-    }
+    };
 
     document.addEventListener('touchmove', onTouchMove);
     document.addEventListener('touchend', onTouchEnd);
