@@ -200,8 +200,8 @@ function scrollable(targetEl) {
   function update() {
     const style = getComputedStyle(targetEl);
     clientWidth = targetEl.clientWidth -
-        parseInt(style.getPropertyValue('padding-left')) -
-        parseInt(style.getPropertyValue('padding-right'));
+        parseFloat(style.getPropertyValue('padding-left')) -
+        parseFloat(style.getPropertyValue('padding-right'));
 
     childNodes = Array.from(targetEl.childNodes).filter((childEl) => {
         return childEl !== sbEl;
