@@ -52,6 +52,7 @@ build-assets: clean-assets $(JS_ASSETS)
 
 compress-assets: build-assets
 	$(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) $(BABILIFLAGS)
+	$(CSSNANO) main.css _includes/main.min.css
 
 build-manifest: compress-assets
 	@for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
@@ -66,7 +67,6 @@ build: build-manifest
 build-deploy: build
 	find $(ASSETS_DIRECTORY) -type f -not -regex '.*-[a-f0-9]*.*' -delete
 	find $(ASSETS_DIRECTORY) -type f -regex '.*.js.map' -delete
-	$(CSSNANO) main.css _includes/main.min.css
 	JEKYLL_ENV=production bundle exec jekyll build --config _config.yml
 	$(HTML) $(HTMLFLAGS) --input-dir _site --file-ext html --output-dir _site
 
