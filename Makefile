@@ -73,3 +73,8 @@ deploy: reset-site build-deploy
 	git --git-dir=_site/.git add -A
 	git --git-dir=_site/.git commit -m "Deploy"
 	git --git-dir=_site/.git push origin gh-pages
+
+rollback:
+	git --git-dir=_site/.git reset --hard origin/gh-pages
+	git --git-dir=_site/.git revert HEAD
+	git --git-dir=_site/.git push origin gh-pages
