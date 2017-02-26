@@ -75,7 +75,7 @@ eos
       end
 
       def add_code_tag(code)
-        html  = "<figure class=\"highlight highlight--lang-#{@lang}\"><pre><code>#{code.chomp}</code></pre>"
+        html  = "<figure class=\"highlight highlight--lang-#{@lang}\"><pre class=\"scrollable\"><code>#{code.chomp}</code></pre>"
         html +=   "<figcaption>#{@highlight_options[:caption]}</figcaption>" if @highlight_options[:caption]
         html += "</figure>"
         html

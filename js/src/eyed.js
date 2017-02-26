@@ -1,18 +1,6 @@
-const { PI, abs, min, sin, cos, atan } = Math;
+import { throttle } from './utils';
 
-function throttle(fn, context) {
-  let running = false;
-  return function throttled(...args) {
-    if (running) {
-      return;
-    }
-    running = true;
-    requestAnimationFrame(() => {
-      fn.apply(context, args);
-      running = false;
-    });
-  };
-}
+const { PI, abs, min, sin, cos, atan } = Math;
 
 // Edge doesn't apply CSS transforms on SVG elements
 const supportsCSSTransformsOnSVG = (() => {
@@ -38,7 +26,7 @@ const MOUTH_CY = 436;
 const MOUTH_SCALE_X = 0.25;
 const MOUTH_SCALE_Y = 1.5;
 
-export function eyed(rootEl) {
+export default function eyed(rootEl) {
 
   const eyes = [
     {el: rootEl.querySelector('[data-id=right-eye]')},
