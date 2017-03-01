@@ -21,7 +21,7 @@ init:
 	git submodule init
 	git submodule update
 	bundle install
-	npm install
+	yarn install
 
 server: build-assets
 ## In the "development" environment Jekyll ignores `url` set in _config_dev.yml
