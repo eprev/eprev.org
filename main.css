@@ -277,19 +277,18 @@ figcaption {
   font-style: italic;
 }
 
-/*figure*/.highlight {
+/*figure*/.highlight code {
   background-color: currentColor;
   color: #f9f9f9;
+  display: block;
+  line-height: 1.5;  /* Restore line-height for the block elements */
   padding: 0 1.5rem;
+}
+/*figure*/.highlight .scrollable {
+  padding: 1.5rem 0; /* Vertical rhythm */
 }
 /*figure*/.highlight pre {
   margin: 0;
-}
-/*figure*/.highlight code {
-  display: block;
-  padding: 1.5rem 0; /* Vertical rhythm */
-  line-height: 1.5;  /* Restore line-height for the block elements */
-  background-color: transparent;
 }
 
 .scrollable {
@@ -368,7 +367,7 @@ figcaption {
       padding-left: 1.5rem;
     }
   }
-  /*figure*/.highlight {
+  /*figure*/.highlight code {
     padding: 0;
     box-shadow: 1.5rem 0 currentColor, -1.5rem 0 currentColor;
   }
@@ -509,7 +508,7 @@ figcaption {
 
 /* Highlighter {{{ */
 
-.highlight code {
+.highlight pre {
   color: #485e76;
 }
 

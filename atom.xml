@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-02-26T21:22:29+01:00</updated>
+  <updated>2017-03-04T17:02:58+01:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -40,36 +40,36 @@
 
 &lt;p&gt;Any makefile consists of “rules”: build targets, their dependencies and series of commands (recipes) to build those targets:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;target …: dependency …
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;target …: dependency …
     command
-    …&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    …&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;Please note:&lt;/strong&gt; each command must begin with a tab character.&lt;/p&gt;
 
 &lt;p&gt;Here’s a simple makefile:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;dist/main.js: src/main.js
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/main.js: src/main.js
     mkdir -p dist
-    cp src/main.js dist/main.js&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    cp src/main.js dist/main.js&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;On the first line we have the &lt;code&gt;dist/main.js&lt;/code&gt; target with the &lt;code&gt;src/main.js&lt;/code&gt; file as the only dependency. In order to build this target, Make will execute &lt;code&gt;mkdir&lt;/code&gt; and &lt;code&gt;cp&lt;/code&gt; commands. The former creates the directory if it doesn’t exist and the later puts a copy of the source file to that directory.&lt;/p&gt;
 
 &lt;p&gt;To use this makefile to create the target file, type &lt;code&gt;make&lt;/code&gt;:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ make
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
 mkdir -p dist
-cp src/main.js dist/main.js&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+cp src/main.js dist/main.js&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;If no dependencies have changed after the target was generated, &lt;code&gt;make&lt;/code&gt; won’t update that target. That’s why if you run it twice in a row, &lt;code&gt;make&lt;/code&gt; won’t copy any files on the second run:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ make
-make: 'dist/main.js' is up to date.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
+make: 'dist/main.js' is up to date.&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Anyway, it required quite a bit of typing just to copy a file. Our recipe can be improved by using &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Automatic-Variables&quot;&gt;automatic variables&lt;/a&gt;:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;dist/main.js: src/main.js
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/main.js: src/main.js
     mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Where:&lt;/p&gt;
 
@@ -84,53 +84,53 @@ make: 'dist/main.js' is up to date.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;That’s better. Now, what if we have more than one JavaScript file to copy? We can replace our explicit rule with a &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Pattern-Rules&quot;&gt;pattern rule&lt;/a&gt;:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;dist/%.js: src/%.js
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/%.js: src/%.js
     mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Where &lt;code&gt;%&lt;/code&gt; in the target matches any non-empty substring, and &lt;code&gt;%&lt;/code&gt; in the dependency represents the same matched substring in the target.&lt;/p&gt;
 
 &lt;p&gt;If you were to run &lt;code&gt;make&lt;/code&gt; this time, it would fail:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ make
-make: *** No targets.  Stop.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
+make: *** No targets.  Stop.&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;It doesn’t know which target it should be building now, since there’s no longer explicit rules in the makefile. You would need to pass the desired target name in the arguments:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ make dist/main.js
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make dist/main.js
 mkdir -p dist
-cp src/main.js dist/main.js&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+cp src/main.js dist/main.js&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;This doesn’t seem handy though. Instead, we could define a new rule called &lt;code&gt;all&lt;/code&gt; with the &lt;code&gt;dist/main.js&lt;/code&gt; file as the dependency and an empty recipe:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;all: dist/main.js
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;all: dist/main.js
 
 dist/%.js: src/%.js
     mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now, &lt;code&gt;make&lt;/code&gt; will start with the &lt;code&gt;all&lt;/code&gt; target. In order to “build” it, it has to find the dependency file &lt;code&gt;dist/main.js&lt;/code&gt;, and if the later doesn’t exist, it will look for a rule to create it.&lt;/p&gt;
 
 &lt;p&gt;But this doesn’t seem to be a scalable solution either. What if Make could actually find the existing files in the &lt;code&gt;src&lt;/code&gt; directory and based on them create the list of dependencies for the &lt;code&gt;all&lt;/code&gt; target? Now we’re getting somewhere:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;all: $(subst src/,dist/,$(wildcard src/*.js))
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;all: $(subst src/,dist/,$(wildcard src/*.js))
 
 dist/%.js: src/%.js
     mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Those &lt;code&gt;wildcard&lt;/code&gt; and &lt;code&gt;subst&lt;/code&gt; are Make’s &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Functions&quot;&gt;functions&lt;/a&gt;. The former returns a space-separated list of names of existing files that match the given pattern &lt;code&gt;src/*.js&lt;/code&gt;, and the later replaces &lt;code&gt;src/&lt;/code&gt; with &lt;code&gt;dist/&lt;/code&gt; in that list.&lt;/p&gt;
 
 &lt;p&gt;And finally, we could use &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Using-Variables&quot;&gt;variables&lt;/a&gt; to store the directory names, so we won’t have to update rules in the makefile if the structure of  our project changes:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;SRC_DIR  := src
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;SRC_DIR  := src
 DIST_DIR := dist
 
 all: $(subst $(SRC_DIR)/,$(DIST_DIR)/,$(wildcard $(SRC_DIR)/*.js))
 
 $(DIST_DIR)/%.js: $(SRC_DIR)/%.js
     mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;make-by-example&quot;&gt;Make by example&lt;/h2&gt;
 
@@ -140,18 +140,18 @@ $(DIST_DIR)/%.js: $(SRC_DIR)/%.js
 
 &lt;p&gt;I keep JavaScript files in the &lt;code&gt;js&lt;/code&gt; directory. All the files contained within the &lt;code&gt;js&lt;/code&gt; directory are bundles, that may import other source files from the subdirectories. Basically, the folder structure looks like this:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;.
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;.
 ├── assets/
 ├── js/
 │   ├── src/
 │   │   ├── ga.js
 │   │   └── polyfills.js
 │   └── main.js
-└── Makefile&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+└── Makefile&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;The &lt;code&gt;js/main.js&lt;/code&gt; file is used as the entry point for &lt;a href=&quot;http://rollupjs.org/&quot;&gt;Rollup&lt;/a&gt; to create the resulting bundle in the &lt;code&gt;assets&lt;/code&gt; directory. I have a target called &lt;code&gt;build-assets&lt;/code&gt; in the makefile that does it:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;ROLLUP := ./node_modules/.bin/rollup
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;ROLLUP := ./node_modules/.bin/rollup
 ROLLUPFLAGS := --format=iife --sourcemap
 
 JS_DIRECTORY := js
@@ -164,7 +164,7 @@ clean-assets:
 $(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
     $(ROLLUP) $(ROLLUPFLAGS) -i $&amp;lt; -o $@
 
-build-assets: clean-assets $(JS_ASSETS)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+build-assets: clean-assets $(JS_ASSETS)&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;This is very similar to what we have done earlier to copy multiple JavaScript files.&lt;/p&gt;
 
@@ -172,12 +172,12 @@ build-assets: clean-assets $(JS_ASSETS)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/emcrisostomo/fswatch&quot;&gt;&lt;code&gt;fswatch&lt;/code&gt;&lt;/a&gt; is a cross-platform file change monitor that gets notified when the contents of the particular files or directories are modified. You can use &lt;a href=&quot;https://brew.sh&quot;&gt;Homebrew&lt;/a&gt; to install it:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ brew install fswatch&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install fswatch&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;I have the &lt;code&gt;watch&lt;/code&gt; target in the makefile, which starts &lt;code&gt;fswatch&lt;/code&gt; and will run &lt;code&gt;make build-assets&lt;/code&gt; when any of JavaScript files changes:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;watch:
-    fswatch -o $(JS_DIRECTORY) | xargs -n1 -I{} $(MAKE) build-assets&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;watch:
+    fswatch -o $(JS_DIRECTORY) | xargs -n1 -I{} $(MAKE) build-assets&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;This command performs the following operations:&lt;/p&gt;
 
@@ -189,7 +189,7 @@ build-assets: clean-assets $(JS_ASSETS)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;To start watching for changes, type:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ make watch&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make watch&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;To stop, press &lt;code&gt;Ctrl-C&lt;/code&gt;.&lt;/p&gt;
 
@@ -197,11 +197,11 @@ build-assets: clean-assets $(JS_ASSETS)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Here I use &lt;a href=&quot;https://github.com/babel/babili&quot;&gt;Babili&lt;/a&gt; to minify ES6 JavaScript bundles after they are generated by &lt;code&gt;build-assets&lt;/code&gt;:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;BABILI := ./node_modules/.bin/babili
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;BABILI := ./node_modules/.bin/babili
 BABILIFLAGS := --no-comments
 
 compress-assets: build-assets
-    $(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) $(BABILIFLAGS)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    $(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) $(BABILIFLAGS)&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;The same way you can use, for instance, &lt;a href=&quot;http://cssnano.co&quot;&gt;cssnano&lt;/a&gt; and &lt;a href=&quot;https://github.com/kangax/html-minifier&quot;&gt;html-minifier&lt;/a&gt; to compress CSS and HTML.&lt;/p&gt;
 
@@ -213,7 +213,7 @@ compress-assets: build-assets
 
 &lt;p&gt;If you choose this approach, you will have to generate the manifest file in order to reference those files in the HTML or CSS. And here is the &lt;code&gt;build-manifest&lt;/code&gt; target in the makefile that does it:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;MANIFEST_FILE := _data/manifest.yml
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;MANIFEST_FILE := _data/manifest.yml
 
 clean-manifest:
     rm -f $(MANIFEST_FILE)
@@ -224,7 +224,7 @@ build-manifest: clean-manifest compress-assets
         hashed_filename=&quot;$${filename%%.*}-$$hash.$${filename#*.}&quot;; \
         cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed_filename; \
         echo &quot;$$filename: $$hashed_filename&quot; &amp;gt;&amp;gt; $(MANIFEST_FILE); \
-    done&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    done&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Firstly, Make executes each line in a recipe separately. And if you need to write multi-line command, then you can use line continuations. Make also prints out each command before it gets executed, and the &lt;code&gt;@&lt;/code&gt; character in the start of the line prevents the command from such echoing.&lt;/p&gt;
 
@@ -232,12 +232,12 @@ build-manifest: clean-manifest compress-assets
 
 &lt;p&gt;Thus, this is actually what Make will pass to the shell (Bash) when running &lt;code&gt;build-manifest&lt;/code&gt;:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;for filename in $( find assets -type f -exec basename {} \; ); do \
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;for filename in $( find assets -type f -exec basename {} \; ); do \
     hash=$(md5 -q assets/$filename); \
     hashed_filename=&quot;${filename%%.*}-$hash.${filename#*.}&quot;; \
     cp asstes/$filename assets/$hashed_filename; \
     echo &quot;$filename: $hashed_filename&quot; &amp;gt;&amp;gt; _data/manifest.yml; \
-done&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+done&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;This command performs the following operations:&lt;/p&gt;
 
@@ -251,22 +251,22 @@ done&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Basically, for each file that it finds in the &lt;code&gt;assets&lt;/code&gt; directory, it will calculate a checksum, make a copy of the file and generate the manifest file containing key-value pairs:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;main.js: main-a2f40c69875a90f46f961febe52d4989.js
-…&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;main.js: main-a2f40c69875a90f46f961febe52d4989.js
+…&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;This is how I use this information later in Jekyll to reference JavaScript bundles:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;{% if site.data.manifest %}
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;{% if site.data.manifest %}
     &amp;lt;script src=&quot;{{ site.url }}/assets/{{ site.data.manifest['main.js'] }}&quot;&amp;gt;&amp;lt;/srcipt&amp;gt;
 {% else %}
     &amp;lt;script src=&quot;{{ site.url }}/assets/main.js&quot;&amp;gt;&amp;lt;/srcipt&amp;gt;
-{% endif %}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+{% endif %}&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;deploying-to-github-pages&quot;&gt;Deploying to GitHub Pages&lt;/h3&gt;
 
 &lt;p&gt;I keep the source code of the web site in the &lt;code&gt;master&lt;/code&gt; branch and the contents of the &lt;code&gt;_site&lt;/code&gt; directory in the &lt;code&gt;gh-pages&lt;/code&gt; branch. Thus, to publish a new version of the web site I just need to push changes in the &lt;code&gt;_site&lt;/code&gt; directory to GitHub. To automate this I created a target called &lt;code&gt;deploy&lt;/code&gt;:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;build-deploy: build
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;build-deploy: build
     …
     JEKYLL_ENV=production bundle exec jekyll build
     …
@@ -278,7 +278,7 @@ reset-site:
 deploy: reset-site build-deploy
     git --git-dir=_site/.git add -A
     git --git-dir=_site/.git commit -m &quot;Deploy&quot;
-    git --git-dir=_site/.git push origin gh-pages&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    git --git-dir=_site/.git push origin gh-pages&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
@@ -306,7 +306,7 @@ and falling back to SVG &lt;code&gt;transform&lt;/code&gt; attribute.&lt;/p&gt;
 &lt;p&gt;So how to check whether or not the browser supports CSS transforms on SVG elements? I came up with
 the following approach:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;const supportsCSSTransformsOnSVG = (() =&amp;gt; {
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;const supportsCSSTransformsOnSVG = (() =&amp;gt; {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('viewBox', '0 0 2 2');
   Object.assign(svg.style, {
@@ -321,15 +321,15 @@ the following approach:&lt;/p&gt;
   const result = document.elementFromPoint(1, 1) !== svg;
   svg.parentNode.removeChild(svg);
   return result;
-})();&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+})();&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Which can be used later on:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;if (supportsCSSTransformsOnSVG) {
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;if (supportsCSSTransformsOnSVG) {
   el.style.transform = `translate(${dx}px, ${dy}px)`;
 } else {
   el.setAttribute('transform', `translate(${dx} ${dy})`);
-}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+}&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 </content>
     </entry>
@@ -366,7 +366,7 @@ of the document is not indicated.&lt;/p&gt;
 which flushes early-head of the document immediately and waits for a second before sending the rest of it.
 The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the &lt;code&gt;async&lt;/code&gt; attribute and a &lt;code&gt;link&lt;/code&gt; tag to the external stylesheet.&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&quot;…&quot; async
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;lt;script src=&quot;…&quot; async
   onload=&quot;console.log({scripts: performance.now()})&quot;&amp;gt;&amp;lt;/script&amp;gt;
 &amp;lt;link href=&quot;…&quot; rel=&quot;stylesheet&quot;
   onload=&quot;console.log({styles: performance.now()})&quot;&amp;gt;
@@ -375,8 +375,7 @@ The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the &lt;code&
     'DOMContentLoaded',
     () =&amp;gt; console.log({DOMContentLoaded: performance.now()})
   );
-&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;figcaption&gt;Part of the early-head contents.&lt;/figcaption&gt;&lt;/figure&gt;
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;figcaption&gt;Part of the early-head contents.&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;If the character encoding is specified, then the browser (Firefox in this particular case) begins parsing HTML
 immediately along with loading external resources. On the image below, you can see that the script and
@@ -506,7 +505,7 @@ the default location “Automatic” will be used.&lt;/p&gt;
 that watches for wireless network changes and responds accordingly. Its installation process
 is extremely easy:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;It will ask only for a root password to install &lt;code&gt;locationchanger&lt;/code&gt; service. Now, every time you connect to
 a wireless network it will change the location to either the corresponding or the default one.&lt;/p&gt;
@@ -515,17 +514,17 @@ a wireless network it will change the location to either the corresponding or th
 has been changed. Let’s create scripts that will be executed every time it happens. One is
 for “Corp Wi-Fi” location:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;#!/usr/bin/env bash
 
 # Require password immediately after sleep or screen saver
-osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to true'&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to true'&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Another is for the default location:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;#!/usr/bin/env bash
 
 # Don’t require password after sleep or screen saver
-osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Save them as &lt;code&gt;~/.locations/Corp Wi-Fi&lt;/code&gt; and &lt;code&gt;~/.locations/Automatic&lt;/code&gt; respectively. Voilà!
 You’re not limited by changing only the security preferences, you can do whatever
@@ -544,19 +543,19 @@ you want to…&lt;/p&gt;
 
 &lt;p&gt;It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ brew install potrace&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install potrace&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;The manual installation is super easy though. For OS X do the following:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ cd potrace-1.12.mac-i386
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ cd potrace-1.12.mac-i386
 $ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
-$ sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+$ sudo cp mkbitmap potrace /usr/local/bin&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
 &lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org&quot;&gt;ImageMagick&lt;/a&gt;’s &lt;code&gt;convert&lt;/code&gt; program. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ brew install imagemagick&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install imagemagick&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Alright. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda-blog.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:&lt;/p&gt;
 
@@ -564,9 +563,9 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt
 &lt;figcaption&gt;Original black-and-white PNG image.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;All you need to do is to run this:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ convert -alpha remove party-never.png pgm: \
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ convert -alpha remove party-never.png pgm: \
 | mkbitmap -f 32 -t 0.4 - -o - \
-| potrace --svg -o party-never.svg&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+| potrace --svg -o party-never.svg&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of &lt;code&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code&gt;-f&lt;/code&gt;) and thresholding (&lt;code&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;
 
@@ -610,13 +609,13 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt
       <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
 I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ vim -p $(git diff --name-only HEAD | sed &quot;s,$(git rev-parse --show-prefix),,&quot; | tr &quot;\n&quot; &quot; &quot;)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ vim -p $(git diff --name-only HEAD | sed &quot;s,$(git rev-parse --show-prefix),,&quot; | tr &quot;\n&quot; &quot; &quot;)&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code&gt;.bashrc&lt;/code&gt;,
 but adding this to &lt;code&gt;.gitconfig&lt;/code&gt; seems like a better option. This is what you need to add to your &lt;code&gt;~/.gitconfig&lt;/code&gt;.&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;[alias]
-open = &quot;!vim -c \&quot;cd $GIT_PREFIX\&quot; -p $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;[alias]
+open = &quot;!vim -c \&quot;cd $GIT_PREFIX\&quot; -p $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;To run this command you need to type &lt;code&gt;git open&lt;/code&gt; in the terminal. Since all commands prefixed with an exclamation
 point are executed from the top-level directory of a repository, we need to change working directory in Vim to
@@ -625,8 +624,8 @@ the current one. And of course you can replace Vim by your favorite editor or ev
 &lt;p&gt;Besides, If you use sort of file watchers to perform certain operations when files change, then
 you would find the following command quite helpful. It changes modification time of all modified files at once.&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;[alias]
-touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;[alias]
+touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;You can find more handy aliases in &lt;a href=&quot;https://github.com/eprev/dotfiles/blob/master/gitconfig&quot;&gt;.dotfiles&lt;/a&gt; of mine.&lt;/p&gt;
 </content>
@@ -722,7 +721,7 @@ at baggage claim dropped to near zero.&lt;/p&gt;
       <id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</id>
       <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ mongo --nodb
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ mongo --nodb
 MongoDB shell version: 2.2.0
 &amp;gt; var user = {name: &quot;Anton Eprev&quot;, age: 27}
 &amp;gt; user
@@ -735,11 +734,11 @@ MongoDB shell version: 2.2.0
 &amp;gt; print(numbers)
 1,2,3,4,5,6,7,8,9
 &amp;gt; printjson(numbers)
-[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;And of course the shell allows you to use loops, user functions and etc.:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;&amp;gt; for (var i in user) { print(i, user[i]) }
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;gt; for (var i in user) { print(i, user[i]) }
 name Anton Eprev
 age 27
 &amp;gt; function add(x){ return function(y){ return x + y } }
@@ -752,32 +751,32 @@ age 27
 0
 1
 …
-9&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+9&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;You can also use the &lt;code&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;&amp;gt; var profile = cat('.profile')
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;gt; var profile = cat('.profile')
 &amp;gt; profile
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-…&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+…&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;You may even explore global scope by executing &lt;code&gt;printjson(this)&lt;/code&gt; and find out the following functions:&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;pwd()
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;pwd()
 ls()
 cd()
 mkdir()
 hostname()
 sleep()
-hex_md5()&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+hex_md5()&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;And finally, you can run a JavaScript file using MongoDB shell.&lt;/p&gt;
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;$ cat hello.js
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ cat hello.js
 print(&quot;Hello World!&quot;);
 $ mongo --nodb hello.js
 MongoDB shell version: 2.2.0
-Hello World!&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+Hello World!&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 
 &lt;p&gt;Happy coding =]&lt;/p&gt;
 </content>
