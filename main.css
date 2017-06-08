@@ -25,15 +25,6 @@ textarea {
 /* Web Fonts {{{  */
 
 @font-face {
-  font-weight: 400;
-  font-style: normal;
-  font-family: 'Merriweather';
-  src:
-    local('Merriweather Regular'), local('Merriweather-Regular'),
-    url(/fonts/merriweather-regular.woff2) format('woff2'),
-    url(/fonts/merriweather-regular.woff) format('woff');
-}
-@font-face {
   font-weight: 300;
   font-style: normal;
   font-family: 'Merriweather Sans';
@@ -95,9 +86,8 @@ body {
   font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, .g--ff-serif {
-  font-weight: 400;
-  font-family: Georgia, serif;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -107,15 +97,6 @@ h1, h2, h3, h4, h5, h6 {
 }
   .fonts-loaded body {
     font-family: 'Merriweather Sans', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-  }
-  .fonts-loaded h1,
-  .fonts-loaded h2,
-  .fonts-loaded h3,
-  .fonts-loaded h4,
-  .fonts-loaded h5,
-  .fonts-loaded h6,
-  .fonts-loaded .g--ff-serif {
-    font-family: 'Merriweather', Georgia, serif;
   }
 
 h1 {
