@@ -202,6 +202,7 @@ figcaption {
 .page {
   margin: 0 auto;
   padding: 1.5rem 0;
+  padding-right: calc(980px * 0.3 - 1.5rem);
   min-width: 320px;
   max-width: 980px;
 }
@@ -403,12 +404,13 @@ figcaption {
     content: '';
   }
 
-@media (max-width: 979px) {
+@media (max-width: 1367px) {
   ul {
     padding-left: 1rem; /* There's no space on the left for markers */
   }
   .page {
     padding-top: 0;
+    padding-right: 0;
     margin: auto;
     max-width: 42rem;
   }
@@ -477,12 +479,6 @@ figcaption {
   html {
     font-size: 12px;
   }
-}
-
-@media (min-width: 1440px) {
-    .page {
-        padding-right: calc(980px * 0.3 - 1.5rem);
-    }
 }
 
 /* }}} */
