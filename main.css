@@ -416,7 +416,7 @@ figcaption {
   }
   .page__sidebar {
     float: none;
-    margin-bottom: 1rem; /* This breaks vertical rhythm, though looks much better */
+    margin-bottom: 2rem; /* This breaks vertical rhythm, though looks much better */
     padding-top: 1.5rem;
     padding-left: 1rem;
     width: auto;
