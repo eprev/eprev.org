@@ -7,6 +7,12 @@
   </url>
   
     <url>
+      <loc>http://eprev.org/2017/06/10/whats-worth-watching/</loc>
+      <lastmod>2017-06-10</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
       <loc>http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/</loc>
       <lastmod>2017-02-20</lastmod>
       <changefreq>weekly</changefreq>
