@@ -1,4 +1,4 @@
-import { throttle } from './utils';
+import { throttle } from './utils.js';
 
 const { min, max, abs, floor } = Math;
 

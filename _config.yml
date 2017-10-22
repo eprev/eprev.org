@@ -40,7 +40,6 @@ exclude:
   - npm-debug.log
   - node_modules
   - yarn.lock
-  - js/*.js
   - gif/Makefile
   - gif/src
 
