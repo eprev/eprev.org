@@ -23,7 +23,7 @@ init:
 	bundle install
 	yarn install
 
-server: build-assets
+server: clean-assets
 ## In the "development" environment Jekyll ignores `url` set in _config_dev.yml
 ## See https://github.com/jekyll/jekyll/pull/5431
 	JEKYLL_ENV=dev bundle exec jekyll serve --draft --config _config.yml,_config_dev.yml
@@ -41,9 +41,6 @@ clean-includes:
 	rm -f _includes/main.min.css
 
 clean: clean-assets clean-includes
-
-watch: clean-manifest
-	fswatch -o $(JS_DIRECTORY) | xargs -n1 -I{} $(MAKE) build-assets
 
 $(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
 	$(ROLLUP) $(ROLLUPFLAGS) -i $< -o $@
