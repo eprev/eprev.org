@@ -295,26 +295,23 @@ figcaption {
   bottom: 0;
 }
 
-.post-share {
+.post-comments {
+  margin-bottom: 1.5rem; /* Vertical rhythm */
   padding: 1.5rem 0; /* Vertical rhythm */
   box-sizing: border-box;
   border-top: 1px solid #ececec;
-  border-bottom: 1px solid #ececec;
-  margin-bottom: 1.5rem; /* Vertical rhythm */
-  font-size: 0.92rem; /* Traditional scale [3] */
-  text-align: center;
+  display: flex;
 }
-  .post-share__icon {
+  .post-comments__icon {
     width: 1.5rem;
     height: 1.5rem;
     line-height: 1.5rem;
-    display: inline-block;
-    vertical-align: middle;
+    margin-right: 1rem;
+    align-self: center;
   }
-
-.post-comments {
-  margin-bottom: 1.5rem; /* Vertical rhythm */
-}
+  .post-comments__text {
+    flex-grow: 1;
+  }
 
 .post__meta {
   margin: .75rem 0 calc( .75rem + 1.5rem ); /* Vertical rhythm */
