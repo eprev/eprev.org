@@ -267,8 +267,8 @@ This command performs the following operations:
 
 - The `find assets -type f -exec basename {} \;` command will find all files in the `assets` directory.
 - The `md5 -q assets/$filename` command will calculate a checksum for the given file.
-- The `${filename%%.*}` operation will delete the longest match of `.*` from the back of `$filename`. If `$filename` was containing `main.js.map`, it would keep the `main` part only.
-- The `${filename#*.}` operation will delete the shortest match of `*.` from the front of `$filename`. If `$filename` was containing `main.js.map`, it would keep the `js.map` part only.
+- The `${filename%%.*}` operation will delete the longest match of `.*` from the back of the file name. If `$filename` was containing `main.js.map`, it would keep the `main` part only.
+- The `${filename#*.}` operation will delete the shortest match of `*.` from the front of the file name. If `$filename` was containing `main.js.map`, it would keep the `js.map` part only.
 - The `echo "…" >> _data/manifest.yml` command will append a string containing both file names to the manifest file.
 {:.post__content-list}
 

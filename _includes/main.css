@@ -148,17 +148,8 @@ p {
   hyphens: auto; /*  Automatically break words at appropriate hyphenation points. */
 }
 code {
-  font-size: 0.92rem; /* Traditional scale [3] */
   font-family: Courier, monospace;
   line-height: 1; /* Not to change the line-height of the paragraph. */
-}
-ul code,
-p code {
-  background-color: #f9f9f9;
-  padding: 2px 4px;
-}
-a > code {
-  background-color: transparent;
 }
 abbr {
   letter-spacing: .1em; /* Letterspace abbreviations
