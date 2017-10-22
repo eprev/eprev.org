@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-10-22T17:09:29+02:00</updated>
+  <updated>2017-10-22T17:40:13+02:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -297,7 +297,7 @@ deploy: reset-site build-deploy
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;Make is a great cross-platform tool suitable for projects of different sizes and complexities. More powerful and expressive than NPM scripts, Grunt or Gulp.&lt;/p&gt;
+&lt;p&gt;Make is a great cross-platform tool suitable for projects of different sizes and complexities. More powerful and expressive in a certain way than NPM scripts, Grunt or Gulp.&lt;/p&gt;
 
 &lt;p&gt;And I hope this article has sparked your interest in learning and getting out of your comfort zone as a front-end developer.&lt;/p&gt;
 
