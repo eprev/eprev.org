@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-10-22T21:21:37+02:00</updated>
+  <updated>2017-10-22T21:41:01+02:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -259,8 +259,8 @@ done&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
 &lt;ul&gt;
   &lt;li&gt;The &lt;code&gt;find assets -type f -exec basename {} \;&lt;/code&gt; command will find all files in the &lt;code&gt;assets&lt;/code&gt; directory.&lt;/li&gt;
   &lt;li&gt;The &lt;code&gt;md5 -q assets/$filename&lt;/code&gt; command will calculate a checksum for the given file.&lt;/li&gt;
-  &lt;li&gt;The &lt;code&gt;${filename%%.*}&lt;/code&gt; operation will delete the longest match of &lt;code&gt;.*&lt;/code&gt; from the back of &lt;code&gt;$filename&lt;/code&gt;. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;main&lt;/code&gt; part only.&lt;/li&gt;
-  &lt;li&gt;The &lt;code&gt;${filename#*.}&lt;/code&gt; operation will delete the shortest match of &lt;code&gt;*.&lt;/code&gt; from the front of &lt;code&gt;$filename&lt;/code&gt;. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;js.map&lt;/code&gt; part only.&lt;/li&gt;
+  &lt;li&gt;The &lt;code&gt;${filename%%.*}&lt;/code&gt; operation will delete the longest match of &lt;code&gt;.*&lt;/code&gt; from the back of the file name. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;main&lt;/code&gt; part only.&lt;/li&gt;
+  &lt;li&gt;The &lt;code&gt;${filename#*.}&lt;/code&gt; operation will delete the shortest match of &lt;code&gt;*.&lt;/code&gt; from the front of the file name. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;js.map&lt;/code&gt; part only.&lt;/li&gt;
   &lt;li&gt;The &lt;code&gt;echo &quot;…&quot; &amp;gt;&amp;gt; _data/manifest.yml&lt;/code&gt; command will append a string containing both file names to the manifest file.&lt;/li&gt;
 &lt;/ul&gt;
 
