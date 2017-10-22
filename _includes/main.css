@@ -296,19 +296,15 @@ figcaption {
   margin-bottom: 1.5rem; /* Vertical rhythm */
   padding: 1.5rem 0; /* Vertical rhythm */
   box-sizing: border-box;
-  border-top: 1px solid #ececec;
-  border-bottom: 1px solid #ececec;
-  display: flex;
+  text-align: center;
+  background-color: #f9f9f9;
 }
   .post-comments__icon {
-    width: 1rem;
-    height: 1rem;
-    margin-right: .5rem;
-    align-self: center;
-    flex-shrink: 0;
-  }
-  .post-comments__text {
-    flex-grow: 1;
+    width: 1.75rem;
+    height: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .25rem;
   }
 
 .post__meta {
