@@ -250,9 +250,6 @@ figcaption {
   margin-top: 0;
 }
 
-.post__content h2 {
-  box-shadow: 0 1px #ececec;
-}
 .post__read-more {
   text-align: center;
   font-size: 0.92rem;
@@ -300,14 +297,15 @@ figcaption {
   padding: 1.5rem 0; /* Vertical rhythm */
   box-sizing: border-box;
   border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
   display: flex;
 }
   .post-comments__icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    margin-right: 1rem;
+    width: 1rem;
+    height: 1rem;
+    margin-right: .5rem;
     align-self: center;
+    flex-shrink: 0;
   }
   .post-comments__text {
     flex-grow: 1;
@@ -455,9 +453,12 @@ figcaption {
   /*ul*/.page__nav li:last-child::after {
     content: '';
   }
-  .post-special-home::before {
-    position: static;
+  .post-special-home {
+    padding-left: 1.5rem;
   }
+    .post-special-home::before {
+      left: .25rem;
+    }
   .archive__date,
   .archive__header {
     line-height: 2rem; /* This breaks vertical rhythm, though looks much better */
