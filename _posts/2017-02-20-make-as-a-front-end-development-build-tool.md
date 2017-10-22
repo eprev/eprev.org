@@ -200,6 +200,7 @@ This command performs the following operations:
 * The `fswatch -o js` command will start watching for file changes in the `js` directory. The `-o` option tells `fswatch` to batch change events.
 * The `xargs -n1` command will execute the `$(MAKE) build-assets` command each time `fswatch` detects a change.
 * The `-I{}` option will substitute occurrences of `{}` in the given command with the string from the standard input. Even though we don't have `{}` in the command, without this option `xargs` will execute `make` with two arguments (instead of one): `build-assets` and the string it gets from the standard input.
+{:.post__content-list}
 
 To start watching for changes, type:
 
@@ -269,6 +270,7 @@ This command performs the following operations:
 - The `${filename%%.*}` operation will delete the longest match of `.*` from the back of `$filename`. If `$filename` was containing `main.js.map`, it would keep the `main` part only.
 - The `${filename#*.}` operation will delete the shortest match of `*.` from the front of `$filename`. If `$filename` was containing `main.js.map`, it would keep the `js.map` part only.
 - The `echo "…" >> _data/manifest.yml` command will append a string containing both file names to the manifest file.
+{:.post__content-list}
 
 Basically, for each file that it finds in the `assets` directory, it will calculate a checksum, make a copy of the file and generate the manifest file containing key-value pairs:
 
