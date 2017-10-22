@@ -1,6 +1,6 @@
-/* vim: set fdm=marker: */
+/* vim: set fdm=marker fmr=[[[,]]]: */
 
-/* Normalize {{{ */
+/* Normalize [[[ */
 
 /*
   Resources:
@@ -20,9 +20,9 @@ textarea {
   font-family: inherit; /* Corrects font family not being inherited in all browsers [1]. */
 }
 
-/* }}} */
+/* ]]] */
 
-/* Web Fonts {{{  */
+/* Web Fonts [[[  */
 
 @font-face {
   font-weight: 300;
@@ -32,6 +32,7 @@ textarea {
     local('Merriweather Sans Light'), local('MerriweatherSans-Light'),
     url(/fonts/merriweathersans-light.woff2) format('woff2'),
     url(/fonts/merriweathersans-light.woff) format('woff');
+  font-display: swap;
 }
 @font-face {
   font-weight: 700;
@@ -41,6 +42,7 @@ textarea {
     local('Merriweather Sans Bold'), local('MerriweatherSans-Bold'),
     url(/fonts/merriweathersans-bold.woff2) format('woff2'),
     url(/fonts/merriweathersans-bold.woff) format('woff');
+  font-display: swap;
 }
 @font-face {
   font-weight: 300;
@@ -50,11 +52,12 @@ textarea {
     local('Merriweather Sans Light Italic'), local('MerriweatherSans-LightItalic'),
     url(/fonts/merriweathersans-lightitalic.woff2) format('woff2'),
     url(/fonts/merriweathersans-lightitalic.woff) format('woff');
+  font-display: swap;
 }
 
-/* }}} */
+/* ]]] */
 
-/* Typography {{{ */
+/* Typography [[[ */
 
 /*
   Resources:
@@ -83,7 +86,7 @@ html {
 body {
   color: #222;
   font-weight: 300;
-  font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Merriweather Sans', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -95,9 +98,6 @@ h1, h2, h3, h4, h5, h6 {
   page-break-inside: avoid;
   text-rendering: optimizeLegibility; /* Enables a font’s native kerning and optional ligatures. */
 }
-  .fonts-loaded body {
-    font-family: 'Merriweather Sans', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-  }
 
 h1 {
   font-size: 2rem;   /* Traditional scale [3] */
@@ -188,9 +188,9 @@ figcaption {
   font-size: .83rem;
 }
 
-/* }}} */
+/* ]]] */
 
-/* Layout {{{ */
+/* Layout [[[ */
 
 .g--shady {
   color: #888;
@@ -481,9 +481,9 @@ figcaption {
   }
 }
 
-/* }}} */
+/* ]]] */
 
-/* Highlighter {{{ */
+/* Highlighter [[[ */
 
 .highlight pre {
   color: #485e76;
@@ -547,4 +547,4 @@ figcaption {
   color: inherit;
 }
 
-/* }}} */
+/* ]]] */

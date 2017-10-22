@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 {% if site.data.manifest %}
   {% capture js_main  %}{{ site.url }}/assets/{{ site.data.manifest['main.js'] }}{% endcapture %}
-  {% capture js_fontfaceobserver  %}{{ site.url }}/assets/{{ site.data.manifest['fontfaceobserver.js'] }}{% endcapture %}
 {% else %}
   {% capture js_main %}{{ site.url }}/assets/main.js{% endcapture %}
-  {% capture js_fontfaceobserver %}{{ site.url }}/assets/fontfaceobserver.js{% endcapture %}
 {% endif %}
 <html lang="en">
   <meta charset="utf-8">
@@ -24,7 +22,7 @@
   {% if jekyll.environment == "production" %}
     <style>{% include main.min.css %}</style>
   {% else %}
-    <link href="{{ site.url }}/main.css" rel="stylesheet" media="all">
+    <style>{% include main.css %}</style>
   {% endif %}
   <script src="{{ js_main }}" defer></script>
   <link rel="shortcut icon" href="{{ site.url }}/images/icon.png">
@@ -85,25 +83,6 @@
         console.log('ga', args);
       };
       {% endif %}
-      var html = document.documentElement;
-      if (sessionStorage.fontsLoaded) {
-        html.classList.add('fonts-loaded');
-      } else {
-        var script = document.createElement('script');
-        script.src = '{{ js_fontfaceobserver }}';
-        script.async = true;
-        script.onload = function () {
-          Promise.all([
-            (new FontFaceObserver('Merriweather Sans', {weight: 300})).load(),
-            (new FontFaceObserver('Merriweather Sans', {weight: 700})).load(),
-            (new FontFaceObserver('Merriweather Sans', {weight: 300, style: 'italic'})).load(),
-          ]).then(function () {
-            html.classList.add('fonts-loaded');
-            sessionStorage.fontsLoaded = 'yes';
-          });
-        }
-        document.head.appendChild(script);
-      }
     </script>
   <div class="page">
     <div class="page__sidebar">
