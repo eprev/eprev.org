@@ -1,5 +1,5 @@
 ---
-title: How to detect if CSS transforms are supported on SVG
+title: How to detect if CSS transforms are supported on&nbsp;SVG
 layout: post
 tags:
   - svg

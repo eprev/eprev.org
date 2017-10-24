@@ -1,5 +1,5 @@
 ---
-title: Make as a front-end development build tool
+title: Make as a front-end development build&nbsp;tool
 layout: post
 tags:
   - makefile

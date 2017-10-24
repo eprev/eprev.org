@@ -1,5 +1,5 @@
 ---
-title: The importance of HTML character encoding
+title: The importance of HTML character&nbsp;encoding
 layout: post
 tags:
   - performance

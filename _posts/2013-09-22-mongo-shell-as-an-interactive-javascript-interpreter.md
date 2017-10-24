@@ -1,5 +1,5 @@
 ---
-title: Mongo shell as an interactive JavaScript interpreter
+title: Mongo shell as an interactive JavaScript&nbsp;interpreter
 layout: post
 tags:
   - javascript

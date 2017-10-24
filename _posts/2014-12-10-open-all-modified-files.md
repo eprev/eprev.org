@@ -1,5 +1,5 @@
 ---
-title: Open all modified files in editor
+title: Open all modified files in&nbsp;editor
 layout: post
 tags:
   - git
