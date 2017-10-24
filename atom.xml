@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-10-22T21:42:08+02:00</updated>
+  <updated>2017-10-24T19:48:38+02:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -26,7 +26,7 @@
     </entry>
   
     <entry>
-      <title>Make as a front-end development build tool</title>
+      <title>Make as a front-end development build&nbsp;tool</title>
       <link href="http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/"/>
       <updated>2017-02-20T00:00:00+01:00</updated>
       <id>http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool</id>
@@ -305,7 +305,7 @@ deploy: reset-site build-deploy
     </entry>
   
     <entry>
-      <title>How to detect if CSS transforms are supported on SVG</title>
+      <title>How to detect if CSS transforms are supported on&nbsp;SVG</title>
       <link href="http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/"/>
       <updated>2017-01-05T00:00:00+01:00</updated>
       <id>http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg</id>
@@ -350,7 +350,7 @@ the following approach:&lt;/p&gt;
     </entry>
   
     <entry>
-      <title>The importance of HTML character encoding</title>
+      <title>The importance of HTML character&nbsp;encoding</title>
       <link href="http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/"/>
       <updated>2017-01-04T00:00:00+01:00</updated>
       <id>http://eprev.org/2017/01/04/the-importance-of-html-character-encoding</id>
@@ -617,7 +617,7 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&l
     </entry>
   
     <entry>
-      <title>Open all modified files in editor</title>
+      <title>Open all modified files in&nbsp;editor</title>
       <link href="http://eprev.org/2014/12/10/open-all-modified-files/"/>
       <updated>2014-12-10T00:00:00+01:00</updated>
       <id>http://eprev.org/2014/12/10/open-all-modified-files</id>
@@ -730,7 +730,7 @@ at baggage claim dropped to near zero.&lt;/p&gt;
     </entry>
   
     <entry>
-      <title>Mongo shell as an interactive JavaScript interpreter</title>
+      <title>Mongo shell as an interactive JavaScript&nbsp;interpreter</title>
       <link href="http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/"/>
       <updated>2013-09-22T00:00:00+02:00</updated>
       <id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</id>
