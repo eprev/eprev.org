@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Anton Eprev</title>
-  <link href="http://eprev.org/atom.xml" rel="self" />
-  <link href="http://eprev.org/" />
-  <updated>2017-10-24T19:48:38+02:00</updated>
-  <id>http://eprev.org/</id>
+  <link href="/atom.xml" rel="self" />
+  <link href="/" />
+  <updated>2017-10-26T21:25:44+02:00</updated>
+  <id>/</id>
   <author>
     <name>Anton Eprev</name>
     <email>a.eprev@gmail.com</email>
   </author>
   
     <entry>
+      <title>Scripts, priorities and everything</title>
+      <link href="/2017/10/26/scripts/"/>
+      <updated>2017-10-26T21:18:42+02:00</updated>
+      <id>/2017/10/26/scripts</id>
+      <content type="html">&lt;p&gt;There is a belief that you should &lt;a href=&quot;https://calendar.perfplanet.com/2016/prefer-defer-over-async/&quot;&gt;prefer &lt;code&gt;defer&lt;/code&gt; over &lt;code&gt;async&lt;/code&gt;&lt;/a&gt;. Moreover, while working within a script with the &lt;code&gt;defer&lt;/code&gt; attribute, you don’t have to worry about the DOM being not interactive whatsoever, because browsers guarantee that deferred scripts will get executed right after the HTML has been parsed. In all other cases:&lt;/p&gt;
+
+&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;function ready(fn) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fn);
+  } else {
+    fn();
+  }
+}&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&lt;/figure&gt;
+
+&lt;figure&gt;&lt;div&gt;&lt;a href=&quot;/images/posts/scripts-sync-head.png&quot;&gt;&lt;img src=&quot;/images/posts/scripts-sync-head.png&quot; alt=&quot;scripts-sync-head&quot; clickable=&quot;yes&quot;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;figcaption&gt;scripts-sync-head.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;a href=&quot;/images/posts/scripts-sync-body.png&quot;&gt;&lt;img src=&quot;/images/posts/scripts-sync-body.png&quot; alt=&quot;scripts-sync-body&quot; clickable=&quot;yes&quot;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;figcaption&gt;scripts-sync-body.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;a href=&quot;/images/posts/scripts-async-head.png&quot;&gt;&lt;img src=&quot;/images/posts/scripts-async-head.png&quot; alt=&quot;scripts-async-head&quot; clickable=&quot;yes&quot;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;figcaption&gt;scripts-async-head.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;a href=&quot;/images/posts/scripts-defer-head.png&quot;&gt;&lt;img src=&quot;/images/posts/scripts-defer-head.png&quot; alt=&quot;scripts-defer-head&quot; clickable=&quot;yes&quot;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;figcaption&gt;scripts-defer-head.&lt;/figcaption&gt;&lt;/figure&gt;</content>
+    </entry>
+  
+    <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2017/06/10/whats-worth-watching/"/>
+      <link href="/2017/06/10/whats-worth-watching/"/>
       <updated>2017-06-10T00:00:00+02:00</updated>
-      <id>http://eprev.org/2017/06/10/whats-worth-watching</id>
+      <id>/2017/06/10/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;Stuart Frisby (Booking.com) on “&lt;a href=&quot;https://www.youtube.com/watch?v=_sx5LV23hIE&quot;&gt;Building a Testing Culture&lt;/a&gt;”: A/B testing at scale of Booking.com – millions of users, thousands of concurrent experiments.&lt;/li&gt;
   &lt;li&gt;Alex Danilo (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6v4E6oksar0&quot;&gt;Compiling for the Web with WebAssembly&lt;/a&gt;” (Google I/O): what WebAssembly is, the problems it solves, its current state and tools available to try it out.&lt;/li&gt;
@@ -27,9 +52,9 @@
   
     <entry>
       <title>Make as a front-end development build&nbsp;tool</title>
-      <link href="http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/"/>
+      <link href="/2017/02/20/make-as-a-front-end-development-build-tool/"/>
       <updated>2017-02-20T00:00:00+01:00</updated>
-      <id>http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool</id>
+      <id>/2017/02/20/make-as-a-front-end-development-build-tool</id>
       <content type="html">&lt;blockquote&gt;
   &lt;p&gt;Make is turning 40 in 2017.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -306,9 +331,9 @@ deploy: reset-site build-deploy
   
     <entry>
       <title>How to detect if CSS transforms are supported on&nbsp;SVG</title>
-      <link href="http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/"/>
+      <link href="/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/"/>
       <updated>2017-01-05T00:00:00+01:00</updated>
-      <id>http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg</id>
+      <id>/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg</id>
       <content type="html">&lt;p&gt;If you’re reading this, then apparently you already know that &lt;a href=&quot;https://developer.microsoft.com/en-us/microsoft-edge/platform/status/supportcsstransformsonsvg/&quot;&gt;IE and Edge don’t support CSS transformations
 on SVG&lt;/a&gt;
 and neither apply CSS transitions. Moreover, SVG animations might not be an option, since &lt;a href=&quot;https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/5o0yiO440LM%5B1-25%5D&quot;&gt;Chrome
@@ -351,9 +376,9 @@ the following approach:&lt;/p&gt;
   
     <entry>
       <title>The importance of HTML character&nbsp;encoding</title>
-      <link href="http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/"/>
+      <link href="/2017/01/04/the-importance-of-html-character-encoding/"/>
       <updated>2017-01-04T00:00:00+01:00</updated>
-      <id>http://eprev.org/2017/01/04/the-importance-of-html-character-encoding</id>
+      <id>/2017/01/04/the-importance-of-html-character-encoding</id>
       <content type="html">&lt;p&gt;W3C/WHATWG HTML5 specification states:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -396,17 +421,17 @@ The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the &lt;code&
 immediately along with loading external resources. On the image below, you can see that the script and
 the stylesheet have been loaded before DOM becomes interactive.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is specified&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;a href=&quot;/images/posts/ff-charset-is-specified.png&quot;&gt;&lt;img src=&quot;/images/posts/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is specified&quot; clickable=&quot;yes&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;figcaption&gt;When the character encoding is specified, Firefox starts loading styles and scripts as it is parsing the HTML.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;When the character encoding is not specified, then the browser starts parsing HTML only after it gets
 the rest of the document (the first 1024 bytes), causing a delay in loading scripts and stylesheets.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;a href=&quot;/images/posts/ff-charset-is-not-specified.png&quot;&gt;&lt;img src=&quot;/images/posts/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not specified&quot; clickable=&quot;yes&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;figcaption&gt;When the character encoding is not specified, Firefox waits for the first 1024 bytes before it begins loading styles and scripts.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;Safari shares similar to Firefox behavior. Things are quite different with Chrome and Edge, they begin parsing HTML
 right away even if the character encoding is not specified or incorrect.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not specified&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;a href=&quot;/images/posts/chrome-charset-is-not-specified.png&quot;&gt;&lt;img src=&quot;/images/posts/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not specified&quot; clickable=&quot;yes&quot;&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;figcaption&gt;Chrome starts parsing the HTML and loading styles and scripts as it is loading the document even if the character encoding is not specified.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;What’s incorrect encoding? HTML5 specification says that user agents must not support the CESU-8, UTF-7,
 BOCU-1, SCSU, EBCDIC and UTF-32 encodings. For that reason, Firefox and Safari won’t parse
@@ -420,9 +445,9 @@ it can re-parse the document with the real encoding resulting in additional dela
   
     <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2016/08/03/whats-worth-watching/"/>
+      <link href="/2016/08/03/whats-worth-watching/"/>
       <updated>2016-08-03T00:00:00+02:00</updated>
-      <id>http://eprev.org/2016/08/03/whats-worth-watching</id>
+      <id>/2016/08/03/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;Alexander Bruce on “&lt;a href=&quot;http://www.gdcvault.com/play/1020776/&quot;&gt;An Overnight Success, Seven Years in the Making&lt;/a&gt;” (2014): a story of creating an (successful) indie game, which shows how high the cost of success can be (financially and psychologically).&lt;/li&gt;
   &lt;li&gt;Jeffrey Dean (Google) on “&lt;a href=&quot;https://youtu.be/modXC5IWTJI&quot;&gt;Building Software Systems At Google and Lessons Learned&lt;/a&gt;” (2010): interesting talk on how their technology had evolved over time.&lt;/li&gt;
@@ -434,9 +459,9 @@ it can re-parse the document with the real encoding resulting in additional dela
   
     <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2016/07/23/whats-worth-watching/"/>
+      <link href="/2016/07/23/whats-worth-watching/"/>
       <updated>2016-07-23T00:00:00+02:00</updated>
-      <id>http://eprev.org/2016/07/23/whats-worth-watching</id>
+      <id>/2016/07/23/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;Ben Maurer (Facebook) on “&lt;a href=&quot;https://youtu.be/MlNGomWegCE&quot;&gt;Web speed @ Facebook&lt;/a&gt;” (2016): shipping the page incrementally,
 packaging resources based on their usage patterns, early flushing, deferred dependencies, performance measurements,
@@ -456,9 +481,9 @@ that helps you track and fix vulnerabilities in your Node.js application depende
   
     <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2016/01/26/whats-worth-watching/"/>
+      <link href="/2016/01/26/whats-worth-watching/"/>
       <updated>2016-01-26T00:00:00+01:00</updated>
-      <id>http://eprev.org/2016/01/26/whats-worth-watching</id>
+      <id>/2016/01/26/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;Yunong Xiao (Netflix) on “&lt;a href=&quot;https://youtu.be/O1YP8QP9gLA&quot;&gt;Debugging Node.js in Production&lt;/a&gt;” (2015): what Netflix uses in production to diagnose and fix performance issues, bugs and memory leaks in Node.js applications.&lt;/li&gt;
   &lt;li&gt;Dan Abramov on “&lt;a href=&quot;https://youtu.be/xsSnOQynTHs&quot;&gt;Live React: Hot Reloading with Time Travel&lt;/a&gt;” (2015): a story about Redux.&lt;/li&gt;
@@ -471,9 +496,9 @@ that helps you track and fix vulnerabilities in your Node.js application depende
   
     <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2016/01/15/whats-worth-watching/"/>
+      <link href="/2016/01/15/whats-worth-watching/"/>
       <updated>2016-01-15T00:00:00+01:00</updated>
-      <id>http://eprev.org/2016/01/15/whats-worth-watching</id>
+      <id>/2016/01/15/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;Lee Byron (Facebook) on “&lt;a href=&quot;http://youtu.be/WQLzZf34FJ8&quot;&gt;Exploring GraphQL&lt;/a&gt;” (2015): a data fetching language
 that is widely used at Facebook.&lt;/li&gt;
@@ -490,9 +515,9 @@ Immutability in React.&lt;/li&gt;
   
     <entry>
       <title>Change OS X network location based on the Wi-Fi network name</title>
-      <link href="http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/"/>
+      <link href="/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/"/>
       <updated>2015-08-06T00:00:00+02:00</updated>
-      <id>http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name</id>
+      <id>/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name</id>
       <content type="html">&lt;p&gt;You might have heard about &lt;a href=&quot;https://support.apple.com/en-us/HT202480&quot;&gt;Network locations&lt;/a&gt; in OS X.
 It allows you to have different network configurations and quickly switch between them. For instance,
 if you have to use a corporate proxy server at work and you don’t need it when you get back home,
@@ -549,9 +574,9 @@ you want to…&lt;/p&gt;
   
     <entry>
       <title>Converting PNG to SVG</title>
-      <link href="http://eprev.org/2015/05/27/converting-png-to-svg/"/>
+      <link href="/2015/05/27/converting-png-to-svg/"/>
       <updated>2015-05-27T00:00:00+02:00</updated>
-      <id>http://eprev.org/2015/05/27/converting-png-to-svg</id>
+      <id>/2015/05/27/converting-png-to-svg</id>
       <content type="html">&lt;p&gt;Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called &lt;a href=&quot;http://potrace.sourceforge.net&quot;&gt;Potrace&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
@@ -574,7 +599,7 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&l
 
 &lt;p&gt;Alright. Let’s say you’ve got this image (by &lt;a href=&quot;http://nationofamanda-blog.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
 &lt;figcaption&gt;Original black-and-white PNG image.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;All you need to do is to run this:&lt;/p&gt;
 
@@ -586,7 +611,7 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&l
 
 &lt;p&gt;As a result you might have now:&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;&lt;/div&gt;
 &lt;figcaption&gt;Generated SVG image (zoom the page in).&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;That’s it.&lt;/p&gt;
 </content>
@@ -594,9 +619,9 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&l
   
     <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2015/03/29/whats-worth-watching/"/>
+      <link href="/2015/03/29/whats-worth-watching/"/>
       <updated>2015-03-29T00:00:00+01:00</updated>
-      <id>http://eprev.org/2015/03/29/whats-worth-watching</id>
+      <id>/2015/03/29/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;“&lt;a href=&quot;https://www.youtube.com/watch?v=X0VH78ye4yY&quot;&gt;Big Code: Developer Infrastructure at Facebook’s Scale&lt;/a&gt;” (2015): what is it like to be an engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.&lt;/li&gt;
   &lt;li&gt;Zach Holman (GitHub) on “&lt;a href=&quot;http://www.bbc.co.uk/academy/technology/article/art20150206154333467&quot;&gt;Move fast and break nothing&lt;/a&gt;” (2014): how to ship software changes fast and not to break things.&lt;/li&gt;
@@ -606,9 +631,9 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&l
   
     <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2015/01/26/whats-worth-watching/"/>
+      <link href="/2015/01/26/whats-worth-watching/"/>
       <updated>2015-01-26T00:00:00+01:00</updated>
-      <id>http://eprev.org/2015/01/26/whats-worth-watching</id>
+      <id>/2015/01/26/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;Drew Petersen (Spotify) on “&lt;a href=&quot;https://www.youtube.com/watch?v=uNVP5jDOVAY&quot;&gt;Developing Games Using Data not Trees&lt;/a&gt;” (2014): cons and pros of using data-oriented approach in game development.&lt;/li&gt;
   &lt;li&gt;Daniel Espeset (Etsy) on “&lt;a href=&quot;https://vimeo.com/109912254&quot;&gt;The role of Front-end Infrastructure at Etsy&lt;/a&gt;” (2014): continuos deployment and experimentation-driven development, instruments that help to delete old code constantly.&lt;/li&gt;
@@ -618,9 +643,9 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;&l
   
     <entry>
       <title>Open all modified files in&nbsp;editor</title>
-      <link href="http://eprev.org/2014/12/10/open-all-modified-files/"/>
+      <link href="/2014/12/10/open-all-modified-files/"/>
       <updated>2014-12-10T00:00:00+01:00</updated>
-      <id>http://eprev.org/2014/12/10/open-all-modified-files</id>
+      <id>/2014/12/10/open-all-modified-files</id>
       <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
 I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;
 
@@ -648,9 +673,9 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pr
   
     <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2014/11/23/whats-worth-watching/"/>
+      <link href="/2014/11/23/whats-worth-watching/"/>
       <updated>2014-11-23T00:00:00+01:00</updated>
-      <id>http://eprev.org/2014/11/23/whats-worth-watching</id>
+      <id>/2014/11/23/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;Bred Victor (MIT) on “&lt;a href=&quot;https://vimeo.com/67076984&quot;&gt;Media for Thinking the Unthinkable&lt;/a&gt;” (2013): incredible ideas that will probably change the way we present and understand things.&lt;/li&gt;
   &lt;li&gt;Douglas Crockford on “&lt;a href=&quot;http://www.youtube.com/watch?v=bo36MrBfTk4&quot;&gt;The Better Parts&lt;/a&gt;” (2014): you aren’t supposed to use every feature of the language to write error-free programs. Douglas is sharing his favorite parts of JavaScript and coming ES6 standard.&lt;/li&gt;
@@ -663,9 +688,9 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pr
   
     <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2014/02/27/whats-worth-watching/"/>
+      <link href="/2014/02/27/whats-worth-watching/"/>
       <updated>2014-02-27T00:00:00+01:00</updated>
-      <id>http://eprev.org/2014/02/27/whats-worth-watching</id>
+      <id>/2014/02/27/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;Pete Hunt (Facebook) on “&lt;a href=&quot;http://2013.jsconf.eu/speakers/pete-hunt-react-rethinking-best-practices.html&quot;&gt;React: rethinking best practices&lt;/a&gt;” (2013).&lt;/li&gt;
   &lt;li&gt;Steven Wittens on “&lt;a href=&quot;http://www.youtube.com/watch?v=Zkx1aKv2z8o&quot;&gt;Making things with maths&lt;/a&gt;” (2013).&lt;/li&gt;
@@ -679,9 +704,9 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pr
   
     <entry>
       <title>What’s worth watching</title>
-      <link href="http://eprev.org/2014/01/22/whats-worth-watching/"/>
+      <link href="/2014/01/22/whats-worth-watching/"/>
       <updated>2014-01-22T00:00:00+01:00</updated>
-      <id>http://eprev.org/2014/01/22/whats-worth-watching</id>
+      <id>/2014/01/22/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
   &lt;li&gt;Tim Berglund (GitHub) on “&lt;a href=&quot;https://vimeo.com/49444883&quot;&gt;Advanced Git&lt;/a&gt;” (2012): low-level commands, interactive rebase, external diff &amp;amp; merge tools, reflog and reset.&lt;/li&gt;
   &lt;li&gt;Ilya Grigorik (Google) on “&lt;a href=&quot;http://www.youtube.com/watch?v=Il4swGfTOSM&quot;&gt;Breaking the 1000ms time to glass mobile barrier&lt;/a&gt;” (2013): how to build a mobile website that loads as quickly as possible.&lt;/li&gt;
@@ -694,22 +719,22 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pr
   
     <entry>
       <title>Chrome tab tooltips</title>
-      <link href="http://eprev.org/2014/01/19/chrome-tab-tooltips/"/>
+      <link href="/2014/01/19/chrome-tab-tooltips/"/>
       <updated>2014-01-19T00:00:00+01:00</updated>
-      <id>http://eprev.org/2014/01/19/chrome-tab-tooltips</id>
+      <id>/2014/01/19/chrome-tab-tooltips</id>
       <content type="html">&lt;p&gt;Chrome adds a ‘volume’ icon to browser tabs that are playing audio in the background.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-volume.png&quot; alt=&quot;‘Volume’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;And that’s not all. A ‘recording’ icon appears in place of the ‘volume’ icon when your webcam is being accessed.&lt;/p&gt;
 
-&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;http://eprev.org/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;</content>
+&lt;figure&gt;&lt;div&gt;&lt;img src=&quot;/images/posts/chrome-recording.png&quot; alt=&quot;‘Recording’ tab icon&quot;&gt;&lt;/div&gt;&lt;/figure&gt;</content>
     </entry>
   
     <entry>
       <title>Why waiting is torture</title>
-      <link href="http://eprev.org/2013/09/24/why-waiting-is-torture/"/>
+      <link href="/2013/09/24/why-waiting-is-torture/"/>
       <updated>2013-09-24T00:00:00+02:00</updated>
-      <id>http://eprev.org/2013/09/24/why-waiting-is-torture</id>
+      <id>/2013/09/24/why-waiting-is-torture</id>
       <content type="html">&lt;p&gt;This is excerpts from “&lt;a href=&quot;http://www.nytimes.com/2012/08/19/opinion/sunday/why-waiting-in-line-is-torture.html&quot;&gt;Why Waiting Is Torture&lt;/a&gt;” by Alex Stone, The New York Times.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -731,9 +756,9 @@ at baggage claim dropped to near zero.&lt;/p&gt;
   
     <entry>
       <title>Mongo shell as an interactive JavaScript&nbsp;interpreter</title>
-      <link href="http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/"/>
+      <link href="/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/"/>
       <updated>2013-09-22T00:00:00+02:00</updated>
-      <id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</id>
+      <id>/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter</id>
       <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;
 
 &lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ mongo --nodb

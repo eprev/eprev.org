@@ -1,278 +1,290 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://eprev.org/</loc>
+    <loc>/</loc>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   
     <url>
-      <loc>http://eprev.org/2017/06/10/whats-worth-watching/</loc>
+      <loc>/2017/10/26/scripts/</loc>
+      <lastmod>2017-10-26</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/2017/06/10/whats-worth-watching/</loc>
       <lastmod>2017-06-10</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/</loc>
+      <loc>/2017/02/20/make-as-a-front-end-development-build-tool/</loc>
       <lastmod>2017-02-20</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/</loc>
+      <loc>/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/</loc>
       <lastmod>2017-01-05</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/</loc>
+      <loc>/2017/01/04/the-importance-of-html-character-encoding/</loc>
       <lastmod>2017-01-04</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2016/08/03/whats-worth-watching/</loc>
+      <loc>/2016/08/03/whats-worth-watching/</loc>
       <lastmod>2016-08-03</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2016/07/23/whats-worth-watching/</loc>
+      <loc>/2016/07/23/whats-worth-watching/</loc>
       <lastmod>2016-07-23</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2016/01/26/whats-worth-watching/</loc>
+      <loc>/2016/01/26/whats-worth-watching/</loc>
       <lastmod>2016-01-26</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2016/01/15/whats-worth-watching/</loc>
+      <loc>/2016/01/15/whats-worth-watching/</loc>
       <lastmod>2016-01-15</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/</loc>
+      <loc>/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/</loc>
       <lastmod>2015-08-06</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2015/05/27/converting-png-to-svg/</loc>
+      <loc>/2015/05/27/converting-png-to-svg/</loc>
       <lastmod>2015-05-27</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2015/03/29/whats-worth-watching/</loc>
+      <loc>/2015/03/29/whats-worth-watching/</loc>
       <lastmod>2015-03-29</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2015/01/26/whats-worth-watching/</loc>
+      <loc>/2015/01/26/whats-worth-watching/</loc>
       <lastmod>2015-01-26</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2014/12/10/open-all-modified-files/</loc>
+      <loc>/2014/12/10/open-all-modified-files/</loc>
       <lastmod>2014-12-10</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2014/11/23/whats-worth-watching/</loc>
+      <loc>/2014/11/23/whats-worth-watching/</loc>
       <lastmod>2014-11-23</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2014/02/27/whats-worth-watching/</loc>
+      <loc>/2014/02/27/whats-worth-watching/</loc>
       <lastmod>2014-02-27</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2014/01/22/whats-worth-watching/</loc>
+      <loc>/2014/01/22/whats-worth-watching/</loc>
       <lastmod>2014-01-22</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2014/01/19/chrome-tab-tooltips/</loc>
+      <loc>/2014/01/19/chrome-tab-tooltips/</loc>
       <lastmod>2014-01-19</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2013/09/24/why-waiting-is-torture/</loc>
+      <loc>/2013/09/24/why-waiting-is-torture/</loc>
       <lastmod>2013-09-24</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/</loc>
+      <loc>/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/</loc>
       <lastmod>2013-09-22</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
   
     <url>
-      <loc>http://eprev.org/</loc>
+      <loc>/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/</loc>
+      <loc>/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/archive/</loc>
+      <loc>/archive/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/</loc>
+      <loc>/tags/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/</loc>
+      <loc>/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/</loc>
+      <loc>/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/javascript/</loc>
+      <loc>/tags/javascript/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/mongodb/</loc>
+      <loc>/tags/mongodb/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/gray-matter/</loc>
+      <loc>/tags/gray-matter/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/ux/</loc>
+      <loc>/tags/ux/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/worth-watching/</loc>
+      <loc>/tags/worth-watching/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/performance/</loc>
+      <loc>/tags/performance/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/git/</loc>
+      <loc>/tags/git/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/css/</loc>
+      <loc>/tags/css/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/typography/</loc>
+      <loc>/tags/typography/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/media/</loc>
+      <loc>/tags/media/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/devops/</loc>
+      <loc>/tags/devops/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/svg/</loc>
+      <loc>/tags/svg/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/os-x/</loc>
+      <loc>/tags/os-x/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/robotics/</loc>
+      <loc>/tags/robotics/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/graphql/</loc>
+      <loc>/tags/graphql/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/engineering/</loc>
+      <loc>/tags/engineering/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/security/</loc>
+      <loc>/tags/security/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/design/</loc>
+      <loc>/tags/design/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/html/</loc>
+      <loc>/tags/html/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>http://eprev.org/tags/makefile/</loc>
+      <loc>/tags/hacking-web/</loc>
+      
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/tags/makefile/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
