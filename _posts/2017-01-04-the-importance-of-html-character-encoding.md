@@ -4,6 +4,7 @@ layout: post
 tags:
   - performance
   - html
+  - hacking-web
 description: Not specifying a character encoding of HTML document can negatively impact the page load time.
 share-image: the-importance-of-html-character-encoding.png
 ghIssueId: 14
@@ -55,7 +56,8 @@ the stylesheet have been loaded before DOM becomes interactive.
 
 ![Firefox Web Console: Character encoding is specified]({{site.url}}/images/posts/ff-charset-is-specified.png
 "When the character encoding is specified, Firefox starts loading styles and scripts as it is parsing the HTML."){:
-  layout="responsive" mod="wide" .g--border
+  layout="responsive" mod="wide" clickable="yes"
+  .g--border
 }
 
 When the character encoding is not specified, then the browser starts parsing HTML only after it gets
@@ -63,7 +65,8 @@ the rest of the document (the first 1024 bytes), causing a delay in loading scri
 
 ![Firefox Web Console: Character encoding is not specified]({{site.url}}/images/posts/ff-charset-is-not-specified.png
 "When the character encoding is not specified, Firefox waits for the first 1024 bytes before it begins loading styles and scripts."){:
-  layout="responsive" mod="wide" .g--border
+  layout="responsive" mod="wide" clickable="yes"
+  .g--border
 }
 
 Safari shares similar to Firefox behavior. Things are quite different with Chrome and Edge, they begin parsing HTML
@@ -71,7 +74,7 @@ right away even if the character encoding is not specified or incorrect.
 
 ![Chrome Console: Character encoding is not specified]({{site.url}}/images/posts/chrome-charset-is-not-specified.png
 "Chrome starts parsing the HTML and loading styles and scripts as it is loading the document even if the character encoding is not specified."){:
-  layout="responsive" mod="wide" .g--border
+  layout="responsive" mod="wide" clickable="yes" .g--border
 }
 
 What’s incorrect encoding? HTML5 specification says that user agents must not support the CESU-8, UTF-7,

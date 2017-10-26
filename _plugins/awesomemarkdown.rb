@@ -49,10 +49,19 @@ module Kramdown
         if el.attr.has_key?('mod')
           mod = el.attr['mod']
         end
+        if el.attr.has_key?('clickable')
+          clickable = el.attr['clickable'] == 'yes'
+        end
         attr = el.attr.reject { |key| [:width, :height, :responsive, :title, :mod].include? key.to_sym }
         output =  "<figure class=\"responsive-image#{ mod ? " responsive-image--" + mod : "" }\" style=\"max-width: #{ width.to_i }px\">"
         output <<   "<div style=\"padding-bottom: #{ (100 * height / width).round(2) }%\">"
+        if clickable
+          output <<   "<a href=\"#{ attr['src'] }\">"
+        end
         output <<      "<img#{html_attributes(attr)}>"
+        if clickable
+          output <<   "</a>"
+        end
         output <<   "</div>"
         if caption
           output <<   "<figcaption>#{caption}</figcaption>"
