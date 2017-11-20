@@ -3,7 +3,7 @@
   <title>Anton Eprev</title>
   <link href="http://eprev.org/atom.xml" rel="self" />
   <link href="http://eprev.org/" />
-  <updated>2017-10-28T12:08:36+02:00</updated>
+  <updated>2017-11-20T20:57:38+01:00</updated>
   <id>http://eprev.org/</id>
   <author>
     <name>Anton Eprev</name>
@@ -16,11 +16,11 @@
       <updated>2017-06-10T00:00:00+02:00</updated>
       <id>http://eprev.org/2017/06/10/whats-worth-watching</id>
       <content type="html">&lt;ul&gt;
-  &lt;li&gt;Stuart Frisby (Booking.com) on “&lt;a href=&quot;https://www.youtube.com/watch?v=_sx5LV23hIE&quot;&gt;Building a Testing Culture&lt;/a&gt;”: A/B testing at scale of Booking.com – millions of users, thousands of concurrent experiments.&lt;/li&gt;
-  &lt;li&gt;Alex Danilo (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6v4E6oksar0&quot;&gt;Compiling for the Web with WebAssembly&lt;/a&gt;” (Google I/O): what WebAssembly is, the problems it solves, its current state and tools available to try it out.&lt;/li&gt;
-  &lt;li&gt;Philip Walton and Shubhie Panicker (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6Ljq-Jn-EgU&quot;&gt;Web Performance: Leveraging the Metrics that Most Affect User Experience&lt;/a&gt;” (Google I/O): new metrics and platform APIs that enable user-centric performance measurement.&lt;/li&gt;
+  &lt;li&gt;Stuart Frisby (Booking.com) on “&lt;a href=&quot;https://www.youtube.com/watch?v=_sx5LV23hIE&quot;&gt;Building a Testing Culture&lt;/a&gt;” (2017): A/B testing at scale of Booking.com – millions of users, thousands of concurrent experiments.&lt;/li&gt;
+  &lt;li&gt;Alex Danilo (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6v4E6oksar0&quot;&gt;Compiling for the Web with WebAssembly&lt;/a&gt;” (Google I/O 2017): what WebAssembly is, the problems it solves, its current state and tools available to try it out.&lt;/li&gt;
+  &lt;li&gt;Philip Walton and Shubhie Panicker (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6Ljq-Jn-EgU&quot;&gt;Web Performance: Leveraging the Metrics that Most Affect User Experience&lt;/a&gt;” (Google I/O 2017): new metrics and platform APIs that enable user-centric performance measurement.&lt;/li&gt;
   &lt;li&gt;
-&lt;a href=&quot;https://www.youtube.com/watch?v=hpDHwfXbpfg&quot;&gt;Elon Musk Interview&lt;/a&gt; (TED) on human mission to Mars, solar energy, AI, boring the tunnels, technology and progress.&lt;/li&gt;
+&lt;a href=&quot;https://www.youtube.com/watch?v=hpDHwfXbpfg&quot;&gt;Elon Musk Interview&lt;/a&gt; (TED 2017) on human mission to Mars, solar energy, AI, boring the tunnels, technology and progress.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </entry>
