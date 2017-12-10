@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const port = 4000;
 const publicDir = path.join(__dirname, 'public');
+const { URL } = require('url');
 
 const options = {
   key: fs.readFileSync('ssl/localhost.key'),
@@ -28,21 +29,22 @@ https
     if (req.method !== 'GET') {
       return end(res, 405, 'Method Not Allowed');
     }
-    let url = req.url;
+    const url = new URL(req.url, config.url);
+    let pathname = url.pathname;
     let match;
-    if ((match = /^\/(\d{4})\/(\d{2})\/(\d{2})\/([^/]+)\/(.*)/.exec(url))) {
-      const [_, yyyy, mm, dd, slug, pathname] = match;
-      url = `/${yyyy}-${mm}-${dd}-${slug}/${pathname}`;
-      if (url.endsWith('/')) {
-        url += slug + '.md';
+    if ((match = /^\/(\d{4})\/(\d{2})\/(\d{2})\/([^/]+)\/(.*)/.exec(pathname))) {
+      const [_, yyyy, mm, dd, slug, filename] = match;
+      pathname = `/${yyyy}-${mm}-${dd}-${slug}/${filename}`;
+      if (pathname.endsWith('/')) {
+        pathname += slug + '.md';
       }
     } else {
-      if (url.endsWith('/')) {
-        url += 'index.md';
+      if (pathname.endsWith('/')) {
+        pathname += 'index.md';
       }
     }
 
-    const filename = path.join(publicDir, url);
+    const filename = path.join(publicDir, pathname);
     fs.stat(filename, (err, stat) => {
       if (err) {
         if (err.code === 'ENOENT') {
@@ -60,6 +62,7 @@ https
             page: Object.assign(
               {
                 content: content,
+                url: url.pathname,
               },
               meta,
             ),
