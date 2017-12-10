@@ -56,7 +56,10 @@ https
         const ext = path.extname(filename);
         if (ext === '.md') {
           const source = fs.readFileSync(filename, { encoding: 'utf-8' });
-          const { content, meta } = markdown(source);
+          const options = {
+            baseUrl: config.url + url.pathname,
+          };
+          const { content, meta } = markdown(source, options);
           const context = {
             site: config,
             page: Object.assign(
