@@ -1,11 +1,11 @@
 <!--
-  layout: post
-  tags:
-    - svg
-  description: There is an easy way to convert bit-mapped images into SVG using command-line tool called Potrace.
-  share-image: og-preview.png
-  ghIssueId: 10
---!>
+layout: post
+tags:
+  - svg
+description: There is an easy way to convert bit-mapped images into SVG using command-line tool called Potrace.
+og-image: og-preview.png
+gh-issue-id: 10
+-->
 
 # Converting PNG to SVG
 
