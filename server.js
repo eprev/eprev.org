@@ -21,6 +21,8 @@ function end(res, code, msg) {
   res.end(msg);
 }
 
+const config = require('./config');
+
 https
   .createServer(options, (req, res) => {
     if (req.method !== 'GET') {
@@ -54,9 +56,7 @@ https
           const source = fs.readFileSync(filename, { encoding: 'utf-8' });
           const content = markdown(source);
           const context = {
-            site: {
-              title: 'Anton Eprev',
-            },
+            site: config,
             page: {
               content: content,
             },
