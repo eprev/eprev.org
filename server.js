@@ -2,6 +2,7 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const port = 4000;
+const publicDir =path.join(__dirname, 'public');
 
 const options = {
   key: fs.readFileSync('ssl/localhost.key'),
@@ -28,7 +29,7 @@ https
     if (url.endsWith('/')) {
       url += 'index.md';
     }
-    const filename = path.join(__dirname, url);
+    const filename = path.join(publicDir, url);
 
     fs.stat(filename, (err, stat) => {
       if (err) {
