@@ -2,7 +2,7 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const port = 4000;
-const publicDir =path.join(__dirname, 'public');
+const publicDir = path.join(__dirname, 'public');
 
 const options = {
   key: fs.readFileSync('ssl/localhost.key'),
@@ -26,11 +26,20 @@ https
       return end(res, 405, 'Method Not Allowed');
     }
     let url = req.url;
-    if (url.endsWith('/')) {
-      url += 'index.md';
+    let match;
+    if ((match = /^\/(\d{4})\/(\d{2})\/(\d{2})\/([^/]+)\/(.*)/.exec(url))) {
+      const [_, yyyy, mm, dd, slug, pathname] = match;
+      url = `/${yyyy}-${mm}-${dd}-${slug}/${pathname}`;
+      if (url.endsWith('/')) {
+        url += slug + '.md';
+      }
+    } else {
+      if (url.endsWith('/')) {
+        url += 'index.md';
+      }
     }
-    const filename = path.join(publicDir, url);
 
+    const filename = path.join(publicDir, url);
     fs.stat(filename, (err, stat) => {
       if (err) {
         if (err.code === 'ENOENT') {
