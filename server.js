@@ -11,6 +11,7 @@ const options = {
 
 const mime = require('./lib/mime');
 const markdown = require('./lib/markdown');
+const render = require('./lib/template').render;
 
 function end(res, code, msg) {
   res.writeHead(code, {
@@ -51,7 +52,16 @@ https
         const ext = path.extname(filename);
         if (ext === '.md') {
           const source = fs.readFileSync(filename, { encoding: 'utf-8' });
-          const document = markdown(source);
+          const content = markdown(source);
+          const context = {
+            site: {
+              title: 'Anton Eprev',
+            },
+            page: {
+              content: content,
+            },
+          };
+          const document = render('default', context);
           res.writeHead(200, {
             'Content-Length': Buffer.byteLength(document),
             'Content-Type': 'text/html; charset=utf-8',
