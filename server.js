@@ -54,14 +54,17 @@ https
         const ext = path.extname(filename);
         if (ext === '.md') {
           const source = fs.readFileSync(filename, { encoding: 'utf-8' });
-          const content = markdown(source);
+          const { content, meta } = markdown(source);
           const context = {
             site: config,
-            page: {
-              content: content,
-            },
+            page: Object.assign(
+              {
+                content: content,
+              },
+              meta,
+            ),
           };
-          const document = render('default', context);
+          const document = render(meta.layout, context);
           res.writeHead(200, {
             'Content-Length': Buffer.byteLength(document),
             'Content-Type': 'text/html; charset=utf-8',
