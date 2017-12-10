@@ -70,7 +70,7 @@ https
               meta,
             ),
           };
-          const document = render(meta.layout, context);
+          const document = render(meta.layout || 'default', context);
           res.writeHead(200, {
             'Content-Length': Buffer.byteLength(document),
             'Content-Type': 'text/html; charset=utf-8',
