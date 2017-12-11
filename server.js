@@ -28,7 +28,7 @@ https
     if (req.method !== 'GET') {
       return end(res, 405, 'Method Not Allowed');
     }
-    const url = new URL(req.url, config.url);
+    const url = new URL(req.url, config.site.url);
     let pathname = url.pathname;
     let match;
     if ((match = /^\/(\d{4})\/(\d{2})\/(\d{2})\/([^/]+)\/(.*)/.exec(pathname))) {
@@ -56,11 +56,12 @@ https
         if (ext === '.md') {
           const source = fs.readFileSync(filename, { encoding: 'utf-8' });
           const options = {
-            baseUrl: config.url + url.pathname,
+            baseUrl: config.site.url + url.pathname,
           };
           const { content, meta } = markdown(source, options);
           const context = {
-            site: config,
+            env: config.env,
+            site: config.site,
             page: Object.assign(
               {
                 content: content,
