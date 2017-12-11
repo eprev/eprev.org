@@ -2,7 +2,6 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const port = 4000;
-const publicDir = path.join(__dirname, 'public');
 const { URL } = require('url');
 
 const options = {
@@ -44,7 +43,7 @@ https
       }
     }
 
-    const filename = path.join(publicDir, pathname);
+    const filename = path.join(config.public, pathname);
     fs.stat(filename, (err, stat) => {
       if (err) {
         if (err.code === 'ENOENT') {
