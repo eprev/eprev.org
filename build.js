@@ -1,3 +1,3 @@
 const model = require('./lib/model');
 
-console.log( model.get() );
+console.log( require('util').inspect(model.get(), {colors: true, depth: 4}) );
