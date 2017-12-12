@@ -1,0 +1,10 @@
+// vim: ft=javascript
+html`
+${render('header')}
+<ul>
+${site.posts.map(post => {
+  return `<li>${post.title}</li>`;
+})}
+</ul>
+${render('footer')}
+`;

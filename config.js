@@ -28,7 +28,7 @@ module.exports = {
     pages: {
       layout: 'default',
       rewrite: [
-        /\/(?:([^/]+)\/\1|index)\.md$/,
+        /\/(?:([^/]+)\/\1|index)\.(?:md|tmpl)$/,
         (_, slug) => {
           return slug ? `/${slug}/index.html` : '/index.html';
         },
