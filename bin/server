@@ -3,7 +3,6 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
-const port = 4000;
 const { URL } = require('url');
 
 const options = {
@@ -24,6 +23,7 @@ function end(res, code, msg) {
 }
 
 const config = require('../config');
+const port = (new URL(config.site.url)).port;
 
 https
   .createServer(options, (req, res) => {
