@@ -5,13 +5,13 @@ const port = 4000;
 const { URL } = require('url');
 
 const options = {
-  key: fs.readFileSync('ssl/localhost.key'),
-  cert: fs.readFileSync('ssl/localhost.crt'),
+  key: fs.readFileSync(path.join(__dirname, '../ssl/localhost.key')),
+  cert: fs.readFileSync(path.join(__dirname, '/../ssl/localhost.crt')),
 };
 
-const mime = require('./lib/mime');
-const markdown = require('./lib/markdown');
-const render = require('./lib/template').render;
+const mime = require('../lib/mime');
+const markdown = require('../lib/markdown');
+const render = require('../lib/template').render;
 
 function end(res, code, msg) {
   res.writeHead(code, {
@@ -21,7 +21,7 @@ function end(res, code, msg) {
   res.end(msg);
 }
 
-const config = require('./config');
+const config = require('../config');
 
 https
   .createServer(options, (req, res) => {
