@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-const model = require('../lib/model');
+const objects = require('../lib/objects');
 
-console.log(require('util').inspect(model.get(), { colors: true, depth: 4 }));
+console.log(require('util').inspect(objects.get(), { colors: true, depth: 4 }));

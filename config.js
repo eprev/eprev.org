@@ -12,27 +12,24 @@ module.exports = {
     twitter: 'eprev',
   },
   exclude: /^\./,
-  collections: {
-    posts: {
-      layout: 'post',
-      rewrite: [
-        /^\/(\d{4})-(\d{2})-(\d{2})-([^/]+)\/(.+)$/,
-        (_, yyyy, mm, dd, slug, filename) => {
-          if (filename === `${slug}.md`) {
-            filename = 'index.html';
-          }
-          return `/${yyyy}/${mm}/${dd}/${slug}/${filename}`;
-        },
-      ],
-    },
-    pages: {
-      layout: 'default',
-      rewrite: [
-        /\/(?:([^/]+)\/\1|index)\.(?:md|tmpl)$/,
-        (_, slug) => {
-          return slug ? `/${slug}/index.html` : '/index.html';
-        },
-      ],
-    },
-  },
+  objects: [
+    [
+      /^\/(\d{4})-(\d{2})-(\d{2})-([^/]+)\/(.+)$/,
+      (object, [pathname, yyyy, mm, dd, slug, filename]) => {
+        if (filename === `${slug}.md`) {
+          object.type = 'post';
+          object.date = `${yyyy}-${mm}-${dd}`;
+          filename = ''; // eq. index.html
+        }
+        object.pathname = `/${yyyy}/${mm}/${dd}/${slug}/${filename}`;
+      },
+    ],
+    // [
+    //   /\/(?:([^/]+)\/\1|index)\.(?:md|tmpl)$/,
+    //   (object, [_, slug]) => {
+    //     object.type = 'page';
+    //     object.pathname = slug ? `/${slug}/index.html` : '/index.html';
+    //   },
+    // ],
+  ],
 };
