@@ -29,7 +29,7 @@ https
       return end(res, 405, 'Method Not Allowed');
     }
     const url = new URL(req.url, config.site.url);
-    const pathname = path.join(config.static, url.pathname);
+    const pathname = path.join(config.static, url.pathname.endsWith('/') ? url.pathname + 'index.html' : url.pathname);
     fs.stat(pathname, (err, stat) => {
       if (err) {
         if (err.code === 'ENOENT') {
@@ -38,11 +38,12 @@ https
           end(res, 500, err.toString());
         }
       } else {
+        const ext = path.extname(pathname);
         res.writeHead(200, {
           'Content-Length': stat.size,
           'Content-Type': mime[ext] || 'application/octet-stream',
         });
-        fs.createReadStream(filename).pipe(res);
+        fs.createReadStream(pathname).pipe(res);
       }
     });
   })

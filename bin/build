@@ -1,5 +1,74 @@
 #!/usr/bin/env node
 
-const objects = require('../lib/objects');
+const fs = require('fs');
+const path = require('path');
 
-console.log(require('util').inspect(objects.get(), { colors: true, depth: 4 }));
+const config = require('../config');
+
+function removedir(dirname) {
+  fs
+    .readdirSync(dirname, { encoding: 'utf8' })
+    .forEach(filename => {
+      const pathname = path.join(dirname, filename);
+      const stats = fs.statSync(pathname);
+      if (stats.isDirectory()) {
+        removedir(pathname);
+        fs.rmdirSync(pathname);
+      } else {
+        fs.unlinkSync(pathname);
+      }
+    });
+}
+
+function copy(src, dest) {
+  createdir(path.dirname(dest));
+  fs.copyFileSync(src, dest);
+}
+
+function write(dest, content) {
+  createdir(path.dirname(dest));
+  fs.writeFileSync(dest, content, {encoding:'utf8'});
+}
+
+function createdir(dirname) {
+  dirname.split(path.sep).reduce((rel, dirname) => {
+    const pathname = path.join(rel, dirname);
+    if (!fs.existsSync(pathname)) {
+      fs.mkdirSync(pathname);
+    }
+    return pathname;
+  }, '/');
+}
+
+if (fs.existsSync(config.static)) {
+  removedir(config.static);
+}
+
+const data = require('../lib/objects').get();
+
+const { render, renderFile } = require('../lib/template');
+
+config.site.collections = data.collections;
+
+Object.keys(data.objects).forEach(pathname => {
+  const object = data.objects[pathname];
+  const destination = object.pathname.endsWith('/') ? object.pathname + 'index.html' : object.pathname;
+  if (object.template || object.content) {
+    const context = {
+      env: config.env,
+      site: config.site,
+      page: object,
+    };
+    let content;
+    if (object.content) {
+      content = render(object.layout || 'default', context);
+    } else {
+      content = renderFile(object.template, context);
+    }
+    write(path.join(config.static, destination), content);
+  } else {
+    copy(path.join(config.public, pathname), path.join(config.static, destination));
+  }
+});
+
+// console.log(require('util').inspect(objects, { colors: true, depth: 4 }));
