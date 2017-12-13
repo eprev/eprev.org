@@ -11,6 +11,7 @@ module.exports = {
     url: env === 'production' ? 'http://eprev.org' : 'https://localhost:4000',
     twitter: 'eprev',
   },
+  // timezone: '+0100', // CET
   exclude: /^\./,
   objects: [
     [
@@ -18,7 +19,7 @@ module.exports = {
       (object, [pathname, yyyy, mm, dd, slug, filename]) => {
         if (filename === `${slug}.md`) {
           object.type = 'post';
-          object.date = `${yyyy}-${mm}-${dd}`;
+          object.date = new Date(Date.UTC(yyyy, mm, dd));
           filename = ''; // eq. index.html
         }
         object.pathname = `/${yyyy}/${mm}/${dd}/${slug}/${filename}`;
