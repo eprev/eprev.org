@@ -1,4 +1,4 @@
-html`
+return html`
 <!doctype html>
 <html lang="en">
   <meta charset="utf-8">
@@ -11,11 +11,11 @@ html`
   <link rel="alternate" type="application/atom+xml" title="Feed" href="${url(
     'atom.xml',
   )}">
-  <link rel="canonical" href="${url(page.url)}">
+  <link rel="canonical" href="${url(page.pathname)}">
   ${
     page.description
       ? html`
-    <meta property="og:url" content="${url(page.url)}">
+    <meta property="og:url" content="${url(page.pathname)}">
     <meta property="og:title" content="${page.title}">
     <meta property="og:site_name" content="${site.title}">
     <meta property="og:type" content="article">
@@ -23,8 +23,8 @@ html`
     ${
       page.ogImage
         ? html`
-      <meta property="og:image" content="${url(page.url + page.ogImage)}">
-      <meta name="twitter:image" content="${url(page.url + page.ogImage)}">
+      <meta property="og:image" content="${url(page.pathname + page.ogImage)}">
+      <meta name="twitter:image" content="${url(page.pathname + page.ogImage)}">
       <meta name="twitter:card" content="summary_large_image">
       `
         : ''
@@ -39,7 +39,7 @@ html`
       <div class="page__sidebar">
         <div class="page__user-picture-story">
           ${
-            page.url == '/'
+            page.pathname == '/'
               ? html`
             <h1 class="page__user-name">@${site.twitter}</h1>`
               : html`
@@ -67,17 +67,17 @@ html`
         </div>
         <ul class="page__nav">
           <li>
-            ${page.url == '/' ? 'Home' : '<a href="/">Home</a>'}
+            ${page.pathname == '/' ? 'Home' : '<a href="/">Home</a>'}
           </li>
           <li>
             ${
-              page.url == '/archive/'
+              page.pathname == '/archive/'
                 ? 'Archive'
                 : '<a href="/archive/">Archive</a>'
             }
           </li>
           <li>
-            ${page.url == '/tags/' ? 'Tags' : '<a href="/tags/">Tags</a>'}
+            ${page.pathname == '/tags/' ? 'Tags' : '<a href="/tags/">Tags</a>'}
           </li>
         </ul>
       </div>

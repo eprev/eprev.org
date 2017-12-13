@@ -1,5 +1,5 @@
-html`
-${ render('header') }
-${ page.content }
-${ render('footer') }
+return html`
+${render('header')}
+${page.content}
+${render('footer')}
 `;

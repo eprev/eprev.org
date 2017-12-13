@@ -1,9 +1,9 @@
 // vim: ft=javascript
-html`
+return html`
 ${render('header')}
 <ul>
-${site.posts.map(post => {
-  return `<li>${post.title}</li>`;
+${site.collections.post.map(post => {
+  return `<li><a href="${url(post.pathname)}">${post.title}</a></li>`;
 })}
 </ul>
 ${render('footer')}
