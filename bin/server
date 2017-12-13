@@ -11,8 +11,6 @@ const options = {
 };
 
 const mime = require('../lib/mime');
-const markdown = require('../lib/markdown');
-const { render, renderFile } = require('../lib/template');
 
 function end(res, code, msg) {
   res.writeHead(code, {
@@ -25,52 +23,27 @@ function end(res, code, msg) {
 const config = require('../config');
 const port = new URL(config.site.url).port;
 
-const { objects, collections } = require('../lib/objects').get();
-
-const routes = Object.keys(objects).reduce((routes, pathname) => {
-  const ext = pathname.endsWith('.md') ? '.html' : path.extname(pathname);
-  const object = objects[pathname];
-  routes[objects[pathname].pathname] = { pathname, contentType: mime[ext], object };
-  return routes;
-}, {});
-
-config.site.collections = collections;
-
 https
   .createServer(options, (req, res) => {
     if (req.method !== 'GET') {
       return end(res, 405, 'Method Not Allowed');
     }
     const url = new URL(req.url, config.site.url);
-    const route = routes[url.pathname];
-    if (route) {
-      const pathname = path.join(config.public, route.pathname);
-      const { contentType, object } = route;
-      if (object.content || object.template) {
-        const context = {
-          env: config.env,
-          site: config.site,
-          page: object,
-        };
-        let document;
-        if (object.content) {
-          document = render(object.layout || 'default', context);
+    const pathname = path.join(config.static, url.pathname);
+    fs.stat(pathname, (err, stat) => {
+      if (err) {
+        if (err.code === 'ENOENT') {
+          end(res, 404, 'Not Found');
         } else {
-          document = renderFile(object.template, context);
+          end(res, 500, err.toString());
         }
-        res.writeHead(200, {
-          'Content-Length': Buffer.byteLength(document),
-          'Content-Type': 'text/html; charset=utf-8',
-        });
-        res.end(document);
       } else {
         res.writeHead(200, {
-          'Content-Type': contentType || 'application/octet-stream',
+          'Content-Length': stat.size,
+          'Content-Type': mime[ext] || 'application/octet-stream',
         });
-        fs.createReadStream(pathname).pipe(res);
+        fs.createReadStream(filename).pipe(res);
       }
-    } else {
-      end(res, 404, 'Not Found');
-    }
+    });
   })
   .listen(port);
