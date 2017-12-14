@@ -46,29 +46,32 @@ if (fs.existsSync(config.dest)) {
 
 const data = require('../lib/objects').get();
 
-const { render, renderFile } = require('../lib/template');
+const { render } = require('../lib/template');
 
 config.site.collections = data.collections;
 
-Object.keys(data.objects).forEach(pathname => {
-  const object = data.objects[pathname];
-  const destination = object.pathname.endsWith('/') ? object.pathname + 'index.html' : object.pathname;
-  if (object.template || object.content) {
+const generate = function (destination, template, object) {
     const context = {
       env: config.env,
       site: config.site,
       page: object,
     };
-    let content;
-    if (object.content) {
-      content = render(object.layout || 'default', context);
-    } else {
-      content = renderFile(object.template, context);
-    }
+    const content = render(template, context);
     write(path.join(config.dest, destination), content);
+}
+
+Object.keys(data.objects).forEach(pathname => {
+  const object = data.objects[pathname];
+  const destination = object.pathname.endsWith('/') ? object.pathname + 'index.html' : object.pathname;
+  if (object.content) {
+    generate(destination, object.layout || 'default', object);
   } else {
     copy(path.join(config.src, pathname), path.join(config.dest, destination));
   }
+});
+
+generate('index.html', 'index', {
+  pathname: '/',
 });
 
 // console.log(require('util').inspect(objects, { colors: true, depth: 4 }));
