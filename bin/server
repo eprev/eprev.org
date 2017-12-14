@@ -29,7 +29,7 @@ https
       return end(res, 405, 'Method Not Allowed');
     }
     const url = new URL(req.url, config.site.url);
-    const pathname = path.join(config.static, url.pathname.endsWith('/') ? url.pathname + 'index.html' : url.pathname);
+    const pathname = path.join(config.dest, url.pathname.endsWith('/') ? url.pathname + 'index.html' : url.pathname);
     fs.stat(pathname, (err, stat) => {
       if (err) {
         if (err.code === 'ENOENT') {

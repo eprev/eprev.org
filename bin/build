@@ -40,8 +40,8 @@ function createdir(dirname) {
   }, '/');
 }
 
-if (fs.existsSync(config.static)) {
-  removedir(config.static);
+if (fs.existsSync(config.dest)) {
+  removedir(config.dest);
 }
 
 const data = require('../lib/objects').get();
@@ -65,9 +65,9 @@ Object.keys(data.objects).forEach(pathname => {
     } else {
       content = renderFile(object.template, context);
     }
-    write(path.join(config.static, destination), content);
+    write(path.join(config.dest, destination), content);
   } else {
-    copy(path.join(config.public, pathname), path.join(config.static, destination));
+    copy(path.join(config.src, pathname), path.join(config.dest, destination));
   }
 });
 

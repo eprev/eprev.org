@@ -2,8 +2,8 @@ const path = require('path');
 const env = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  public: path.join(__dirname, 'public'),
-  static: path.join(__dirname, 'static'),
+  src: path.join(__dirname, 'documents'),
+  dest: path.join(__dirname, 'static'),
   env,
   site: {
     title: 'Anton Eprev',
