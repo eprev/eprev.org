@@ -50,8 +50,8 @@ textarea {
   font-family: 'Merriweather Sans';
   src:
     local('Merriweather Sans Light Italic'), local('MerriweatherSans-LightItalic'),
-    url(/asstes/fonts/merriweathersans-lightitalic.woff2) format('woff2'),
-    url(/asstes/fonts/merriweathersans-lightitalic.woff) format('woff');
+    url(/assets/fonts/merriweathersans-lightitalic.woff2) format('woff2'),
+    url(/assets/fonts/merriweathersans-lightitalic.woff) format('woff');
   font-display: swap;
 }
 
