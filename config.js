@@ -14,24 +14,17 @@ module.exports = {
   },
   // timezone: '+0100', // CET
   exclude: /^\./,
-  objects: [
+  documents: [
     [
       /^\/(\d{4})-(\d{2})-(\d{2})-([^/]+)\/(.+)$/,
-      (object, [pathname, yyyy, mm, dd, slug, filename]) => {
+      (doc, [pathname, yyyy, mm, dd, slug, filename]) => {
         if (filename === `${slug}.md`) {
-          object.type = 'post';
-          object.date = new Date(Date.UTC(yyyy, mm, dd));
+          doc.type = 'post';
+          doc.date = new Date(Date.UTC(yyyy, mm, dd));
           filename = ''; // eq. index.html
         }
-        object.pathname = `/${yyyy}/${mm}/${dd}/${slug}/${filename}`;
+        doc.pathname = `/${yyyy}/${mm}/${dd}/${slug}/${filename}`;
       },
     ],
-    // [
-    //   /^\/(?:[^/]+\/)*(?:([^/]+)\/\1|index)\.md$/,
-    //   (object, [_, slug]) => {
-    //     object.type = 'page';
-    //     object.pathname = slug ? `/${slug}/` : '/';
-    //   },
-    // ],
   ],
 };
