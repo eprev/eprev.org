@@ -3,13 +3,13 @@
 ## Self-Signed certificate
 
 ```
-openssl req \
+mkdir bin/ssl && openssl req \
     -newkey rsa:2048 \
     -x509 \
     -nodes \
-    -keyout ssl/localhost.key \
+    -keyout bin/ssl/localhost.key \
     -new \
-    -out ssl/localhost.crt \
+    -out bin/ssl/localhost.crt \
     -subj /CN=localhost \
     -reqexts SAN \
     -extensions SAN \

@@ -6,8 +6,8 @@ const path = require('path');
 const { URL } = require('url');
 
 const options = {
-  key: fs.readFileSync(path.join(__dirname, '../ssl/localhost.key')),
-  cert: fs.readFileSync(path.join(__dirname, '/../ssl/localhost.crt')),
+  key: fs.readFileSync(path.join(__dirname, 'ssl/localhost.key')),
+  cert: fs.readFileSync(path.join(__dirname, 'ssl/localhost.crt')),
 };
 
 const mime = require('../lib/mime');
