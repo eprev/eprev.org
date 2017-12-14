@@ -26,12 +26,12 @@ module.exports = {
         object.pathname = `/${yyyy}/${mm}/${dd}/${slug}/${filename}`;
       },
     ],
-    [
-      /^\/(?:[^/]+\/)*(?:([^/]+)\/\1|index)\.(?:md|tmpl)$/,
-      (object, [_, slug]) => {
-        object.type = 'page';
-        object.pathname = slug ? `/${slug}/` : '/';
-      },
-    ],
+    // [
+    //   /^\/(?:[^/]+\/)*(?:([^/]+)\/\1|index)\.md$/,
+    //   (object, [_, slug]) => {
+    //     object.type = 'page';
+    //     object.pathname = slug ? `/${slug}/` : '/';
+    //   },
+    // ],
   ],
 };
