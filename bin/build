@@ -42,11 +42,11 @@ if (fs.existsSync(config.dest)) {
   removedir(config.dest);
 }
 
-const data = require('../lib/data');
+const model = require('../lib/model');
 
 const { render } = require('../lib/template');
 
-config.site.collections = data.collections;
+config.site.collections = model.collections;
 
 const generate = function(destination, template, page) {
   const context = {
@@ -58,8 +58,8 @@ const generate = function(destination, template, page) {
   write(path.join(config.dest, destination), content);
 };
 
-Object.keys(data.documents).forEach(pathname => {
-  const doc = data.documents[pathname];
+Object.keys(model.documents).forEach(pathname => {
+  const doc = model.documents[pathname];
   const destination = doc.pathname.endsWith('/')
     ? doc.pathname + 'index.html'
     : doc.pathname;
@@ -73,12 +73,12 @@ Object.keys(data.documents).forEach(pathname => {
 generate(
   'index.html',
   'index',
-  data.register({
+  model.register({
     type: 'page',
     pathname: '/',
   }),
 );
 
 console.log(
-  require('util').inspect(data.collections, { colors: true, depth: 4 }),
+  require('util').inspect(model.collections, { colors: true, depth: 4 }),
 );
