@@ -1,0 +1,10 @@
+// vim: ft=javascript
+return html`
+${render('include/header')}
+<ul>
+${site.collections.post.map(post => {
+  return `<li><a href="${url(post.pathname)}">${post.title}</a></li>`;
+})}
+</ul>
+${render('include/footer')}
+`;

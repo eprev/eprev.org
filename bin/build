@@ -48,7 +48,7 @@ const { render } = require('../lib/template');
 
 config.site.collections = model.collections;
 
-const generate = function(destination, template, page) {
+function generate(destination, template, page) {
   const context = {
     env: config.env,
     site: config.site,
@@ -57,6 +57,18 @@ const generate = function(destination, template, page) {
   const content = render(template, context);
   write(path.join(config.dest, destination), content);
 };
+
+function processHook(name) {
+  const dirname = path.join(__dirname, '..', 'hooks', name);
+  if (fs.existsSync(dirname)) {
+    fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
+      const pathname = path.join(dirname, filename);
+      require(pathname)({generate, model, config});
+    });
+  }
+}
+
+processHook('init');
 
 Object.keys(model.documents).forEach(pathname => {
   const doc = model.documents[pathname];
@@ -70,15 +82,8 @@ Object.keys(model.documents).forEach(pathname => {
   }
 });
 
-generate(
-  'index.html',
-  'index',
-  model.register({
-    type: 'page',
-    pathname: '/',
-  }),
-);
+processHook('copy');
 
-console.log(
-  require('util').inspect(model.collections, { colors: true, depth: 4 }),
-);
+// console.log(
+//   require('util').inspect(model.collections, { colors: true, depth: 4 }),
+// );
