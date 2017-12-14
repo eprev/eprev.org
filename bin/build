@@ -38,52 +38,76 @@ function createdir(dirname) {
   }, '/');
 }
 
-if (fs.existsSync(config.dest)) {
-  removedir(config.dest);
-}
-
-const model = require('../lib/model');
-
+const { Model } = require('../lib/model');
 const { render } = require('../lib/template');
 
-config.site.collections = model.collections;
+function build() {
+  const model = new Model();
 
-function generate(destination, template, page) {
-  const context = {
-    env: config.env,
-    site: config.site,
-    page,
-  };
-  const content = render(template, context);
-  write(path.join(config.dest, destination), content);
-};
+  console.log('Building...');
 
-function processHook(name) {
-  const dirname = path.join(__dirname, '..', 'hooks', name);
-  if (fs.existsSync(dirname)) {
-    fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
-      const pathname = path.join(dirname, filename);
-      require(pathname)({generate, model, config});
-    });
+  if (fs.existsSync(config.dest)) {
+    removedir(config.dest);
   }
+
+  config.site.collections = model.collections;
+
+  function generate(destination, template, page) {
+    const context = {
+      env: config.env,
+      site: config.site,
+      page,
+    };
+    const content = render(template, context);
+    write(path.join(config.dest, destination), content);
+  }
+
+  function processHook(name) {
+    const dirname = path.join(__dirname, '..', 'hooks', name);
+    if (fs.existsSync(dirname)) {
+      fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
+        const pathname = path.join(dirname, filename);
+        require(pathname)({ generate, model, config });
+      });
+    }
+  }
+
+  processHook('init');
+
+  Object.keys(model.documents).forEach(pathname => {
+    const doc = model.documents[pathname];
+    const destination = doc.pathname.endsWith('/')
+      ? doc.pathname + 'index.html'
+      : doc.pathname;
+    if (doc.layout) {
+      generate(destination, doc.layout, doc);
+    } else {
+      copy(
+        path.join(config.src, pathname),
+        path.join(config.dest, destination),
+      );
+    }
+  });
+
+  processHook('copy');
+  console.log('Done');
 }
 
-processHook('init');
+const watching = (process.argv.length === 3 && process.argv[2] === '--watch');
+if (watching) {
+  console.log('Watching...');
+}
 
-Object.keys(model.documents).forEach(pathname => {
-  const doc = model.documents[pathname];
-  const destination = doc.pathname.endsWith('/')
-    ? doc.pathname + 'index.html'
-    : doc.pathname;
-  if (doc.layout) {
-    generate(destination, doc.layout, doc);
-  } else {
-    copy(path.join(config.src, pathname), path.join(config.dest, destination));
-  }
-});
+build();
 
-processHook('copy');
-
-// console.log(
-//   require('util').inspect(model.collections, { colors: true, depth: 4 }),
-// );
+if (watching) {
+  let to;
+  fs.watch(config.src, { recursive: true }, (eventType, filename) => {
+    clearTimeout(to);
+    to = setTimeout(build, 50);
+  });
+  fs.watch(path.join(__dirname, '..', 'templates'), { recursive: true }, (eventType, filename) => {
+    clearTimeout(to);
+    to = setTimeout(build, 50);
+  });
+}
