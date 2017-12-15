@@ -16,14 +16,16 @@ module.exports = {
   exclude: /^\./,
   documents: [
     [
-      /^\/(\d{4})\/([^/]+)(-\d+)?\/(.+)$/,
-      (doc, [pathname, yyyy, slug, issue, filename]) => {
+      /^\/posts\/(\d{4})-(\d{2})-(\d{2})_([^/]+)\/(.+)$/,
+      (doc, [pathname, yyyy, mm, dd, slug, filename]) => {
         if (filename === `${slug}.md`) {
           doc.type = 'post';
-          // doc.date = new Date(Date.UTC(yyyy, mm, dd));
+          doc.date = new Date(Date.UTC(yyyy, mm - 1, dd));
           filename = ''; // eq. index.html
+          if (!doc.layout) {
+            doc.layout = 'post';
+          }
         }
-        // TODO: meta infromation should be read upfront and date will be available already
         doc.pathname = `/${yyyy}/${mm}/${dd}/${slug}/${filename}`;
       },
     ],
