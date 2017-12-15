@@ -270,7 +270,7 @@ This command performs the following operations:
 - The `${filename%%.*}` operation will delete the longest match of `.*` from the back of the file name. If `$filename` was containing `main.js.map`, it would keep the `main` part only.
 - The `${filename#*.}` operation will delete the shortest match of `*.` from the front of the file name. If `$filename` was containing `main.js.map`, it would keep the `js.map` part only.
 - The `echo "…" >> _data/manifest.yml` command will append a string containing both file names to the manifest file.
-<--!:.post__content-list-->
+<!--:.post__content-list-->
 
 Basically, for each file that it finds in the `assets` directory, it will calculate a checksum, make a copy of the file and generate the manifest file containing key-value pairs:
 
