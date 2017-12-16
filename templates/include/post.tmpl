@@ -1,5 +1,7 @@
 // vim: ft=javascript
 
+const dateFormat = require('../lib/date-format');
+
 function timeToRead(content) {
   const words = content.split(/\s+/);
   if (words > 360) {
@@ -19,7 +21,7 @@ return html`
   }
   </h1>
   <div class="post__meta g--shady">
-    ${post.date}
+    ${dateFormat(post.date, '#M d, YYYY')}
     ${timeToRead(content)}
     ${
       post.tags
