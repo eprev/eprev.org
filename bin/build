@@ -73,6 +73,8 @@ function build() {
     }
   }
 
+  model.collections.post = model.collections.post.sort((a, b) => b.date - a.date);
+
   processHook('init');
 
   Object.keys(model.documents).forEach(pathname => {
@@ -94,21 +96,31 @@ function build() {
   console.log('Done');
 }
 
+function safeBuild() {
+  try {
+    build();
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 const watching = (process.argv.length === 3 && process.argv[2] === '--watch');
 if (watching) {
   console.log('Watching...');
+  safeBuild();
+} else {
+  build();
 }
 
-build();
 
 if (watching) {
   let to;
   fs.watch(config.src, { recursive: true }, (eventType, filename) => {
     clearTimeout(to);
-    to = setTimeout(build, 50);
+    to = setTimeout(safeBuild, 50);
   });
   fs.watch(path.join(__dirname, '..', 'templates'), { recursive: true }, (eventType, filename) => {
     clearTimeout(to);
-    to = setTimeout(build, 50);
+    to = setTimeout(safeBuild, 50);
   });
 }
