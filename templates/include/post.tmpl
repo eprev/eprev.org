@@ -21,7 +21,7 @@ return html`
   }
   </h1>
   <div class="post__meta g--shady">
-    ${dateFormat(post.date, '#M d, YYYY')}
+    ${dateFormat(post.date, '%M d, yyyy')}
     ${timeToRead(content)}
     ${
       post.tags
@@ -52,5 +52,4 @@ return html`
     }
   </div>
 </div>
-
 `;
