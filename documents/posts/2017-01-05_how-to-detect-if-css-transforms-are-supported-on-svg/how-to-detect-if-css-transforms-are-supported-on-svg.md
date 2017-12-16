@@ -7,7 +7,7 @@ description: How to check whether or not the browser supports CSS transforms on 
 gh-issue-id: 15
 -->
 
-# How to detect if CSS transforms are supported on&nbsp;SVG
+# How to detect if CSS transforms are supported on&#160;SVG
 
 If you're reading this, then apparently you already know that [IE and Edge don’t support CSS transformations
 on SVG](https://developer.microsoft.com/en-us/microsoft-edge/platform/status/supportcsstransformsonsvg/)

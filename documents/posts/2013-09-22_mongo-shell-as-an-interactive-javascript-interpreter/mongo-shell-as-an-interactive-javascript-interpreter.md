@@ -5,7 +5,7 @@ tags:
 description: Do you know that MongoDB has JavaScript interpreter? And yes, you can use it.
 -->
 
-# Mongo shell as an interactive JavaScript&nbsp;interpreter
+# Mongo shell as an interactive JavaScript&#160;interpreter
 
 Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type `mongo --nodb` in the shell.
 

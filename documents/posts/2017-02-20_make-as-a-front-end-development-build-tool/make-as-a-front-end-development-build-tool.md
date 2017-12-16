@@ -7,7 +7,7 @@ share-image: og-preview.png
 gh-issue-id: 18
 -->
 
-# Make as a front-end development build&nbsp;tool
+# Make as a front-end development build&#160;tool
 
 > Make is turning 40 in 2017.
 <!--: .epigraph -->
