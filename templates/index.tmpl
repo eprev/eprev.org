@@ -1,10 +1,37 @@
 // vim: ft=javascript
+
+function getExcerpt(content) {
+  const match = /^([\s\S]+?)<!-- Read More -->/.exec(content);
+  if (match) {
+    return match[1];
+  }
+  return '';
+}
+
 return html`
 ${render('include/header')}
 <ul>
-${site.collections.post.map(post => {
-  return `<li><a href="${url(post.pathname)}">${post.title}</a></li>`;
+${site.collections.post.map((post, index) => {
+  const excerpt = getExcerpt(post.content);
+  return index <= 7
+    ? render('include/post', {
+        headingLink: true,
+        readMoreLink: !!excerpt,
+        post,
+        content: excerpt ? excerpt : post.content,
+      })
+    : '';
 })}
 </ul>
+
+<div class="post-special-archive">
+  <a
+    href="/archive/"
+    data-ga-on="click"
+    data-ga-category="Click"
+    data-ga-action="Archive"
+  >Archive</a> &rsaquo;
+</div>
+
 ${render('include/footer')}
 `;

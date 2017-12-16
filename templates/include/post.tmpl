@@ -1,0 +1,54 @@
+// vim: ft=javascript
+
+function timeToRead(content) {
+  const words = content.split(/\s+/);
+  if (words > 360) {
+    return ` ∙ ${words / 180} minutes read`;
+  } else {
+    return '';
+  }
+}
+
+return html`
+<div class="post">
+  <h1 class="post__header">
+  ${
+    headingLink
+      ? html`<a href="${url(post.pathname)}">${post.title}</a>`
+      : post.title
+  }
+  </h1>
+  <div class="post__meta g--shady">
+    ${post.date}
+    ${timeToRead(content)}
+    ${
+      post.tags
+        ? html` ∙ ${post.tags
+            .map(tag => {
+              return `<a href="/tags/${tag}/">${tag}</a>`;
+            })
+            .join(', ')}`
+        : ''
+    }
+  </div>
+  <div class="post__content">
+    ${content}
+    ${
+      readMoreLink
+        ? html`
+    <div class="post__read-more">
+      <a
+        href="${url(post.pathname)}"
+        data-ga-on="click"
+        data-ga-category="Click"
+        data-ga-action="Read More"
+        data-ga-label="${post.pathname}"
+      >Continue reading</a> &rsaquo;
+    </div>
+    `
+        : ''
+    }
+  </div>
+</div>
+
+`;
