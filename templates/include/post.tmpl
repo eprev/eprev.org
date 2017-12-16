@@ -3,9 +3,9 @@
 const dateFormat = require('../lib/date-format');
 
 function timeToRead(content) {
-  const words = content.split(/\s+/);
+  const words = content.split(/\s+/).length;
   if (words > 360) {
-    return ` ∙ ${words / 180} minutes read`;
+    return ` ∙ ${parseInt(words / 180)} minutes read`;
   } else {
     return '';
   }
