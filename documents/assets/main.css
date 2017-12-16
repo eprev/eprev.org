@@ -229,6 +229,7 @@ figcaption {
 }
 .page__user-picture-svg {
   width: 100%;
+  height: 100%;
 }
 .post + .post {
   margin: 3rem 0; /* Vertical rhythm */

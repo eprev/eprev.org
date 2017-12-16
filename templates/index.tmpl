@@ -10,7 +10,6 @@ function getExcerpt(content) {
 
 return html`
 ${render('include/header')}
-<ul>
 ${site.collections.post.map((post, index) => {
   const excerpt = getExcerpt(post.content);
   return index <= 7
@@ -22,8 +21,6 @@ ${site.collections.post.map((post, index) => {
       })
     : '';
 })}
-</ul>
-
 <div class="post-special-archive">
   <a
     href="/archive/"
