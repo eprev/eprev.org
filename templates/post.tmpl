@@ -3,10 +3,10 @@
 return html`
 ${render('include/header')}
 ${render('include/post', {
-  headingLink: false,
-  readMoreLink: false,
-  post: page,
-  content: page.content,
+  post: Object.assign({}, page, {
+    headingLink: false,
+    readMoreLink: false,
+  }),
 })}
 ${
   page.ghIssueId

@@ -14,10 +14,12 @@ ${site.collections.post.map((post, index) => {
   const excerpt = getExcerpt(post.content);
   return index <= 7
     ? render('include/post', {
-        headingLink: true,
-        readMoreLink: !!excerpt,
-        post,
-        content: excerpt ? excerpt : post.content,
+        post: Object.assign({}, post, {
+          headingLevel: 2,
+          headingLink: true,
+          readMoreLink: !!excerpt,
+          content: excerpt ? excerpt : post.content,
+        }),
       })
     : '';
 })}

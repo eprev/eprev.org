@@ -13,16 +13,16 @@ function timeToRead(content) {
 
 return html`
 <div class="post">
-  <h1 class="post__header">
+  <h${post.headingLevel || 1} class="post__header">
   ${
-    headingLink
+    post.headingLink
       ? html`<a href="${url(post.pathname)}">${post.title}</a>`
       : post.title
   }
-  </h1>
+  </h${post.headingLevel || 1}>
   <div class="post__meta g--shady">
     ${dateFormat(post.date, '%M d, yyyy')}
-    ${timeToRead(content)}
+    ${timeToRead(post.content)}
     ${
       post.tags
         ? html` ∙ ${post.tags
@@ -34,9 +34,9 @@ return html`
     }
   </div>
   <div class="post__content">
-    ${content}
+    ${post.content}
     ${
-      readMoreLink
+      post.readMoreLink
         ? html`
     <div class="post__read-more">
       <a
