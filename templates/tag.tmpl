@@ -1,10 +1,34 @@
 // vim: ft=javascript
+const dateFormat = require('../lib/date-format');
 return html`
 ${render('include/header')}
+<h1 class="page__header">${ page.title }</h1>
 <ul>
-${page.posts.map(post => {
-  return `<li><a href="${url(post.pathname)}">${post.title}</a></li>`;
-})}
+${_ => {
+  let currYear = '';
+  let res = '';
+  page.posts.forEach(post => {
+    const postYear = post.date.getUTCFullYear();
+    if (currYear !== postYear) {
+      if (currYear) {
+        res += '</ul>';
+      }
+      currYear = postYear;
+      res += `<h2>${currYear}</h2><ul class="archive">`;
+    }
+    res += `
+    <li class="archive__item">
+      <div class="archive__date g--shady">${dateFormat(post.date, '%m d')}</div>
+      <div class="archive__header">
+        <a href="${url(post.pathname)}">${post.title}</a>
+      </div>
+    </li>`;
+  });
+  if (currYear) {
+    res += '</ul>';
+  }
+  return res;
+}}
 </ul>
 ${render('include/footer')}
 `;
