@@ -40,6 +40,7 @@ https
       } else {
         const ext = path.extname(pathname);
         res.writeHead(200, {
+          'Cache-Control': 'max-age=600',
           'Content-Length': stat.size,
           'Content-Type': mime[ext] || 'application/octet-stream',
         });
