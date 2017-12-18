@@ -1,5 +1,19 @@
 # Setting up
 
+## TODO
+
+- [ ] Figure + caption
+  - [ ] Code
+  - [ ] Images
+  - [ ] Responsive images (block images)
+- [ ] JavaScript
+- [ ] Makefile (deploy build)
+- [ ] Highlight.js
+- [ ] 404
+- [ ] Santize HTML (atom.xml)
+- [ ] <a name=> for headers
+- [ ] escape
+
 ## Self-Signed certificate
 
 ```
