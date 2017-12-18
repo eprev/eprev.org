@@ -21,7 +21,7 @@ return html`
   }
   </h${post.headingLevel || 1}>
   <div class="post__meta g--shady">
-    ${dateFormat(post.date, '%M d, yyyy')}
+    ${dateFormat(post.date, '%MM D, YYYY')}
     ${timeToRead(post.content)}
     ${
       post.tags

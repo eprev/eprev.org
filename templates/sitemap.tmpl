@@ -11,7 +11,7 @@ return html`<?xml version="1.0" encoding="UTF-8"?>
     return `
     <url>
       <loc>${ url(post.pathname) }</loc>
-      <lastmod>${ dateFormat(post.date, 'yyyy-mm-dd') }</lastmod>
+      <lastmod>${ dateFormat(post.date, 'YYYY-MM-DD') }</lastmod>
       <changefreq>weekly</changefreq>
     </url>
     `;
@@ -20,7 +20,7 @@ return html`<?xml version="1.0" encoding="UTF-8"?>
     return `
     <url>
       <loc>${ url(page.pathname) }</loc>
-      ${ page.date ? `<lastmod>${ dateFormat(page.date, 'yyyy-mm-dd') }</lastmod>` : ''}
+      ${ page.date ? `<lastmod>${ dateFormat(page.date, 'YYYY-MM-DD') }</lastmod>` : ''}
       <changefreq>weekly</changefreq>
     </url>
     `;

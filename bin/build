@@ -51,6 +51,8 @@ function build() {
     removedir(config.dest);
   }
 
+  config.site.time = new Date();
+
   config.site.collections = model.collections;
 
   function generate(destination, template, page) {
