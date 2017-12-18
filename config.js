@@ -13,7 +13,7 @@ module.exports = {
     twitter: 'eprev',
   },
   // timezone: '+0100', // CET
-  exclude: /^\./,
+  exclude: ['/gif/src', '/gif/Makefile'],
   documents: [
     [
       /^\/posts\/(\d{4})-(\d{2})-(\d{2})_([^/]+)\/(.+)$/,
