@@ -1,0 +1,96 @@
+  </div>
+  <script>
+    const ElementPrototype = Element.prototype;
+    if (typeof ElementPrototype.matches !== 'function') {
+      ElementPrototype.matches = ElementPrototype.msMatchesSelector;
+    }
+
+    const copyToClipboard = (function(){
+      let textToCopy;
+      let clearSelection = false;
+      let didCopy = false;
+      document.addEventListener('copy', e => {
+        if (textToCopy !== undefined) {
+          try {
+            e.clipboardData.setData('text/plain', textToCopy);
+            e.preventDefault();
+            didCopy = true;
+          } finally {
+            textToCopy = undefined;
+          }
+        }
+      });
+      return function(text) {
+        textToCopy = text;
+        if (!document.queryCommandEnabled('copy')) {
+          // See: https://bugs.webkit.org/show_bug.cgi?id=156529
+          const sel = document.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(document.body);
+          sel.addRange(range);
+          clearSelection = true;
+        }
+        didCopy = false;
+        document.execCommand('copy');
+        if (clearSelection) {
+          clearSelection = false;
+          document.getSelection().removeAllRanges();
+        }
+        return didCopy;
+      };
+    })();
+
+    document.body.addEventListener('click', e => {
+      if (e.target.matches('img')) {
+        if (copyToClipboard(e.target.src)) {
+          e.preventDefault();
+          const link = e.target.closest('a');
+          link.classList.add('copied');
+          setTimeout(() => link.classList.remove('copied'), 250);
+        }
+      }
+    });
+
+    const imgMap = new WeakMap();
+
+    document.body.addEventListener('mouseover', e => {
+      const el = e.target;
+      if (el.matches('.gifs img:not(.playing)')) {
+        el.classList.add('playing');
+        if (imgMap.has(el)) {
+            el.src = el.dataset.src;
+        } else {
+          el.dataset.frameSrc = el.src;
+          el.classList.add('loading');
+          const img = new Image();
+          imgMap.set(el, img);
+          img.src = el.dataset.src;
+          img.onerror = () => {
+            el.classList.remove('loading');
+          };
+          img.onload = () => {
+            el.classList.remove('loading');
+            el.src = img.src;
+          };
+        }
+      }
+    });
+
+    document.body.addEventListener('mouseout', e => {
+      const el = e.target;
+      if (el.matches('.gifs img.playing')) {
+        el.classList.remove('playing');
+        const img = imgMap.get(el);
+        if (!img.complete) {
+          el.classList.remove('loading');
+          img.onload = undefined;
+          img.onerror = undefined;
+          img.src = '';
+          imgMap.delete(el);
+        }
+        el.src = el.dataset.frameSrc;
+      }
+    });
+  </script>
+</html>
+
