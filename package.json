@@ -1,0 +1,23 @@
+{
+  "name": "eprev.org",
+  "version": "3.0.0",
+  "description": "That’s my spot.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eprev/eprev.org.git"
+  },
+  "author": "Anton Eprev <a.eprev@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/eprev/eprev.org/issues"
+  },
+  "homepage": "http://eprev.org",
+  "dependencies": {
+    "babili": "^0.0.9",
+    "cssnano": "^3.9.1",
+    "cssnano-cli": "^1.0.5",
+    "highlight.js": "^9.12.0",
+    "html-minifier": "^3.2.3",
+    "rollup": "^0.38.0",
+    "rollup-watch": "^2.5.0"
+  }
+}
