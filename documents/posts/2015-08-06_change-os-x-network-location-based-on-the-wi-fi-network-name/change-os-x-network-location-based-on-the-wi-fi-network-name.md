@@ -45,7 +45,7 @@ That’s not all. We still want to change Security Preferences automatically whe
 has been changed. Let’s create scripts that will be executed every time it happens. One is
 for “Corp Wi-Fi” location:
 
-```shell
+```bash
 #!/usr/bin/env bash
 
 # Require password immediately after sleep or screen saver
@@ -54,7 +54,7 @@ osascript -e 'tell application "System Events" to set require password to wake o
 
 Another is for the default location:
 
-```shell
+```bash
 #!/usr/bin/env bash
 
 # Don’t require password after sleep or screen saver

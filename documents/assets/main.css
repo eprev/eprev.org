@@ -460,63 +460,23 @@ figcaption {
 .highlight pre {
   color: #485e76;
 }
-
-.highlight .c,   /* Comment */
-.highlight .cm,  /* Comment.Multiline */
-.highlight .c1,  /* Comment.Single */
-.highlight .cs { /* Comment.Special */
+.hljs-meta,
+.hljs-comment {
   color: #a5abb1;
 }
-
-.highlight .gp { /* Generic.Prompt */
-  color: #a5abb1;
+.hljs-strong {
   font-weight: bold;
 }
-.highlight .gh,  /* Generic.Heading */
-.highlight .gs,  /* Generic.Strong */
-.highlight .gu { /* Generic.Subheading */
-  font-weight: bold;
-}
-
-.highlight .k,   /* Keyword */
-.highlight .kc,  /* Keyword.Constant */
-.highlight .kd,  /* Keyword.Declaration */
-.highlight .kn,  /* Keyword.Namespace */
-.highlight .kr { /* Keyword.Reserved */
+.hljs-keyword,
+.hljs-variable,
+.hljs-built_in {
   color: #5e89b9;
 }
-
-.highlight .ni, /* Name.Entity */
-.highlight .ne, /* Name.Exception */
-.highlight .nn, /* Name.Namespace */
-.highlight .nt, /* Name.Tag */
-.highlight .nl,
-.highlight .nc { /* Name.Class */
-  color: #5e89b9;
-}
-
-.highlight .ow { /* Operator.Word */
-  font-weight: bold
-}
-
-.highlight .s,   /* Literal.String */
-.highlight .sb,  /* Literal.String.Backtick */
-.highlight .sc,  /* Literal.String.Char */
-.highlight .sd,  /* Literal.String.Doc */
-.highlight .sh,  /* Literal.String.Heredoc */
-.highlight .se,  /* Literal.String.Escape */
-.highlight .si,  /* Literal.String.Interpol */
-.highlight .sx,  /* Literal.String.Other */
-.highlight .ss,  /* Literal.String.Symbol */
-.highlight .sr,  /* Literal.String.Regex */
-.highlight .s1,  /* Literal.String.Single */
-.highlight .s2 { /* Literal.String.Double */
+.hljs-string {
   color: #c15847;
 }
-
-.highlight--lang-make .s1,
-.highlight--lang-make .s2 {
-  color: inherit;
+.hljs-subst {
+  color: #485e76;
 }
 
 /* ]]] */
