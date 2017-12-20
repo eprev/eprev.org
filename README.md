@@ -2,9 +2,6 @@
 
 ## TODO
 
-- [ ] Figure + caption
-  - [ ] Images
-  - [ ] Responsive images (block images)
 - [ ] JavaScript
 - [ ] Makefile (deploy build)
 - [ ] 404
