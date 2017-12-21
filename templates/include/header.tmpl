@@ -1,11 +1,18 @@
 // vim: ft=javascript
+const manifest =
+  env === 'production' || env === 'development-build' ? JSON.parse(inline('../../../manifest.json')) : false;
+
 return html`
 <!doctype html>
 <html lang="en">
   <meta charset="utf-8">
   <title>${page.title ? `${page.title} – ${site.title}` : site.title}</title>
   <link rel="shortcut icon" href="${url('assets/4-eyed-32x32.png')}">
-  <link href="${url('assets/main.css')}" rel="stylesheet">
+  ${
+    manifest
+      ? `<style>${inline('../../../documents/assets/build/' + manifest['main.min.css'])}</style>`
+      : `<link href="${url('assets/main.css')}" rel="stylesheet">`
+  }
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="${page.description || site.description}">
   <link rel="alternate" type="application/atom+xml" title="Feed" href="${url(
@@ -35,11 +42,11 @@ return html`
   `
       : ''
   }
-  <script src="${url('assets/js/main.js')}" type="module"></script>
+  <script src="${url(manifest ? 'assets/build/' + manifest['main.js'] : 'assets/js/main.js')}" type="module"></script>
   <body>
     <script>
       ${
-        site.env == 'production'
+        env == 'production'
           ? `
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

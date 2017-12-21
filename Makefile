@@ -9,7 +9,9 @@ BABILIFLAGS := --no-comments
 HTMLFLAGS   := --collapse-whitespace --remove-comments --minify-js
 ROLLUPFLAGS := --format=iife --sourcemap
 
-MANIFEST_FILE := manifest.js
+NODE_ENV?=production
+
+MANIFEST_FILE := manifest.json
 
 JS_DIRECTORY := documents/assets/js
 ASSETS_DIRECTORY := documents/assets/build
@@ -46,21 +48,22 @@ compress-assets: build-assets
 	$(CSSNANO) documents/assets/main.css $(ASSETS_DIRECTORY)/main.min.css
 
 build-manifest: compress-assets
-	@echo "{" > $(MANIFEST_FILE)
-	@for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
+	@echo -n "{" > $(MANIFEST_FILE)
+	@lf=""; for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
 		hash=$$(md5 -q $(ASSETS_DIRECTORY)/$$filename); \
 		hashed_filename="$${filename%%.*}-$$hash.$${filename#*.}"; \
 		cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed_filename; \
-		echo "'$$filename': '$$hashed_filename'," >> $(MANIFEST_FILE); \
+		if [ ! -z $$lf ]; then echo -n "," >> $(MANIFEST_FILE); fi; lf=$$hash; \
+		echo -n "\"$$filename\": \"$$hashed_filename\"" >> $(MANIFEST_FILE); \
 	done
-	@echo "}" >> $(MANIFEST_FILE)
+	@echo -n "}" >> $(MANIFEST_FILE)
 
 build: build-manifest
 
 build-deploy: build
 	find $(ASSETS_DIRECTORY) -type f -not -regex '.*-[a-f0-9]*.*' -delete
 	find $(ASSETS_DIRECTORY) -type f -regex '.*.js.map' -delete
-	NODE_ENV=production bin/build exec
+	NODE_ENV=$(NODE_ENV) bin/build
 	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
 
 # reset-site:
