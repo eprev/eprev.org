@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const https = require('https');
+// const https = require('https');
+const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { URL } = require('url');
@@ -23,8 +24,10 @@ function end(res, code, msg) {
 const config = require('../config');
 const port = new URL(config.site.url).port;
 
-https
-  .createServer(options, (req, res) => {
+// https
+//   .createServer(options, (req, res) => {
+http
+  .createServer((req, res) => {
     if (req.method !== 'GET') {
       return end(res, 405, 'Method Not Allowed');
     }
