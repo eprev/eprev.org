@@ -48,4 +48,12 @@ module.exports = function({ generate, model, config }) {
       pathname: '/tags/',
     }),
   );
+  generate(
+    '/404.html',
+    '404',
+    model.register({
+      title: '404',
+      pathname: '/404.html',
+    }),
+  );
 };
