@@ -3,7 +3,6 @@
 ## TODO
 
 - [ ] Makefile (deploy build)
-- [ ] 404
 - [ ] Santize HTML (atom.xml)
 - [ ] <a name=> for headers
 - [ ] escape

@@ -1,0 +1,78 @@
+SHELL   := /bin/bash
+
+ROLLUP  := ./node_modules/.bin/rollup
+BABILI  := ./node_modules/.bin/babili
+CSSNANO := ./node_modules/.bin/cssnano
+HTML    := ./node_modules/.bin/html-minifier
+
+BABILIFLAGS := --no-comments
+HTMLFLAGS   := --collapse-whitespace --remove-comments --minify-js
+ROLLUPFLAGS := --format=iife --sourcemap
+
+MANIFEST_FILE := manifest.js
+
+JS_DIRECTORY := documents/assets/js
+ASSETS_DIRECTORY := documents/assets/build
+JS_ASSETS := $(subst $(JS_DIRECTORY)/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
+
+all: build-assets
+
+init:
+	git submodule init
+	git submodule update
+	yarn install
+
+server:
+	bin/server
+
+watch: clean-assets
+	bin/build --watch
+
+clean-manifest:
+	rm -f $(MANIFEST_FILE)
+
+clean-assets: clean-manifest
+	rm -rf $(ASSETS_DIRECTORY)/*
+
+clean: clean-assets
+
+$(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
+	$(ROLLUP) $(ROLLUPFLAGS) -i $< -o $@
+
+build-assets: clean-assets $(JS_ASSETS)
+
+compress-assets: build-assets
+	$(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) $(BABILIFLAGS)
+	$(CSSNANO) documents/assets/main.css $(ASSETS_DIRECTORY)/main.min.css
+
+build-manifest: compress-assets
+	@echo "{" > $(MANIFEST_FILE)
+	@for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
+		hash=$$(md5 -q $(ASSETS_DIRECTORY)/$$filename); \
+		hashed_filename="$${filename%%.*}-$$hash.$${filename#*.}"; \
+		cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed_filename; \
+		echo "'$$filename': '$$hashed_filename'," >> $(MANIFEST_FILE); \
+	done
+	@echo "}" >> $(MANIFEST_FILE)
+
+build: build-manifest
+
+build-deploy: build
+	find $(ASSETS_DIRECTORY) -type f -not -regex '.*-[a-f0-9]*.*' -delete
+	find $(ASSETS_DIRECTORY) -type f -regex '.*.js.map' -delete
+	NODE_ENV=production bin/build exec
+	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
+
+# reset-site:
+# 	git --git-dir=static/.git reset --hard origin/gh-pages
+# 	git --git-dir=static/.git pull origin gh-pages
+#
+# deploy: reset-site build-deploy
+# 	git --git-dir=static/.git add -A
+# 	git --git-dir=static/.git commit -m "Deploy"
+# 	git --git-dir=static/.git push origin gh-pages
+#
+# rollback:
+# 	git --git-dir=static/.git reset --hard origin/gh-pages
+# 	git --git-dir=static/.git revert HEAD
+# 	git --git-dir=static/.git push origin gh-pages
