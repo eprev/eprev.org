@@ -2,7 +2,6 @@
 
 ## TODO
 
-- [ ] JavaScript
 - [ ] Makefile (deploy build)
 - [ ] 404
 - [ ] Santize HTML (atom.xml)
