@@ -1,6 +1,6 @@
 bin/ssl
 static
 node_modules
-manifest.js
+manifest.json
 documents/assets/build
 
