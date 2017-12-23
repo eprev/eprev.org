@@ -12,7 +12,7 @@ return html`
 ${render('include/header')}
 ${site.collections.post.map((post, index) => {
   const excerpt = getExcerpt(post.content);
-  return index <= 7
+  return index < 7
     ? render('include/post', {
         post: Object.assign({}, post, {
           headingLevel: 2,
