@@ -3,7 +3,6 @@ const dateFormat = require('../lib/date-format');
 return html`
 ${render('include/header')}
 <h1 class="page__header">${ page.title }</h1>
-<ul>
 ${_ => {
   let currYear = '';
   let res = '';
@@ -29,6 +28,5 @@ ${_ => {
   }
   return res;
 }}
-</ul>
 ${render('include/footer')}
 `;
