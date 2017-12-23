@@ -1,16 +1,10 @@
 // vim: ft=javascript
 
 function sanitize(html) {
-  // TODO:
-  // doc.css('*').remove_attr('style')
-  // doc.css('*').remove_attr('class')
-  // doc.css('img').remove_attr('layout')
-  // doc.css('span').each do |span|
-  //   span.replace span.inner_html
-  // end
   html = html
-    .replace(/<span[^>]*>([^<]+)<\/span>/g, '$1')
-    .replace(/\s+class="[^"]*"/g, '');
+    .replace(/\s+(class|style)="[^"]*"/g, '')
+    .replace(/<span>([^<]+)<\/span>/g, '$1')
+    .replace(/<span>([^<]+)<\/span>/g, '$1'); // Nested spans (substr in highlight.js)
   return html;
 }
 

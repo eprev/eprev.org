@@ -1,10 +1,5 @@
 # Setting up
 
-## TODO
-
-- [ ] <a name=> for headers
-- [ ] escape
-
 ## Self-Signed certificate
 
 ```
