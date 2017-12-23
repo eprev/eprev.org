@@ -1,0 +1,4 @@
+[submodule "static"]
+	path = static
+	url = git@github.com:eprev/eprev.org.git
+	branch = gh-pages
