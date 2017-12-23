@@ -5,19 +5,6 @@ const path = require('path');
 
 const config = require('../config');
 
-// function removedir(dirname) {
-//   fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
-//     const pathname = path.join(dirname, filename);
-//     const stats = fs.statSync(pathname);
-//     if (stats.isDirectory()) {
-//       removedir(pathname);
-//       fs.rmdirSync(pathname);
-//     } else {
-//       fs.unlinkSync(pathname);
-//     }
-//   });
-// }
-
 function copy(src, dest) {
   createdir(path.dirname(dest));
   fs.copyFileSync(src, dest);
@@ -40,16 +27,13 @@ function createdir(dirname) {
 
 const { Model } = require('../lib/model');
 const { render } = require('../lib/template');
+const colorize = require('../lib/colorize');
 
 function build() {
   const model = new Model();
   // console.log(require('util').inspect(model.documents, {depth: 5, colors: true})); process.exit();
 
-  console.log('Building...');
-
-  // if (fs.existsSync(config.dest)) {
-  //   removedir(config.dest);
-  // }
+  process.stdout.write('Building... ');
 
   config.site.time = new Date();
 
@@ -75,7 +59,9 @@ function build() {
     }
   }
 
-  model.collections.post = model.collections.post.sort((a, b) => b.date - a.date);
+  model.collections.post = model.collections.post.sort(
+    (a, b) => b.date - a.date,
+  );
 
   processHook('init');
 
@@ -95,7 +81,7 @@ function build() {
   });
 
   processHook('copy');
-  console.log('Done');
+  console.log(colorize('OK', 'green'));
 }
 
 function safeBuild() {
@@ -106,14 +92,12 @@ function safeBuild() {
   }
 }
 
-const watching = (process.argv.length === 3 && process.argv[2] === '--watch');
+const watching = process.argv.length === 3 && process.argv[2] === '--server';
 if (watching) {
-  console.log('Watching...');
   safeBuild();
 } else {
   build();
 }
-
 
 if (watching) {
   let to;
@@ -121,8 +105,15 @@ if (watching) {
     clearTimeout(to);
     to = setTimeout(safeBuild, 50);
   });
-  fs.watch(path.join(__dirname, '..', 'templates'), { recursive: true }, (eventType, filename) => {
-    clearTimeout(to);
-    to = setTimeout(safeBuild, 50);
-  });
+  fs.watch(
+    path.join(__dirname, '..', 'templates'),
+    { recursive: true },
+    (eventType, filename) => {
+      clearTimeout(to);
+      to = setTimeout(safeBuild, 50);
+    },
+  );
+  const { createServer } = require('../lib/server');
+  createServer(config);
+  console.log('Watching...');
 }

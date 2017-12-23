@@ -40,11 +40,8 @@ ssl:
 		-sha256 \
 		-days 3650
 
-server:
-	bin/server
-
-watch: clean-assets
-	bin/build --watch
+server: clean-assets
+	bin/build --server
 
 clean-manifest:
 	rm -f $(MANIFEST_FILE)
