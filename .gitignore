@@ -1,5 +1,4 @@
 bin/ssl
-static
 node_modules
 manifest.json
 documents/assets/build
