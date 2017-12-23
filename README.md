@@ -2,7 +2,6 @@
 
 ## TODO
 
-- [ ] Santize HTML (atom.xml)
 - [ ] <a name=> for headers
 - [ ] escape
 
