@@ -66,16 +66,16 @@ build-deploy: build
 	NODE_ENV=$(NODE_ENV) bin/build
 	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
 
-# reset-site:
-# 	git --git-dir=static/.git reset --hard origin/gh-pages
-# 	git --git-dir=static/.git pull origin gh-pages
-#
-# deploy: reset-site build-deploy
-# 	git --git-dir=static/.git add -A
-# 	git --git-dir=static/.git commit -m "Deploy"
-# 	git --git-dir=static/.git push origin gh-pages
-#
-# rollback:
-# 	git --git-dir=static/.git reset --hard origin/gh-pages
-# 	git --git-dir=static/.git revert HEAD
-# 	git --git-dir=static/.git push origin gh-pages
+reset-site:
+	git --git-dir=static/.git reset --hard origin/gh-pages
+	git --git-dir=static/.git pull origin gh-pages
+
+deploy: reset-site build-deploy
+	git --git-dir=static/.git add -A
+	git --git-dir=static/.git commit -m "Deploy"
+	git --git-dir=static/.git push origin gh-pages
+
+rollback:
+	git --git-dir=static/.git reset --hard origin/gh-pages
+	git --git-dir=static/.git revert HEAD
+	git --git-dir=static/.git push origin gh-pages
