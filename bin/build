@@ -5,18 +5,18 @@ const path = require('path');
 
 const config = require('../config');
 
-function removedir(dirname) {
-  fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
-    const pathname = path.join(dirname, filename);
-    const stats = fs.statSync(pathname);
-    if (stats.isDirectory()) {
-      removedir(pathname);
-      fs.rmdirSync(pathname);
-    } else {
-      fs.unlinkSync(pathname);
-    }
-  });
-}
+// function removedir(dirname) {
+//   fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
+//     const pathname = path.join(dirname, filename);
+//     const stats = fs.statSync(pathname);
+//     if (stats.isDirectory()) {
+//       removedir(pathname);
+//       fs.rmdirSync(pathname);
+//     } else {
+//       fs.unlinkSync(pathname);
+//     }
+//   });
+// }
 
 function copy(src, dest) {
   createdir(path.dirname(dest));
@@ -47,9 +47,9 @@ function build() {
 
   console.log('Building...');
 
-  if (fs.existsSync(config.dest)) {
-    removedir(config.dest);
-  }
+  // if (fs.existsSync(config.dest)) {
+  //   removedir(config.dest);
+  // }
 
   config.site.time = new Date();
 
