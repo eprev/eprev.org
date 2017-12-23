@@ -20,8 +20,6 @@ JS_ASSETS := $(subst $(JS_DIRECTORY)/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIREC
 all: build-assets
 
 init:
-	git submodule init
-	git submodule update
 	yarn install
 
 server:
