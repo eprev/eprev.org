@@ -84,9 +84,13 @@ function build() {
   console.log(colorize('OK', 'green'));
 }
 
+const EventEmitter = require('events');
+const buildEvents = new EventEmitter();
+
 function safeBuild() {
   try {
     build();
+    buildEvents.emit('done');
   } catch (e) {
     console.error(e);
   }
@@ -114,6 +118,6 @@ if (watching) {
     },
   );
   const { createServer } = require('../lib/server');
-  createServer(config);
+  createServer(config, buildEvents);
   console.log('Watching...');
 }

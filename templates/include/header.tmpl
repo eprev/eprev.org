@@ -1,6 +1,8 @@
 // vim: ft=javascript
 const manifest =
-  env === 'production' || env === 'development-build' ? JSON.parse(inline('../../../manifest.json')) : false;
+  env === 'production' || env === 'development-build'
+    ? JSON.parse(inline('../../../manifest.json'))
+    : false;
 
 return html`
 <!doctype html>
@@ -10,7 +12,9 @@ return html`
   <link rel="shortcut icon" href="${url('assets/4-eyed-32x32.png')}">
   ${
     manifest
-      ? `<style>${inline('../../../documents/assets/build/' + manifest['main.min.css'])}</style>`
+      ? `<style>${inline(
+          '../../../documents/assets/build/' + manifest['main.min.css'],
+        )}</style>`
       : `<link href="${url('assets/main.css')}" rel="stylesheet">`
   }
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +46,16 @@ return html`
   `
       : ''
   }
-  <script src="${url(manifest ? 'assets/build/' + manifest['main.js'] : 'assets/js/main.js')}" type="module"></script>
+  <script src="${url(
+    manifest ? 'assets/build/' + manifest['main.js'] : 'assets/js/main.js',
+  )}" type="module"></script>
+  ${
+    env === 'development'
+      ? `
+  <script src="${url('assets/js/build-events.js')}" type="module"></script>
+  `
+      : ''
+  }
   <body>
     <script>
       ${
