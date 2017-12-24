@@ -110,13 +110,13 @@
     
   
     <url>
-      <loc>http://eprev.org/archive/</loc>
+      <loc>http://eprev.org/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
     
     <url>
-      <loc>http://eprev.org/</loc>
+      <loc>http://eprev.org/archive/</loc>
       
       <changefreq>weekly</changefreq>
     </url>
