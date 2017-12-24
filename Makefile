@@ -79,11 +79,12 @@ build-deploy: build
 	NODE_ENV=$(NODE_ENV) bin/build
 	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
 
-reset-site:
+reset-static:
 	git --git-dir=static/.git reset --hard origin/gh-pages
 	git --git-dir=static/.git pull origin gh-pages
+	git --git-dir=static/.git clean -fd
 
-deploy: reset-site build-deploy
+deploy: reset-static build-deploy
 	git --git-dir=static/.git add -A
 	git --git-dir=static/.git commit -m "Deploy"
 	git --git-dir=static/.git push origin gh-pages

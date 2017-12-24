@@ -16,9 +16,9 @@ module.exports = {
   exclude: ['/gif/src', '/gif/Makefile'],
   documents: [
     [
-      /^\/posts\/(\d{4})-(\d{2})-(\d{2})_([^/]+)\/(.+)$/,
+      /^\/posts\/(\d{4})-(\d{2})-(\d{2})-([^/.]+)(?:\/(.+)|\.md)?$/,
       (doc, [pathname, yyyy, mm, dd, slug, filename]) => {
-        if (filename === `${slug}.md`) {
+        if (filename === `${slug}.md` || filename === undefined) {
           doc.type = 'post';
           doc.date = new Date(Date.UTC(yyyy, mm - 1, dd));
           filename = ''; // eq. index.html
