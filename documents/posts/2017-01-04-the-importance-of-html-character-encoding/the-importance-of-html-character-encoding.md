@@ -54,19 +54,19 @@ immediately along with loading external resources. On the image below, you can s
 the stylesheet have been loaded before DOM becomes interactive.
 
 ![Firefox Web Console: Character encoding is specified](ff-charset-is-specified.png
-"When the character encoding is specified, Firefox starts loading styles and scripts as it is parsing the HTML.")<!--: layout="responsive" mod="wide" clickable="yes" .g--border -->
+"When the character encoding is specified, Firefox starts loading styles and scripts as it is parsing the HTML.")<!--: layout="responsive" mod="wide" clickable="yes" -->
 
 When the character encoding is not specified, then the browser starts parsing HTML only after it gets
 the rest of the document (the first 1024 bytes), causing a delay in loading scripts and stylesheets.
 
 ![Firefox Web Console: Character encoding is not specified](ff-charset-is-not-specified.png
-"When the character encoding is not specified, Firefox waits for the first 1024 bytes before it begins loading styles and scripts.")<!--: layout="responsive" mod="wide" clickable="yes" .g--border -->
+"When the character encoding is not specified, Firefox waits for the first 1024 bytes before it begins loading styles and scripts.")<!--: layout="responsive" mod="wide" clickable="yes" -->
 
 Safari shares similar to Firefox behavior. Things are quite different with Chrome and Edge, they begin parsing HTML
 right away even if the character encoding is not specified or incorrect.
 
 ![Chrome Console: Character encoding is not specified](chrome-charset-is-not-specified.png
-"Chrome starts parsing the HTML and loading styles and scripts as it is loading the document even if the character encoding is not specified.")<!--: layout="responsive" mod="wide" clickable="yes" .g--border -->
+"Chrome starts parsing the HTML and loading styles and scripts as it is loading the document even if the character encoding is not specified.")<!--: layout="responsive" mod="wide" clickable="yes" -->
 
 What’s incorrect encoding? HTML5 specification says that user agents must not support the CESU-8, UTF-7,
 BOCU-1, SCSU, EBCDIC and UTF-32 encodings. For that reason, Firefox and Safari won’t parse
