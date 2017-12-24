@@ -32,7 +32,7 @@ textarea {
     local('Merriweather Sans Light'), local('MerriweatherSans-Light'),
     url(/assets/fonts/merriweathersans-light.woff2) format('woff2'),
     url(/assets/fonts/merriweathersans-light.woff) format('woff');
-  font-display: swap;
+  font-display: fallback;
 }
 @font-face {
   font-weight: 700;
@@ -42,7 +42,7 @@ textarea {
     local('Merriweather Sans Bold'), local('MerriweatherSans-Bold'),
     url(/assets/fonts/merriweathersans-bold.woff2) format('woff2'),
     url(/assets/fonts/merriweathersans-bold.woff) format('woff');
-  font-display: swap;
+  font-display: fallback;
 }
 @font-face {
   font-weight: 300;
@@ -52,7 +52,7 @@ textarea {
     local('Merriweather Sans Light Italic'), local('MerriweatherSans-LightItalic'),
     url(/assets/fonts/merriweathersans-lightitalic.woff2) format('woff2'),
     url(/assets/fonts/merriweathersans-lightitalic.woff) format('woff');
-  font-display: swap;
+  font-display: fallback;
 }
 
 /* ]]] */
