@@ -16,7 +16,7 @@ return html`
   <h${post.headingLevel || 1} class="post__header">
   ${
     post.headingLink
-      ? html`<a href="${url(post.pathname)}">${post.title}</a>`
+      ? `<a href="${post.pathname}">${post.title}</a>`
       : post.title
   }
   </h${post.headingLevel || 1}>
@@ -34,13 +34,13 @@ return html`
     }
   </div>
   <div class="post__content">
-    ${post.content}
+    ${post.excerpt || post.content}
     ${
-      post.readMoreLink
+      post.excerpt
         ? html`
     <div class="post__read-more">
       <a
-        href="${url(post.pathname)}"
+        href="${post.pathname}"
         data-ga-on="click"
         data-ga-category="Click"
         data-ga-action="Read More"

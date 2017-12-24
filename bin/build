@@ -26,7 +26,7 @@ function createdir(dirname) {
 }
 
 const { Model } = require('../lib/model');
-const { render } = require('../lib/template');
+const { render, renderString } = require('../lib/template');
 const colorize = require('../lib/colorize');
 
 function build() {
@@ -39,12 +39,24 @@ function build() {
   config.site.collections = model.collections;
 
   function generate(destination, template, page) {
-    const context = {
-      env: config.env,
-      site: config.site,
-      page,
-    };
-    const content = render(template, context);
+    if (page && page.source) {
+      page.content = renderString(page.source, {
+        __name__: page.pathname,
+        env: config.env,
+        site: config.site,
+      });
+    }
+    let content;
+    if (template) {
+      const context = {
+        env: config.env,
+        site: config.site,
+        page,
+      };
+      content = render(template, context);
+    } else {
+      content = page.content;
+    }
     write(path.join(config.dest, destination), content);
   }
 
@@ -69,7 +81,7 @@ function build() {
     const destination = doc.pathname.endsWith('/')
       ? doc.pathname + 'index.html'
       : doc.pathname;
-    if (doc.layout) {
+    if (doc.content || doc.source) {
       generate(destination, doc.layout, doc);
     } else {
       copy(

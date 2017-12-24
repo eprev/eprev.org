@@ -1,0 +1,35 @@
+/*---
+vim: ft=javascript
+pathname: /
+layout: default
+---*/
+
+function extractExcerpt(content) {
+  const idx = content.indexOf('<!-- Read More -->');
+  return idx === -1 ? '' : content.slice(0, idx);
+}
+
+const POSTS_ON_PAGE = 7;
+
+return html`
+  ${site.collections.post.map((post, index) => {
+    const excerpt = extractExcerpt(post.content);
+    return index < POSTS_ON_PAGE
+      ? render('include/post', {
+          post: {
+            ...post,
+            headingLevel: 2,
+            headingLink: true,
+            excerpt,
+          },
+        })
+      : '';
+  })}
+  <div class="post-special-archive">
+    <a
+      href="/archive/"
+      data-ga-on="click"
+      data-ga-category="Click"
+      data-ga-action="Archive"
+    >Archive</a> &rsaquo;
+  </div>`;
