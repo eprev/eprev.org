@@ -13,8 +13,9 @@ NODE_ENV?=production
 
 MANIFEST_FILE := manifest.json
 
-JS_DIRECTORY := documents/assets/js
-ASSETS_DIRECTORY := documents/assets/build
+SOURCE_DIRECTORY := source
+JS_DIRECTORY := $(SOURCE_DIRECTORY)/assets/js
+ASSETS_DIRECTORY := $(SOURCE_DIRECTORY)/assets/build
 JS_ASSETS := $(subst $(JS_DIRECTORY)/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
 
 all: build-assets
@@ -58,7 +59,7 @@ build-assets: clean-assets $(JS_ASSETS)
 
 compress-assets: build-assets
 	$(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) $(BABILIFLAGS)
-	$(CSSNANO) documents/assets/main.css $(ASSETS_DIRECTORY)/main.min.css
+	$(CSSNANO) $(SOURCE_DIRECTORY)/assets/main.css $(ASSETS_DIRECTORY)/main.min.css
 
 build-manifest: compress-assets
 	@echo -n "{" > $(MANIFEST_FILE)

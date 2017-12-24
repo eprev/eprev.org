@@ -13,7 +13,7 @@ return html`
   ${
     manifest
       ? `<style>${inline(
-          '../../../documents/assets/build/' + manifest['main.min.css'],
+          '../../../source/assets/build/' + manifest['main.min.css'],
         )}</style>`
       : `<link href="${url('assets/main.css')}" rel="stylesheet">`
   }
@@ -75,7 +75,7 @@ return html`
         };
       `
       }
-      ${inline('../../../documents/assets/js/ga.js')}
+      ${inline('../../../source/assets/js/ga.js')}
     </script>
     <div class="page">
       <div class="page__sidebar">

@@ -31,7 +31,6 @@ const colorize = require('../lib/colorize');
 
 function build() {
   const model = new Model();
-  // console.log(require('util').inspect(model.documents, {depth: 5, colors: true})); process.exit();
 
   process.stdout.write('Building... ');
 
