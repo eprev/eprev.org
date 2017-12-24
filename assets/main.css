@@ -185,9 +185,6 @@ figcaption {
 .g--shady {
   color: #888;
 }
-.g--border {
-  box-shadow: 0 0 0 1px #ccc;
-}
 
 .page {
   margin: 0 auto;

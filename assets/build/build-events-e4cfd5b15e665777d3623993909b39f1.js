@@ -1,0 +1,1 @@
+(function(){'use strict';var a=new EventSource('/build-events');a.onmessage=b=>{'done'===b.data&&location.reload()}})();
