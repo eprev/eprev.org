@@ -2,5 +2,4 @@ bin/ssl
 static
 node_modules
 manifest.txt
-source/assets/build
-
+statuc/assets-bundles

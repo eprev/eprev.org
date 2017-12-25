@@ -2,10 +2,8 @@
 
 const properties = require('../lib/properties');
 
-const manifest =
-  env === 'production' || env === 'development-build'
-    ? properties(read('../manifest.txt'))
-    : false;
+const manifestContent = read('../manifest.txt');
+const manifest = manifestContent ? properties(manifestContent) : false;
 
 return html`
 <!doctype html>
@@ -16,9 +14,9 @@ return html`
   ${
     manifest
       ? `<style>${read(
-          '../source/assets/build/' + manifest['main.min.css'],
+          '../static/assets-bundles/' + manifest['main.css'],
         )}</style>`
-      : `<link href="/assets/main.css" rel="stylesheet">`
+      : `<link href="/assets/css/main.css" rel="stylesheet">`
   }
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="${page.description || site.description}">
@@ -53,7 +51,7 @@ return html`
   }
   <script
     src="${
-      manifest ? '/assets/build/' + manifest['main.js'] : '/assets/js/main.js'
+      manifest ? '/assets-bundles/' + manifest['main.js'] : '/assets/js/main.js'
     }"
     type="module"
   ></script>
@@ -72,7 +70,7 @@ return html`
               console.log('ga', args);
             };`
       }
-      ${read('../source/assets/js/ga.js')}
+      ${read('../source/assets/js/src/ga-tracking.js')}
     </script>
     <div class="page">
       <div class="page__sidebar">

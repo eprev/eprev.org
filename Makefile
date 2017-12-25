@@ -7,65 +7,56 @@ HTML    := ./node_modules/.bin/html-minifier
 
 BABILIFLAGS := --no-comments
 HTMLFLAGS   := --collapse-whitespace --remove-comments --minify-js
-ROLLUPFLAGS := --format=iife --sourcemap
+ROLLUPFLAGS := --format=iife
 
 NODE_ENV?=production
 
 MANIFEST_FILE := manifest.txt
 
-SOURCE_DIRECTORY := source
-JS_DIRECTORY := $(SOURCE_DIRECTORY)/assets/js
-ASSETS_DIRECTORY := $(SOURCE_DIRECTORY)/assets/build
-JS_ASSETS := $(subst $(JS_DIRECTORY)/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
+SRC_DIR := source
+DEST_DIR := static
 
-all: build-assets
+SRC_JS_DIR := $(SRC_DIR)/assets/js
+SRC_CSS_DIR := $(SRC_DIR)/assets/css
+BUNDLES_DIR := $(DEST_DIR)/assets-bundles
+
+CSS_BUNDLES := $(subst $(SRC_CSS_DIR)/,$(BUNDLES_DIR)/,$(wildcard $(SRC_CSS_DIR)/*.css))
+JS_BUNDLES := $(subst $(SRC_JS_DIR)/,$(BUNDLES_DIR)/,$(wildcard $(SRC_JS_DIR)/*.js))
+
+all: build-bundles
 
 init:
 	git submodule init
 	git submodule update
 	yarn install
 
-ssl:
-	@mkdir bin/ssl && openssl req \
-		-newkey rsa:2048 \
-		-x509 \
-		-nodes \
-		-keyout bin/ssl/localhost.key \
-		-new \
-		-out bin/ssl/localhost.crt \
-		-subj /CN=localhost \
-		-reqexts SAN \
-		-extensions SAN \
-		-config <(cat /System/Library/OpenSSL/openssl.cnf \
-				<(printf '[SAN]\nsubjectAltName=DNS:localhost')) \
-		-sha256 \
-		-days 3650
-
-server: clean-assets
+server:
 	bin/build --server
 
 clean-manifest:
 	rm -f $(MANIFEST_FILE)
 
-clean-assets: clean-manifest
-	rm -rf $(ASSETS_DIRECTORY)/*
+clean-bundles: clean-manifest
+	rm -rf $(BUNDLES_DIR)/*
 
-clean: clean-assets
+clean: clean-bundles
 
-$(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
+$(BUNDLES_DIR)/%.js: $(SRC_JS_DIR)/%.js
 	$(ROLLUP) $(ROLLUPFLAGS) -i $< -o $@
 
-build-assets: clean-assets $(JS_ASSETS)
+$(BUNDLES_DIR)/%.css: $(SRC_CSS_DIR)/%.css
+	$(CSSNANO) $< $@
 
-compress-assets: build-assets
-	$(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) $(BABILIFLAGS)
-	$(CSSNANO) $(SOURCE_DIRECTORY)/assets/main.css $(ASSETS_DIRECTORY)/main.min.css
+build-bundles: clean-bundles $(JS_BUNDLES) $(CSS_BUNDLES)
 
-build-manifest: compress-assets
-	@for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
-		hash=$$(md5 -q $(ASSETS_DIRECTORY)/$$filename); \
+compress-bundles: build-bundles
+	$(BABILI) $(BUNDLES_DIR) -d $(BUNDLES_DIR) $(BABILIFLAGS)
+
+build-manifest: compress-bundles
+	@for filename in $$( find $(BUNDLES_DIR) -type f -exec basename {} \; ); do \
+		hash=$$(md5 -q $(BUNDLES_DIR)/$$filename); \
 		hashed_filename="$${filename%%.*}-$$hash.$${filename#*.}"; \
-		cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed_filename; \
+		mv $(BUNDLES_DIR)/$$filename $(BUNDLES_DIR)/$$hashed_filename; \
 		echo "$$filename: $$hashed_filename" >> $(MANIFEST_FILE); \
 	done
 
@@ -75,8 +66,6 @@ clean-static:
 	find static -not -name ".git" -delete
 
 build-deploy: reset-static clean-static build
-	find $(ASSETS_DIRECTORY) -type f -not -regex '.*-[a-f0-9]*.*' -delete
-	find $(ASSETS_DIRECTORY) -type f -regex '.*.js.map' -delete
 	NODE_ENV=$(NODE_ENV) bin/build
 	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
 
@@ -94,3 +83,19 @@ rollback:
 	git --git-dir=static/.git reset --hard origin/gh-pages
 	git --git-dir=static/.git revert HEAD
 	git --git-dir=static/.git push origin gh-pages
+
+ssl:
+	@mkdir bin/ssl && openssl req \
+		-newkey rsa:2048 \
+		-x509 \
+		-nodes \
+		-keyout bin/ssl/localhost.key \
+		-new \
+		-out bin/ssl/localhost.crt \
+		-subj /CN=localhost \
+		-reqexts SAN \
+		-extensions SAN \
+		-config <(cat /System/Library/OpenSSL/openssl.cnf \
+				<(printf '[SAN]\nsubjectAltName=DNS:localhost')) \
+		-sha256 \
+		-days 3650
