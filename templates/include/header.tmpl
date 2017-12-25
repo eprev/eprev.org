@@ -1,4 +1,5 @@
 // vim: ft=javascript
+
 const manifest =
   env === 'production' || env === 'development-build'
     ? JSON.parse(inline('../../../manifest.json'))
@@ -15,7 +16,7 @@ return html`
       ? `<style>${inline(
           '../../../source/assets/build/' + manifest['main.min.css'],
         )}</style>`
-      : `<link href="${url('assets/main.css')}" rel="stylesheet">`
+      : `<link href="/assets/main.css" rel="stylesheet">`
   }
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="${page.description || site.description}">
@@ -46,13 +47,13 @@ return html`
   `
       : ''
   }
-  <script src="${url(
-    manifest ? 'assets/build/' + manifest['main.js'] : 'assets/js/main.js',
-  )}" type="module"></script>
+  <script src="${
+    manifest ? 'assets/build/' + manifest['main.js'] : 'assets/js/main.js'
+  }" type="module"></script>
   ${
     env === 'development'
       ? `
-  <script src="${url('assets/js/build-events.js')}" type="module"></script>
+  <script src="/assets/js/build-events.js" type="module"></script>
   `
       : ''
   }

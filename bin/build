@@ -100,8 +100,9 @@ const buildEvents = new EventEmitter();
 function safeBuild() {
   try {
     build();
-    buildEvents.emit('done');
+    buildEvents.emit('success');
   } catch (e) {
+    buildEvents.emit('error', e);
     console.error(e);
   }
 }
