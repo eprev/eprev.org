@@ -220,7 +220,7 @@ figcaption {
   height: calc( 6 * 1.5rem ); /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
                    and the picture will remain invisible - yay! */
 }
-.page__user-picture-svg {
+.page__user-picture svg {
   width: 100%;
   height: 100%;
 }

@@ -12,44 +12,43 @@ function timeToRead(content) {
 }
 
 return html`
-<div class="post">
-  <h${post.headingLevel || 1} class="post__header">
-  ${
-    post.headingLink
-      ? `<a href="${post.pathname}">${post.title}</a>`
-      : post.title
-  }
-  </h${post.headingLevel || 1}>
-  <div class="post__meta">
-    ${dateFormat(post.date, '%MM D, YYYY')}
-    ${timeToRead(post.content)}
+  <div class="post">
+    <h${post.headingLevel || 1} class="post__header">
     ${
-      post.tags
-        ? html` ∙ ${post.tags
-            .map(tag => {
-              return `<a href="/tags/${tag}/">${tag}</a>`;
-            })
-            .join(', ')}`
-        : ''
+      post.headingLink
+        ? `<a href="${post.pathname}">${post.title}</a>`
+        : post.title
     }
-  </div>
-  <div class="post__content">
-    ${post.excerpt || post.content}
-    ${
-      post.excerpt
-        ? html`
-    <div class="post__read-more">
-      <a
-        href="${post.pathname}"
-        data-ga-on="click"
-        data-ga-category="Click"
-        data-ga-action="Read More"
-        data-ga-label="${post.pathname}"
-      >Continue reading</a> &rsaquo;
+    </h${post.headingLevel || 1}>
+    <div class="post__meta">
+      ${dateFormat(post.date, '%MM D, YYYY')}
+      ${timeToRead(post.content)}
+      ${
+        post.tags
+          ? html` ∙ ${
+            post.tags
+              .map(tag => {
+                return `<a href="/tags/${tag}/">${tag}</a>`;
+              })
+              .join(', ')}`
+          : ''
+      }
     </div>
-    `
-        : ''
-    }
-  </div>
-</div>
-`;
+    <div class="post__content">
+      ${post.excerpt || post.content}
+      ${
+        post.excerpt
+          ? html`
+            <div class="post__read-more">
+              <a
+                href="${post.pathname}"
+                data-ga-on="click"
+                data-ga-category="Click"
+                data-ga-action="Read More"
+                data-ga-label="${post.pathname}"
+              >Continue reading</a> &rsaquo;
+            </div>`
+          : ''
+      }
+    </div>
+  </div>`;
