@@ -3,7 +3,7 @@ const path = require('path');
 const properties = require('../lib/properties');
 
 module.exports = function({ generate, model, config }) {
-  const tagName = properties(fs.readFileSync(path.join(__dirname, 'tags.properties'), 'utf8'));
+  const tagName = properties(fs.readFileSync(path.join(__dirname, 'tags.txt'), 'utf8'));
   const tags = {};
   Object.values(model.documents).forEach(doc => {
     if (doc.type == 'post' && doc.tags) {

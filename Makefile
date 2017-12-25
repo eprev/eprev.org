@@ -11,7 +11,7 @@ ROLLUPFLAGS := --format=iife --sourcemap
 
 NODE_ENV?=production
 
-MANIFEST_FILE := manifest.properties
+MANIFEST_FILE := manifest.txt
 
 SOURCE_DIRECTORY := source
 JS_DIRECTORY := $(SOURCE_DIRECTORY)/assets/js

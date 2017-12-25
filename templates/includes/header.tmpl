@@ -4,7 +4,7 @@ const properties = require('../lib/properties');
 
 const manifest =
   env === 'production' || env === 'development-build'
-    ? properties(read('../manifest.properties'))
+    ? properties(read('../manifest.txt'))
     : false;
 
 return html`

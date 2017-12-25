@@ -1,6 +1,6 @@
 bin/ssl
 static
 node_modules
-manifest.properties
+manifest.txt
 source/assets/build
 
