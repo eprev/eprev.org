@@ -122,6 +122,12 @@
       </url>
       
       <url>
+        <loc>http://eprev.org/tags/</loc>
+        
+        <changefreq>weekly</changefreq>
+      </url>
+      
+      <url>
         <loc>http://eprev.org/tags/css/</loc>
         
         <changefreq>weekly</changefreq>
@@ -237,12 +243,6 @@
       
       <url>
         <loc>http://eprev.org/tags/worth-watching/</loc>
-        
-        <changefreq>weekly</changefreq>
-      </url>
-      
-      <url>
-        <loc>http://eprev.org/tags/</loc>
         
         <changefreq>weekly</changefreq>
       </url>
