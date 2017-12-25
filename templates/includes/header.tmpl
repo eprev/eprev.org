@@ -2,8 +2,7 @@
 
 const properties = require('../lib/properties');
 
-const manifestContent = read('../manifest.txt');
-const manifest = manifestContent ? properties(manifestContent) : false;
+const manifest = properties(read('../manifest.txt'));
 
 return html`
 <!doctype html>
