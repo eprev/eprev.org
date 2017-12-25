@@ -14,7 +14,7 @@ return html`
   ${site.collections.post.map((post, index) => {
     const excerpt = extractExcerpt(post.content);
     return index < POSTS_ON_PAGE
-      ? render('include/post', {
+      ? render('includes/post', {
           post: {
             ...post,
             headingLevel: 2,

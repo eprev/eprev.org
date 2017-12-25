@@ -2,7 +2,7 @@
 
 const dateFormat = require('../lib/date-format');
 
-return html`${render('include/header')}
+return html`${render('includes/header')}
 
   <h1 class="page__header">${page.title}</h1>
   ${_ => {
@@ -34,4 +34,4 @@ return html`${render('include/header')}
     return res;
   }}
 
-  ${render('include/footer')}`;
+  ${render('includes/footer')}`;
