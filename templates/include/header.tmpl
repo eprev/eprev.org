@@ -2,7 +2,7 @@
 
 const manifest =
   env === 'production' || env === 'development-build'
-    ? JSON.parse(inline('../../../manifest.json'))
+    ? JSON.parse(read('../manifest.json'))
     : false;
 
 return html`
@@ -13,8 +13,8 @@ return html`
   <link rel="shortcut icon" href="${url('assets/4-eyed-32x32.png')}">
   ${
     manifest
-      ? `<style>${inline(
-          '../../../source/assets/build/' + manifest['main.min.css'],
+      ? `<style>${read(
+          '../source/assets/build/' + manifest['main.min.css'],
         )}</style>`
       : `<link href="/assets/main.css" rel="stylesheet">`
   }
@@ -76,7 +76,7 @@ return html`
         };
       `
       }
-      ${inline('../../../source/assets/js/ga.js')}
+      ${read('../source/assets/js/ga.js')}
     </script>
     <div class="page">
       <div class="page__sidebar">

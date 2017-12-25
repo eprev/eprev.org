@@ -41,7 +41,7 @@ function build() {
   function generate(destination, template, page) {
     if (page && page.source) {
       page.content = renderString(page.source, {
-        __name__: page.pathname,
+        __name__: page.__name__,
         env: config.env,
         site: config.site,
       });
