@@ -1,0 +1,33 @@
+/*---
+vim: ft=javascript
+type: system
+pathname: /sitemap.xml
+---*/
+const dateFormat = require('../lib/date-format');
+
+return html`<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+      <loc>${ site.url }/</loc>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+    </url>
+    ${ site.collections.post.map(post => {
+      return `
+      <url>
+        <loc>${ url(post.pathname) }</loc>
+        <lastmod>${ dateFormat(post.date, 'YYYY-MM-DD') }</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+      `;
+    })}
+    ${ site.collections.page.map(page => {
+      return `
+      <url>
+        <loc>${ url(page.pathname) }</loc>
+        ${ page.date ? `<lastmod>${ dateFormat(page.date, 'YYYY-MM-DD') }</lastmod>` : ''}
+        <changefreq>weekly</changefreq>
+      </url>
+      `;
+    })}
+  </urlset>`;
