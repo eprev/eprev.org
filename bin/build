@@ -60,8 +60,8 @@ function build() {
     write(path.join(config.dest, destination), content);
   }
 
-  function processHook(name) {
-    const dirname = path.join(__dirname, '..', 'hooks', name);
+  function processPlugins() {
+    const dirname = path.join(__dirname, '..', 'plugins');
     if (fs.existsSync(dirname)) {
       fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
         const pathname = path.join(dirname, filename);
@@ -74,7 +74,7 @@ function build() {
     (a, b) => b.date - a.date,
   );
 
-  processHook('init');
+  processPlugins();
 
   Object.keys(model.documents).forEach(pathname => {
     const doc = model.documents[pathname];
@@ -91,7 +91,6 @@ function build() {
     }
   });
 
-  processHook('copy');
   console.log(colorize('OK', 'green'));
 }
 

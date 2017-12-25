@@ -74,7 +74,10 @@ build-manifest: compress-assets
 
 build: build-manifest
 
-build-deploy: build
+clean-static:
+	find static -not -name ".git" -delete
+
+build-deploy: reset-static clean-static build
 	find $(ASSETS_DIRECTORY) -type f -not -regex '.*-[a-f0-9]*.*' -delete
 	find $(ASSETS_DIRECTORY) -type f -regex '.*.js.map' -delete
 	NODE_ENV=$(NODE_ENV) bin/build
@@ -85,7 +88,7 @@ reset-static:
 	git --git-dir=static/.git pull origin gh-pages
 	git --git-dir=static/.git clean -fd
 
-deploy: reset-static build-deploy
+deploy: build-deploy
 	git --git-dir=static/.git add -A
 	git --git-dir=static/.git commit -m "Deploy"
 	git --git-dir=static/.git push origin gh-pages
