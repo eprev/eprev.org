@@ -39,13 +39,4 @@ module.exports = function({ generate, model, config }) {
       generate(`/tags/${tag}/index.html`, 'tag', page);
       return page;
     });
-  generate(
-    '/tags/index.html',
-    'tags',
-    model.register({
-      type: 'page',
-      title: 'Tags',
-      pathname: '/tags/',
-    }),
-  );
 };
