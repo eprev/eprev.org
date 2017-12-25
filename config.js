@@ -8,13 +8,13 @@ module.exports = {
   site: {
     title: 'Anton Eprev',
     description:
-      'My name’s Anton Eprev and I’m a web developer working as front-end engineer at Booking.com in Amsterdam, Netherlands.',
+      'My name’s Anton Eprev and I’m a web developer working ' +
+      'as front-end engineer at Booking.com in Amsterdam, Netherlands.',
     url: env === 'production' ? 'http://eprev.org' : 'http://localhost:4000',
     twitter: 'eprev',
   },
-  // timezone: '+0100', // CET
   exclude: ['/gif/src', '/gif/Makefile'],
-  documents: [
+  rewrites: [
     [
       /^\/posts\/(\d{4})-(\d{2})-(\d{2})-([^/.]+)(?:\/(.+)|\.md)?$/,
       (doc, [pathname, yyyy, mm, dd, slug, filename]) => {

@@ -78,8 +78,8 @@ function build() {
 
   processPlugins();
 
-  Object.keys(model.documents).forEach(pathname => {
-    const doc = model.documents[pathname];
+  Object.keys(model.files).forEach(pathname => {
+    const doc = model.files[pathname];
     const destination = doc.pathname.endsWith('/')
       ? doc.pathname + 'index.html'
       : doc.pathname;
