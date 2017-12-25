@@ -11,7 +11,7 @@ ROLLUPFLAGS := --format=iife --sourcemap
 
 NODE_ENV?=production
 
-MANIFEST_FILE := manifest.json
+MANIFEST_FILE := manifest.properties
 
 SOURCE_DIRECTORY := source
 JS_DIRECTORY := $(SOURCE_DIRECTORY)/assets/js
@@ -62,15 +62,12 @@ compress-assets: build-assets
 	$(CSSNANO) $(SOURCE_DIRECTORY)/assets/main.css $(ASSETS_DIRECTORY)/main.min.css
 
 build-manifest: compress-assets
-	@echo -n "{" > $(MANIFEST_FILE)
-	@lf=""; for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
+	@for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
 		hash=$$(md5 -q $(ASSETS_DIRECTORY)/$$filename); \
 		hashed_filename="$${filename%%.*}-$$hash.$${filename#*.}"; \
 		cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed_filename; \
-		if [ ! -z $$lf ]; then echo -n "," >> $(MANIFEST_FILE); fi; lf=$$hash; \
-		echo -n "\"$$filename\": \"$$hashed_filename\"" >> $(MANIFEST_FILE); \
+		echo "$$filename: $$hashed_filename" >> $(MANIFEST_FILE); \
 	done
-	@echo -n "}" >> $(MANIFEST_FILE)
 
 build: build-manifest
 

@@ -1,8 +1,10 @@
 // vim: ft=javascript
 
+const properties = require('../lib/properties');
+
 const manifest =
   env === 'production' || env === 'development-build'
-    ? JSON.parse(read('../manifest.json'))
+    ? properties(read('../manifest.properties'))
     : false;
 
 return html`
@@ -64,7 +66,7 @@ return html`
     <script>
       ${
         env == 'production'
-          ? read('include/ga.js')
+          ? read('includes/ga.js')
           : `
             window.ga = function (...args) {
               console.log('ga', args);
