@@ -64,8 +64,10 @@ function build() {
     const dirname = path.join(__dirname, '..', 'plugins');
     if (fs.existsSync(dirname)) {
       fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
-        const pathname = path.join(dirname, filename);
-        require(pathname)({ generate, model, config });
+        if (filename.endsWith('.plugin.js')) {
+          const pathname = path.join(dirname, filename);
+          require(pathname)({ generate, model, config });
+        }
       });
     }
   }
