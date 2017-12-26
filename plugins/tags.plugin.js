@@ -18,17 +18,16 @@ module.exports = function({ generate, site }) {
       });
     }
   });
-  site.types['tag'] = Object.keys(tags)
-    .map(tag => {
-      const posts = new Collection(tags[tag]);
-      const page = site.register({
-        type: 'page',
-        id: tag,
-        pathname: `/tags/${tag}/`,
-        title: tagName[tag] || tag[0].toUpperCase() + tag.slice(1),
-        posts,
-      });
-      generate(`/tags/${tag}/index.html`, 'tag', page);
-      return page;
+  site.types['tag'] = Object.keys(tags).map(tag => {
+    const posts = new Collection(tags[tag]);
+    const page = site.register({
+      id: tag, // Used for sorting
+      type: 'page', // To make it to sitemap.xml
+      pathname: `/tags/${tag}/`,
+      title: tagName[tag] || tag[0].toUpperCase() + tag.slice(1),
+      posts,
     });
+    generate(`/tags/${tag}/index.html`, 'tag', page);
+    return page;
+  });
 };
