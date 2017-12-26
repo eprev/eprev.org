@@ -11,7 +11,7 @@ return html`
   ${t => {
     let res = '';
     let currYear = '';
-    site.collections.post.forEach(post => {
+    site.byType('post').sortDesc('date').forEach(post => {
       const postYear = post.date.getUTCFullYear();
       if (currYear !== postYear) {
         if (currYear) {

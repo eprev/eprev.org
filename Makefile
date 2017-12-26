@@ -39,7 +39,7 @@ clean-manifest:
 clean-bundles: clean-manifest
 	rm -rf $(BUNDLES_DIR)/*
 
-clean: clean-bundles
+clean: clean-bundles clean-static
 
 $(BUNDLES_DIR)/%.js: $(SRC_JS_DIR)/%.js
 	$(ROLLUP) $(ROLLUPFLAGS) -i $< -o $@

@@ -6,7 +6,7 @@ layout: default
 
 return html`<h1 class="page__header">Tags</h1>
   <ul class="tags">
-  ${site.tags.map(tag => {
+  ${site.byType('tag').sortAsc('id').map(tag => {
     return `
       <li class="tags__item">
         <a href="${tag.pathname}">${tag.title}</a>

@@ -1,11 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 const properties = require('../lib/properties');
+const { Collection } = require('../lib/site');
 
-module.exports = function({ generate, model, config }) {
-  const tagName = properties(fs.readFileSync(path.join(__dirname, 'tags.txt'), 'utf8'));
+module.exports = function({ generate, site }) {
+  const tagName = properties(
+    fs.readFileSync(path.join(__dirname, 'tags.txt'), 'utf8'),
+  );
   const tags = {};
-  Object.values(model.files).forEach(doc => {
+  Object.values(site.files).forEach(doc => {
     if (doc.type == 'post' && doc.tags) {
       doc.tags.forEach(tag => {
         if (!tags[tag]) {
@@ -15,15 +18,12 @@ module.exports = function({ generate, model, config }) {
       });
     }
   });
-  Object.values(tags).forEach(tag => {
-    tag.sort((a, b) => b.date - a.date);
-  });
-  config.site.tags = Object.keys(tags)
-    .sort()
+  site.types['tag'] = Object.keys(tags)
     .map(tag => {
-      const posts = tags[tag];
-      const page = model.register({
+      const posts = new Collection(tags[tag]);
+      const page = site.register({
         type: 'page',
+        id: tag,
         pathname: `/tags/${tag}/`,
         title: tagName[tag] || tag[0].toUpperCase() + tag.slice(1),
         posts,

@@ -8,7 +8,7 @@ return html`${render('includes/header')}
   ${_ => {
     let currYear = '';
     let res = '';
-    page.posts.forEach(post => {
+    page.posts.sortDesc('date').forEach(post => {
       const postYear = post.date.getUTCFullYear();
       if (currYear !== postYear) {
         if (currYear) {

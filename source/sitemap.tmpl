@@ -11,7 +11,7 @@ return html`<?xml version="1.0" encoding="UTF-8"?>
       <changefreq>daily</changefreq>
       <priority>1</priority>
     </url>
-    ${ site.collections.post.map(post => {
+    ${ site.byType('post').map(post => {
       return `
       <url>
         <loc>${ url(post.pathname) }</loc>
@@ -20,7 +20,7 @@ return html`<?xml version="1.0" encoding="UTF-8"?>
       </url>
       `;
     })}
-    ${ site.collections.page.map(page => {
+    ${ site.byType('page').map(page => {
       return `
       <url>
         <loc>${ url(page.pathname) }</loc>

@@ -11,19 +11,20 @@ function extractExcerpt(content) {
 const POSTS_ON_PAGE = 7;
 
 return html`
-  ${site.collections.post.map((post, index) => {
-    const excerpt = extractExcerpt(post.content);
-    return index < POSTS_ON_PAGE
-      ? render('includes/post', {
-          post: {
-            ...post,
-            headingLevel: 2,
-            headingLink: true,
-            excerpt,
-          },
-        })
-      : '';
-  })}
+  ${site
+    .byType('post')
+    .sortDesc('date')
+    .slice(0, POSTS_ON_PAGE)
+    .map(post => {
+      return render('includes/post', {
+        post: {
+          ...post,
+          headingLevel: 2,
+          headingLink: true,
+          excerpt: extractExcerpt(post.content),
+        },
+      });
+    })}
   <div class="post-special-archive">
     <a
       href="/archive/"

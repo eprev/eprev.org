@@ -25,32 +25,28 @@ function createdir(dirname) {
   }, '/');
 }
 
-const { Model } = require('../lib/model');
+const { Site } = require('../lib/site');
 const { render, renderString } = require('../lib/template');
 const colorize = require('../lib/colorize');
 
 function build() {
-  const model = new Model();
+  const site = new Site(config.site);
 
   process.stdout.write('Building... ');
-
-  config.site.time = new Date();
-
-  config.site.collections = model.collections;
 
   function generate(destination, template, page) {
     if (page && page.source) {
       page.content = renderString(page.source, {
         __name__: page.__name__,
         env: config.env,
-        site: config.site,
+        site,
       });
     }
     let content;
     if (template) {
       const context = {
         env: config.env,
-        site: config.site,
+        site,
         page,
       };
       content = render(template, context);
@@ -66,20 +62,16 @@ function build() {
       fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
         if (filename.endsWith('.plugin.js')) {
           const pathname = path.join(dirname, filename);
-          require(pathname)({ generate, model, config });
+          require(pathname)({ generate, site, config });
         }
       });
     }
   }
 
-  model.collections.post = model.collections.post.sort(
-    (a, b) => b.date - a.date,
-  );
-
   processPlugins();
 
-  Object.keys(model.files).forEach(pathname => {
-    const doc = model.files[pathname];
+  Object.keys(site.files).forEach(pathname => {
+    const doc = site.files[pathname];
     const destination = doc.pathname.endsWith('/')
       ? doc.pathname + 'index.html'
       : doc.pathname;
