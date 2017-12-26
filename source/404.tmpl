@@ -9,7 +9,7 @@ return html`
   <p>The page you are looking for might has been removed or something, but whatever, it’s not here.</p>
   <p>In the meantime, you can check out things I write about:</p>
   <ul class="tags">
-  ${site.byType('tag').sortAsc('id').map(tag => {
+  ${site.byType('tag').ascBy('id').map(tag => {
     return `
       <li class="tags__item">
         <a href="${tag.pathname}">${tag.title}</a>

@@ -13,7 +13,7 @@ const POSTS_ON_PAGE = 7;
 return html`
   ${site
     .byType('post')
-    .sortDesc('date')
+    .descBy('date')
     .slice(0, POSTS_ON_PAGE)
     .map(post => {
       return render('includes/post', {

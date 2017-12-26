@@ -10,7 +10,7 @@ return html`
   <h1 class="page__header">Archive</h1>
   ${site
     .byType('post')
-    .sortDesc('date')
+    .descBy('date')
     .reduce(({ year, res }, post, index, posts) => {
       const postYear = post.date.getUTCFullYear();
       if (year !== postYear) {

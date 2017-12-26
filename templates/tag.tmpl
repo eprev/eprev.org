@@ -5,7 +5,7 @@ const dateFormat = require('../lib/date-format');
 return html`${render('includes/header')}
 
   <h1 class="page__header">${page.title}</h1>
-  ${page.posts.sortDesc('date').reduce(
+  ${page.posts.descBy('date').reduce(
     ({ year, res }, post, index, posts) => {
       const postYear = post.date.getUTCFullYear();
       if (year !== postYear) {
