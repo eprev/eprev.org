@@ -1,81 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Anton Eprev</title>
-    <link href="http://eprev.org/atom.xml" rel="self" />
-    <link href="http://eprev.org/" />
-    <updated>2017-12-26T55:19:24+00:00</updated>
-    <id>http://eprev.org/</id>
-    <author>
-      <name>Anton Eprev</name>
-      <email>a.eprev@gmail.com</email>
-    </author>
-    
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2017/06/10/whats-worth-watching/"/>
-        <updated>2017-06-10T00:00:00+00:00</updated>
-        <id>http://eprev.org/2017/06/10/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;Stuart Frisby (Booking.com) on “&lt;a href=&quot;https://www.youtube.com/watch?v=_sx5LV23hIE&quot;&gt;Building a Testing Culture&lt;/a&gt;” (2017): A/B testing at scale of Booking.com – millions of users, thousands of concurrent experiments.&lt;/li&gt;&lt;li&gt;Alex Danilo (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6v4E6oksar0&quot;&gt;Compiling for the Web with WebAssembly&lt;/a&gt;” (Google I/O 2017): what WebAssembly is, the problems it solves, its current state and tools available to try it out.&lt;/li&gt;&lt;li&gt;Philip Walton and Shubhie Panicker (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6Ljq-Jn-EgU&quot;&gt;Web Performance: Leveraging the Metrics that Most Affect User Experience&lt;/a&gt;” (Google I/O 2017): new metrics and platform APIs that enable user-centric performance measurement.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=hpDHwfXbpfg&quot;&gt;Elon Musk Interview&lt;/a&gt; (TED 2017) on human mission to Mars, solar energy, AI, boring the tunnels, technology and progress.&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>Make as a front-end development build tool</title>
-        <link href="http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/"/>
-        <updated>2017-02-20T00:00:00+00:00</updated>
-        <id>http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/</id>
-        <content type="html">&lt;blockquote&gt;&lt;p&gt;Make is turning 40 in 2017.
-&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;This is a practical introduction to Make as a front-end development build tool. I will give the basic understanding of how makefiles work and show how to get the most common front-end tasks done using Make. However I encourage you to read the &lt;a href=&quot;http://www.gnu.org/software/make/manual/make.html&quot;&gt;official manual&lt;/a&gt; through.&lt;/p&gt;&lt;p&gt;Why even bother with Make? Make is a powerful tool which is not limited to building packages. You can use it for anything you do from copying files or running webpack to deploying your project. I use this &lt;a href=&quot;https://raw.githubusercontent.com/eprev/eprev.org/df2e82563c2e444f8116dc4e9fe1f56dcdc56984/Makefile&quot;&gt;makefile&lt;/a&gt; to build and deploy this very web site. These are the tasks that it carries out for me:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Running Jekyll&lt;/li&gt;&lt;li&gt;Watching for changes in JavaScript source files&lt;/li&gt;&lt;li&gt;Building JavaScript bundles&lt;/li&gt;&lt;li&gt;Minifying static assets (CSS, JavaScript and HTML)&lt;/li&gt;&lt;li&gt;Versioning static assets&lt;/li&gt;&lt;li&gt;Deploying the web site to GitHub Pages&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;And that makefile is less than 80 lines of code!&lt;/p&gt;&lt;!-- Read More --&gt;&lt;h2&gt;Makefile basics&lt;/h2&gt;&lt;p&gt;Any makefile consists of “rules”: build targets, their dependencies and series of commands (recipes) to build those targets:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;target …: dependency …
-    command
-    …&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Please note:&lt;/strong&gt; each command must begin with a tab character.&lt;/p&gt;&lt;p&gt;Here’s a simple makefile:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/main.js: src/main.js
-    mkdir -p dist
-    cp src/main.js dist/main.js&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;On the first line we have the &lt;code&gt;dist/main.js&lt;/code&gt; target with the &lt;code&gt;src/main.js&lt;/code&gt; file as the only dependency. In order to build this target, Make will execute &lt;code&gt;mkdir&lt;/code&gt; and &lt;code&gt;cp&lt;/code&gt; commands. The former creates the directory if it doesn’t exist and the later puts a copy of the source file to that directory.&lt;/p&gt;&lt;p&gt;To use this makefile to create the target file, type &lt;code&gt;make&lt;/code&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>Anton Eprev</title>
+<link href="http://eprev.org/atom.xml" rel="self" />
+<link href="http://eprev.org/" />
+<updated>2017-12-30T05:15:52+00:00</updated>
+<id>http://eprev.org/</id>
+<author>
+<name>Anton Eprev</name>
+<email>a.eprev@gmail.com</email>
+</author>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2017/06/10/whats-worth-watching/"/>
+<updated>2017-06-10T00:00:00+00:00</updated>
+<id>http://eprev.org/2017/06/10/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Stuart Frisby (Booking.com) on “&lt;a href=&quot;https://www.youtube.com/watch?v=_sx5LV23hIE&quot;&gt;Building a Testing Culture&lt;/a&gt;” (2017): A/B testing at scale of Booking.com – millions of users, thousands of concurrent experiments.&lt;/li&gt;&lt;li&gt;Alex Danilo (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6v4E6oksar0&quot;&gt;Compiling for the Web with WebAssembly&lt;/a&gt;” (Google I/O 2017): what WebAssembly is, the problems it solves, its current state and tools available to try it out.&lt;/li&gt;&lt;li&gt;Philip Walton and Shubhie Panicker (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6Ljq-Jn-EgU&quot;&gt;Web Performance: Leveraging the Metrics that Most Affect User Experience&lt;/a&gt;” (Google I/O 2017): new metrics and platform APIs that enable user-centric performance measurement.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=hpDHwfXbpfg&quot;&gt;Elon Musk Interview&lt;/a&gt; (TED 2017) on human mission to Mars, solar energy, AI, boring the tunnels, technology and progress.&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
+<entry>
+<title>Make as a front-end development build tool</title>
+<link href="http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/"/>
+<updated>2017-02-20T00:00:00+00:00</updated>
+<id>http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/</id>
+<content type="html">&lt;blockquote&gt;&lt;p&gt;Make is turning 40 in 2017.&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;This is a practical introduction to Make as a front-end development build tool. I will give the basic understanding of how makefiles work and show how to get the most common front-end tasks done using Make. However I encourage you to read the &lt;a href=&quot;http://www.gnu.org/software/make/manual/make.html&quot;&gt;official manual&lt;/a&gt; through.&lt;/p&gt;&lt;p&gt;Why even bother with Make? Make is a powerful tool which is not limited to building packages. You can use it for anything you do from copying files or running webpack to deploying your project. I use this &lt;a href=&quot;https://raw.githubusercontent.com/eprev/eprev.org/df2e82563c2e444f8116dc4e9fe1f56dcdc56984/Makefile&quot;&gt;makefile&lt;/a&gt; to build and deploy this very web site. These are the tasks that it carries out for me:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Running Jekyll&lt;/li&gt;&lt;li&gt;Watching for changes in JavaScript source files&lt;/li&gt;&lt;li&gt;Building JavaScript bundles&lt;/li&gt;&lt;li&gt;Minifying static assets (CSS, JavaScript and HTML)&lt;/li&gt;&lt;li&gt;Versioning static assets&lt;/li&gt;&lt;li&gt;Deploying the web site to GitHub Pages&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;And that makefile is less than 80 lines of code!&lt;/p&gt;&lt;!-- Read More --&gt;&lt;h2&gt;Makefile basics&lt;/h2&gt;&lt;p&gt;Any makefile consists of “rules”: build targets, their dependencies and series of commands (recipes) to build those targets:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;target …: dependency …
+command
+…&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Please note:&lt;/strong&gt; each command must begin with a tab character.&lt;/p&gt;&lt;p&gt;Here’s a simple makefile:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/main.js: src/main.js
 mkdir -p dist
 cp src/main.js dist/main.js&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;If no dependencies have changed after the target was generated, &lt;code&gt;make&lt;/code&gt; won’t update that target. That’s why if you run it twice in a row, &lt;code&gt;make&lt;/code&gt; won’t copy any files on the second run:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
+&lt;/figure&gt;&lt;p&gt;On the first line we have the &lt;code&gt;dist/main.js&lt;/code&gt; target with the &lt;code&gt;src/main.js&lt;/code&gt; file as the only dependency. In order to build this target, Make will execute &lt;code&gt;mkdir&lt;/code&gt; and &lt;code&gt;cp&lt;/code&gt; commands. The former creates the directory if it doesn’t exist and the later puts a copy of the source file to that directory.&lt;/p&gt;&lt;p&gt;To use this makefile to create the target file, type &lt;code&gt;make&lt;/code&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
+mkdir -p dist
+cp src/main.js dist/main.js&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;If no dependencies have changed after the target was generated, &lt;code&gt;make&lt;/code&gt; won’t update that target. That’s why if you run it twice in a row, &lt;code&gt;make&lt;/code&gt; won’t copy any files on the second run:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
 make: 'dist/main.js' is up to date.&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Anyway, it required quite a bit of typing just to copy a file. Our recipe can be improved by using &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Automatic-Variables&quot;&gt;automatic variables&lt;/a&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/main.js: src/main.js
-    mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Where:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;$@&lt;/code&gt; – The file name of the target.&lt;/li&gt;&lt;li&gt;&lt;code&gt;$&amp;lt;&lt;/code&gt; – The file name of the first dependency.&lt;/li&gt;&lt;li&gt;&lt;code&gt;$(@D)&lt;/code&gt; – The directory part of the file name of the target.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;That’s better. Now, what if we have more than one JavaScript file to copy? We can replace our explicit rule with a &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Pattern-Rules&quot;&gt;pattern rule&lt;/a&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/%.js: src/%.js
-    mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Where &lt;code&gt;%&lt;/code&gt; in the target matches any non-empty substring, and &lt;code&gt;%&lt;/code&gt; in the dependency represents the same matched substring in the target.&lt;/p&gt;&lt;p&gt;If you were to run &lt;code&gt;make&lt;/code&gt; this time, it would fail:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
+&lt;/figure&gt;&lt;p&gt;Anyway, it required quite a bit of typing just to copy a file. Our recipe can be improved by using &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Automatic-Variables&quot;&gt;automatic variables&lt;/a&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/main.js: src/main.js
+mkdir -p $(@D)
+cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;Where:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;$@&lt;/code&gt; – The file name of the target.&lt;/li&gt;&lt;li&gt;&lt;code&gt;$&amp;lt;&lt;/code&gt; – The file name of the first dependency.&lt;/li&gt;&lt;li&gt;&lt;code&gt;$(@D)&lt;/code&gt; – The directory part of the file name of the target.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;That’s better. Now, what if we have more than one JavaScript file to copy? We can replace our explicit rule with a &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Pattern-Rules&quot;&gt;pattern rule&lt;/a&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/%.js: src/%.js
+mkdir -p $(@D)
+cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;Where &lt;code&gt;%&lt;/code&gt; in the target matches any non-empty substring, and &lt;code&gt;%&lt;/code&gt; in the dependency represents the same matched substring in the target.&lt;/p&gt;&lt;p&gt;If you were to run &lt;code&gt;make&lt;/code&gt; this time, it would fail:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
 make: *** No targets.  Stop.&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;It doesn’t know which target it should be building now, since there’s no longer explicit rules in the makefile. You would need to pass the desired target name in the arguments:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make dist/main.js
+&lt;/figure&gt;&lt;p&gt;It doesn’t know which target it should be building now, since there’s no longer explicit rules in the makefile. You would need to pass the desired target name in the arguments:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make dist/main.js
 mkdir -p dist
 cp src/main.js dist/main.js&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;This doesn’t seem handy though. Instead, we could define a new rule called &lt;code&gt;all&lt;/code&gt; with the &lt;code&gt;dist/main.js&lt;/code&gt; file as the dependency and an empty recipe:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;all: dist/main.js
-
+&lt;/figure&gt;&lt;p&gt;This doesn’t seem handy though. Instead, we could define a new rule called &lt;code&gt;all&lt;/code&gt; with the &lt;code&gt;dist/main.js&lt;/code&gt; file as the dependency and an empty recipe:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;all: dist/main.js
 dist/%.js: src/%.js
-    mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Now, &lt;code&gt;make&lt;/code&gt; will start with the &lt;code&gt;all&lt;/code&gt; target. In order to “build” it, it has to find the dependency file &lt;code&gt;dist/main.js&lt;/code&gt;, and if the later doesn’t exist, it will look for a rule to create it.&lt;/p&gt;&lt;p&gt;But this doesn’t seem to be a scalable solution either. What if Make could actually find the existing files in the &lt;code&gt;src&lt;/code&gt; directory and based on them create the list of dependencies for the &lt;code&gt;all&lt;/code&gt; target? Now we’re getting somewhere:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;all: $(subst src/,dist/,$(wildcard src/*.js))
-
+mkdir -p $(@D)
+cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;Now, &lt;code&gt;make&lt;/code&gt; will start with the &lt;code&gt;all&lt;/code&gt; target. In order to “build” it, it has to find the dependency file &lt;code&gt;dist/main.js&lt;/code&gt;, and if the later doesn’t exist, it will look for a rule to create it.&lt;/p&gt;&lt;p&gt;But this doesn’t seem to be a scalable solution either. What if Make could actually find the existing files in the &lt;code&gt;src&lt;/code&gt; directory and based on them create the list of dependencies for the &lt;code&gt;all&lt;/code&gt; target? Now we’re getting somewhere:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;all: $(subst src/,dist/,$(wildcard src/*.js))
 dist/%.js: src/%.js
-    mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Those &lt;code&gt;wildcard&lt;/code&gt; and &lt;code&gt;subst&lt;/code&gt; are Make’s &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Functions&quot;&gt;functions&lt;/a&gt;. The former returns a space-separated list of names of existing files that match the given pattern &lt;code&gt;src/*.js&lt;/code&gt;, and the later replaces &lt;code&gt;src/&lt;/code&gt; with &lt;code&gt;dist/&lt;/code&gt; in that list.&lt;/p&gt;&lt;p&gt;And finally, we could use &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Using-Variables&quot;&gt;variables&lt;/a&gt; to store the directory names, so we won’t have to update rules in the makefile if the structure of  our project changes:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;SRC_DIR  := src
+mkdir -p $(@D)
+cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;Those &lt;code&gt;wildcard&lt;/code&gt; and &lt;code&gt;subst&lt;/code&gt; are Make’s &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Functions&quot;&gt;functions&lt;/a&gt;. The former returns a space-separated list of names of existing files that match the given pattern &lt;code&gt;src/*.js&lt;/code&gt;, and the later replaces &lt;code&gt;src/&lt;/code&gt; with &lt;code&gt;dist/&lt;/code&gt; in that list.&lt;/p&gt;&lt;p&gt;And finally, we could use &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Using-Variables&quot;&gt;variables&lt;/a&gt; to store the directory names, so we won’t have to update rules in the makefile if the structure of  our project changes:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;SRC_DIR  := src
 DIST_DIR := dist
-
 all: $(subst $(SRC_DIR)/,$(DIST_DIR)/,$(wildcard $(SRC_DIR)/*.js))
-
 $(DIST_DIR)/%.js: $(SRC_DIR)/%.js
-    mkdir -p $(@D)
-    cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;h2&gt;Make by example&lt;/h2&gt;&lt;p&gt;In the next sections I will explain some parts of the &lt;a href=&quot;https://raw.githubusercontent.com/eprev/eprev.org/df2e82563c2e444f8116dc4e9fe1f56dcdc56984/Makefile&quot;&gt;makefile&lt;/a&gt; that I use to build and deploy this web site. I hope these examples are good enough for you to get started.&lt;/p&gt;&lt;h3&gt;Building JavaScript bundles&lt;/h3&gt;&lt;p&gt;I keep JavaScript files in the &lt;code&gt;js&lt;/code&gt; directory. All the files contained within the &lt;code&gt;js&lt;/code&gt; directory are bundles, that may import other source files from the subdirectories. Basically, the folder structure looks like this:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;.
+mkdir -p $(@D)
+cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;h2&gt;Make by example&lt;/h2&gt;&lt;p&gt;In the next sections I will explain some parts of the &lt;a href=&quot;https://raw.githubusercontent.com/eprev/eprev.org/df2e82563c2e444f8116dc4e9fe1f56dcdc56984/Makefile&quot;&gt;makefile&lt;/a&gt; that I use to build and deploy this web site. I hope these examples are good enough for you to get started.&lt;/p&gt;&lt;h3&gt;Building JavaScript bundles&lt;/h3&gt;&lt;p&gt;I keep JavaScript files in the &lt;code&gt;js&lt;/code&gt; directory. All the files contained within the &lt;code&gt;js&lt;/code&gt; directory are bundles, that may import other source files from the subdirectories. Basically, the folder structure looks like this:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;.
 ├── assets/
 ├── js/
 │   ├── src/
@@ -83,124 +65,100 @@ $(DIST_DIR)/%.js: $(SRC_DIR)/%.js
 │   │   └── polyfills.js
 │   └── main.js
 └── Makefile&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;The &lt;code&gt;js/main.js&lt;/code&gt; file is used as the entry point for &lt;a href=&quot;http://rollupjs.org/&quot;&gt;Rollup&lt;/a&gt; to create the resulting bundle in the &lt;code&gt;assets&lt;/code&gt; directory. I have a target called &lt;code&gt;build-assets&lt;/code&gt; in the makefile that does it:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;ROLLUP := ./node_modules/.bin/rollup
+&lt;/figure&gt;&lt;p&gt;The &lt;code&gt;js/main.js&lt;/code&gt; file is used as the entry point for &lt;a href=&quot;http://rollupjs.org/&quot;&gt;Rollup&lt;/a&gt; to create the resulting bundle in the &lt;code&gt;assets&lt;/code&gt; directory. I have a target called &lt;code&gt;build-assets&lt;/code&gt; in the makefile that does it:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;ROLLUP := ./node_modules/.bin/rollup
 ROLLUPFLAGS := --format=iife --sourcemap
-
 JS_DIRECTORY := js
 ASSETS_DIRECTORY := assets
 JS_ASSETS := $(subst $(JS_DIRECTORY)/,$(ASSETS_DIRECTORY)/,$(wildcard $(JS_DIRECTORY)/*.js))
-
 clean-assets:
-    rm -rf $(ASSETS_DIRECTORY)/*
-
+rm -rf $(ASSETS_DIRECTORY)/*
 $(ASSETS_DIRECTORY)/%.js: $(JS_DIRECTORY)/%.js
-    $(ROLLUP) $(ROLLUPFLAGS) -i $&amp;lt; -o $@
-
+$(ROLLUP) $(ROLLUPFLAGS) -i $&amp;lt; -o $@
 build-assets: clean-assets $(JS_ASSETS)&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;This is very similar to what we have done earlier to copy multiple JavaScript files.&lt;/p&gt;&lt;h3&gt;Watching for changes&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/emcrisostomo/fswatch&quot;&gt;&lt;code&gt;fswatch&lt;/code&gt;&lt;/a&gt; is a cross-platform file change monitor that gets notified when the contents of the particular files or directories are modified. You can use &lt;a href=&quot;https://brew.sh/&quot;&gt;Homebrew&lt;/a&gt; to install it:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install fswatch&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;I have the &lt;code&gt;watch&lt;/code&gt; target in the makefile, which starts &lt;code&gt;fswatch&lt;/code&gt; and will run &lt;code&gt;make build-assets&lt;/code&gt; when any of JavaScript files changes:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;watch:
-    fswatch -o $(JS_DIRECTORY) | xargs -n1 -I{} $(MAKE) build-assets&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;This command performs the following operations:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;The &lt;code&gt;fswatch -o js&lt;/code&gt; command will start watching for file changes in the &lt;code&gt;js&lt;/code&gt; directory. The &lt;code&gt;-o&lt;/code&gt; option tells &lt;code&gt;fswatch&lt;/code&gt; to batch change events.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;xargs -n1&lt;/code&gt; command will execute the &lt;code&gt;$(MAKE) build-assets&lt;/code&gt; command each time &lt;code&gt;fswatch&lt;/code&gt; detects a change.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;-I{}&lt;/code&gt; option will substitute occurrences of &lt;code&gt;{}&lt;/code&gt; in the given command with the string from the standard input. Even though we don't have &lt;code&gt;{}&lt;/code&gt; in the command, without this option &lt;code&gt;xargs&lt;/code&gt; will execute &lt;code&gt;make&lt;/code&gt; with two arguments (instead of one): &lt;code&gt;build-assets&lt;/code&gt; and the string it gets from the standard input.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To start watching for changes, type:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make watch&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;To stop, press &lt;code&gt;Ctrl-C&lt;/code&gt;.&lt;/p&gt;&lt;h3&gt;Minifying static assets&lt;/h3&gt;&lt;p&gt;Here I use &lt;a href=&quot;https://github.com/babel/babili&quot;&gt;Babili&lt;/a&gt; to minify ES6 JavaScript bundles after they are generated by &lt;code&gt;build-assets&lt;/code&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;BABILI := ./node_modules/.bin/babili
+&lt;/figure&gt;&lt;p&gt;This is very similar to what we have done earlier to copy multiple JavaScript files.&lt;/p&gt;&lt;h3&gt;Watching for changes&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/emcrisostomo/fswatch&quot;&gt;&lt;code&gt;fswatch&lt;/code&gt;&lt;/a&gt; is a cross-platform file change monitor that gets notified when the contents of the particular files or directories are modified. You can use &lt;a href=&quot;https://brew.sh/&quot;&gt;Homebrew&lt;/a&gt; to install it:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install fswatch&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;I have the &lt;code&gt;watch&lt;/code&gt; target in the makefile, which starts &lt;code&gt;fswatch&lt;/code&gt; and will run &lt;code&gt;make build-assets&lt;/code&gt; when any of JavaScript files changes:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;watch:
+fswatch -o $(JS_DIRECTORY) | xargs -n1 -I{} $(MAKE) build-assets&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;This command performs the following operations:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;The &lt;code&gt;fswatch -o js&lt;/code&gt; command will start watching for file changes in the &lt;code&gt;js&lt;/code&gt; directory. The &lt;code&gt;-o&lt;/code&gt; option tells &lt;code&gt;fswatch&lt;/code&gt; to batch change events.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;xargs -n1&lt;/code&gt; command will execute the &lt;code&gt;$(MAKE) build-assets&lt;/code&gt; command each time &lt;code&gt;fswatch&lt;/code&gt; detects a change.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;-I{}&lt;/code&gt; option will substitute occurrences of &lt;code&gt;{}&lt;/code&gt; in the given command with the string from the standard input. Even though we don't have &lt;code&gt;{}&lt;/code&gt; in the command, without this option &lt;code&gt;xargs&lt;/code&gt; will execute &lt;code&gt;make&lt;/code&gt; with two arguments (instead of one): &lt;code&gt;build-assets&lt;/code&gt; and the string it gets from the standard input.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To start watching for changes, type:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make watch&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;To stop, press &lt;code&gt;Ctrl-C&lt;/code&gt;.&lt;/p&gt;&lt;h3&gt;Minifying static assets&lt;/h3&gt;&lt;p&gt;Here I use &lt;a href=&quot;https://github.com/babel/babili&quot;&gt;Babili&lt;/a&gt; to minify ES6 JavaScript bundles after they are generated by &lt;code&gt;build-assets&lt;/code&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;BABILI := ./node_modules/.bin/babili
 BABILIFLAGS := --no-comments
-
 compress-assets: build-assets
-    $(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) $(BABILIFLAGS)&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;The same way you can use, for instance, &lt;a href=&quot;http://cssnano.co/&quot;&gt;cssnano&lt;/a&gt; and &lt;a href=&quot;https://github.com/kangax/html-minifier&quot;&gt;html-minifier&lt;/a&gt; to compress CSS and HTML.&lt;/p&gt;&lt;h3&gt;Versioning static assets&lt;/h3&gt;&lt;p&gt;Caching is important, so is a strategy for breaking the cache and making the browsers download updated resources.&lt;/p&gt;&lt;p&gt;The popular approach is to include the hash of the file contents in its name, eg. &lt;code&gt;assets/main-a2f40c.js&lt;/code&gt;. This way it guarantees the file name won't change during the building process if its contents remains the same.&lt;/p&gt;&lt;p&gt;If you choose this approach, you will have to generate the manifest file in order to reference those files in the HTML or CSS. And here is the &lt;code&gt;build-manifest&lt;/code&gt; target in the makefile that does it:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;MANIFEST_FILE := _data/manifest.yml
-
+$(BABILI) $(ASSETS_DIRECTORY) -d $(ASSETS_DIRECTORY) $(BABILIFLAGS)&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;The same way you can use, for instance, &lt;a href=&quot;http://cssnano.co/&quot;&gt;cssnano&lt;/a&gt; and &lt;a href=&quot;https://github.com/kangax/html-minifier&quot;&gt;html-minifier&lt;/a&gt; to compress CSS and HTML.&lt;/p&gt;&lt;h3&gt;Versioning static assets&lt;/h3&gt;&lt;p&gt;Caching is important, so is a strategy for breaking the cache and making the browsers download updated resources.&lt;/p&gt;&lt;p&gt;The popular approach is to include the hash of the file contents in its name, eg. &lt;code&gt;assets/main-a2f40c.js&lt;/code&gt;. This way it guarantees the file name won't change during the building process if its contents remains the same.&lt;/p&gt;&lt;p&gt;If you choose this approach, you will have to generate the manifest file in order to reference those files in the HTML or CSS. And here is the &lt;code&gt;build-manifest&lt;/code&gt; target in the makefile that does it:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;MANIFEST_FILE := _data/manifest.yml
 clean-manifest:
-    rm -f $(MANIFEST_FILE)
-
+rm -f $(MANIFEST_FILE)
 build-manifest: clean-manifest compress-assets
-    @for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
-        hash=$$(md5 -q $(ASSETS_DIRECTORY)/$$filename); \
-        hashed_filename=&quot;$${filename%%.*}-$$hash.$${filename#*.}&quot;; \
-        cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed_filename; \
-        echo &quot;$$filename: $$hashed_filename&quot; &amp;gt;&amp;gt; $(MANIFEST_FILE); \
-    done&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Firstly, Make executes each line in a recipe separately. And if you need to write multi-line command, then you can use line continuations. Make also prints out each command before it gets executed, and the &lt;code&gt;@&lt;/code&gt; character in the start of the line prevents the command from such echoing.&lt;/p&gt;&lt;p&gt;Secondly, the &lt;code&gt;$&lt;/code&gt; character is used to reference variables in makefiles, so does the shell. And in order to get &lt;code&gt;$filename&lt;/code&gt; passed to the shell, rather than having Make trying to find a variable called &lt;code&gt;filename&lt;/code&gt;, we need to write &lt;code&gt;$$filename&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Thus, this is actually what Make will pass to the shell (Bash) when running &lt;code&gt;build-manifest&lt;/code&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;for filename in $( find assets -type f -exec basename {} \; ); do \
-    hash=$(md5 -q assets/$filename); \
-    hashed_filename=&quot;${filename%%.*}-$hash.${filename#*.}&quot;; \
-    cp asstes/$filename assets/$hashed_filename; \
-    echo &quot;$filename: $hashed_filename&quot; &amp;gt;&amp;gt; _data/manifest.yml; \
+@for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
+hash=$$(md5 -q $(ASSETS_DIRECTORY)/$$filename); \
+hashed_filename=&quot;$${filename%%.*}-$$hash.$${filename#*.}&quot;; \
+cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed_filename; \
+echo &quot;$$filename: $$hashed_filename&quot; &amp;gt;&amp;gt; $(MANIFEST_FILE); \
 done&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;This command performs the following operations:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;The &lt;code&gt;find assets -type f -exec basename {} \;&lt;/code&gt; command will find all files in the &lt;code&gt;assets&lt;/code&gt; directory.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;md5 -q assets/$filename&lt;/code&gt; command will calculate a checksum for the given file.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;${filename%%.*}&lt;/code&gt; operation will delete the longest match of &lt;code&gt;.*&lt;/code&gt; from the back of the file name. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;main&lt;/code&gt; part only.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;${filename#*.}&lt;/code&gt; operation will delete the shortest match of &lt;code&gt;*.&lt;/code&gt; from the front of the file name. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;js.map&lt;/code&gt; part only.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;echo &amp;quot;…&amp;quot; &amp;gt;&amp;gt; _data/manifest.yml&lt;/code&gt; command will append a string containing both file names to the manifest file.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Basically, for each file that it finds in the &lt;code&gt;assets&lt;/code&gt; directory, it will calculate a checksum, make a copy of the file and generate the manifest file containing key-value pairs:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;main.js: main-a2f40c69875a90f46f961febe52d4989.js
+&lt;/figure&gt;&lt;p&gt;Firstly, Make executes each line in a recipe separately. And if you need to write multi-line command, then you can use line continuations. Make also prints out each command before it gets executed, and the &lt;code&gt;@&lt;/code&gt; character in the start of the line prevents the command from such echoing.&lt;/p&gt;&lt;p&gt;Secondly, the &lt;code&gt;$&lt;/code&gt; character is used to reference variables in makefiles, so does the shell. And in order to get &lt;code&gt;$filename&lt;/code&gt; passed to the shell, rather than having Make trying to find a variable called &lt;code&gt;filename&lt;/code&gt;, we need to write &lt;code&gt;$$filename&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Thus, this is actually what Make will pass to the shell (Bash) when running &lt;code&gt;build-manifest&lt;/code&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;for filename in $( find assets -type f -exec basename {} \; ); do \
+hash=$(md5 -q assets/$filename); \
+hashed_filename=&quot;${filename%%.*}-$hash.${filename#*.}&quot;; \
+cp asstes/$filename assets/$hashed_filename; \
+echo &quot;$filename: $hashed_filename&quot; &amp;gt;&amp;gt; _data/manifest.yml; \
+done&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;This command performs the following operations:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;The &lt;code&gt;find assets -type f -exec basename {} \;&lt;/code&gt; command will find all files in the &lt;code&gt;assets&lt;/code&gt; directory.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;md5 -q assets/$filename&lt;/code&gt; command will calculate a checksum for the given file.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;${filename%%.*}&lt;/code&gt; operation will delete the longest match of &lt;code&gt;.*&lt;/code&gt; from the back of the file name. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;main&lt;/code&gt; part only.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;${filename#*.}&lt;/code&gt; operation will delete the shortest match of &lt;code&gt;*.&lt;/code&gt; from the front of the file name. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;js.map&lt;/code&gt; part only.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;echo &amp;quot;…&amp;quot; &amp;gt;&amp;gt; _data/manifest.yml&lt;/code&gt; command will append a string containing both file names to the manifest file.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Basically, for each file that it finds in the &lt;code&gt;assets&lt;/code&gt; directory, it will calculate a checksum, make a copy of the file and generate the manifest file containing key-value pairs:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;main.js: main-a2f40c69875a90f46f961febe52d4989.js
 …&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;This is how I use this information later in Jekyll to reference JavaScript bundles:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;{% if site.data.manifest %}
-    &amp;lt;script src=&amp;quot;{{ site.url }}/assets/{{ site.data.manifest['main.js'] }}&amp;quot;&amp;gt;&amp;lt;/srcipt&amp;gt;
+&lt;/figure&gt;&lt;p&gt;This is how I use this information later in Jekyll to reference JavaScript bundles:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;{% if site.data.manifest %}
+&amp;lt;script src=&amp;quot;{{ site.url }}/assets/{{ site.data.manifest['main.js'] }}&amp;quot;&amp;gt;&amp;lt;/srcipt&amp;gt;
 {% else %}
-    &amp;lt;script src=&amp;quot;{{ site.url }}/assets/main.js&amp;quot;&amp;gt;&amp;lt;/srcipt&amp;gt;
+&amp;lt;script src=&amp;quot;{{ site.url }}/assets/main.js&amp;quot;&amp;gt;&amp;lt;/srcipt&amp;gt;
 {% endif %}&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;h3&gt;Deploying to GitHub Pages&lt;/h3&gt;&lt;p&gt;I keep the source code of the web site in the &lt;code&gt;master&lt;/code&gt; branch and the contents of the &lt;code&gt;_site&lt;/code&gt; directory in the &lt;code&gt;gh-pages&lt;/code&gt; branch. Thus, to publish a new version of the web site I just need to push changes in the &lt;code&gt;_site&lt;/code&gt; directory to GitHub. To automate this I created a target called &lt;code&gt;deploy&lt;/code&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;build-deploy: build
-    …
-    JEKYLL_ENV=production bundle exec jekyll build
-    …
-
+&lt;/figure&gt;&lt;h3&gt;Deploying to GitHub Pages&lt;/h3&gt;&lt;p&gt;I keep the source code of the web site in the &lt;code&gt;master&lt;/code&gt; branch and the contents of the &lt;code&gt;_site&lt;/code&gt; directory in the &lt;code&gt;gh-pages&lt;/code&gt; branch. Thus, to publish a new version of the web site I just need to push changes in the &lt;code&gt;_site&lt;/code&gt; directory to GitHub. To automate this I created a target called &lt;code&gt;deploy&lt;/code&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;build-deploy: build
+…
+JEKYLL_ENV=production bundle exec jekyll build
+…
 reset-site:
-    git --git-dir=_site/.git reset --hard origin/gh-pages
-    git --git-dir=_site/.git pull origin gh-pages
-
+git --git-dir=_site/.git reset --hard origin/gh-pages
+git --git-dir=_site/.git pull origin gh-pages
 deploy: reset-site build-deploy
-    git --git-dir=_site/.git add -A
-    git --git-dir=_site/.git commit -m &quot;Deploy&quot;
-    git --git-dir=_site/.git push origin gh-pages&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;h2&gt;Conclusion&lt;/h2&gt;&lt;p&gt;Make is a great cross-platform tool suitable for projects of different sizes and complexities. More powerful and expressive in a certain way than NPM scripts, Grunt or Gulp.&lt;/p&gt;&lt;p&gt;And I hope this article has sparked your interest in learning and getting out of your comfort zone as a front-end developer.&lt;/p&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>How to detect if CSS transforms are supported on SVG</title>
-        <link href="http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/"/>
-        <updated>2017-01-05T00:00:00+00:00</updated>
-        <id>http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/</id>
-        <content type="html">&lt;p&gt;If you're reading this, then apparently you already know that &lt;a href=&quot;https://developer.microsoft.com/en-us/microsoft-edge/platform/status/supportcsstransformsonsvg/&quot;&gt;IE and Edge don’t support CSS transformations
+git --git-dir=_site/.git add -A
+git --git-dir=_site/.git commit -m &quot;Deploy&quot;
+git --git-dir=_site/.git push origin gh-pages&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;h2&gt;Conclusion&lt;/h2&gt;&lt;p&gt;Make is a great cross-platform tool suitable for projects of different sizes and complexities. More powerful and expressive in a certain way than NPM scripts, Grunt or Gulp.&lt;/p&gt;&lt;p&gt;And I hope this article has sparked your interest in learning and getting out of your comfort zone as a front-end developer.&lt;/p&gt;</content>
+</entry>
+<entry>
+<title>How to detect if CSS transforms are supported on SVG</title>
+<link href="http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/"/>
+<updated>2017-01-05T00:00:00+00:00</updated>
+<id>http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/</id>
+<content type="html">&lt;p&gt;If you're reading this, then apparently you already know that &lt;a href=&quot;https://developer.microsoft.com/en-us/microsoft-edge/platform/status/supportcsstransformsonsvg/&quot;&gt;IE and Edge don’t support CSS transformations
 on SVG&lt;/a&gt;
 and neither apply CSS transitions. Moreover, SVG animations might not be an option, since &lt;a href=&quot;https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/5o0yiO440LM%5B1-25%5D&quot;&gt;Chrome
 deprecated SMIL&lt;/a&gt;
 in favor of CSS animations. How come? Probably you’re thinking now of using CSS when it’s available
 and falling back to SVG &lt;code&gt;transform&lt;/code&gt; attribute.&lt;/p&gt;&lt;!-- Read More --&gt;&lt;p&gt;So how to check whether or not the browser supports CSS transforms on SVG elements? I came up with
 the following approach:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;const supportsCSSTransformsOnSVG = (() =&amp;gt; {
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('viewBox', '0 0 2 2');
-  Object.assign(svg.style, {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '2px',
-    height: '2px',
-  });
-  svg.innerHTML = '&amp;lt;rect width=&quot;1&quot; height=&quot;1&quot;/&amp;gt;';
-  document.body.appendChild(svg);
-  const result = document.elementFromPoint(1, 1) !== svg;
-  svg.parentNode.removeChild(svg);
-  return result;
+const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+svg.setAttribute('viewBox', '0 0 2 2');
+Object.assign(svg.style, {
+position: 'absolute',
+top: 0,
+left: 0,
+width: '2px',
+height: '2px',
+});
+svg.innerHTML = '&amp;lt;rect width=&quot;1&quot; height=&quot;1&quot;/&amp;gt;';
+document.body.appendChild(svg);
+const result = document.elementFromPoint(1, 1) !== svg;
+svg.parentNode.removeChild(svg);
+return result;
 })();&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Which can be used later on:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;if (supportsCSSTransformsOnSVG) {
-  el.style.transform = `translate(${dx}px, ${dy}px)`;
+&lt;/figure&gt;&lt;p&gt;Which can be used later on:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;if (supportsCSSTransformsOnSVG) {
+el.style.transform = `translate(${dx}px, ${dy}px)`;
 } else {
-  el.setAttribute('transform', `translate(${dx} ${dy})`);
+el.setAttribute('transform', `translate(${dx} ${dy})`);
 }&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>The importance of HTML character encoding</title>
-        <link href="http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/"/>
-        <updated>2017-01-04T00:00:00+00:00</updated>
-        <id>http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/</id>
-        <content type="html">&lt;p&gt;W3C/WHATWG HTML5 specification states:&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;A character encoding declaration is required (…) even when all characters
+&lt;/figure&gt;</content>
+</entry>
+<entry>
+<title>The importance of HTML character encoding</title>
+<link href="http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/"/>
+<updated>2017-01-04T00:00:00+00:00</updated>
+<id>http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/</id>
+<content type="html">&lt;p&gt;W3C/WHATWG HTML5 specification states:&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;A character encoding declaration is required (…) even when all characters
 are in the ASCII range, because a character encoding is needed to process
 non-ASCII characters entered by the user in forms, in URLs generated
 by scripts, and so forth.&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;When the character encoding is not specified, the browser is left to determine
@@ -221,79 +179,74 @@ server&lt;/a&gt; which
 flushes early-head of the document immediately and waits for a second before
 sending the rest of it.  The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the
 &lt;code&gt;async&lt;/code&gt; attribute and a &lt;code&gt;link&lt;/code&gt; tag to the external stylesheet.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;lt;script src=&quot;…&quot; async
-  onload=&quot;console.log({scripts: performance.now()})&quot;&amp;gt;&lt;span&gt;&lt;/span&gt;&amp;lt;/script&amp;gt;
+onload=&quot;console.log({scripts: performance.now()})&quot;&amp;gt;&lt;span&gt;&lt;/span&gt;&amp;lt;/script&amp;gt;
 &amp;lt;link href=&quot;…&quot; rel=&quot;stylesheet&quot;
-  onload=&quot;console.log({styles: performance.now()})&quot;&amp;gt;
+onload=&quot;console.log({styles: performance.now()})&quot;&amp;gt;
 &amp;lt;script&amp;gt;
-  document.addEventListener(
-    'DOMContentLoaded',
-    () =&amp;gt; console.log({DOMContentLoaded: performance.now()})
-  );
+document.addEventListener(
+ 'DOMContentLoaded',
+() =&amp;gt; console.log({DOMContentLoaded: performance.now()})
+);
 &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              &lt;figcaption&gt;Part of the early-head contents.&lt;/figcaption&gt;
-            &lt;/figure&gt;&lt;p&gt;If the character encoding is specified, then the browser (Firefox in this
+&lt;figcaption&gt;Part of the early-head contents.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;If the character encoding is specified, then the browser (Firefox in this
 particular case) begins parsing HTML immediately along with loading external
 resources. On the image below, you can see that the script and the stylesheet
-have been loaded before DOM becomes interactive.&lt;/p&gt;&lt;p&gt;&lt;figure&gt;
-              &lt;div&gt;
-              &lt;a href=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-specified.png&quot;&gt;
-              &lt;img src=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is
+have been loaded before DOM becomes interactive.&lt;/p&gt;&lt;figure&gt;
+&lt;div&gt;
+&lt;a href=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-specified.png&quot;&gt;
+&lt;img src=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is
 specified&quot;&gt;
-              &lt;/a&gt;
-              &lt;/div&gt;
-              &lt;figcaption&gt;When the character encoding is
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;When the character encoding is
 specified, Firefox starts loading styles and scripts as it is parsing the
 HTML.&lt;/figcaption&gt;
-              &lt;/figure&gt;
-&lt;/p&gt;&lt;p&gt;When the character encoding is not specified, then the browser starts parsing
+&lt;/figure&gt;&lt;p&gt;When the character encoding is not specified, then the browser starts parsing
 HTML only after it gets the rest of the document (the first 1024 bytes),
-causing a delay in loading scripts and stylesheets.&lt;/p&gt;&lt;p&gt;&lt;figure&gt;
-              &lt;div&gt;
-              &lt;a href=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-not-specified.png&quot;&gt;
-              &lt;img src=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not
+causing a delay in loading scripts and stylesheets.&lt;/p&gt;&lt;figure&gt;
+&lt;div&gt;
+&lt;a href=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-not-specified.png&quot;&gt;
+&lt;img src=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-not-specified.png&quot; alt=&quot;Firefox Web Console: Character encoding is not
 specified&quot;&gt;
-              &lt;/a&gt;
-              &lt;/div&gt;
-              &lt;figcaption&gt;When the character encoding is not
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;When the character encoding is not
 specified, Firefox waits for the first 1024 bytes before it begins loading
 styles and scripts.&lt;/figcaption&gt;
-              &lt;/figure&gt;
-&lt;/p&gt;&lt;p&gt;Safari shares similar to Firefox behavior. Things are quite different with
+&lt;/figure&gt;&lt;p&gt;Safari shares similar to Firefox behavior. Things are quite different with
 Chrome and Edge, they begin parsing HTML right away even if the character
-encoding is not specified or incorrect.&lt;/p&gt;&lt;p&gt;&lt;figure&gt;
-              &lt;div&gt;
-              &lt;a href=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/chrome-charset-is-not-specified.png&quot;&gt;
-              &lt;img src=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not
+encoding is not specified or incorrect.&lt;/p&gt;&lt;figure&gt;
+&lt;div&gt;
+&lt;a href=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/chrome-charset-is-not-specified.png&quot;&gt;
+&lt;img src=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/chrome-charset-is-not-specified.png&quot; alt=&quot;Chrome Console: Character encoding is not
 specified&quot;&gt;
-              &lt;/a&gt;
-              &lt;/div&gt;
-              &lt;figcaption&gt;Chrome starts parsing the HTML
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;Chrome starts parsing the HTML
 and loading styles and scripts as it is loading the document even if the
 character encoding is not specified.&lt;/figcaption&gt;
-              &lt;/figure&gt;
-&lt;/p&gt;&lt;p&gt;What’s incorrect encoding? HTML5 specification says that user agents must not
+&lt;/figure&gt;&lt;p&gt;What’s incorrect encoding? HTML5 specification says that user agents must not
 support the CESU-8, UTF-7, BOCU-1, SCSU, EBCDIC and UTF-32 encodings. For that
 reason, Firefox and Safari won’t parse the document UTF-7 encoded until they
 get the first 1024 bytes.&lt;/p&gt;&lt;p&gt;On a final note, it’s important that the character set specified in the
 &lt;code&gt;Content-Type&lt;/code&gt; header or &lt;code&gt;META&lt;/code&gt; tag matches the encoding actually used for the
 document. If the browser detects an incorrect or mismatched encoding, it can
 re-parse the document with the real encoding resulting in additional delays.&lt;/p&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2016/08/03/whats-worth-watching/"/>
-        <updated>2016-08-03T00:00:00+00:00</updated>
-        <id>http://eprev.org/2016/08/03/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;Alexander Bruce on “&lt;a href=&quot;http://www.gdcvault.com/play/1020776/&quot;&gt;An Overnight Success, Seven Years in the Making&lt;/a&gt;” (2014): a story of creating an (successful) indie game, which shows how high the cost of success can be (financially and psychologically).&lt;/li&gt;&lt;li&gt;Jeffrey Dean (Google) on “&lt;a href=&quot;https://youtu.be/modXC5IWTJI&quot;&gt;Building Software Systems At Google and Lessons Learned&lt;/a&gt;” (2010): interesting talk on how their technology had evolved over time.&lt;/li&gt;&lt;li&gt;Mathias Bynens (Opera) on “&lt;a href=&quot;https://vimeo.com/163113209&quot;&gt;Front-End Performance: The Dark Side&lt;/a&gt;” (2016): performance-related APIs can have a negative security impact, making some timing attacks possible on the web.&lt;/li&gt;&lt;li&gt;Mark Ferrari (Terrible Toybox) on “&lt;a href=&quot;http://gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics&quot;&gt;8 Bit &amp;amp; ‘8 Bitish’ Graphics-Outside the Box&lt;/a&gt;” (2016): how 8 bit graphics are being made nowadays and back then, using of pallet shifting to create complex animation effects.&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2016/07/23/whats-worth-watching/"/>
-        <updated>2016-07-23T00:00:00+00:00</updated>
-        <id>http://eprev.org/2016/07/23/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;Ben Maurer (Facebook) on “&lt;a href=&quot;https://youtu.be/MlNGomWegCE&quot;&gt;Web speed @ Facebook&lt;/a&gt;” (2016): shipping the page incrementally,
+</entry>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2016/08/03/whats-worth-watching/"/>
+<updated>2016-08-03T00:00:00+00:00</updated>
+<id>http://eprev.org/2016/08/03/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Alexander Bruce on “&lt;a href=&quot;http://www.gdcvault.com/play/1020776/&quot;&gt;An Overnight Success, Seven Years in the Making&lt;/a&gt;” (2014): a story of creating an (successful) indie game, which shows how high the cost of success can be (financially and psychologically).&lt;/li&gt;&lt;li&gt;Jeffrey Dean (Google) on “&lt;a href=&quot;https://youtu.be/modXC5IWTJI&quot;&gt;Building Software Systems At Google and Lessons Learned&lt;/a&gt;” (2010): interesting talk on how their technology had evolved over time.&lt;/li&gt;&lt;li&gt;Mathias Bynens (Opera) on “&lt;a href=&quot;https://vimeo.com/163113209&quot;&gt;Front-End Performance: The Dark Side&lt;/a&gt;” (2016): performance-related APIs can have a negative security impact, making some timing attacks possible on the web.&lt;/li&gt;&lt;li&gt;Mark Ferrari (Terrible Toybox) on “&lt;a href=&quot;http://gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics&quot;&gt;8 Bit &amp;amp; ‘8 Bitish’ Graphics-Outside the Box&lt;/a&gt;” (2016): how 8 bit graphics are being made nowadays and back then, using of pallet shifting to create complex animation effects.&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2016/07/23/whats-worth-watching/"/>
+<updated>2016-07-23T00:00:00+00:00</updated>
+<id>http://eprev.org/2016/07/23/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Ben Maurer (Facebook) on “&lt;a href=&quot;https://youtu.be/MlNGomWegCE&quot;&gt;Web speed @ Facebook&lt;/a&gt;” (2016): shipping the page incrementally,
 packaging resources based on their usage patterns, early flushing, deferred dependencies, performance measurements,
 JavaScript’s lazy parsing.&lt;/li&gt;&lt;li&gt;Matthew Flaming (New Relic) on “&lt;a href=&quot;https://youtu.be/SH8nNANNQ98&quot;&gt;Building a system that never stops&lt;/a&gt;” (2016):
 what challenges come with the scaling systems?&lt;/li&gt;&lt;li&gt;Pual Lewis (Google) on “&lt;a href=&quot;https://youtu.be/thNyy5eYfbc&quot;&gt;High performance web user interfaces&lt;/a&gt;” (2016):
@@ -301,30 +254,27 @@ applying RAIL (Response-Animation-Idle-Load) principles in practice.&lt;/li&gt;&
 there is no need to have a gazillion of apps installed on your smartphone in order to interact with things around you.&lt;/li&gt;&lt;li&gt;Guy Podjarny (Snyk) &amp;amp; Assaf Hefet (Snyk)
 on “&lt;a href=&quot;https://youtu.be/iXA14OFXxZA&quot;&gt;Tracking Vulnerabilities in Your Third Party Code&lt;/a&gt;” (2015): these guys built a tool
 that helps you track and fix vulnerabilities in your Node.js application dependencies.&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2016/01/26/whats-worth-watching/"/>
-        <updated>2016-01-26T00:00:00+00:00</updated>
-        <id>http://eprev.org/2016/01/26/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;Yunong Xiao (Netflix) on “&lt;a href=&quot;https://youtu.be/O1YP8QP9gLA&quot;&gt;Debugging Node.js in Production&lt;/a&gt;” (2015): what Netflix uses in production to diagnose and fix performance issues, bugs and memory leaks in Node.js applications.&lt;/li&gt;&lt;li&gt;Dan Abramov on “&lt;a href=&quot;https://youtu.be/xsSnOQynTHs&quot;&gt;Live React: Hot Reloading with Time Travel&lt;/a&gt;” (2015): a story about Redux.&lt;/li&gt;&lt;li&gt;“&lt;a href=&quot;https://youtu.be/ttavBa4giPc&quot;&gt;Google I/O 2011: The Secrets of Google Pac-Man: A Game Show&lt;/a&gt;” (2011): the entertaining story behind Google Pac-Man doodle.&lt;/li&gt;&lt;li&gt;Ernie Miller on “&lt;a href=&quot;https://youtu.be/7MeBuDLbF98&quot;&gt;How to Build a Skyscraper&lt;/a&gt;” (2015): what we can learn from skyscraper-building experience.&lt;/li&gt;&lt;li&gt;Mathias Bynens (Opera) on “&lt;a href=&quot;https://youtu.be/0Bj4etSa84c&quot;&gt;RegExp.prototype.unicode&lt;/a&gt;” (2015): what Unicode-related problems are in JavaScript regular expressions and how ES6 helps solve these issues.&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2016/01/15/whats-worth-watching/"/>
-        <updated>2016-01-15T00:00:00+00:00</updated>
-        <id>http://eprev.org/2016/01/15/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;Lee Byron (Facebook) on “&lt;a href=&quot;http://youtu.be/WQLzZf34FJ8&quot;&gt;Exploring GraphQL&lt;/a&gt;” (2015): a data fetching language that is widely used at Facebook.&lt;/li&gt;&lt;li&gt;Interesting session on “&lt;a href=&quot;http://youtu.be/OcFOWIq3cIc&quot;&gt;Making Robots&lt;/a&gt;” at &lt;a href=&quot;http://www.fab11.org/&quot;&gt;Fab11 conference&lt;/a&gt;: MIT, Harvard, DARPA, Boston Dynamics and Kiva Systems.&lt;/li&gt;&lt;li&gt;Rachel Potvin (Google) on “&lt;a href=&quot;http://youtu.be/W71BTkUbdqE&quot;&gt;Why Google Stores Billions of Lines of Code in a Single Repository&lt;/a&gt;” (2015): advantages and trade-offs of having a giant single monolithic source repository.&lt;/li&gt;&lt;li&gt;Christian Johansen on “&lt;a href=&quot;http://youtu.be/wA98Coal4jk&quot;&gt;Immutable JavaScript: You can’t change this&lt;/a&gt;” (2015): Immutability in React.&lt;/li&gt;&lt;li&gt;Lea Verou on making CSS pie charts in “&lt;a href=&quot;http://youtu.be/s4HdeJctq-A&quot;&gt;The Missing Slice&lt;/a&gt;” (2015).&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>Change OS X network location based on the Wi-Fi network name</title>
-        <link href="http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/"/>
-        <updated>2015-08-06T00:00:00+00:00</updated>
-        <id>http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/</id>
-        <content type="html">&lt;p&gt;You might have heard about &lt;a href=&quot;https://support.apple.com/en-us/HT202480&quot;&gt;Network locations&lt;/a&gt; in OS X.
+</entry>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2016/01/26/whats-worth-watching/"/>
+<updated>2016-01-26T00:00:00+00:00</updated>
+<id>http://eprev.org/2016/01/26/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Yunong Xiao (Netflix) on “&lt;a href=&quot;https://youtu.be/O1YP8QP9gLA&quot;&gt;Debugging Node.js in Production&lt;/a&gt;” (2015): what Netflix uses in production to diagnose and fix performance issues, bugs and memory leaks in Node.js applications.&lt;/li&gt;&lt;li&gt;Dan Abramov on “&lt;a href=&quot;https://youtu.be/xsSnOQynTHs&quot;&gt;Live React: Hot Reloading with Time Travel&lt;/a&gt;” (2015): a story about Redux.&lt;/li&gt;&lt;li&gt;“&lt;a href=&quot;https://youtu.be/ttavBa4giPc&quot;&gt;Google I/O 2011: The Secrets of Google Pac-Man: A Game Show&lt;/a&gt;” (2011): the entertaining story behind Google Pac-Man doodle.&lt;/li&gt;&lt;li&gt;Ernie Miller on “&lt;a href=&quot;https://youtu.be/7MeBuDLbF98&quot;&gt;How to Build a Skyscraper&lt;/a&gt;” (2015): what we can learn from skyscraper-building experience.&lt;/li&gt;&lt;li&gt;Mathias Bynens (Opera) on “&lt;a href=&quot;https://youtu.be/0Bj4etSa84c&quot;&gt;RegExp.prototype.unicode&lt;/a&gt;” (2015): what Unicode-related problems are in JavaScript regular expressions and how ES6 helps solve these issues.&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2016/01/15/whats-worth-watching/"/>
+<updated>2016-01-15T00:00:00+00:00</updated>
+<id>http://eprev.org/2016/01/15/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Lee Byron (Facebook) on “&lt;a href=&quot;http://youtu.be/WQLzZf34FJ8&quot;&gt;Exploring GraphQL&lt;/a&gt;” (2015): a data fetching language that is widely used at Facebook.&lt;/li&gt;&lt;li&gt;Interesting session on “&lt;a href=&quot;http://youtu.be/OcFOWIq3cIc&quot;&gt;Making Robots&lt;/a&gt;” at &lt;a href=&quot;http://www.fab11.org/&quot;&gt;Fab11 conference&lt;/a&gt;: MIT, Harvard, DARPA, Boston Dynamics and Kiva Systems.&lt;/li&gt;&lt;li&gt;Rachel Potvin (Google) on “&lt;a href=&quot;http://youtu.be/W71BTkUbdqE&quot;&gt;Why Google Stores Billions of Lines of Code in a Single Repository&lt;/a&gt;” (2015): advantages and trade-offs of having a giant single monolithic source repository.&lt;/li&gt;&lt;li&gt;Christian Johansen on “&lt;a href=&quot;http://youtu.be/wA98Coal4jk&quot;&gt;Immutable JavaScript: You can’t change this&lt;/a&gt;” (2015): Immutability in React.&lt;/li&gt;&lt;li&gt;Lea Verou on making CSS pie charts in “&lt;a href=&quot;http://youtu.be/s4HdeJctq-A&quot;&gt;The Missing Slice&lt;/a&gt;” (2015).&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
+<entry>
+<title>Change OS X network location based on the Wi-Fi network name</title>
+<link href="http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/"/>
+<updated>2015-08-06T00:00:00+00:00</updated>
+<id>http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/</id>
+<content type="html">&lt;p&gt;You might have heard about &lt;a href=&quot;https://support.apple.com/en-us/HT202480&quot;&gt;Network locations&lt;/a&gt; in OS X.
 It allows you to have different network configurations and quickly switch between them. For instance,
 if you have to use a corporate proxy server at work and you don’t need it when you get back home,
 you can create a new location named “Work” (with any necessary network proxy settings) and keep
@@ -340,126 +290,102 @@ If you connect to a wireless network that you don’t have a specific location f
 the default location “Automatic” will be used.&lt;/p&gt;&lt;p&gt;Then, we need to install &lt;a href=&quot;https://github.com/eprev/locationchanger&quot;&gt;&lt;code&gt;locationchanger&lt;/code&gt;&lt;/a&gt;. It‘s a tool
 that watches for wireless network changes and responds accordingly. Its installation process
 is extremely easy:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;It will ask only for a root password to install &lt;code&gt;locationchanger&lt;/code&gt; service. Now, every time you connect to
+&lt;/figure&gt;&lt;p&gt;It will ask only for a root password to install &lt;code&gt;locationchanger&lt;/code&gt; service. Now, every time you connect to
 a wireless network it will change the location to either the corresponding or the default one.&lt;/p&gt;&lt;p&gt;That’s not all. We still want to change Security Preferences automatically when the location
 has been changed. Let’s create scripts that will be executed every time it happens. One is
 for “Corp Wi-Fi” location:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;#!/usr/bin/env bash
-
 # Require password immediately after sleep or screen saver
 osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to true'&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Another is for the default location:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;#!/usr/bin/env bash
-
+&lt;/figure&gt;&lt;p&gt;Another is for the default location:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;#!/usr/bin/env bash
 # Don’t require password after sleep or screen saver
 osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Save them as &lt;code&gt;~/.locations/Corp Wi-Fi&lt;/code&gt; and &lt;code&gt;~/.locations/Automatic&lt;/code&gt; respectively. Voilà!
+&lt;/figure&gt;&lt;p&gt;Save them as &lt;code&gt;~/.locations/Corp Wi-Fi&lt;/code&gt; and &lt;code&gt;~/.locations/Automatic&lt;/code&gt; respectively. Voilà!
 You’re not limited by changing only the security preferences, you can do whatever
 you want to…&lt;/p&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>Converting PNG to SVG</title>
-        <link href="http://eprev.org/2015/05/27/converting-png-to-svg/"/>
-        <updated>2015-05-27T00:00:00+00:00</updated>
-        <id>http://eprev.org/2015/05/27/converting-png-to-svg/</id>
-        <content type="html">&lt;p&gt;Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called &lt;a href=&quot;http://potrace.sourceforge.net/&quot;&gt;Potrace&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;Installation&lt;/h2&gt;&lt;p&gt;It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install potrace&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;The manual installation is super easy though. For OS X do the following:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ cd potrace-1.12.mac-i386
+</entry>
+<entry>
+<title>Converting PNG to SVG</title>
+<link href="http://eprev.org/2015/05/27/converting-png-to-svg/"/>
+<updated>2015-05-27T00:00:00+00:00</updated>
+<id>http://eprev.org/2015/05/27/converting-png-to-svg/</id>
+<content type="html">&lt;p&gt;Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called &lt;a href=&quot;http://potrace.sourceforge.net/&quot;&gt;Potrace&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;Installation&lt;/h2&gt;&lt;p&gt;It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install potrace&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;The manual installation is super easy though. For OS X do the following:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ cd potrace-1.12.mac-i386
 $ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
 $ sudo cp mkbitmap potrace /usr/local/bin&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;h2&gt;Usage&lt;/h2&gt;&lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org/&quot;&gt;ImageMagick&lt;/a&gt;’s &lt;code&gt;convert&lt;/code&gt; program. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install imagemagick&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Alright. Let's say you’ve got this image (by &lt;a href=&quot;http://nationofamanda-blog.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:&lt;/p&gt;&lt;figure&quot;&gt;
-              &lt;div&gt;
-              
-              &lt;img src=&quot;http://eprev.org/2015/05/27/converting-png-to-svg/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;
-              
-              &lt;/div&gt;
-              &lt;figcaption&gt;Original black-and-white PNG image.&lt;/figcaption&gt;
-              &lt;/figure&gt;&lt;p&gt;All you need to do is to run this:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ convert -alpha remove party-never.png pgm: \
+&lt;/figure&gt;&lt;h2&gt;Usage&lt;/h2&gt;&lt;p&gt;Potrace works with bitmaps (PBM, PGM, PPM, or BMP format). It means you have to convert the image you have to one of those formats. We will be using &lt;a href=&quot;http://www.imagemagick.org/&quot;&gt;ImageMagick&lt;/a&gt;’s &lt;code&gt;convert&lt;/code&gt; program. If you don’t have it installed, you can use Homebrew to get it:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install imagemagick&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+&lt;/figure&gt;&lt;p&gt;Alright. Let's say you’ve got this image (by &lt;a href=&quot;http://nationofamanda-blog.tumblr.com/&quot;&gt;Nation of Amanda&lt;/a&gt;) in PNG format with transparency:&lt;/p&gt;&lt;figure&quot;&gt;
+&lt;div&gt;
+&lt;img src=&quot;http://eprev.org/2015/05/27/converting-png-to-svg/party-never.png&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;Original black-and-white PNG image.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;All you need to do is to run this:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ convert -alpha remove party-never.png pgm: \
 | mkbitmap -f 32 -t 0.4 - -o - \
 | potrace --svg -o party-never.svg&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of &lt;code&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code&gt;-f&lt;/code&gt;) and thresholding (&lt;code&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;&lt;p&gt;As a result you might have now:&lt;/p&gt;&lt;figure&quot;&gt;
-              &lt;div&gt;
-              
-              &lt;img src=&quot;http://eprev.org/2015/05/27/converting-png-to-svg/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;
-              
-              &lt;/div&gt;
-              &lt;figcaption&gt;Generated SVG image (zoom the page in).&lt;/figcaption&gt;
-              &lt;/figure&gt;&lt;p&gt;That’s it.&lt;/p&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2015/03/29/whats-worth-watching/"/>
-        <updated>2015-03-29T00:00:00+00:00</updated>
-        <id>http://eprev.org/2015/03/29/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;“&lt;a href=&quot;https://www.youtube.com/watch?v=X0VH78ye4yY&quot;&gt;Big Code: Developer Infrastructure at Facebook’s Scale&lt;/a&gt;” (2015): what is it like to be an engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.&lt;/li&gt;&lt;li&gt;Zach Holman (GitHub) on “&lt;a href=&quot;http://www.bbc.co.uk/academy/technology/article/art20150206154333467&quot;&gt;Move fast and break nothing&lt;/a&gt;” (2014): how to ship software changes fast and not to break things.&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2015/01/26/whats-worth-watching/"/>
-        <updated>2015-01-26T00:00:00+00:00</updated>
-        <id>http://eprev.org/2015/01/26/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;Drew Petersen (Spotify) on “&lt;a href=&quot;https://www.youtube.com/watch?v=uNVP5jDOVAY&quot;&gt;Developing Games Using Data not Trees&lt;/a&gt;” (2014): cons and pros of using data-oriented approach in game development.&lt;/li&gt;&lt;li&gt;Daniel Espeset (Etsy) on “&lt;a href=&quot;https://vimeo.com/109912254&quot;&gt;The role of Front-end Infrastructure at Etsy&lt;/a&gt;” (2014): continuous and experimentation-driven development, instruments that help to delete old code constantly.&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>Open all modified files in editor</title>
-        <link href="http://eprev.org/2014/12/10/open-all-modified-files/"/>
-        <updated>2014-12-10T00:00:00+00:00</updated>
-        <id>http://eprev.org/2014/12/10/open-all-modified-files/</id>
-        <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
+&lt;/figure&gt;&lt;p&gt;It converts PNG file to PGM format, removes image transparency, outputs the result image to the standard input of &lt;code&gt;mkbitmap&lt;/code&gt; that transforms the input with highpass filtering and thresholding into a suitable for the &lt;code&gt;potrace&lt;/code&gt; program format, that finally generates SVG file. You can play around with highpass filtering (&lt;code&gt;-f&lt;/code&gt;) and thresholding (&lt;code&gt;-t&lt;/code&gt;) values until you have the final look that you want.&lt;/p&gt;&lt;p&gt;As a result you might have now:&lt;/p&gt;&lt;figure&quot;&gt;
+&lt;div&gt;
+&lt;img src=&quot;http://eprev.org/2015/05/27/converting-png-to-svg/party-never.svg&quot; alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;Generated SVG image (zoom the page in).&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;That’s it.&lt;/p&gt;</content>
+</entry>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2015/03/29/whats-worth-watching/"/>
+<updated>2015-03-29T00:00:00+00:00</updated>
+<id>http://eprev.org/2015/03/29/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;“&lt;a href=&quot;https://www.youtube.com/watch?v=X0VH78ye4yY&quot;&gt;Big Code: Developer Infrastructure at Facebook’s Scale&lt;/a&gt;” (2015): what is it like to be an engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.&lt;/li&gt;&lt;li&gt;Zach Holman (GitHub) on “&lt;a href=&quot;http://www.bbc.co.uk/academy/technology/article/art20150206154333467&quot;&gt;Move fast and break nothing&lt;/a&gt;” (2014): how to ship software changes fast and not to break things.&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2015/01/26/whats-worth-watching/"/>
+<updated>2015-01-26T00:00:00+00:00</updated>
+<id>http://eprev.org/2015/01/26/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Drew Petersen (Spotify) on “&lt;a href=&quot;https://www.youtube.com/watch?v=uNVP5jDOVAY&quot;&gt;Developing Games Using Data not Trees&lt;/a&gt;” (2014): cons and pros of using data-oriented approach in game development.&lt;/li&gt;&lt;li&gt;Daniel Espeset (Etsy) on “&lt;a href=&quot;https://vimeo.com/109912254&quot;&gt;The role of Front-end Infrastructure at Etsy&lt;/a&gt;” (2014): continuous and experimentation-driven development, instruments that help to delete old code constantly.&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
+<entry>
+<title>Open all modified files in editor</title>
+<link href="http://eprev.org/2014/12/10/open-all-modified-files/"/>
+<updated>2014-12-10T00:00:00+00:00</updated>
+<id>http://eprev.org/2014/12/10/open-all-modified-files/</id>
+<content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
 I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$&lt;span&gt; vim -p $(git diff --name-only HEAD | sed &quot;s,$(git rev-parse --show-prefix),,&quot; | tr &quot;\n&quot; &quot; &quot;)&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code&gt;.bashrc&lt;/code&gt;,
+&lt;/figure&gt;&lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code&gt;.bashrc&lt;/code&gt;,
 but adding this to &lt;code&gt;.gitconfig&lt;/code&gt; seems like a better option. This is what you need to add to your &lt;code&gt;~/.gitconfig&lt;/code&gt;.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;[alias]
 open = &quot;!vim -c \&quot;cd $GIT_PREFIX\&quot; -p $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;To run this command you need to type &lt;code&gt;git open&lt;/code&gt; in the terminal. Since all commands prefixed with an exclamation
+&lt;/figure&gt;&lt;p&gt;To run this command you need to type &lt;code&gt;git open&lt;/code&gt; in the terminal. Since all commands prefixed with an exclamation
 point are executed from the top-level directory of a repository, we need to change working directory in Vim to
 the current one. And of course you can replace Vim by your favorite editor or event by &lt;code&gt;$EDITOR&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Besides, If you use sort of file watchers to perform certain operations when files change, then
 you would find the following command quite helpful. It changes modification time of all modified files at once.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;[alias]
 touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;You can find more handy aliases in &lt;a href=&quot;https://github.com/eprev/dotfiles/blob/master/gitconfig&quot;&gt;.dotfiles&lt;/a&gt; of mine.&lt;/p&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2014/11/23/whats-worth-watching/"/>
-        <updated>2014-11-23T00:00:00+00:00</updated>
-        <id>http://eprev.org/2014/11/23/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;Bred Victor (MIT) on “&lt;a href=&quot;https://vimeo.com/67076984&quot;&gt;Media for Thinking the Unthinkable&lt;/a&gt;” (2013): incredible ideas that will probably change the way we present and understand things.&lt;/li&gt;&lt;li&gt;Douglas Crockford on “&lt;a href=&quot;http://www.youtube.com/watch?v=bo36MrBfTk4&quot;&gt;The Better Parts&lt;/a&gt;” (2014): you aren’t supposed to use every feature of the language to write error-free programs. Douglas is sharing his favorite parts of JavaScript and coming ES6 standard.&lt;/li&gt;&lt;li&gt;Facebook’s way to Flux and React in “&lt;a href=&quot;http://www.youtube.com/watch?v=nYkdrAPrdcw&quot;&gt;Rethinking Web App Development at Facebook&lt;/a&gt;” (2014).&lt;/li&gt;&lt;li&gt;John-David Dalton (Lo-Dash) on “&lt;a href=&quot;http://www.youtube.com/watch?v=NthmeLEhDDM&quot;&gt;Unorthodox Performance&lt;/a&gt;” (2014): interesting techniques to improve JavaScript performance.&lt;/li&gt;&lt;li&gt;Patrick Hamann (The Guardian) on “&lt;a href=&quot;http://www.youtube.com/watch?v=_0Fk85to6hA&quot;&gt;CSS and the Critical Path&lt;/a&gt;” (2014): dealing with performance bottlenecks in the browser from network to painting.&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2014/02/27/whats-worth-watching/"/>
-        <updated>2014-02-27T00:00:00+00:00</updated>
-        <id>http://eprev.org/2014/02/27/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;Pete Hunt (Facebook) on “&lt;a href=&quot;http://2013.jsconf.eu/speakers/pete-hunt-react-rethinking-best-practices.html&quot;&gt;React: rethinking best practices&lt;/a&gt;” (2013).&lt;/li&gt;&lt;li&gt;Steven Wittens on “&lt;a href=&quot;http://www.youtube.com/watch?v=Zkx1aKv2z8o&quot;&gt;Making things with maths&lt;/a&gt;” (2013).&lt;/li&gt;&lt;li&gt;Interesting talk on &lt;a href=&quot;https://vimeo.com/channels/cssday/70171266&quot;&gt;border-radius&lt;/a&gt; (2013) by Lea Verou.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://vimeo.com/39441590&quot;&gt;Inspiring talk&lt;/a&gt; (2012) by Aaron James Draplin.&lt;/li&gt;&lt;li&gt;Jason Santa Maria (A Book Apart) on “&lt;a href=&quot;https://vimeo.com/34178417&quot;&gt;Web typography&lt;/a&gt;” (2011).&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>What’s worth watching</title>
-        <link href="http://eprev.org/2014/01/22/whats-worth-watching/"/>
-        <updated>2014-01-22T00:00:00+00:00</updated>
-        <id>http://eprev.org/2014/01/22/whats-worth-watching/</id>
-        <content type="html">&lt;ul&gt;&lt;li&gt;Tim Berglund (GitHub) on “&lt;a href=&quot;https://vimeo.com/49444883&quot;&gt;Advanced Git&lt;/a&gt;” (2012): low-level commands, interactive rebase, external diff &amp;amp; merge tools, reflog and reset.&lt;/li&gt;&lt;li&gt;Ilya Grigorik (Google) on “&lt;a href=&quot;http://www.youtube.com/watch?v=Il4swGfTOSM&quot;&gt;Breaking the 1000ms time to glass mobile barrier&lt;/a&gt;” (2013): how to build a mobile website that loads as quickly as possible.&lt;/li&gt;&lt;li&gt;Parikh (Facebook) on “&lt;a href=&quot;http://www.youtube.com/watch?v=oodS71YtkGU&quot;&gt;Building for a billion users&lt;/a&gt;” (2012).&lt;/li&gt;&lt;li&gt;Michael Starzinger (V8) on &lt;a href=&quot;http://2012.jsconf.eu/speaker/2012/08/31/the-footprint-of-performance.html&quot;&gt;the memory usage optimizations while keeping performance fast&lt;/a&gt; (2012).&lt;/li&gt;&lt;li&gt;Science paper begins with “Once upon a time…” — inspiring &lt;a href=&quot;http://www.ted.com/talks/beau_lotto_amy_o_toole_science_is_for_everyone_kids_included.html&quot;&gt;TED talk&lt;/a&gt; (2012) by Beau Lotto and Amy O’Toole.&lt;/li&gt;&lt;/ul&gt;</content>
-      </entry>
-      
-      <entry>
-        <title>Mongo shell as an interactive JavaScript interpreter</title>
-        <link href="http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/"/>
-        <updated>2013-09-22T00:00:00+00:00</updated>
-        <id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/</id>
-        <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ mongo --nodb
+&lt;/figure&gt;&lt;p&gt;You can find more handy aliases in &lt;a href=&quot;https://github.com/eprev/dotfiles/blob/master/gitconfig&quot;&gt;.dotfiles&lt;/a&gt; of mine.&lt;/p&gt;</content>
+</entry>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2014/11/23/whats-worth-watching/"/>
+<updated>2014-11-23T00:00:00+00:00</updated>
+<id>http://eprev.org/2014/11/23/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Bred Victor (MIT) on “&lt;a href=&quot;https://vimeo.com/67076984&quot;&gt;Media for Thinking the Unthinkable&lt;/a&gt;” (2013): incredible ideas that will probably change the way we present and understand things.&lt;/li&gt;&lt;li&gt;Douglas Crockford on “&lt;a href=&quot;http://www.youtube.com/watch?v=bo36MrBfTk4&quot;&gt;The Better Parts&lt;/a&gt;” (2014): you aren’t supposed to use every feature of the language to write error-free programs. Douglas is sharing his favorite parts of JavaScript and coming ES6 standard.&lt;/li&gt;&lt;li&gt;Facebook’s way to Flux and React in “&lt;a href=&quot;http://www.youtube.com/watch?v=nYkdrAPrdcw&quot;&gt;Rethinking Web App Development at Facebook&lt;/a&gt;” (2014).&lt;/li&gt;&lt;li&gt;John-David Dalton (Lo-Dash) on “&lt;a href=&quot;http://www.youtube.com/watch?v=NthmeLEhDDM&quot;&gt;Unorthodox Performance&lt;/a&gt;” (2014): interesting techniques to improve JavaScript performance.&lt;/li&gt;&lt;li&gt;Patrick Hamann (The Guardian) on “&lt;a href=&quot;http://www.youtube.com/watch?v=_0Fk85to6hA&quot;&gt;CSS and the Critical Path&lt;/a&gt;” (2014): dealing with performance bottlenecks in the browser from network to painting.&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2014/02/27/whats-worth-watching/"/>
+<updated>2014-02-27T00:00:00+00:00</updated>
+<id>http://eprev.org/2014/02/27/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Pete Hunt (Facebook) on “&lt;a href=&quot;http://2013.jsconf.eu/speakers/pete-hunt-react-rethinking-best-practices.html&quot;&gt;React: rethinking best practices&lt;/a&gt;” (2013).&lt;/li&gt;&lt;li&gt;Steven Wittens on “&lt;a href=&quot;http://www.youtube.com/watch?v=Zkx1aKv2z8o&quot;&gt;Making things with maths&lt;/a&gt;” (2013).&lt;/li&gt;&lt;li&gt;Interesting talk on &lt;a href=&quot;https://vimeo.com/channels/cssday/70171266&quot;&gt;border-radius&lt;/a&gt; (2013) by Lea Verou.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://vimeo.com/39441590&quot;&gt;Inspiring talk&lt;/a&gt; (2012) by Aaron James Draplin.&lt;/li&gt;&lt;li&gt;Jason Santa Maria (A Book Apart) on “&lt;a href=&quot;https://vimeo.com/34178417&quot;&gt;Web typography&lt;/a&gt;” (2011).&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
+<entry>
+<title>What’s worth watching</title>
+<link href="http://eprev.org/2014/01/22/whats-worth-watching/"/>
+<updated>2014-01-22T00:00:00+00:00</updated>
+<id>http://eprev.org/2014/01/22/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Tim Berglund (GitHub) on “&lt;a href=&quot;https://vimeo.com/49444883&quot;&gt;Advanced Git&lt;/a&gt;” (2012): low-level commands, interactive rebase, external diff &amp;amp; merge tools, reflog and reset.&lt;/li&gt;&lt;li&gt;Ilya Grigorik (Google) on “&lt;a href=&quot;http://www.youtube.com/watch?v=Il4swGfTOSM&quot;&gt;Breaking the 1000ms time to glass mobile barrier&lt;/a&gt;” (2013): how to build a mobile website that loads as quickly as possible.&lt;/li&gt;&lt;li&gt;Parikh (Facebook) on “&lt;a href=&quot;http://www.youtube.com/watch?v=oodS71YtkGU&quot;&gt;Building for a billion users&lt;/a&gt;” (2012).&lt;/li&gt;&lt;li&gt;Michael Starzinger (V8) on &lt;a href=&quot;http://2012.jsconf.eu/speaker/2012/08/31/the-footprint-of-performance.html&quot;&gt;the memory usage optimizations while keeping performance fast&lt;/a&gt; (2012).&lt;/li&gt;&lt;li&gt;Science paper begins with “Once upon a time…” — inspiring &lt;a href=&quot;http://www.ted.com/talks/beau_lotto_amy_o_toole_science_is_for_everyone_kids_included.html&quot;&gt;TED talk&lt;/a&gt; (2012) by Beau Lotto and Amy O’Toole.&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
+<entry>
+<title>Mongo shell as an interactive JavaScript interpreter</title>
+<link href="http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/"/>
+<updated>2013-09-22T00:00:00+00:00</updated>
+<id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/</id>
+<content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ mongo --nodb
 MongoDB shell version: 2.2.0
 &amp;gt; var user = {name: &quot;Anton Eprev&quot;, age: 27}
 &amp;gt; user
@@ -473,8 +399,7 @@ MongoDB shell version: 2.2.0
 1,2,3,4,5,6,7,8,9
 &amp;gt; printjson(numbers)
 [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;And of course the shell allows you to use loops, user functions and etc.:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;gt; for (var i in user) { print(i, user[i]) }
+&lt;/figure&gt;&lt;p&gt;And of course the shell allows you to use loops, user functions and etc.:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;gt; for (var i in user) { print(i, user[i]) }
 name Anton Eprev
 age 27
 &amp;gt; function add(x){ return function(y){ return x + y } }
@@ -488,27 +413,22 @@ age 27
 1
 …
 9&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;You can also use the &lt;code&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;gt; var profile = cat('.profile')
+&lt;/figure&gt;&lt;p&gt;You can also use the &lt;code&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;gt; var profile = cat('.profile')
 &amp;gt; profile
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 …&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;You may even explore global scope by executing &lt;code&gt;printjson(this)&lt;/code&gt; and find out the following functions:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;pwd()
+&lt;/figure&gt;&lt;p&gt;You may even explore global scope by executing &lt;code&gt;printjson(this)&lt;/code&gt; and find out the following functions:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;pwd()
 ls()
 cd()
 mkdir()
 hostname()
 sleep()
 hex_md5()&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;And finally, you can run a JavaScript file using MongoDB shell.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ cat hello.js
+&lt;/figure&gt;&lt;p&gt;And finally, you can run a JavaScript file using MongoDB shell.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ cat hello.js
 print(&quot;Hello World!&quot;);
 $ mongo --nodb hello.js
 MongoDB shell version: 2.2.0
 Hello World!&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-              
-            &lt;/figure&gt;&lt;p&gt;Happy coding =]&lt;/p&gt;</content>
-      </entry>
-      
-  </feed>
+&lt;/figure&gt;&lt;p&gt;Happy coding =]&lt;/p&gt;</content>
+</entry>
+</feed>
