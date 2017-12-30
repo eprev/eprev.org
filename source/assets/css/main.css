@@ -289,6 +289,7 @@ figcaption {
     height: 1.5rem;
     display: inline-block;
     vertical-align: middle;
+    margin-right: .25rem;
   }
 
 .post__meta {
