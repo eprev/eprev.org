@@ -15,4 +15,4 @@ description: List of favorite talks and performances.
 - Interesting talk on [border-radius](https://vimeo.com/channels/cssday/70171266) (2013) by Lea Verou.
 - [Inspiring talk](https://vimeo.com/39441590) (2012) by Aaron James Draplin.
 - Jason Santa Maria (A Book Apart) on “[Web typography](https://vimeo.com/34178417)” (2011).
-<!--:.post__content-list-->
+<!--: class="post__content-list" -->

@@ -16,4 +16,4 @@ description: List of favorite talks and performances.
 - Rachel Potvin (Google) on “[Why Google Stores Billions of Lines of Code in a Single Repository](http://youtu.be/W71BTkUbdqE)”&#160;(2015): advantages and trade-offs of having a giant single monolithic source repository.
 - Christian Johansen on “[Immutable JavaScript: You can’t change this](http://youtu.be/wA98Coal4jk)”&#160;(2015): Immutability in React.
 - Lea Verou on making CSS pie charts in “[The Missing Slice](http://youtu.be/s4HdeJctq-A)”&#160;(2015).
-<!--: .post__content-list -->
+<!--: class="post__content-list" -->

@@ -10,7 +10,7 @@ gh-issue-id: 18
 # Make as a front-end development build&#160;tool
 
 > Make is turning 40 in 2017.
-<!--: .epigraph -->
+<!--: class="epigraph" -->
 
 This is a practical introduction to Make as a front-end development build tool. I will give the basic understanding of how makefiles work and show how to get the most common front-end tasks done using Make. However I encourage you to read the [official manual](http://www.gnu.org/software/make/manual/make.html) through.
 
@@ -200,7 +200,7 @@ This command performs the following operations:
 * The `fswatch -o js` command will start watching for file changes in the `js` directory. The `-o` option tells `fswatch` to batch change events.
 * The `xargs -n1` command will execute the `$(MAKE) build-assets` command each time `fswatch` detects a change.
 * The `-I{}` option will substitute occurrences of `{}` in the given command with the string from the standard input. Even though we don't have `{}` in the command, without this option `xargs` will execute `make` with two arguments (instead of one): `build-assets` and the string it gets from the standard input.
-<!--:.post__content-list-->
+<!--: class="post__content-list" -->
 
 To start watching for changes, type:
 
@@ -270,7 +270,7 @@ This command performs the following operations:
 - The `${filename%%.*}` operation will delete the longest match of `.*` from the back of the file name. If `$filename` was containing `main.js.map`, it would keep the `main` part only.
 - The `${filename#*.}` operation will delete the shortest match of `*.` from the front of the file name. If `$filename` was containing `main.js.map`, it would keep the `js.map` part only.
 - The `echo "…" >> _data/manifest.yml` command will append a string containing both file names to the manifest file.
-<!--:.post__content-list-->
+<!--: class="post__content-list" -->
 
 Basically, for each file that it finds in the `assets` directory, it will calculate a checksum, make a copy of the file and generate the manifest file containing key-value pairs:
 
