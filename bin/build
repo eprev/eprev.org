@@ -32,6 +32,7 @@ const colorize = require('../lib/colorize');
 function build() {
   const site = new Site(config.site);
 
+  console.time('Time');
   process.stdout.write('Building... ');
 
   function generate(destination, template, page) {
@@ -86,6 +87,7 @@ function build() {
   });
 
   console.log(colorize('OK', 'green'));
+  console.timeEnd('Time');
 }
 
 const EventEmitter = require('events');
