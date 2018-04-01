@@ -3,7 +3,7 @@
 <title>Anton Eprev</title>
 <link href="http://eprev.org/atom.xml" rel="self" />
 <link href="http://eprev.org/" />
-<updated>2018-04-01T39:12:32+00:00</updated>
+<updated>2018-04-01T44:12:05+00:00</updated>
 <id>http://eprev.org/</id>
 <author>
 <name>Anton Eprev</name>
@@ -14,7 +14,7 @@
 <link href="http://eprev.org/2018/04/01/whats-worth-watching/"/>
 <updated>2018-04-01T00:00:00+00:00</updated>
 <id>http://eprev.org/2018/04/01/whats-worth-watching/</id>
-<content type="html">&lt;ul&gt;&lt;li&gt;Jake Archibald (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=cCOL7MC4Pl0&quot;&gt;In The Loop&lt;/a&gt;” (JSConf.Asia 2018): great (must-see) explanation of the browsers' event loop, revealing the difference between tasks, microtasks, requestAnimationFrame, requestIdleCallback, and where events land.&lt;/li&gt;&lt;li&gt;Bobby Ghoshal on “&lt;a href=&quot;https://www.youtube.com/watch?v=nGX70EOI6f0&quot;&gt;Designers, make this ONE mindset change in 2018&lt;/a&gt;” (AIGA 2017): customers is what design has always been about.&lt;/li&gt;&lt;li&gt;Jennifer Geacone-Cruz on “&lt;a href=&quot;https://vimeo.com/239453600&quot;&gt;Perfectly Portable v2.0&lt;/a&gt;” (Fronteers Conference 2017): what influence Japanese mobile culture has had on how we make our development &amp;amp; design decisions today.&lt;/li&gt;&lt;li&gt;Jenn Schiffer (Glitch) on “&lt;a href=&quot;https://www.deconstructconf.com/2017/jenn-schiffer-how-to-be-a-real-developer&quot;&gt;How to be a real developer&lt;/a&gt;” (Deconstruct Conference, 2017): good laughter guaranteed.&lt;/li&gt;&lt;/ul&gt;</content>
+<content type="html">&lt;ul&gt;&lt;li&gt;Jake Archibald (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=cCOL7MC4Pl0&quot;&gt;In The Loop&lt;/a&gt;” (JSConf.Asia 2018): great (must-see) explanation of the browser’s event loop, revealing the difference between tasks, microtasks, requestAnimationFrame, requestIdleCallback, and where events land.&lt;/li&gt;&lt;li&gt;Bobby Ghoshal on “&lt;a href=&quot;https://www.youtube.com/watch?v=nGX70EOI6f0&quot;&gt;Designers, make this ONE mindset change in 2018&lt;/a&gt;” (AIGA 2017): customers is what design has always been about.&lt;/li&gt;&lt;li&gt;Jennifer Geacone-Cruz on “&lt;a href=&quot;https://vimeo.com/239453600&quot;&gt;Perfectly Portable v2.0&lt;/a&gt;” (Fronteers Conference 2017): what influence Japanese mobile culture has had on how we make our development &amp;amp; design decisions today.&lt;/li&gt;&lt;li&gt;Jenn Schiffer (Glitch) on “&lt;a href=&quot;https://www.deconstructconf.com/2017/jenn-schiffer-how-to-be-a-real-developer&quot;&gt;How to be a real developer&lt;/a&gt;” (Deconstruct Conference, 2017): good laughter guaranteed.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>What’s worth watching</title>
