@@ -101,6 +101,9 @@ return html`
           <li>
             ${page.pathname == '/tags/' ? 'Tags' : '<a href="/tags/">Tags</a>'}
           </li>
+          <li>
+            <a href="/atom.xml" class="rss">Feed ${read('icons/rss.svg')}</a>
+          </li>
         </ul>
       </div>
       <div class="page__content">`;

@@ -315,6 +315,16 @@ figcaption {
     width: 100%;
   }
 
+.rss {
+  position: relative;
+}
+.rss svg {
+  position: absolute;
+  top: 2px;
+  left: 110%;
+  left: calc(100% + 4px);
+}
+
 @media (min-width: 980px) {
   @supports (width: calc(100%)) {
     /*figure*/.responsive-image--wide {
@@ -447,6 +457,9 @@ figcaption {
   /* Galaxy S5 360x640  */
   html {
     font-size: 12px;
+  }
+  .rss svg {
+    top: 0;
   }
 }
 
