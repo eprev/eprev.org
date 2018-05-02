@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <title>Anton Eprev</title>
-<link href="http://eprev.org/atom.xml" rel="self" />
-<link href="http://eprev.org/" />
-<updated>2018-05-01T32:19:00+00:00</updated>
-<id>http://eprev.org/</id>
+<link href="https://eprev.org/atom.xml" rel="self" />
+<link href="https://eprev.org/" />
+<updated>2018-05-02T13:18:32+00:00</updated>
+<id>https://eprev.org/</id>
 <author>
 <name>Anton Eprev</name>
 <email>a.eprev@gmail.com</email>
 </author>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2018/04/01/whats-worth-watching/"/>
+<link href="https://eprev.org/2018/04/01/whats-worth-watching/"/>
 <updated>2018-04-01T00:00:00+00:00</updated>
-<id>http://eprev.org/2018/04/01/whats-worth-watching/</id>
+<id>https://eprev.org/2018/04/01/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Jake Archibald (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=cCOL7MC4Pl0&quot;&gt;In The Loop&lt;/a&gt;” (JSConf.Asia 2018): great (must-see) explanation of the browser’s event loop, revealing the difference between tasks, microtasks, requestAnimationFrame, requestIdleCallback, and where events land.&lt;/li&gt;&lt;li&gt;Bobby Ghoshal on “&lt;a href=&quot;https://www.youtube.com/watch?v=nGX70EOI6f0&quot;&gt;Designers, make this ONE mindset change in 2018&lt;/a&gt;” (AIGA 2017): customers is what design has always been about.&lt;/li&gt;&lt;li&gt;Jennifer Geacone-Cruz on “&lt;a href=&quot;https://vimeo.com/239453600&quot;&gt;Perfectly Portable v2.0&lt;/a&gt;” (Fronteers Conference 2017): what influence Japanese mobile culture has had on how we make our development &amp;amp; design decisions today.&lt;/li&gt;&lt;li&gt;Jenn Schiffer (Glitch) on “&lt;a href=&quot;https://www.deconstructconf.com/2017/jenn-schiffer-how-to-be-a-real-developer&quot;&gt;How to be a real developer&lt;/a&gt;” (Deconstruct Conference, 2017): good laughter guaranteed.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2017/06/10/whats-worth-watching/"/>
+<link href="https://eprev.org/2017/06/10/whats-worth-watching/"/>
 <updated>2017-06-10T00:00:00+00:00</updated>
-<id>http://eprev.org/2017/06/10/whats-worth-watching/</id>
+<id>https://eprev.org/2017/06/10/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Stuart Frisby (Booking.com) on “&lt;a href=&quot;https://www.youtube.com/watch?v=_sx5LV23hIE&quot;&gt;Building a Testing Culture&lt;/a&gt;” (2017): A/B testing at scale of Booking.com – millions of users, thousands of concurrent experiments.&lt;/li&gt;&lt;li&gt;Alex Danilo (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6v4E6oksar0&quot;&gt;Compiling for the Web with WebAssembly&lt;/a&gt;” (Google I/O 2017): what WebAssembly is, the problems it solves, its current state and tools available to try it out.&lt;/li&gt;&lt;li&gt;Philip Walton and Shubhie Panicker (Google) on “&lt;a href=&quot;https://www.youtube.com/watch?v=6Ljq-Jn-EgU&quot;&gt;Web Performance: Leveraging the Metrics that Most Affect User Experience&lt;/a&gt;” (Google I/O 2017): new metrics and platform APIs that enable user-centric performance measurement.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=hpDHwfXbpfg&quot;&gt;Elon Musk Interview&lt;/a&gt; (TED 2017) on human mission to Mars, solar energy, AI, boring the tunnels, technology and progress.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>Make as a front-end development build tool</title>
-<link href="http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/"/>
+<link href="https://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/"/>
 <updated>2017-02-20T00:00:00+00:00</updated>
-<id>http://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/</id>
+<id>https://eprev.org/2017/02/20/make-as-a-front-end-development-build-tool/</id>
 <content type="html">&lt;blockquote&gt;&lt;p&gt;Make is turning 40 in 2017.&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;This is a practical introduction to Make as a front-end development build tool. I will give the basic understanding of how makefiles work and show how to get the most common front-end tasks done using Make. However I encourage you to read the &lt;a href=&quot;http://www.gnu.org/software/make/manual/make.html&quot;&gt;official manual&lt;/a&gt; through.&lt;/p&gt;&lt;p&gt;Why even bother with Make? Make is a powerful tool which is not limited to building packages. You can use it for anything you do from copying files or running webpack to deploying your project. I use this &lt;a href=&quot;https://raw.githubusercontent.com/eprev/eprev.org/df2e82563c2e444f8116dc4e9fe1f56dcdc56984/Makefile&quot;&gt;makefile&lt;/a&gt; to build and deploy this very web site. These are the tasks that it carries out for me:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Running Jekyll&lt;/li&gt;&lt;li&gt;Watching for changes in JavaScript source files&lt;/li&gt;&lt;li&gt;Building JavaScript bundles&lt;/li&gt;&lt;li&gt;Minifying static assets (CSS, JavaScript and HTML)&lt;/li&gt;&lt;li&gt;Versioning static assets&lt;/li&gt;&lt;li&gt;Deploying the web site to GitHub Pages&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;And that makefile is less than 80 lines of code!&lt;/p&gt;&lt;!-- Read More --&gt;&lt;h2&gt;Makefile basics&lt;/h2&gt;&lt;p&gt;Any makefile consists of “rules”: build targets, their dependencies and series of commands (recipes) to build those targets:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;target …: dependency …
 command
 …&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
@@ -128,9 +128,9 @@ git --git-dir=_site/.git push origin gh-pages&lt;/pre&gt;&lt;/div&gt;&lt;/code&g
 </entry>
 <entry>
 <title>How to detect if CSS transforms are supported on SVG</title>
-<link href="http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/"/>
+<link href="https://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/"/>
 <updated>2017-01-05T00:00:00+00:00</updated>
-<id>http://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/</id>
+<id>https://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/</id>
 <content type="html">&lt;p&gt;If you're reading this, then apparently you already know that &lt;a href=&quot;https://developer.microsoft.com/en-us/microsoft-edge/platform/status/supportcsstransformsonsvg/&quot;&gt;IE and Edge don’t support CSS transformations
 on SVG&lt;/a&gt;
 and neither apply CSS transitions. Moreover, SVG animations might not be an option, since &lt;a href=&quot;https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/5o0yiO440LM%5B1-25%5D&quot;&gt;Chrome
@@ -162,9 +162,9 @@ el.setAttribute('transform', `translate(${dx} ${dy})`);
 </entry>
 <entry>
 <title>The importance of HTML character encoding</title>
-<link href="http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/"/>
+<link href="https://eprev.org/2017/01/04/the-importance-of-html-character-encoding/"/>
 <updated>2017-01-04T00:00:00+00:00</updated>
-<id>http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/</id>
+<id>https://eprev.org/2017/01/04/the-importance-of-html-character-encoding/</id>
 <content type="html">&lt;p&gt;W3C/WHATWG HTML5 specification states:&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;A character encoding declaration is required (…) even when all characters
 are in the ASCII range, because a character encoding is needed to process
 non-ASCII characters entered by the user in forms, in URLs generated
@@ -202,9 +202,9 @@ resources. On the image below, you can see that the script and the stylesheet
 have been loaded before DOM becomes interactive.&lt;/p&gt;&lt;figure
 &gt;
 &lt;div&gt;
-&lt;a href=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-specified.png&quot;&gt;
+&lt;a href=&quot;https://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-specified.png&quot;&gt;
 &lt;img
-src=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-specified.png&quot;
+src=&quot;https://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-specified.png&quot;
 alt=&quot;Firefox Web Console: Character encoding is
 specified&quot;
 &gt;
@@ -218,9 +218,9 @@ HTML only after it gets the rest of the document (the first 1024 bytes),
 causing a delay in loading scripts and stylesheets.&lt;/p&gt;&lt;figure
 &gt;
 &lt;div&gt;
-&lt;a href=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-not-specified.png&quot;&gt;
+&lt;a href=&quot;https://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-not-specified.png&quot;&gt;
 &lt;img
-src=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-not-specified.png&quot;
+src=&quot;https://eprev.org/2017/01/04/the-importance-of-html-character-encoding/ff-charset-is-not-specified.png&quot;
 alt=&quot;Firefox Web Console: Character encoding is not
 specified&quot;
 &gt;
@@ -234,9 +234,9 @@ Chrome and Edge, they begin parsing HTML right away even if the character
 encoding is not specified or incorrect.&lt;/p&gt;&lt;figure
 &gt;
 &lt;div&gt;
-&lt;a href=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/chrome-charset-is-not-specified.png&quot;&gt;
+&lt;a href=&quot;https://eprev.org/2017/01/04/the-importance-of-html-character-encoding/chrome-charset-is-not-specified.png&quot;&gt;
 &lt;img
-src=&quot;http://eprev.org/2017/01/04/the-importance-of-html-character-encoding/chrome-charset-is-not-specified.png&quot;
+src=&quot;https://eprev.org/2017/01/04/the-importance-of-html-character-encoding/chrome-charset-is-not-specified.png&quot;
 alt=&quot;Chrome Console: Character encoding is not
 specified&quot;
 &gt;
@@ -255,16 +255,16 @@ re-parse the document with the real encoding resulting in additional delays.&lt;
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2016/08/03/whats-worth-watching/"/>
+<link href="https://eprev.org/2016/08/03/whats-worth-watching/"/>
 <updated>2016-08-03T00:00:00+00:00</updated>
-<id>http://eprev.org/2016/08/03/whats-worth-watching/</id>
+<id>https://eprev.org/2016/08/03/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Alexander Bruce on “&lt;a href=&quot;http://www.gdcvault.com/play/1020776/&quot;&gt;An Overnight Success, Seven Years in the Making&lt;/a&gt;” (2014): a story of creating an (successful) indie game, which shows how high the cost of success can be (financially and psychologically).&lt;/li&gt;&lt;li&gt;Jeffrey Dean (Google) on “&lt;a href=&quot;https://youtu.be/modXC5IWTJI&quot;&gt;Building Software Systems At Google and Lessons Learned&lt;/a&gt;” (2010): interesting talk on how their technology had evolved over time.&lt;/li&gt;&lt;li&gt;Mathias Bynens (Opera) on “&lt;a href=&quot;https://vimeo.com/163113209&quot;&gt;Front-End Performance: The Dark Side&lt;/a&gt;” (2016): performance-related APIs can have a negative security impact, making some timing attacks possible on the web.&lt;/li&gt;&lt;li&gt;Mark Ferrari (Terrible Toybox) on “&lt;a href=&quot;http://gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics&quot;&gt;8 Bit &amp;amp; ‘8 Bitish’ Graphics-Outside the Box&lt;/a&gt;” (2016): how 8 bit graphics are being made nowadays and back then, using of pallet shifting to create complex animation effects.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2016/07/23/whats-worth-watching/"/>
+<link href="https://eprev.org/2016/07/23/whats-worth-watching/"/>
 <updated>2016-07-23T00:00:00+00:00</updated>
-<id>http://eprev.org/2016/07/23/whats-worth-watching/</id>
+<id>https://eprev.org/2016/07/23/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Ben Maurer (Facebook) on “&lt;a href=&quot;https://youtu.be/MlNGomWegCE&quot;&gt;Web speed @ Facebook&lt;/a&gt;” (2016): shipping the page incrementally,
 packaging resources based on their usage patterns, early flushing, deferred dependencies, performance measurements,
 JavaScript’s lazy parsing.&lt;/li&gt;&lt;li&gt;Matthew Flaming (New Relic) on “&lt;a href=&quot;https://youtu.be/SH8nNANNQ98&quot;&gt;Building a system that never stops&lt;/a&gt;” (2016):
@@ -276,23 +276,23 @@ that helps you track and fix vulnerabilities in your Node.js application depende
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2016/01/26/whats-worth-watching/"/>
+<link href="https://eprev.org/2016/01/26/whats-worth-watching/"/>
 <updated>2016-01-26T00:00:00+00:00</updated>
-<id>http://eprev.org/2016/01/26/whats-worth-watching/</id>
+<id>https://eprev.org/2016/01/26/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Yunong Xiao (Netflix) on “&lt;a href=&quot;https://youtu.be/O1YP8QP9gLA&quot;&gt;Debugging Node.js in Production&lt;/a&gt;” (2015): what Netflix uses in production to diagnose and fix performance issues, bugs and memory leaks in Node.js applications.&lt;/li&gt;&lt;li&gt;Dan Abramov on “&lt;a href=&quot;https://youtu.be/xsSnOQynTHs&quot;&gt;Live React: Hot Reloading with Time Travel&lt;/a&gt;” (2015): a story about Redux.&lt;/li&gt;&lt;li&gt;“&lt;a href=&quot;https://youtu.be/ttavBa4giPc&quot;&gt;Google I/O 2011: The Secrets of Google Pac-Man: A Game Show&lt;/a&gt;” (2011): the entertaining story behind Google Pac-Man doodle.&lt;/li&gt;&lt;li&gt;Ernie Miller on “&lt;a href=&quot;https://youtu.be/7MeBuDLbF98&quot;&gt;How to Build a Skyscraper&lt;/a&gt;” (2015): what we can learn from skyscraper-building experience.&lt;/li&gt;&lt;li&gt;Mathias Bynens (Opera) on “&lt;a href=&quot;https://youtu.be/0Bj4etSa84c&quot;&gt;RegExp.prototype.unicode&lt;/a&gt;” (2015): what Unicode-related problems are in JavaScript regular expressions and how ES6 helps solve these issues.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2016/01/15/whats-worth-watching/"/>
+<link href="https://eprev.org/2016/01/15/whats-worth-watching/"/>
 <updated>2016-01-15T00:00:00+00:00</updated>
-<id>http://eprev.org/2016/01/15/whats-worth-watching/</id>
+<id>https://eprev.org/2016/01/15/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Lee Byron (Facebook) on “&lt;a href=&quot;http://youtu.be/WQLzZf34FJ8&quot;&gt;Exploring GraphQL&lt;/a&gt;” (2015): a data fetching language that is widely used at Facebook.&lt;/li&gt;&lt;li&gt;Interesting session on “&lt;a href=&quot;http://youtu.be/OcFOWIq3cIc&quot;&gt;Making Robots&lt;/a&gt;” at &lt;a href=&quot;http://www.fab11.org/&quot;&gt;Fab11 conference&lt;/a&gt;: MIT, Harvard, DARPA, Boston Dynamics and Kiva Systems.&lt;/li&gt;&lt;li&gt;Rachel Potvin (Google) on “&lt;a href=&quot;http://youtu.be/W71BTkUbdqE&quot;&gt;Why Google Stores Billions of Lines of Code in a Single Repository&lt;/a&gt;” (2015): advantages and trade-offs of having a giant single monolithic source repository.&lt;/li&gt;&lt;li&gt;Christian Johansen on “&lt;a href=&quot;http://youtu.be/wA98Coal4jk&quot;&gt;Immutable JavaScript: You can’t change this&lt;/a&gt;” (2015): Immutability in React.&lt;/li&gt;&lt;li&gt;Lea Verou on making CSS pie charts in “&lt;a href=&quot;http://youtu.be/s4HdeJctq-A&quot;&gt;The Missing Slice&lt;/a&gt;” (2015).&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>Change OS X network location based on the Wi-Fi network name</title>
-<link href="http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/"/>
+<link href="https://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/"/>
 <updated>2015-08-06T00:00:00+00:00</updated>
-<id>http://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/</id>
+<id>https://eprev.org/2015/08/06/change-os-x-network-location-based-on-the-wi-fi-network-name/</id>
 <content type="html">&lt;p&gt;You might have heard about &lt;a href=&quot;https://support.apple.com/en-us/HT202480&quot;&gt;Network locations&lt;/a&gt; in OS X.
 It allows you to have different network configurations and quickly switch between them. For instance,
 if you have to use a corporate proxy server at work and you don’t need it when you get back home,
@@ -324,9 +324,9 @@ you want to…&lt;/p&gt;</content>
 </entry>
 <entry>
 <title>Converting PNG to SVG</title>
-<link href="http://eprev.org/2015/05/27/converting-png-to-svg/"/>
+<link href="https://eprev.org/2015/05/27/converting-png-to-svg/"/>
 <updated>2015-05-27T00:00:00+00:00</updated>
-<id>http://eprev.org/2015/05/27/converting-png-to-svg/</id>
+<id>https://eprev.org/2015/05/27/converting-png-to-svg/</id>
 <content type="html">&lt;p&gt;Let’s say, you’ve found a funny black-and-white picture on the Internet and you want it badly in hi-res or vector which is even better. Well, there is a command-line tool called &lt;a href=&quot;http://potrace.sourceforge.net/&quot;&gt;Potrace&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;Installation&lt;/h2&gt;&lt;p&gt;It has precompiled distributions for OS X, Linux and Windows. Potrace is also available in major package managers, including &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ brew install potrace&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;The manual installation is super easy though. For OS X do the following:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ cd potrace-1.12.mac-i386
 $ sudo cp mkbitmap.1 potrace.1 /usr/share/man/
@@ -336,7 +336,7 @@ $ sudo cp mkbitmap potrace /usr/local/bin&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &gt;
 &lt;div&gt;
 &lt;img
-src=&quot;http://eprev.org/2015/05/27/converting-png-to-svg/party-never.png&quot;
+src=&quot;https://eprev.org/2015/05/27/converting-png-to-svg/party-never.png&quot;
 alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;
 &gt;
 &lt;/div&gt;
@@ -348,7 +348,7 @@ alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&qu
 &gt;
 &lt;div&gt;
 &lt;img
-src=&quot;http://eprev.org/2015/05/27/converting-png-to-svg/party-never.svg&quot;
+src=&quot;https://eprev.org/2015/05/27/converting-png-to-svg/party-never.svg&quot;
 alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&quot;
 &gt;
 &lt;/div&gt;
@@ -357,23 +357,23 @@ alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&qu
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2015/03/29/whats-worth-watching/"/>
+<link href="https://eprev.org/2015/03/29/whats-worth-watching/"/>
 <updated>2015-03-29T00:00:00+00:00</updated>
-<id>http://eprev.org/2015/03/29/whats-worth-watching/</id>
+<id>https://eprev.org/2015/03/29/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;“&lt;a href=&quot;https://www.youtube.com/watch?v=X0VH78ye4yY&quot;&gt;Big Code: Developer Infrastructure at Facebook’s Scale&lt;/a&gt;” (2015): what is it like to be an engineer at Facebook; moving from Git towards Mercurial; Atom-based IDE for App, server-side and client-side development; continues integration at Facebook.&lt;/li&gt;&lt;li&gt;Zach Holman (GitHub) on “&lt;a href=&quot;http://www.bbc.co.uk/academy/technology/article/art20150206154333467&quot;&gt;Move fast and break nothing&lt;/a&gt;” (2014): how to ship software changes fast and not to break things.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2015/01/26/whats-worth-watching/"/>
+<link href="https://eprev.org/2015/01/26/whats-worth-watching/"/>
 <updated>2015-01-26T00:00:00+00:00</updated>
-<id>http://eprev.org/2015/01/26/whats-worth-watching/</id>
+<id>https://eprev.org/2015/01/26/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Drew Petersen (Spotify) on “&lt;a href=&quot;https://www.youtube.com/watch?v=uNVP5jDOVAY&quot;&gt;Developing Games Using Data not Trees&lt;/a&gt;” (2014): cons and pros of using data-oriented approach in game development.&lt;/li&gt;&lt;li&gt;Daniel Espeset (Etsy) on “&lt;a href=&quot;https://vimeo.com/109912254&quot;&gt;The role of Front-end Infrastructure at Etsy&lt;/a&gt;” (2014): continuous and experimentation-driven development, instruments that help to delete old code constantly.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>Open all modified files in editor</title>
-<link href="http://eprev.org/2014/12/10/open-all-modified-files/"/>
+<link href="https://eprev.org/2014/12/10/open-all-modified-files/"/>
 <updated>2014-12-10T00:00:00+00:00</updated>
-<id>http://eprev.org/2014/12/10/open-all-modified-files/</id>
+<id>https://eprev.org/2014/12/10/open-all-modified-files/</id>
 <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
 I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$&lt;span&gt; vim -p $(git diff --name-only HEAD | sed &quot;s,$(git rev-parse --show-prefix),,&quot; | tr &quot;\n&quot; &quot; &quot;)&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code&gt;.bashrc&lt;/code&gt;,
@@ -388,30 +388,30 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pr
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2014/11/23/whats-worth-watching/"/>
+<link href="https://eprev.org/2014/11/23/whats-worth-watching/"/>
 <updated>2014-11-23T00:00:00+00:00</updated>
-<id>http://eprev.org/2014/11/23/whats-worth-watching/</id>
+<id>https://eprev.org/2014/11/23/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Bred Victor (MIT) on “&lt;a href=&quot;https://vimeo.com/67076984&quot;&gt;Media for Thinking the Unthinkable&lt;/a&gt;” (2013): incredible ideas that will probably change the way we present and understand things.&lt;/li&gt;&lt;li&gt;Douglas Crockford on “&lt;a href=&quot;http://www.youtube.com/watch?v=bo36MrBfTk4&quot;&gt;The Better Parts&lt;/a&gt;” (2014): you aren’t supposed to use every feature of the language to write error-free programs. Douglas is sharing his favorite parts of JavaScript and coming ES6 standard.&lt;/li&gt;&lt;li&gt;Facebook’s way to Flux and React in “&lt;a href=&quot;http://www.youtube.com/watch?v=nYkdrAPrdcw&quot;&gt;Rethinking Web App Development at Facebook&lt;/a&gt;” (2014).&lt;/li&gt;&lt;li&gt;John-David Dalton (Lo-Dash) on “&lt;a href=&quot;http://www.youtube.com/watch?v=NthmeLEhDDM&quot;&gt;Unorthodox Performance&lt;/a&gt;” (2014): interesting techniques to improve JavaScript performance.&lt;/li&gt;&lt;li&gt;Patrick Hamann (The Guardian) on “&lt;a href=&quot;http://www.youtube.com/watch?v=_0Fk85to6hA&quot;&gt;CSS and the Critical Path&lt;/a&gt;” (2014): dealing with performance bottlenecks in the browser from network to painting.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2014/02/27/whats-worth-watching/"/>
+<link href="https://eprev.org/2014/02/27/whats-worth-watching/"/>
 <updated>2014-02-27T00:00:00+00:00</updated>
-<id>http://eprev.org/2014/02/27/whats-worth-watching/</id>
+<id>https://eprev.org/2014/02/27/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Pete Hunt (Facebook) on “&lt;a href=&quot;http://2013.jsconf.eu/speakers/pete-hunt-react-rethinking-best-practices.html&quot;&gt;React: rethinking best practices&lt;/a&gt;” (2013).&lt;/li&gt;&lt;li&gt;Steven Wittens on “&lt;a href=&quot;http://www.youtube.com/watch?v=Zkx1aKv2z8o&quot;&gt;Making things with maths&lt;/a&gt;” (2013).&lt;/li&gt;&lt;li&gt;Interesting talk on &lt;a href=&quot;https://vimeo.com/channels/cssday/70171266&quot;&gt;border-radius&lt;/a&gt; (2013) by Lea Verou.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://vimeo.com/39441590&quot;&gt;Inspiring talk&lt;/a&gt; (2012) by Aaron James Draplin.&lt;/li&gt;&lt;li&gt;Jason Santa Maria (A Book Apart) on “&lt;a href=&quot;https://vimeo.com/34178417&quot;&gt;Web typography&lt;/a&gt;” (2011).&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>What’s worth watching</title>
-<link href="http://eprev.org/2014/01/22/whats-worth-watching/"/>
+<link href="https://eprev.org/2014/01/22/whats-worth-watching/"/>
 <updated>2014-01-22T00:00:00+00:00</updated>
-<id>http://eprev.org/2014/01/22/whats-worth-watching/</id>
+<id>https://eprev.org/2014/01/22/whats-worth-watching/</id>
 <content type="html">&lt;ul&gt;&lt;li&gt;Tim Berglund (GitHub) on “&lt;a href=&quot;https://vimeo.com/49444883&quot;&gt;Advanced Git&lt;/a&gt;” (2012): low-level commands, interactive rebase, external diff &amp;amp; merge tools, reflog and reset.&lt;/li&gt;&lt;li&gt;Ilya Grigorik (Google) on “&lt;a href=&quot;http://www.youtube.com/watch?v=Il4swGfTOSM&quot;&gt;Breaking the 1000ms time to glass mobile barrier&lt;/a&gt;” (2013): how to build a mobile website that loads as quickly as possible.&lt;/li&gt;&lt;li&gt;Parikh (Facebook) on “&lt;a href=&quot;http://www.youtube.com/watch?v=oodS71YtkGU&quot;&gt;Building for a billion users&lt;/a&gt;” (2012).&lt;/li&gt;&lt;li&gt;Michael Starzinger (V8) on &lt;a href=&quot;http://2012.jsconf.eu/speaker/2012/08/31/the-footprint-of-performance.html&quot;&gt;the memory usage optimizations while keeping performance fast&lt;/a&gt; (2012).&lt;/li&gt;&lt;li&gt;Science paper begins with “Once upon a time…” — inspiring &lt;a href=&quot;http://www.ted.com/talks/beau_lotto_amy_o_toole_science_is_for_everyone_kids_included.html&quot;&gt;TED talk&lt;/a&gt; (2012) by Beau Lotto and Amy O’Toole.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>Mongo shell as an interactive JavaScript interpreter</title>
-<link href="http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/"/>
+<link href="https://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/"/>
 <updated>2013-09-22T00:00:00+00:00</updated>
-<id>http://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/</id>
+<id>https://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/</id>
 <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ mongo --nodb
 MongoDB shell version: 2.2.0
 &amp;gt; var user = {name: &quot;Anton Eprev&quot;, age: 27}
