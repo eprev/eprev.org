@@ -3,12 +3,19 @@
 <title>Anton Eprev</title>
 <link href="https://eprev.org/atom.xml" rel="self" />
 <link href="https://eprev.org/" />
-<updated>2018-05-02T13:18:32+00:00</updated>
+<updated>2018-07-05T41:14:02+00:00</updated>
 <id>https://eprev.org/</id>
 <author>
 <name>Anton Eprev</name>
 <email>a.eprev@gmail.com</email>
 </author>
+<entry>
+<title>What’s worth watching</title>
+<link href="https://eprev.org/2018/07/05/whats-worth-watching/"/>
+<updated>2018-07-05T00:00:00+00:00</updated>
+<id>https://eprev.org/2018/07/05/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;Ryan Dahl (Inventor of Node.js) on “&lt;a href=&quot;https://youtu.be/M3BM9TB-8yA&quot;&gt;10 Things I Regret About Node.js&lt;/a&gt;” (JSConf EU, 2018): reflection (after 6-year break) on what things could have been done differently in Node.js.&lt;/li&gt;&lt;li&gt;Mathias Bynens (Google) &amp;amp; Benedikt Meurer (Google) on “&lt;a href=&quot;https://youtu.be/5nmpokoRaZI&quot;&gt;JavaScript Engines: The Good Parts™&lt;/a&gt;” (JSConf EU, 2018): key features and technics modern JavaScript engines (specifically, V8 and ChakraCore) use to achieve high performance.&lt;/li&gt;&lt;li&gt;Brittany Storoz on “&lt;a href=&quot;https://youtu.be/2KTK2qD4-gs&quot;&gt;The Etymology of Programming&lt;/a&gt;” (JSConf EU, 2018): revealing the mystery of some programming jargons and reasoning on how we as developers built a vocabulary full of such phrases.&lt;/li&gt;&lt;li&gt;Kinuko Yasuda, Jeffrey Yasskin &amp;amp; Kenji Baheux (Google) on “&lt;a href=&quot;https://youtu.be/rcJ9BLymVQE&quot;&gt;Packaging the Web&lt;/a&gt;” (BlinkOn 9, 2018): turns out Web Packaging is going to be more than just a way for Google to deliver AMP pages, it's also about secure sharing and distributing the content.&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
 <entry>
 <title>What’s worth watching</title>
 <link href="https://eprev.org/2018/04/01/whats-worth-watching/"/>
