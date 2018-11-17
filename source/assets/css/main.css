@@ -30,8 +30,7 @@ textarea {
   font-family: 'Merriweather Sans';
   src:
     local('Merriweather Sans Light'), local('MerriweatherSans-Light'),
-    url(/assets/fonts/merriweathersans-light.woff2) format('woff2'),
-    url(/assets/fonts/merriweathersans-light.woff) format('woff');
+    url(/assets/fonts/merriweathersans-light.woff2) format('woff2');
   font-display: fallback;
 }
 @font-face {
@@ -40,8 +39,7 @@ textarea {
   font-family: 'Merriweather Sans';
   src:
     local('Merriweather Sans Bold'), local('MerriweatherSans-Bold'),
-    url(/assets/fonts/merriweathersans-bold.woff2) format('woff2'),
-    url(/assets/fonts/merriweathersans-bold.woff) format('woff');
+    url(/assets/fonts/merriweathersans-bold.woff2) format('woff2');
   font-display: fallback;
 }
 @font-face {
@@ -50,8 +48,7 @@ textarea {
   font-family: 'Merriweather Sans';
   src:
     local('Merriweather Sans Light Italic'), local('MerriweatherSans-LightItalic'),
-    url(/assets/fonts/merriweathersans-lightitalic.woff2) format('woff2'),
-    url(/assets/fonts/merriweathersans-lightitalic.woff) format('woff');
+    url(/assets/fonts/merriweathersans-lightitalic.woff2) format('woff2');
   font-display: fallback;
 }
 
@@ -77,10 +74,6 @@ textarea {
 html {
   font-size: 16px;
   line-height: 1.5; /* The line height (1.5rem) sets the vertical rhythm. */
-  -webkit-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  -ms-text-size-adjust: none;
-  text-size-adjust: none;
 }
 
 body {

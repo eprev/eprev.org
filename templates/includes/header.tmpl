@@ -10,6 +10,12 @@ return html`
   <meta charset="utf-8">
   <title>${page.title ? `${page.title} – ${site.title}` : site.title}</title>
   <link rel="shortcut icon" href="/assets/4-eyed-32x32.png">
+  <link rel="preload" as="font" type="font/woff2"
+    href="/assets/fonts/merriweathersans-light.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2"
+    href="/assets/fonts/merriweathersans-bold.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2"
+    href="/assets/fonts/merriweathersans-lightitalic.woff2" crossorigin>
   ${
     manifest
       ? `<style>${read(
