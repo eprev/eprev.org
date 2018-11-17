@@ -1,0 +1,19 @@
+/*---
+pathname: /sw.js
+type: system
+---*/
+
+const properties = require('../lib/properties');
+const manifest = properties(read('../manifest.txt'));
+
+return html`
+  ${ manifest
+    ? `const filesToCache = ${ JSON.stringify(Object.values(manifest).map(v => `/assets-bundles/${v}`)) };`
+    : ''
+  }
+  importScripts("${
+      manifest ? '/assets-bundles/' + manifest['sw.js'] : '/assets/js/sw.js'
+  }");
+`;
+
+// vim: ft=javascript
