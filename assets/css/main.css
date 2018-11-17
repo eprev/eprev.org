@@ -166,7 +166,7 @@ figure {
 }
 figcaption {
   padding-top: .75rem;
-  color: #888;
+  color: #757575;
   text-align: center;
   font-size: .83rem;
 }
@@ -273,7 +273,7 @@ figcaption {
 }
 
 .post-comments {
-  color: #888;
+  color: #757575;
   margin: 3rem 0 1.5rem; /* Vertical rhythm */
   text-align: center;
 }
@@ -286,7 +286,7 @@ figcaption {
   }
 
 .post__meta {
-  color: #888;
+  color: #757575;
   margin: .75rem 0 calc( .75rem + 1.5rem ); /* Vertical rhythm */
   text-align: center;
   font-size: 0.83rem;  /* Traditional scale [3] */
@@ -350,7 +350,7 @@ figcaption {
   margin-bottom: 1.5rem; /* Vertical rhythm */
 }
 .archive__date {
-  color: #888;
+  color: #757575;
   float: left;
   padding-right: 1rem;
   width: 4rem;
