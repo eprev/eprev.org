@@ -7,5 +7,8 @@ description: List of favorite talks and performances.
 
 # What’s worth watching
 
-- Tim Dresser, Annie Sullivan & Ben Greenstein (Google) on “[Speed Focus for 2018](https://youtu.be/wsYf1fmj8z8)” (BlingOn 9, 2018): faster loading, better responsiveness, and crashing less often.
+<!--
+- A (B) on “[C](http://example.com/)” (D, 2018): E.
+-->
+- Adrian Holovaty on “[How I optimized my JS sheet music rendering engine](https://youtu.be/XH5EtQge_Bg)” (performance.now(), 2018), where he shares performance tweaks he used in making Soundslice.
 <!--: class="post__content-list" -->
