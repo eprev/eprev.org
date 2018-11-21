@@ -3,12 +3,19 @@
 <title>Anton Eprev</title>
 <link href="https://eprev.org/atom.xml" rel="self" />
 <link href="https://eprev.org/" />
-<updated>2018-11-17T40:08:05+00:00</updated>
+<updated>2018-11-21T04:16:48+00:00</updated>
 <id>https://eprev.org/</id>
 <author>
 <name>Anton Eprev</name>
 <email>a.eprev@gmail.com</email>
 </author>
+<entry>
+<title>What’s worth watching</title>
+<link href="https://eprev.org/2018/11/21/whats-worth-watching/"/>
+<updated>2018-11-21T00:00:00+00:00</updated>
+<id>https://eprev.org/2018/11/21/whats-worth-watching/</id>
+<content type="html">&lt;ul&gt;&lt;li&gt;In his “&lt;a href=&quot;https://youtu.be/XH5EtQge_Bg&quot;&gt;How I optimized my JS sheet music rendering engine&lt;/a&gt;” presentaion at performance.now() 2018, Adrian Holovaty shared performance tweaks he used in making Soundslice.&lt;/li&gt;&lt;li&gt;In her “&lt;a href=&quot;https://youtu.be/WCwzKe4pKxY&quot;&gt;Down the line: Evolving HTTP and making things QUIC&lt;/a&gt;” presentation at performance.now() 2018, Natasha Rooney talked about the history of HTTP protocol and it’s future.&lt;/li&gt;&lt;li&gt;In his “&lt;a href=&quot;https://youtu.be/RwSlubTBnew&quot;&gt;Make JavaScript Faster&lt;/a&gt;” presentation at performance.now() 2018, Steve Souders talked on why JavaScript remains the main performance bottleneck and what latest technologies you can use to measure and improve the impact of it.&lt;/li&gt;&lt;/ul&gt;</content>
+</entry>
 <entry>
 <title>What’s worth watching</title>
 <link href="https://eprev.org/2018/07/05/whats-worth-watching/"/>
