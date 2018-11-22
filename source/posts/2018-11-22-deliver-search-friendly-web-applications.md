@@ -3,7 +3,7 @@ tags:
   - worth-watching
   - javascript
   - seo
-description: List of favorite talks and performances.
+description: Insights on how Googlebot renders JavaScript websites and best practicies to build indexable web applications.
 -->
 
 # Deliver search-friendly web applications
