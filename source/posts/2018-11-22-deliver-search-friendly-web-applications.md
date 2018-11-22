@@ -10,7 +10,7 @@ description: List of favorite talks and performances.
 
 In their “[Deliver search-friendly JavaScript-powered websites](https://youtu.be/PFwUbgvpdaQ)” presentation at Google I/O 2018, Tom Greenaway and John Mueller shared details on how Google’s search crawler works and talked about the best practicies to build indexable sites and web applications.
 
-- There are over 130 trillon (10<sup>12</sup>) documents on the web (as of Jully 2016).
+- There are over 130 trillon (10&#x00B9;&#x00B2;) documents on the web (as of Jully 2016).
 - Googlebot no longer crawls hashbang URLs.
 - The rendering of JavaScript websites in Google is deferred untill resources become available to process the content.
 - It is recommended to detect Googlebot on the server by user-agent string and send a complete “dynamically rendered” HTML document back.
