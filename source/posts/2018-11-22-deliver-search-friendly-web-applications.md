@@ -18,8 +18,8 @@ In their “[Deliver search-friendly JavaScript-powered websites](https://youtu.
 - The Googlebot uses Chrome 41 to render JavaScript websites. That version of Chrome was released in 2015 and does not support ES6.
 - Search Console allows you to view HTML rendered by Googlebot and review JavaScript exceptions and console logs.
 - If your website uses lazy loading images, add a `noscript` tag around a normal image tag to make sure Googlebot will pick them up.
-- Googlebot does not index images that are referenced through CSS.
+- Googlebot does not index images referenced through CSS.
 - Googlebot crawls and renders pages in a stateless way, it does not support Service workers, local and session storage, Cookies, Cache API and etc.
-- Google plans to bring rendering closer to crwaling and indexing and make Googlebot use a modern version of Chrome.
+- Google plans to bring rendering closer to crawling and indexing and make Googlebot use a modern version of Chrome.
 
 <!--: class="post__content-list" -->
