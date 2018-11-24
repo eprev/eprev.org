@@ -3,6 +3,7 @@ tags:
   - worth-watching
   - javascript
   - seo
+share-image: og-preview.png
 description: Insights on how Googlebot renders JavaScript websites and best practicies to build indexable web applications.
 -->
 
@@ -12,7 +13,7 @@ In their “[Deliver search-friendly JavaScript-powered websites](https://youtu.
 
 - There are over 130 trillon (10&#x00B9;&#x00B2;) documents on the web (as of Jully 2016).
 - Googlebot no longer crawls hashbang URLs.
-- The rendering of JavaScript websites in Google is deferred untill resources become available to process the content.
+- The rendering of JavaScript websites in Google is deferred until resources become available to process the content.
 - It is recommended to detect Googlebot on the server by user-agent string and send a complete “dynamically rendered” HTML document back.
 - There are tools available for dynamic rendering, such as Puppeteer or Rendertron.
 - The Googlebot uses Chrome 41 to render JavaScript websites. That version of Chrome was released in 2015 and does not support ES6.
