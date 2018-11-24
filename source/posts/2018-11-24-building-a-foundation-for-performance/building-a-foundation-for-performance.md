@@ -16,7 +16,7 @@ In her “[Building a foundation for performance](https://www.youtube.com/watch?
 - Start with building trust by validating performance metrics, implementing confidence tests, creating graphs reflecting real user experience and catching regressions.
 - In case of an incident, identify an owner, set a severity level, follow the runbook and do a post mortem.
 - Set a company-wide goal to improve key performance metrics.
-- Write documentation on key metrics, past optimizations, ideas for future optimizations, regression investigation runbook.
+- Write documentation on key metrics, past optimizations, ideas for future improvements, regression investigation runbook.
 - Consult and conduct trainings.
 
 <!--: class="post__content-list" -->
