@@ -5,7 +5,7 @@ description: Why darker pixels save power… almost.
 share-image: og-preview.jpg
 -->
 
-# Cost of a Pixel Color
+# Cost of a pixel color
 
 In their “[Cost of a Pixel Color](https://www.youtube.com/watch?v=N_6sPd0Jd3g)” presentation at Android Dev Summit 2018,
 Chris Banes & Alan Viverette explained why darker pixels save power and what developers can do to help users save battery life.
