@@ -121,6 +121,11 @@
 <changefreq>weekly</changefreq>
 </url>
 <url>
+<loc>https://eprev.org/2018/12/04/a-philosophy-of-software-design/</loc>
+<lastmod>2018-12-04</lastmod>
+<changefreq>weekly</changefreq>
+</url>
+<url>
 <loc>https://eprev.org/archive/</loc>
 <changefreq>weekly</changefreq>
 </url>
@@ -218,6 +223,10 @@
 </url>
 <url>
 <loc>https://eprev.org/tags/seo/</loc>
+<changefreq>weekly</changefreq>
+</url>
+<url>
+<loc>https://eprev.org/tags/computer-science/</loc>
 <changefreq>weekly</changefreq>
 </url>
 </urlset>
