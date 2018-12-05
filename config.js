@@ -12,6 +12,7 @@ module.exports = {
       'as front-end engineer at Booking.com in Amsterdam, Netherlands.',
     url: env === 'production' ? 'https://eprev.org' : 'https://localhost:4000',
     twitter: 'eprev',
+    editUrl: 'https://github.com/eprev/eprev.org/blob/master/source',
   },
   exclude: ['/gif/src', '/gif/Makefile'],
   rewrites: [

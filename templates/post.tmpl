@@ -22,4 +22,13 @@ return html`
       : ''
   }
 
+  ${
+    site.editUrl
+      ? html`
+        <div class="post-footer">
+            <a href="${site.editUrl}${page.__name__}">Edit</a> this post on GitHub.
+        </div>`
+      : ''
+  }
+
   ${render('includes/footer')}`;
