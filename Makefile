@@ -69,6 +69,10 @@ build-deploy: reset-static clean-static build
 	NODE_ENV=$(NODE_ENV) bin/build
 	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
 
+ci-deploy: build
+	NODE_ENV=$(NODE_ENV) bin/build
+	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
+
 reset-static:
 	git --git-dir=static/.git reset --hard origin/gh-pages
 	git --git-dir=static/.git pull origin gh-pages

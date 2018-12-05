@@ -9,7 +9,7 @@ branches:
   only:
   - master
 
-script: make build-deploy
+script: make ci-deploy
 
 deploy:
   provider: pages
