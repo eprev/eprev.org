@@ -55,7 +55,6 @@ compress-bundles: build-bundles
 build-manifest: compress-bundles
 	@set -e; for filename in $$( find $(BUNDLES_DIR) -type f -exec basename {} \; ); do \
 		hash=$$(echo $(BUNDLES_DIR)/$$filename | openssl md5 -binary | xxd -p); \
-		echo "$$filename: $$hash"; \
 		hashed_filename="$${filename%%.*}-$$hash.$${filename#*.}"; \
 		mv $(BUNDLES_DIR)/$$filename $(BUNDLES_DIR)/$$hashed_filename; \
 		echo "$$filename: $$hashed_filename" >> $(MANIFEST_FILE); \
