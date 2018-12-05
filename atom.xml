@@ -3,7 +3,7 @@
 <title>Anton Eprev</title>
 <link href="https://eprev.org/atom.xml" rel="self" />
 <link href="https://eprev.org/" />
-<updated>2018-12-04T22:20:04+00:00</updated>
+<updated>2018-12-05T46:14:11+00:00</updated>
 <id>https://eprev.org/</id>
 <author>
 <name>Anton Eprev</name>
@@ -14,7 +14,7 @@
 <link href="https://eprev.org/2018/12/04/a-philosophy-of-software-design/"/>
 <updated>2018-12-04T00:00:00+00:00</updated>
 <id>https://eprev.org/2018/12/04/a-philosophy-of-software-design/</id>
-<content type="html">&lt;p&gt;In his “&lt;a href=&quot;https://www.youtube.com/watch?v=bmSAYlu0NcY&quot;&gt;A Philosophy of Software Design&lt;/a&gt;” presentation at Google in 2018, John Ousterhout talked about how to (and how not to) design software and touched on a few key topics.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Problem decomposition is the most important concept of computer science.&lt;/li&gt;&lt;li&gt;Classes should be deep. Interface (methods signatures, dependencies and etc.) is a cost and functionality is a benefit. Aim for greater benefit, least cost. UNIX file I/O is a great example of a deep interface.&lt;/li&gt;&lt;li&gt;Exceptions are a huge source of complexity. Minimize the number of places where exceptions should be handled. For instance, instead of throwing an exception if either index is outside of the range of the string, define a method to extract a substring as returning an overlap between the indexes and the available contents.&lt;/li&gt;&lt;li&gt;Complexity isn’t one mistake you make, it's a result of hundreds and thousands mistakes made by many people over a period of time.&lt;/li&gt;&lt;li&gt;Working code isn’t enough. Tactical programming (“Move fast and break things”) incrementally increase complexity.&lt;/li&gt;&lt;li&gt;You have to invest in a good design. How much? It should be fine to go slower by 10-20%.&lt;/li&gt;&lt;/ul&gt;</content>
+<content type="html">&lt;p&gt;In his “&lt;a href=&quot;https://www.youtube.com/watch?v=bmSAYlu0NcY&quot;&gt;A Philosophy of Software Design&lt;/a&gt;” presentation at Google in 2018, John Ousterhout talked about how to (and how not to) design software and touched on a few key topics.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Problem decomposition is the most important concept of computer science.&lt;/li&gt;&lt;li&gt;Classes should be deep. Interface (methods signatures, dependencies and etc.) is a cost and functionality is a benefit. Aim for greater benefit, least cost. UNIX file I/O is a great example of a deep interface.&lt;/li&gt;&lt;li&gt;Exceptions are a huge source of complexity. Minimize the number of places where exceptions should be handled. For instance, instead of throwing an exception if either index is outside of the range of the string, define a method to extract a substring as returning an overlap between the indexes and the available contents.&lt;/li&gt;&lt;li&gt;Complexity isn’t one mistake you make, it’s a result of hundreds and thousands mistakes made by many people over a period of time.&lt;/li&gt;&lt;li&gt;Working code isn’t enough. Tactical programming (“Move fast and break things”) incrementally increases complexity.&lt;/li&gt;&lt;li&gt;You have to invest in a good design. It should be fine to go slower by 10-20%.&lt;/li&gt;&lt;/ul&gt;</content>
 </entry>
 <entry>
 <title>Cost of a pixel color</title>
