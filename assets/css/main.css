@@ -285,6 +285,10 @@ figcaption {
     margin-right: .25rem;
   }
 
+.post-footer {
+  color: #757575;
+  text-align: center;
+}
 .post__meta {
   color: #757575;
   margin: .75rem 0 calc( .75rem + 1.5rem ); /* Vertical rhythm */
