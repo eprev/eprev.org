@@ -10,3 +10,4 @@ svg: SVG
 ux: UX
 hacking-web: Hacking Web
 worth-watching: Worth watching
+computer-science: Computer Science

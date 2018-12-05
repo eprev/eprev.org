@@ -37,13 +37,13 @@ return html`
         <meta property="og:type" content="article">
         <meta property="og:description" content="${page.description}">
         ${
-          page.ogImage
+          page.shareImage
             ? html`
               <meta property="og:image" content="${url(
-                page.pathname + page.ogImage,
+                page.pathname + page.shareImage,
               )}">
               <meta name="twitter:image" content="${url(
-                page.pathname + page.ogImage,
+                page.pathname + page.shareImage,
               )}">
               <meta name="twitter:card" content="summary_large_image">
               `
