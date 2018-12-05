@@ -55,30 +55,25 @@ compress-bundles: build-bundles
 build-manifest: compress-bundles
 	@set -e; for filename in $$( find $(BUNDLES_DIR) -type f -exec basename {} \; ); do \
 		hash=$$(echo $(BUNDLES_DIR)/$$filename | openssl md5); \
+		echo "$$filename: $$hash"; \
 		hashed_filename="$${filename%%.*}-$$hash.$${filename#*.}"; \
 		mv $(BUNDLES_DIR)/$$filename $(BUNDLES_DIR)/$$hashed_filename; \
 		echo "$$filename: $$hashed_filename" >> $(MANIFEST_FILE); \
 	done
 
 build: build-manifest
+	NODE_ENV=$(NODE_ENV) bin/build
+	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
 
 clean-static:
 	find static -not -name ".git" -delete
-
-build-deploy: reset-static clean-static build
-	NODE_ENV=$(NODE_ENV) bin/build
-	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
-
-ci-deploy: build
-	NODE_ENV=$(NODE_ENV) bin/build
-	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
 
 reset-static:
 	git --git-dir=static/.git reset --hard origin/gh-pages
 	git --git-dir=static/.git pull origin gh-pages
 	git --git-dir=static/.git clean -fd
 
-deploy: build-deploy
+deploy: reset-static build
 	git --git-dir=static/.git add -A
 	git --git-dir=static/.git commit -m "Deploy"
 	git --git-dir=static/.git push origin gh-pages
