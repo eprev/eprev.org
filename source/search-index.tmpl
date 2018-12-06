@@ -1,0 +1,21 @@
+/*---
+type: system
+pathname: /index.json
+---*/
+
+const { vectorize } = require('../lib/search');
+
+const index = site.byType('post')
+      .reduce((index, post) => {
+
+        index.push({
+          title: post.title,
+          kyewords: vectorize(post.__source__),
+        });
+
+        return index;
+      }, []);
+
+return html`${stringify(index)}`;
+
+// vim: ft=javascript
