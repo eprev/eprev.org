@@ -217,6 +217,39 @@ figcaption {
   width: 100%;
   height: 100%;
 }
+
+.search-hidden,
+.search-control[disabled] {
+  display: none !important;
+}
+.search-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  width: 16px;
+  height: 16px;
+  padding: 3px 0 0 0;
+  cursor: pointer;
+  box-sizing: content-box;
+}
+.search-input {
+  margin: 0 2rem 1rem 0;
+  box-sizing: border-box;
+  height: 2rem;
+  padding: 0 .25rem;
+}
+.search-results__header,
+.search-results__content {
+  text-align: center;
+}
+.search-results__item {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.search-results__item span {
+  color: #757575;
+}
+
 .post + .post {
   margin: 3rem 0; /* Vertical rhythm */
 }
@@ -426,6 +459,19 @@ figcaption {
     padding-left: 0;
     text-align: center;
   }
+  .search-toggle {
+    display: inline-block;
+    order: -2;
+    align-self: flex-end;
+    position: absolute;
+  }
+  .search-input {
+    display: none;
+    margin-right: 0;
+  }
+    .search-input--visible {
+      display: block;
+    }
   /*ul*/.page__nav li {
     display: inline-block;
   }

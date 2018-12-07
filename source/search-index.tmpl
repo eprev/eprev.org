@@ -3,19 +3,27 @@ type: system
 pathname: /index.json
 ---*/
 
-const { vectorize } = require('../lib/search');
 
-const index = site.byType('post')
-      .reduce((index, post) => {
+const { reduce, vectorize } = require('../lib/search');
+const dateFormat = require('../lib/date-format');
 
-        index.push({
+const documents = site.byType('post')
+      .map((post) => {
+
+      const text = post.__source__
+          .replace(/https?:\/\/[^\s]*/g, '') // Ignore URLs
+          .replace(/<!--:[^>]*-->/g, '')     // Ignore markdown attributes
+        ;
+
+        return {
           title: post.title,
-          kyewords: vectorize(post.__source__),
-        });
+          url  : post.pathname,
+          date : dateFormat(post.date, '%MM D, YYYY'),
+          tokens: vectorize(text),
+        };
 
-        return index;
-      }, []);
+      });
 
-return html`${stringify(index)}`;
+return html`${stringify(documents)}`;
 
 // vim: ft=javascript

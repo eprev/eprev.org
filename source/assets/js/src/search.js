@@ -1,3 +1,136 @@
+document.querySelectorAll('.search-control').forEach(el => el.disabled = false);
+
+const searchInput = document.querySelector('.search-input');
+
+const searchContainer = document.createElement('div');
+searchContainer.className = 'page__content search-results search-hidden';
+document.querySelector('.page').appendChild(searchContainer);
+
+searchContainer.innerHTML = `<h1 class="search-results__header">Search results</h1><div class="search-results__content"><p><em>Loading…</em></div>`;
+const searchContent = searchContainer.querySelector('.search-results__content');
+
+function showSearchContainer() {
+  document.querySelector('.page__content').classList.add('search-hidden');
+  searchInput.classList.add('search-input--visible');
+  searchContainer.classList.remove('search-hidden');
+}
+
+function hideSearchContainer() {
+  document.querySelectorAll('.search-hidden').forEach(el => el.classList.remove('search-hidden'));
+  searchInput.classList.remove('search-input--visible');
+  searchContainer.classList.add('search-hidden');
+}
+
+document.querySelector('.search-toggle').addEventListener('click', (e) => {
+  if (searchInput.classList.contains('search-input--visible')) {
+    hideSearchContainer();
+  } else {
+    showSearchContainer();
+    searchInput.focus();
+  }
+});
+
+async function fetchIndex() {
+  const response = await fetch('/index.json');
+  if (response.ok) {
+    const documents = await response.json();
+
+    const tokens = documents.reduce((acc, d) => {
+        return reduce(Object.keys(d.tokens), acc);
+      }, {});
+
+    const N = documents.length;
+
+    const idf = Object.keys(tokens).reduce((idf, t) => {
+        idf[t] = Math.log(N / tokens[t]);
+        return idf;
+      }, {});
+
+    documents.forEach(d => {
+      for (let t in d.tokens) {
+        d.tokens[t] *= idf[t];
+      }
+    });
+
+    const searchIndex = {
+      documents,
+      idf,
+    };
+
+    localStorage.searchIndex = JSON.stringify(searchIndex);
+    return searchIndex;
+  } else {
+    throw new Error('Failed to fetch the index');
+  }
+}
+
+const searchIndex = new Promise((resolve, reject) => {
+  searchInput.addEventListener('focus', () => {
+    if (!localStorage.searchIndex) {
+      fetchIndex().then((searchIndex) => {
+        resolve(searchIndex);
+      }).catch((err) => {
+        reject(err);
+      });
+    } else {
+      try {
+        fetchIndex();
+        resolve(JSON.parse(localStorage.searchIndex));
+      } catch(err) {
+        delete localStorage.searchIndex;
+        reject(err);
+      }
+    }
+  }, {once: true});
+});
+
+searchIndex.then((searchIndex) => {
+  const idf = searchIndex.idf;
+
+  function search(query) {
+    let results = [];
+    if (query) {
+      const vector = vectorize(query, idf);
+      const tfMax = Object.values(vector).reduce((max, c) => c > max ? c : max, 0)
+      for (let t in vector) {
+        vector[t] = (0.5 + 0.5 * vector[t] / tfMax) * idf[t];
+      }
+
+      if (Object.values(vector).length > 0) {
+        results = searchIndex.documents.reduce((res, document) => {
+          const score = cosineSimilarity(document.tokens, vector);
+          if (score > 0) {
+            res.push({
+              document,
+              score,
+            });
+          }
+          return res;
+        }, []).sort((a, b) => b.score - a.score);
+        searchContent.innerHTML = `<ol class="search-results__list">${results.map((r) => `<li class="search-results__item"><a href="${r.document.url}">${r.document.title}</a> <span>${r.document.date}</span></li>`).join('')}</ol>`;
+      } else {
+      searchContent.innerHTML = `<p><em>Nothing yet. Keep typing…</em></p>`;
+  }
+      showSearchContainer();
+    } else {
+      hideSearchContainer();
+    }
+  }
+
+  searchInput.addEventListener('input', (e) => search(e.target.value));
+  search(searchInput.value);
+}).catch(() => {
+  searchInput.addEventListener('input', (e) => {
+    if (e.target.value) {
+      searchContent.innerHTML = '<p><em>Sorry! Something went wrong…</em></p>';
+      showSearchContainer();
+    } else {
+      hideSearchContainer();
+    }
+  });
+});
+
+
 // Porter stemmer in Javascript. Few comments, but it's easy to follow against the rules in the original
 // paper, in
 //
@@ -8,7 +141,7 @@
 
 // Release 1 be 'andargor', Jul 2004
 // Release 2 (substantially revised) by Christopher McKenzie, Aug 2009
-var stemmer = (function(){
+const stemmer = (function(){
   var step2list = {
     "ational" : "ate",
     "tional" : "tion",
@@ -184,9 +317,7 @@ var stemmer = (function(){
   }
 })();
 
-const stopWords = "about,an,and,ar,as,at,be,by,do,don,etc,for,her,hi,how,if,in,is,isn,it,me,not,of,on,or,the,then,to,what,where,you".split(',');
-
-const reduce = exports.reduce = function (items, acc = {}) {
+function reduce(items, acc = {}) {
   return items.reduce((m, t) => {
     if (m[t]) {
         m[t] += 1;
@@ -197,10 +328,22 @@ const reduce = exports.reduce = function (items, acc = {}) {
   }, acc);
 };
 
-exports.vectorize = function (text) {
+function vectorize(text, idf) {
   const tokens = text
     .split(/[\W]+/)
     .map(t => stemmer(t.toLowerCase()))
-    .filter(t => t.length > 1 && !stopWords.includes(t));
+    .filter(t => t.length > 1 && t in idf);
   return reduce(tokens);
+}
+
+function vectorLength(v) {
+  return Math.sqrt(
+    v.reduce((sum, value) => sum + value * value, 0)
+  );
+}
+
+function cosineSimilarity(a, b) {
+  const tokens = new Set(Object.keys(a).concat(Object.keys(b)));
+  const product = [...tokens.values()].reduce((sum, token) => sum + (a[token] || 0) * (b[token] || 0), 0);
+  return product / ( vectorLength(Object.values(a)) * vectorLength(Object.values(b)) );
 }
