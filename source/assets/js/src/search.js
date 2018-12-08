@@ -35,6 +35,21 @@ async function fetchIndex() {
   if (response.ok) {
     const documents = await response.json();
 
+    documents.forEach(doc => {
+      const ngrams = {};
+      for (let token in doc.tokens) {
+        let count = doc.tokens[token];
+        ngram(token).forEach(ng => {
+          if (ngrams[ng]) {
+            ngrams[ng] += count;
+          } else {
+            ngrams[ng] = count;
+          }
+        });
+      }
+      doc.tokens = ngrams;
+    });
+
     const tokens = documents.reduce((acc, d) => {
         return reduce(Object.keys(d.tokens), acc);
       }, {});
@@ -95,6 +110,7 @@ searchIndex.then((searchIndex) => {
       for (let t in vector) {
         vector[t] = (0.5 + 0.5 * vector[t] / tfMax) * idf[t];
       }
+      console.log(vector);
 
       if (Object.values(vector).length > 0) {
         results = searchIndex.documents.reduce((res, document) => {
@@ -106,8 +122,8 @@ searchIndex.then((searchIndex) => {
             });
           }
           return res;
-        }, []).sort((a, b) => b.score - a.score);
-        searchContent.innerHTML = `<ol class="search-results__list">${results.map((r) => `<li class="search-results__item"><a href="${r.document.url}">${r.document.title}</a> <span>${r.document.date}</span></li>`).join('')}</ol>`;
+        }, []).filter(r => r.score > 0.1).sort((a, b) => b.score - a.score);
+        searchContent.innerHTML = `<ol class="search-results__list">${results.map((r) => `<li class="search-results__item"><a href="${r.document.url}">${r.document.title}</a> <span>${r.document.date}</span> ${r.score}</li>`).join('')}</ol>`;
       } else {
       searchContent.innerHTML = `<p><em>Nothing yet. Keep typing…</em></p>`;
   }
@@ -130,193 +146,6 @@ searchIndex.then((searchIndex) => {
   });
 });
 
-
-// Porter stemmer in Javascript. Few comments, but it's easy to follow against the rules in the original
-// paper, in
-//
-//  Porter, 1980, An algorithm for suffix stripping, Program, Vol. 14,
-//  no. 3, pp 130-137,
-//
-// see also http://www.tartarus.org/~martin/PorterStemmer
-
-// Release 1 be 'andargor', Jul 2004
-// Release 2 (substantially revised) by Christopher McKenzie, Aug 2009
-const stemmer = (function(){
-  var step2list = {
-    "ational" : "ate",
-    "tional" : "tion",
-    "enci" : "ence",
-    "anci" : "ance",
-    "izer" : "ize",
-    "bli" : "ble",
-    "alli" : "al",
-    "entli" : "ent",
-    "eli" : "e",
-    "ousli" : "ous",
-    "ization" : "ize",
-    "ation" : "ate",
-    "ator" : "ate",
-    "alism" : "al",
-    "iveness" : "ive",
-    "fulness" : "ful",
-    "ousness" : "ous",
-    "aliti" : "al",
-    "iviti" : "ive",
-    "biliti" : "ble",
-    "logi" : "log"
-  },
-
-  step3list = {
-    "icate" : "ic",
-    "ative" : "",
-    "alize" : "al",
-    "iciti" : "ic",
-    "ical" : "ic",
-    "ful" : "",
-    "ness" : ""
-  },
-
-  c = "[^aeiou]",          // consonant
-  v = "[aeiouy]",          // vowel
-  C = c + "[^aeiouy]*",    // consonant sequence
-  V = v + "[aeiou]*",      // vowel sequence
-
-  mgr0 = "^(" + C + ")?" + V + C,               // [C]VC... is m>0
-  meq1 = "^(" + C + ")?" + V + C + "(" + V + ")?$",  // [C]VC[V] is m=1
-  mgr1 = "^(" + C + ")?" + V + C + V + C,       // [C]VCVC... is m>1
-  s_v = "^(" + C + ")?" + v;                   // vowel in stem
-
-  return function (w) {
-    var 	stem,
-      suffix,
-      firstch,
-      re,
-      re2,
-      re3,
-      re4,
-      origword = w;
-
-    if (w.length < 3) { return w; }
-
-    firstch = w.substr(0,1);
-    if (firstch == "y") {
-      w = firstch.toUpperCase() + w.substr(1);
-    }
-
-    // Step 1a
-    re = /^(.+?)(ss|i)es$/;
-    re2 = /^(.+?)([^s])s$/;
-
-    if (re.test(w)) { w = w.replace(re,"$1$2"); }
-    else if (re2.test(w)) {	w = w.replace(re2,"$1$2"); }
-
-    // Step 1b
-    re = /^(.+?)eed$/;
-    re2 = /^(.+?)(ed|ing)$/;
-    if (re.test(w)) {
-      var fp = re.exec(w);
-      re = new RegExp(mgr0);
-      if (re.test(fp[1])) {
-        re = /.$/;
-        w = w.replace(re,"");
-      }
-    } else if (re2.test(w)) {
-      var fp = re2.exec(w);
-      stem = fp[1];
-      re2 = new RegExp(s_v);
-      if (re2.test(stem)) {
-        w = stem;
-        re2 = /(at|bl|iz)$/;
-        re3 = new RegExp("([^aeiouylsz])\\1$");
-        re4 = new RegExp("^" + C + v + "[^aeiouwxy]$");
-        if (re2.test(w)) {	w = w + "e"; }
-        else if (re3.test(w)) { re = /.$/; w = w.replace(re,""); }
-        else if (re4.test(w)) { w = w + "e"; }
-      }
-    }
-
-    // Step 1c
-    re = /^(.+?)y$/;
-    if (re.test(w)) {
-      var fp = re.exec(w);
-      stem = fp[1];
-      re = new RegExp(s_v);
-      if (re.test(stem)) { w = stem + "i"; }
-    }
-
-    // Step 2
-    re = /^(.+?)(ational|tional|enci|anci|izer|bli|alli|entli|eli|ousli|ization|ation|ator|alism|iveness|fulness|ousness|aliti|iviti|biliti|logi)$/;
-    if (re.test(w)) {
-      var fp = re.exec(w);
-      stem = fp[1];
-      suffix = fp[2];
-      re = new RegExp(mgr0);
-      if (re.test(stem)) {
-        w = stem + step2list[suffix];
-      }
-    }
-
-    // Step 3
-    re = /^(.+?)(icate|ative|alize|iciti|ical|ful|ness)$/;
-    if (re.test(w)) {
-      var fp = re.exec(w);
-      stem = fp[1];
-      suffix = fp[2];
-      re = new RegExp(mgr0);
-      if (re.test(stem)) {
-        w = stem + step3list[suffix];
-      }
-    }
-
-    // Step 4
-    re = /^(.+?)(al|ance|ence|er|ic|able|ible|ant|ement|ment|ent|ou|ism|ate|iti|ous|ive|ize)$/;
-    re2 = /^(.+?)(s|t)(ion)$/;
-    if (re.test(w)) {
-      var fp = re.exec(w);
-      stem = fp[1];
-      re = new RegExp(mgr1);
-      if (re.test(stem)) {
-        w = stem;
-      }
-    } else if (re2.test(w)) {
-      var fp = re2.exec(w);
-      stem = fp[1] + fp[2];
-      re2 = new RegExp(mgr1);
-      if (re2.test(stem)) {
-        w = stem;
-      }
-    }
-
-    // Step 5
-    re = /^(.+?)e$/;
-    if (re.test(w)) {
-      var fp = re.exec(w);
-      stem = fp[1];
-      re = new RegExp(mgr1);
-      re2 = new RegExp(meq1);
-      re3 = new RegExp("^" + C + v + "[^aeiouwxy]$");
-      if (re.test(stem) || (re2.test(stem) && !(re3.test(stem)))) {
-        w = stem;
-      }
-    }
-
-    re = /ll$/;
-    re2 = new RegExp(mgr1);
-    if (re.test(w) && re2.test(w)) {
-      re = /.$/;
-      w = w.replace(re,"");
-    }
-
-    // and turn initial Y back to y
-
-    if (firstch == "y") {
-      w = firstch.toLowerCase() + w.substr(1);
-    }
-
-    return w;
-  }
-})();
-
 function reduce(items, acc = {}) {
   return items.reduce((m, t) => {
     if (m[t]) {
@@ -326,14 +155,25 @@ function reduce(items, acc = {}) {
     }
     return m;
   }, acc);
-};
+}
+
+function ngram(text, size = 3) {
+    const res = [];
+    text = '-' + text.padEnd(size - 2, '-') + '-';
+    for (let i = 0; i < text.length - size + 1; ++i) {
+        res.push(text.slice(i, i + size));
+    }
+    return res;
+}
 
 function vectorize(text, idf) {
   const tokens = text
-    .split(/[\W]+/)
-    .map(t => stemmer(t.toLowerCase()))
-    .filter(t => t.length > 1 && t in idf);
-  return reduce(tokens);
+    .replace(/’/g, "'")
+    .split(/[^A-Za-z0-9'-]+/)
+    .map(t => t.toLowerCase().replace(/['-]/g, ''))
+    .filter(t => t.length > 1);
+  const ngrams = tokens.reduce((acc, token) => acc.concat(ngram(token)), []).filter(ng => ng in idf);
+  return reduce(ngrams);
 }
 
 function vectorLength(v) {
