@@ -148,17 +148,21 @@ abbr {
                (http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.6/). */
 }
 a {
-  background-image: linear-gradient(to right, #ececec, #ececec);
-  background-position: left bottom;
-  background-size: 1px 2px;
-  background-repeat: repeat-x;
-  box-shadow: 0 2px #ececec;
+  position: relative;
   color: inherit;
   text-decoration: none;
 }
-  a:hover {
-    background-image: linear-gradient(to right, #d0e0f0, #d0e0f0);
-    box-shadow: 0 2px #d0e0f0;
+  a::after {
+    content: '';
+    border-bottom: 3px solid #ececec;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  a:hover::after {
+    border-color: #d0e0f0;
   }
 
 figure {
