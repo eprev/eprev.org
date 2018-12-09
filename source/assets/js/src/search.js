@@ -1,3 +1,5 @@
+import * as idbStorage from './idbstorage.js';
+
 document
   .querySelectorAll('.search-control')
   .forEach(el => (el.disabled = false));
@@ -76,7 +78,7 @@ async function fetchIndex() {
       idf,
     };
 
-    localStorage.searchIndex = JSON.stringify(searchIndex);
+    idbStorage.set('searchInddex', searchIndex);
     return searchIndex;
   } else {
     throw new Error('Failed to fetch the index');
@@ -87,23 +89,20 @@ const searchIndex = new Promise((resolve, reject) => {
   searchInput.addEventListener(
     'focus',
     () => {
-      if (!localStorage.searchIndex) {
-        fetchIndex()
-          .then(searchIndex => {
-            resolve(searchIndex);
-          })
-          .catch(err => {
-            reject(err);
-          });
-      } else {
-        try {
+      idbStorage.get('searchIndex').then(searchIndex => {
+        if (searchIndex) {
           fetchIndex();
-          resolve(JSON.parse(localStorage.searchIndex));
-        } catch (err) {
-          delete localStorage.searchIndex;
-          reject(err);
+          resolve(searchIndex);
+        } else {
+          fetchIndex()
+            .then(searchIndex => {
+              resolve(searchIndex);
+            })
+            .catch(err => {
+              reject(err);
+            });
         }
-      }
+      }).catch(err => reject(err));
     },
     { once: true },
   );
