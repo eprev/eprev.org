@@ -75,7 +75,7 @@ if (window.Worker) {
     if (query) {
       showSearchContainer();
       if (isReady) {
-        searchContent.innerHTML = `<p><em>Nothing yet. Keep typing…</em></p>`;
+        searchContent.innerHTML = `<p><em>Looking…</em></p>`;
         worker.postMessage({type: 'find', query});
       }
     } else {
