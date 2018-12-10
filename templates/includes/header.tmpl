@@ -59,6 +59,9 @@ return html`
       manifest ? '/assets-bundles/' + manifest['main.js'] : '/assets/js/main.js'
     }"
     type="module"
+    data-search-worker-href="${
+      manifest ? '/assets-bundles/' + manifest['search-worker.js'] : '/assets/js/search-worker.js'
+    }"
   ></script>
   ${
     env === 'development'

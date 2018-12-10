@@ -5,4 +5,3 @@ import './src/search.js';
 
 eyed( document.querySelector('.page__user-picture') );
 scrollbar();
-
