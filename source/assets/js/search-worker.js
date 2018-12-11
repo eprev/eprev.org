@@ -1,4 +1,18 @@
-const idbStorage = (function(){
+self.addEventListener('message', e => {
+  console.debug('search-worker received', e.data);
+  const { type } = e.data;
+  if (type === 'init') {
+    getIndex()
+      .then(v => self.postMessage({ type: 'ready' }))
+      .catch(err => self.postMessage({ type: 'error', err }));
+  } else if (type === 'search') {
+    search(e.data.query).then(results =>
+      self.postMessage({ type: 'results', results }),
+    );
+  }
+});
+
+const storage = (function() {
   const store = new Promise((resolve, reject) => {
     const req = indexedDB.open('idb-storage', 1);
     req.onerror = () => reject(req.error);
@@ -7,13 +21,17 @@ const idbStorage = (function(){
   });
 
   function begin(mode, callback) {
-    return store.then(db => new Promise((resolve, reject) => {
-      let ret;
-      const transaction = db.transaction('objects', mode);
-      transaction.oncomplete = () => resolve(ret);
-      transaction.onabort = transaction.onerror = () => reject(transaction.error);
-      ret = callback(transaction.objectStore('objects'));
-    }));
+    return store.then(
+      db =>
+        new Promise((resolve, reject) => {
+          let retVal;
+          const transaction = db.transaction('objects', mode);
+          transaction.oncomplete = () => resolve(retVal);
+          transaction.onabort = transaction.onerror = () =>
+            reject(transaction.error);
+          retVal = callback(transaction.objectStore('objects'));
+        }),
+    );
   }
 
   function get(key) {
@@ -28,153 +46,104 @@ const idbStorage = (function(){
     });
   }
 
-  function del(key) {
-    return begin('readwrite', store => {
-      store.delete(key);
-    });
-  }
-
-  function clear() {
-    return begin('readwrite', store => {
-      store.clear();
-    });
-  }
-
-  function keys() {
-    return begin('readonly', store => {
-      const keys = [];
-      store.openKeyCursor().onsuccess = function () {
-        if (this.result) {
-          keys.push(this.result.key);
-          this.result.continue();
-        }
-      };
-      return keys;
-    });
-  }
-
   return {
     get,
     set,
-    del,
-    clear,
-    keys,
   };
 })();
 
-let searchIndex;
-
-self.addEventListener('message', (e) => {
-  const { type } = e.data;
-  console.info('worker <-', e.data);
-  if (type === 'init') {
-    searchIndex = getIndex();
-    searchIndex.then(v => self.postMessage({type: 'ready'})).catch(err => self.postMessage({type: 'error', err}));
-  } else if (type === 'find') {
-    search(e.data.query).then(results => self.postMessage({type: 'results', results}))
+async function getIndex() {
+  if (getIndex.index) {
+    return getIndex.index;
+  } else {
+    let index = await storage.get('search-index');
+    if (index) {
+      // Update the index in background
+      buildIndex().then(() => self.postMessage({ type: 'updated' }));
+    } else {
+      index = await buildIndex();
+    }
+    return (getIndex.index = index);
   }
-});
+}
 
-async function fetchIndex() {
+const INDEX_NRGAM_SIZE = 3;
+
+function ngram(text, size = 2) {
+  const seq = [];
+  text = '-' + text.padEnd(size - 2, '-') + '-';
+  for (let i = 0; i < text.length - size + 1; ++i) {
+    seq.push(text.slice(i, i + size));
+  }
+  return seq;
+}
+
+function countItems(items, acc = {}, inc = 1) {
+  return items.reduce((acc, item) => {
+    acc[item] = acc[item] ? acc[item] + inc : inc;
+    return acc;
+  }, acc);
+}
+
+async function buildIndex() {
   const response = await fetch('/index.json');
   if (response.ok) {
     const documents = await response.json();
 
+    // Tokens is a hash where the keys are the words and the associated
+    // values are the numbers of their occurrences. So, we need to iterate over
+    // that list of words and generate n-gram (trigram) sequence from each of them.
     documents.forEach(doc => {
-      const ngrams = {};
-      for (let token in doc.tokens) {
-        let count = doc.tokens[token];
-        ngram(token).forEach(ng => {
-          if (ngrams[ng]) {
-            ngrams[ng] += count;
-          } else {
-            ngrams[ng] = count;
-          }
-        });
-      }
-      doc.tokens = ngrams;
+      doc.tokens = Object.keys(doc.tokens).reduce((ngrams, tk) => {
+        const freq = doc.tokens[tk];
+        const seq = ngram(tk, INDEX_NRGAM_SIZE);
+        return countItems(seq, ngrams, freq);
+      }, {});
     });
 
-    const tokens = documents.reduce((acc, d) => {
-      return reduce(Object.keys(d.tokens), acc);
+    // Count the frequency of tokens across the set of documents
+    const tokens = documents.reduce((tokens, doc) => {
+      return countItems(Object.keys(doc.tokens), tokens);
     }, {});
 
-    const N = documents.length;
+    const n = documents.length;
 
-    const idf = Object.keys(tokens).reduce((idf, t) => {
-      idf[t] = Math.log(N / tokens[t]);
+    // TF–IDF weighting schemes No. 1 (https://en.wikipedia.org/wiki/Tf–idf)
+    const idf = Object.keys(tokens).reduce((idf, tk) => {
+      idf[tk] = Math.log(n / tokens[tk]);
       return idf;
     }, {});
 
     documents.forEach(d => {
-      for (let t in d.tokens) {
-        d.tokens[t] *= idf[t];
+      for (let tk in d.tokens) {
+        d.tokens[tk] *= idf[tk];
       }
     });
 
-    const searchIndex = {
+    const index = {
       documents,
       idf,
     };
 
-    idbStorage.set('searchIndex', searchIndex);
-    return searchIndex;
+    storage.set('search-index', index);
+    return index;
   } else {
     throw new Error('Failed to fetch the index');
   }
 }
 
-function getIndex() {
-  return new Promise((resolve, reject) => {
-    idbStorage.get('searchIndex').then(searchIndex => {
-      if (searchIndex) {
-        fetchIndex().then(() => self.postMessage({type: 'updated'}));
-        resolve(searchIndex);
-      } else {
-        fetchIndex()
-          .then(searchIndex => {
-            resolve(searchIndex);
-          })
-          .catch(err => {
-            reject(err);
-          });
-      }
-    }).catch(err => {
-      reject(err);
-    });
-  });
-}
-
-function reduce(items, acc = {}) {
-  return items.reduce((m, t) => {
-    if (m[t]) {
-      m[t] += 1;
-    } else {
-      m[t] = 1;
-    }
-    return m;
-  }, acc);
-}
-
-function ngram(text, size = 3) {
-  const res = [];
-  text = '-' + text.padEnd(size - 2, '-') + '-';
-  for (let i = 0; i < text.length - size + 1; ++i) {
-    res.push(text.slice(i, i + size));
-  }
-  return res;
-}
-
 function vectorize(text, idf) {
+  // Tokenizer
   const tokens = text
     .replace(/’/g, "'")
     .split(/[^A-Za-z0-9'-]+/)
     .map(t => t.toLowerCase().replace(/['-]/g, ''))
     .filter(t => t.length > 1);
+  // Generate n-grams (trigrams) from the tokens
   const ngrams = tokens
-    .reduce((acc, token) => acc.concat(ngram(token)), [])
-    .filter(ng => ng in idf);
-  return reduce(ngrams);
+    .reduce((ngrams, tk) => ngrams.concat(ngram(tk, INDEX_NRGAM_SIZE)), [])
+    .filter(tk => tk in idf); // filter "unknown" ngrams out
+  return countItems(ngrams);
 }
 
 function vectorLength(v) {
@@ -184,47 +153,47 @@ function vectorLength(v) {
 function cosineSimilarity(a, b) {
   const tokens = new Set(Object.keys(a).concat(Object.keys(b)));
   const product = [...tokens.values()].reduce(
-    (sum, token) => sum + (a[token] || 0) * (b[token] || 0),
+    (sum, tk) => sum + (a[tk] || 0) * (b[tk] || 0),
     0,
   );
+  const lenA = vectorLength(Object.values(a));
+  const lenB = vectorLength(Object.values(b));
   return (
-    product / (vectorLength(Object.values(a)) * vectorLength(Object.values(b)))
+    product / ( lenA * lenB )
   );
 }
 
-function search(query) {
-  return searchIndex.then(searchIndex => {
-    const idf = searchIndex.idf;
-    let results = [];
-    if (query) {
-      const vector = vectorize(query, idf);
-      const tfMax = Object.values(vector).reduce(
-        (max, c) => (c > max ? c : max),
-        0,
-      );
-      for (let t in vector) {
-        vector[t] = (0.5 + 0.5 * vector[t] / tfMax) * idf[t];
-      }
-      console.log(vector);
-
-      if (Object.values(vector).length > 0) {
-        results = searchIndex.documents
-          .reduce((res, document) => {
-            const score = cosineSimilarity(document.tokens, vector);
-            if (score > 0) {
-              res.push({
-                document,
-                score,
-              });
-            }
-            return res;
-          }, [])
-          .filter(r => r.score > 0.1)
-          .sort((a, b) => b.score - a.score);
-      }
-      return results;
-    } else {
-      return [];
+async function search(query) {
+  const index = await getIndex();
+  const idf = index.idf;
+  let results = [];
+  if (query) {
+    const vector = vectorize(query, idf);
+    const tfMax = Object.values(vector).reduce(
+      (max, freq) => (freq > max ? freq : max),
+      0,
+    );
+    // TF–IDF weighting schemes No. 1 (https://en.wikipedia.org/wiki/Tf–idf)
+    for (let tk in vector) {
+      vector[tk] = (0.5 + 0.5 * vector[tk] / tfMax) * idf[tk];
     }
-  });
+
+    if (Object.values(vector).length > 0) {
+      results = index.documents
+        .reduce((res, document) => {
+          const score = cosineSimilarity(document.tokens, vector);
+          if (score > 0.1) {
+            res.push({
+              title: document.title,
+              date: document.date,
+              url: document.url,
+              score,
+            });
+          }
+          return res;
+        }, [])
+        .sort((a, b) => b.score - a.score);
+    }
+  }
+  return results;
 }

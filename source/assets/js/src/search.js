@@ -1,20 +1,20 @@
 if (window.Worker) {
-
   document
     .querySelectorAll('.search-control')
     .forEach(el => (el.disabled = false));
 
-  const scriptEl = document.querySelector('[data-search-worker-href]');
-  const worker = new Worker(scriptEl.dataset.searchWorkerHref);
+  const worker = new Worker(
+    document.querySelector('[data-search-worker-href]').dataset.searchWorkerHref,
+  );
 
-  worker.addEventListener('error', (e) => {
-    // TODO: Report to GA
-    console.error(e);
+  worker.addEventListener('error', e => {
+    ga('send', 'event', 'JavaScript Error', e.message, e.filename ? (e.filename + ':' + e.lineno) : 'N/A', {nonInteraction: 1});
   });
+
   let isReady = false;
-  worker.addEventListener('message', (e) => {
+  worker.addEventListener('message', e => {
+    console.debug('main received', e.data);
     const { type } = e.data;
-    console.info('main <-', e.data);
     if (type === 'ready' || type === 'updated') {
       isReady = true;
       search(searchInput.value);
@@ -26,9 +26,9 @@ if (window.Worker) {
         searchContent.innerHTML = `<ol class="search-results__list">${results
           .map(
             r =>
-              `<li class="search-results__item"><a href="${r.document.url}">${
-                r.document.title
-              }</a> <span>${r.document.date}</span></li>`,
+              `<li class="search-results__item"><a href="${r.url}">${
+                r.title
+              }</a> <span>${r.date}</span></li>`,
           )
           .join('')}</ol>`;
       } else {
@@ -38,14 +38,20 @@ if (window.Worker) {
   });
 
   const searchInput = document.querySelector('.search-input');
-  searchInput.addEventListener('focus',() => worker.postMessage({type: 'init'}), { once: true });
+  searchInput.addEventListener(
+    'focus',
+    () => worker.postMessage({ type: 'init' }),
+    { once: true },
+  );
 
   const searchContainer = document.createElement('div');
   searchContainer.className = 'page__content search-results search-hidden';
   document.querySelector('.page').appendChild(searchContainer);
 
   searchContainer.innerHTML = `<h1 class="search-results__header">Search results</h1><div class="search-results__content"><p><em>Loading…</em></div>`;
-  const searchContent = searchContainer.querySelector('.search-results__content');
+  const searchContent = searchContainer.querySelector(
+    '.search-results__content',
+  );
 
   function showSearchContainer() {
     document.querySelector('.page__content').classList.add('search-hidden');
@@ -76,7 +82,7 @@ if (window.Worker) {
       showSearchContainer();
       if (isReady) {
         searchContent.innerHTML = `<p><em>Looking…</em></p>`;
-        worker.postMessage({type: 'find', query});
+        worker.postMessage({ type: 'search', query });
       }
     } else {
       hideSearchContainer();
