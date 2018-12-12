@@ -55,7 +55,7 @@ if (window.Worker) {
                   data-ga-on="click"
                   data-ga-category="Click"
                   data-ga-action="Search Results"
-                  data-ga-label="${r.title}"
+                  data-ga-label="${r.url}"
                 >${r.title}</a> <span>${r.date}</span></li>`,
             )
             .join('')}</ol>`;
