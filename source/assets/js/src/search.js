@@ -12,6 +12,7 @@ if (window.Worker) {
   });
 
   let isReady = false;
+  let currUrls;
   worker.addEventListener('message', e => {
     console.debug('main received', e.data);
     const { type } = e.data;
@@ -22,17 +23,21 @@ if (window.Worker) {
       searchContent.innerHTML = '<p><em>Sorry! Something went wrong…</em></p>';
     } else if (type === 'results') {
       const results = e.data.results;
-      if (results.length) {
-        searchContent.innerHTML = `<ol class="search-results__list">${results
-          .map(
-            r =>
-              `<li class="search-results__item"><a href="${r.url}">${
-                r.title
-              }</a> <span>${r.date}</span></li>`,
-          )
-          .join('')}</ol>`;
-      } else {
-        searchContent.innerHTML = `<p><em>Nothing yet. Keep typing…</em></p>`;
+      const urls = results.map(r => r.url).toString();
+      if (urls !== currUrls) {
+        currUrls = urls;
+        if (results.length) {
+          searchContent.innerHTML = `<ol class="search-results__list">${results
+            .map(
+              r =>
+                `<li class="search-results__item"><a href="${r.url}">${
+                  r.title
+                }</a> <span>${r.date}</span></li>`,
+            )
+            .join('')}</ol>`;
+        } else {
+          searchContent.innerHTML = `<p><em>Nothing yet. Keep typing…</em></p>`;
+        }
       }
     }
   });
@@ -81,7 +86,8 @@ if (window.Worker) {
     if (query) {
       showSearchContainer();
       if (isReady) {
-        searchContent.innerHTML = `<p><em>Looking…</em></p>`;
+        currUrls = '-'; // Making sure we render the empty results for the first time
+        // searchContent.innerHTML = `<p><em>Looking…</em></p>`;
         worker.postMessage({ type: 'search', query });
       }
     } else {
