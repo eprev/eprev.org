@@ -1,18 +1,37 @@
+import { debounce } from './utils.js';
+
 if (window.Worker) {
   document
     .querySelectorAll('.search-control')
     .forEach(el => (el.disabled = false));
 
   const worker = new Worker(
-    document.querySelector('[data-search-worker-href]').dataset.searchWorkerHref,
+    document.querySelector(
+      '[data-search-worker-href]',
+    ).dataset.searchWorkerHref,
   );
 
   worker.addEventListener('error', e => {
-    ga('send', 'event', 'JavaScript Error', e.message, e.filename ? (e.filename + ':' + e.lineno) : 'N/A', {nonInteraction: 1});
+    ga(
+      'send',
+      'event',
+      'JavaScript Error',
+      e.message,
+      e.filename ? e.filename + ':' + e.lineno : 'N/A',
+      { nonInteraction: 1 },
+    );
   });
 
   let isReady = false;
-  let currUrls;
+  let currQuery;
+  let currUrls = '-'; // Making sure we render the empty results for the first time
+
+  let gaQuery = debounce((query, results) => {
+    if (query.length > 1) { // Do not report 1 character queries (after hitting the backspace)
+      ga('send', 'event', 'Search', query, results);
+    }
+  }, 500);
+
   worker.addEventListener('message', e => {
     // console.debug('main received', e.data);
     const { type } = e.data;
@@ -24,15 +43,20 @@ if (window.Worker) {
     } else if (type === 'results') {
       const results = e.data.results;
       const urls = results.map(r => r.url).toString();
+      gaQuery(currQuery, results.length);
       if (urls !== currUrls) {
         currUrls = urls;
         if (results.length) {
           searchContent.innerHTML = `<ol class="search-results__list">${results
             .map(
               r =>
-                `<li class="search-results__item"><a href="${r.url}">${
-                  r.title
-                }</a> <span>${r.date}</span></li>`,
+                `<li class="search-results__item"><a
+                  href="${r.url}"
+                  data-ga-on="click"
+                  data-ga-category="Click"
+                  data-ga-action="Search Results"
+                  data-ga-label="${r.title}"
+                >${r.title}</a> <span>${r.date}</span></li>`,
             )
             .join('')}</ol>`;
         } else {
@@ -86,7 +110,7 @@ if (window.Worker) {
     if (query) {
       showSearchContainer();
       if (isReady) {
-        currUrls = '-'; // Making sure we render the empty results for the first time
+        currQuery = query;
         // searchContent.innerHTML = `<p><em>Looking…</em></p>`;
         worker.postMessage({ type: 'search', query });
       }

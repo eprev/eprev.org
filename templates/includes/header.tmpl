@@ -114,7 +114,21 @@ return html`
             <a href="/atom.xml" class="rss">Feed ${read('icons/rss.svg')}</a>
           </li>
         </ul>
-        <button class="search-toggle search-control" disabled>${read('icons/search.svg')}</button>
-        <input type="text" disabled class="search-input search-control" placeholder="Search">
+        <button
+          disabled
+          class="search-toggle search-control"
+          data-ga-on="click
+          data-ga-category="Click"
+          data-ga-action="Search Button"
+        >${read('icons/search.svg')}</button>
+        <input
+          disabled
+          type="text"
+          class="search-input search-control"
+          placeholder="Search"
+          data-ga-on="click"
+          data-ga-category="Click"
+          data-ga-action="Search Input"
+        >
       </div>
       <div class="page__content">`;
