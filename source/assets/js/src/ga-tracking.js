@@ -18,8 +18,9 @@ if (window.performance && document.hidden !== undefined) {
   });
 }
 document.body.addEventListener('click', (e) => {
-  if (e.target.matches('[data-ga-on=click]')) {
-    const data = e.target.dataset;
+  const target = e.target.closest('[data-ga-on=click]');
+  if (target) {
+    const data = target.dataset;
     ga('send', 'event', data.gaCategory, data.gaAction, data.gaLabel, data.gaValue);
   }
 });
