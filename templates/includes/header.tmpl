@@ -59,6 +59,9 @@ return html`
       manifest ? '/assets-bundles/' + manifest['main.js'] : '/assets/js/main.js'
     }"
     type="module"
+    data-search-worker-href="${
+      manifest ? '/assets-bundles/' + manifest['search-worker.js'] : '/assets/js/search-worker.js'
+    }"
   ></script>
   ${
     env === 'development'
@@ -111,5 +114,21 @@ return html`
             <a href="/atom.xml" class="rss">Feed ${read('icons/rss.svg')}</a>
           </li>
         </ul>
+        <button
+          disabled
+          class="search-toggle search-control"
+          data-ga-on="click"
+          data-ga-category="Click"
+          data-ga-action="Search Button"
+        >${read('icons/search.svg')}</button>
+        <input
+          disabled
+          type="text"
+          class="search-input search-control"
+          placeholder="Search"
+          data-ga-on="click"
+          data-ga-category="Click"
+          data-ga-action="Search Input"
+        >
       </div>
       <div class="page__content">`;
