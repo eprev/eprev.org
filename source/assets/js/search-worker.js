@@ -1,5 +1,5 @@
 self.addEventListener('message', e => {
-  console.debug('search-worker received', e.data);
+  // console.debug('search-worker received', e.data);
   const { type } = e.data;
   if (type === 'init') {
     getIndex()

@@ -14,7 +14,7 @@ if (window.Worker) {
   let isReady = false;
   let currUrls;
   worker.addEventListener('message', e => {
-    console.debug('main received', e.data);
+    // console.debug('main received', e.data);
     const { type } = e.data;
     if (type === 'ready' || type === 'updated') {
       isReady = true;
