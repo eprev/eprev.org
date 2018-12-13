@@ -1,13 +1,13 @@
 // vim: ft=javascript
 
-const dateFormat = require('../lib/date-format');
+const dateFormat = require("../lib/date-format");
 
 function timeToRead(content) {
-  const words = content.split(/\s+/).length;
+  const words = content.replace(/<svg.*?<\/svg>/gs, "").split(/\s+/).length;
   if (words > 360) {
     return ` ∙ ${parseInt(words / 180)} minutes read`;
   } else {
-    return '';
+    return "";
   }
 }
 
@@ -21,17 +21,16 @@ return html`
     }
     </h${post.headingLevel || 1}>
     <div class="post__meta">
-      ${dateFormat(post.date, '%MM D, YYYY')}
+      ${dateFormat(post.date, "%MM D, YYYY")}
       ${timeToRead(post.content)}
       ${
         post.tags
-          ? html` ∙ ${
-            post.tags
+          ? html` ∙ ${post.tags
               .map(tag => {
                 return `<a href="/tags/${tag}/">${tag}</a>`;
               })
-              .join(', ')}`
-          : ''
+              .join(", ")}`
+          : ""
       }
     </div>
     <div class="post__content">
@@ -48,7 +47,7 @@ return html`
                 data-ga-label="${post.pathname}"
               >Continue reading</a> &rsaquo;
             </div>`
-          : ''
+          : ""
       }
     </div>
   </div>`;
