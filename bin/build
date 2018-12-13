@@ -29,8 +29,10 @@ const { Site } = require('../lib/site');
 const { render, renderString } = require('../lib/template');
 const colorize = require('../lib/colorize');
 
-function build() {
+async function build() {
   const site = new Site(config.site);
+
+  await site.build();
 
   console.time('Time');
   process.stdout.write('Building... ');
@@ -93,9 +95,9 @@ function build() {
 const EventEmitter = require('events');
 const buildEvents = new EventEmitter();
 
-function safeBuild() {
+async function safeBuild() {
   try {
-    build();
+    await build();
     buildEvents.emit('success');
   } catch (e) {
     buildEvents.emit('error', e);
