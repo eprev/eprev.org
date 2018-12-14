@@ -34,6 +34,7 @@ return html`
       }
     </div>
     <div class="post__content">
+      ${ post.draft ? `<p><strong>Note: This is a draft document. Do not share it, this web address will change.</strong></p>` : '' }
       ${post.excerpt || post.content}
       ${
         post.excerpt

@@ -10,8 +10,10 @@ module.exports = function({ generate, site }) {
   );
   const tags = {};
   Object.values(site.files).forEach(doc => {
+    if (config.env === 'production' && doc.draft) {
+      return;
+    }
     if (doc.type == 'post' && doc.tags) {
-      if (config.env === 'production' && doc.draft) return;
       doc.tags.forEach(tag => {
         if (!tags[tag]) {
           tags[tag] = [];
