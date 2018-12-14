@@ -29,6 +29,9 @@ return html`
       href="${url('/atom.xml')}">
   <link rel="canonical" href="${url(page.pathname)}">
   ${
+    page.draft ? '<meta name="robots" content="none">' : ''
+  }
+  ${
     page.description
       ? html`
         <meta property="og:url" content="${url(page.pathname)}">

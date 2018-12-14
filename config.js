@@ -21,18 +21,28 @@ module.exports = {
       (doc, [pathname, yyyy, mm, dd, slug, filename]) => {
         if (filename === `${slug}.md` || filename === undefined) {
           doc.type = 'post';
-          if (yyyy === '0000' && mm === '00' && dd === '00') {
-            doc.date = new Date();
-            doc.skip = (env === 'production'); // do not publish drafts
-          } else {
-            doc.date = new Date(Date.UTC(yyyy, mm - 1, dd));
-          }
+          doc.date = new Date(Date.UTC(yyyy, mm - 1, dd));
           filename = ''; // eq. index.html
           if (!doc.layout) {
             doc.layout = 'post';
           }
         }
         doc.pathname = `/${yyyy}/${mm}/${dd}/${slug}/${filename}`;
+      },
+    ],
+    [
+      /^\/posts\/drafts\/([^/.]+)(?:\/(.+)|\.md)?$/,
+      (doc, [pathname, slug, filename]) => {
+        if (filename === `${slug}.md` || filename === undefined) {
+          doc.type = 'post';
+          doc.date = new Date();
+          doc.draft = true;
+          filename = ''; // eq. index.html
+          if (!doc.layout) {
+            doc.layout = 'post';
+          }
+        }
+        doc.pathname = `/drafts/${slug}/${filename}`;
       },
     ],
   ],

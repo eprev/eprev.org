@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const config = require('../config');
 const properties = require('../lib/properties');
 const { Collection } = require('../lib/site');
 
@@ -9,6 +10,9 @@ module.exports = function({ generate, site }) {
   );
   const tags = {};
   Object.values(site.files).forEach(doc => {
+    if (config.env === 'production' && doc.draft) {
+      return;
+    }
     if (doc.type == 'post' && doc.tags) {
       doc.tags.forEach(tag => {
         if (!tags[tag]) {
