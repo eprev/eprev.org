@@ -3,7 +3,12 @@
 const dateFormat = require("../lib/date-format");
 
 function timeToRead(content) {
-  const words = content.replace(/<svg.*?<\/svg>/gs, "").split(/\s+/).length;
+  let words = 0;
+  const text = content.replace(/<svg.*?<\/svg>/gs, (m) => {
+    words += parseInt(m.length / 80);
+    return '';
+  });
+  words += text.split(/\s+/).length;
   if (words > 360) {
     return ` ∙ ${parseInt(words / 180)} minutes read`;
   } else {
