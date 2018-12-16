@@ -8,6 +8,8 @@ description: How to implement a full-text search for a static website from scrat
 
 # Adding full-text search to a static website
 
+
+
 ## Theory
 
 ### Vector space model
@@ -16,12 +18,46 @@ Both documents and queries can be represented as multi-dimensional vectors:
 
 ```math
 d_j = ( w_{1,j} ,w_{2,j} , \dotsc ,w_{n,j} ), \:
-q = ( w_{1,q} ,w_{2,q} , \dotsc ,w_{n,q} ).
+q = ( w_{1,q} ,w_{2,q} , \dotsc ,w_{n,q} ). \qquad \text{(1)}
 ```
 
 Each dimension corresponds to a single _term_ in the entire set of documents. Typically terms are single words or word stems. If the term `$t$` occurs in the document `$d_j$`, its value in the vector `$w_{t,j} > 0$`. There’re many different methods to calculate those values (weights), and one of the most commonly used term-weighting schemes is _tf-idf_ (short for _term frequency–inverse document frequency_).
 
-### TF-IDF
+### Tf-idf
+
+The term frequency `$\mathrm{tf}(t,d)$` is how often the term `$t$` occurs in the document `$d$`. In the simplest case, `$\mathrm{tf}(t,d) = f_{t,d}$`, where `$f_{t,d}$` is the number of times the term `$t$` appears in the document `$d$`.
+
+The inverse document frequency `$\mathrm{idf}(t, D)$` is the inverse fraction of the number of documents that contain at least one instance of the term `$t$`:
+
+```math
+\mathrm{idf}(t, D) = \log \frac{ |D| }{ |\{d \in D: t \in d\}| } = \log \frac{ N }{ n_t },
+```
+
+where `$N$` is the total number of documents and `$n_t$` is the number of documents where the term `$t$` appears.
+
+The term frequency is a measure of how important the term is to the document and the inverse document frequency is a measure of how much information the term provides.
+
+Tt-idf is a product of the term frequency and the inverse document frequency:
+
+```math
+\text{tf-idf}(t,d,D) = \mathrm{tf}(t,d) \cdot \mathrm{idf}(t,D)
+```
+
+A high weight in tf–idf is reached by a high term frequency (in the given document) and a low document frequency of the term in the whole collection of documents. As a term appears in more documents, the ratio inside the logarithm approaches `1`, bringing the idf and tf–idf closer to `0`, thereby penalizing commonly used therms.
+
+There’re different schemes exist for weighting of therms in documents and queries. I picked the following one without any particular reason.
+
+The document term weighting scheme is:
+
+```math
+w_{t,j} = f_{t,d_j} \cdot \log { \frac {N}{n_{t}} }. \qquad \text{(2)}
+```
+
+And the query term weighting scheme is:
+
+```math
+w_{t,q} = \left( 0.5 + 0.5 { \frac {f_{t,q}}{\max _{t}f_{t,q}} } \right) \cdot \log { \frac {N}{n_{t}} }. \qquad \text{(3)}
+```
 
 ### Cosine similarity
 
@@ -55,5 +91,5 @@ similarity(d_j, q) = \frac
 }{
   \sqrt { \sum \limits_{i=1}^{n} w_{i,j}^{2} }
   \sqrt { \sum \limits_{i=1}^{n} w_{i,q}^{2} }
-}.
+}. \qquad \text{(4)}
 ```
