@@ -18,8 +18,9 @@ Both documents and queries can be represented as multi-dimensional vectors:
 
 ```math
 d_j = ( w_{1,j} ,w_{2,j} , \dotsc ,w_{n,j} ), \:
-q = ( w_{1,q} ,w_{2,q} , \dotsc ,w_{n,q} ). \qquad \text{(1)}
+q = ( w_{1,q} ,w_{2,q} , \dotsc ,w_{n,q} ).
 ```
+<!--: caption="(1)" -->
 
 Each dimension corresponds to a single _term_ in the entire set of documents. Typically terms are single words or word stems. If the term `$t$` occurs in the document `$d_j$`, its value in the vector `$w_{t,j} > 0$`. There’re many different methods to calculate those values (weights), and one of the most commonly used term-weighting schemes is _tf-idf_ (short for _term frequency–inverse document frequency_).
 
@@ -50,14 +51,16 @@ There’re different schemes exist for weighting of therms in documents and quer
 The document term weighting scheme is:
 
 ```math
-w_{t,j} = f_{t,d_j} \cdot \log { \frac {N}{n_{t}} }. \qquad \text{(2)}
+w_{t,j} = f_{t,d_j} \cdot \log { \frac {N}{n_{t}} }.
 ```
+<!--: caption="(2)" -->
 
 And the query term weighting scheme is:
 
 ```math
-w_{t,q} = \left( 0.5 + 0.5 { \frac {f_{t,q}}{\max _{t}f_{t,q}} } \right) \cdot \log { \frac {N}{n_{t}} }. \qquad \text{(3)}
+w_{t,q} = \left( 0.5 + 0.5 { \frac {f_{t,q}}{\max _{t}f_{t,q}} } \right) \cdot \log { \frac {N}{n_{t}} }.
 ```
+<!--: caption="(3)" -->
 
 ### Cosine similarity
 
@@ -91,5 +94,6 @@ similarity(d_j, q) = \frac
 }{
   \sqrt { \sum \limits_{i=1}^{n} w_{i,j}^{2} }
   \sqrt { \sum \limits_{i=1}^{n} w_{i,q}^{2} }
-}. \qquad \text{(4)}
+}.
 ```
+<!--: caption="(4)" -->
