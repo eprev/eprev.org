@@ -12,9 +12,11 @@ description: How to implement a full-text search for a static website from scrat
 
 ## Theory
 
-### Vector space model
+Full-text search is the most common application of [information retrieval](https://en.wikipedia.org/wiki/Information_retrieval) techniques. There’re a vast number of resources (and white papers in particular) available if you find yourself interested, so I’ll keep this part as short and simple as possible.
 
-Both documents and queries can be represented as multi-dimensional vectors:
+### Vector space
+
+Search deals with queries and documents. Both can be represented as multi-dimensional vectors:
 
 ```math
 d_j = ( w_{1,j} ,w_{2,j} , \dotsc ,w_{n,j} ), \:
@@ -22,7 +24,7 @@ q = ( w_{1,q} ,w_{2,q} , \dotsc ,w_{n,q} ).
 ```
 <!--: caption="(1)" -->
 
-Each dimension corresponds to a single _term_ in the entire set of documents. Typically terms are single words or word stems. If the term `$t$` occurs in the document `$d_j$`, its value in the vector `$w_{t,j} > 0$`. There’re many different methods to calculate those values (weights), and one of the most commonly used term-weighting schemes is _tf-idf_ (short for _term frequency–inverse document frequency_).
+Each vector dimension corresponds to a single _term_ in the entire collection of documents. Typically terms are single words or word stems. If the term `$t$` occurs in the document `$d_j$`, its value in the vector `$w_{t,j} > 0$`. There’re many different methods to calculate those values (weights), and one of the most commonly used term-weighting schemes is _tf-idf_ (short for _term frequency–inverse document frequency_).
 
 ### Tf-idf
 
@@ -36,26 +38,22 @@ The inverse document frequency `$\mathrm{idf}(t, D)$` is the inverse fraction of
 
 where `$N$` is the total number of documents and `$n_t$` is the number of documents where the term `$t$` appears.
 
-The term frequency is a measure of how important the term is to the document and the inverse document frequency is a measure of how much information the term provides.
+In other words, the term frequency is a measure of how important the term is to the document and the inverse document frequency is a measure of how much information the term provides.
 
-Tt-idf is a product of the term frequency and the inverse document frequency:
+And tf-idf is a product of the term frequency and the inverse document frequency:
 
 ```math
 \text{tf-idf}(t,d,D) = \mathrm{tf}(t,d) \cdot \mathrm{idf}(t,D)
 ```
 
-A high weight in tf–idf is reached by a high term frequency (in the given document) and a low document frequency of the term in the whole collection of documents. As a term appears in more documents, the ratio inside the logarithm approaches `1`, bringing the idf and tf–idf closer to `0`, thereby penalizing commonly used therms.
+A high value in tf–idf is reached by a high term frequency (in the given document) and a low document frequency of the term (in the entire collection of documents). As a term appears in more documents, the ratio inside the logarithm approaches `1`, bringing the idf and tf–idf closer to `0`. In this way tf-idf penalizes the commonly used terms.
 
-There’re different schemes exist for weighting of therms in documents and queries. I picked the following one without any particular reason.
-
-The document term weighting scheme is:
+As for `$w_{i,j}$` and `$w_{i,q}$` from (1), there’re different schemes exist for weighting terms that appear in documents and queries. I picked the following one without any particular reason:
 
 ```math
-w_{t,j} = f_{t,d_j} \cdot \log { \frac {N}{n_{t}} }.
+w_{t,j} = f_{t,d_j} \cdot \log { \frac {N}{n_{t}} },
 ```
 <!--: caption="(2)" -->
-
-And the query term weighting scheme is:
 
 ```math
 w_{t,q} = \left( 0.5 + 0.5 { \frac {f_{t,q}}{\max _{t}f_{t,q}} } \right) \cdot \log { \frac {N}{n_{t}} }.
@@ -64,7 +62,7 @@ w_{t,q} = \left( 0.5 + 0.5 { \frac {f_{t,q}}{\max _{t}f_{t,q}} } \right) \cdot \
 
 ### Cosine similarity
 
-To calculate the relevance of a document to a query, we’ll be using a measure called _cosine similarity_. The angle, `$0 \leq \theta \leq \pi/_2$`, between two term frequency vectors represents how similar they are to each other. For identical vectors `$\cos(\theta) = 1$`, while it’s equal to `$0$` for completely opposite vectors.
+To calculate the relevance of a document to a query, we’ll use a measure called _cosine similarity_. The angle, `$0 \leq \theta \leq \pi/_2$`, between two term frequency vectors represents how similar they are to each other. For identical vectors `$\cos(\theta) = 1$`, while it’s equal to `$0$` for completely opposite vectors.
 
 The formula for the cosine of the angle between two vectors is:
 
@@ -97,3 +95,5 @@ similarity(d_j, q) = \frac
 }.
 ```
 <!--: caption="(4)" -->
+
+That’s all we need to know for now.
