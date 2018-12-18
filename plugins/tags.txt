@@ -11,4 +11,4 @@ ux: UX
 hacking-web: Hacking Web
 worth-watching: Worth watching
 computer-science: Computer Science
-information-retrieval: Information retrieval
+from-scratch: From scratch
