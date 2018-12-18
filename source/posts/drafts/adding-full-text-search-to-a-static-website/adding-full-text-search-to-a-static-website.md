@@ -12,7 +12,7 @@ description: How to implement a full-text search for a static website from scrat
 
 ## Theory
 
-Full-text search is the most common application of the [information retrieval](https://en.wikipedia.org/wiki/Information_retrieval) techniques. There’re a vast number of resources (and white papers in particular) available if you find yourself interested, so I’ll keep this part as short and simple.
+Full-text search is the most common application of the [information retrieval](https://en.wikipedia.org/wiki/Information_retrieval) techniques. There’re a vast number of resources (and white papers in particular) available if you find yourself interested, so I’ll keep this part short and simple.
 
 ### Vector space
 
