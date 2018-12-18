@@ -3,6 +3,7 @@ tags:
   - javascript
   - hacking-web
   - information-retrieval
+  - from-scratch
 description: How to implement a full-text search for a static website from scratch.
 -->
 
