@@ -87,7 +87,7 @@ The formula for the cosine of the angle between two vectors is:
 
 where `$A$` and `$B$` are vectors, `$A \cdot B$` is the dot product of those vectors, `$\left\lVert A \right\rVert$` and `$\left\lVert B \right\rVert$` are the magnitudes (or lengths) of vector `$A$` and `$B$` respectively.
 
-Having the document `$d_j$` and the query `$q$` represented as two vectors (1), their similarity can be defined as:
+Having the document `$d_j$` and the query `$q$` represented as two vectors (1) with values (2) and (3), their similarity can be defined as:
 
 ```math
 similarity(d_j, q) = \frac
