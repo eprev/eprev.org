@@ -12,3 +12,4 @@ hacking-web: Hacking Web
 worth-watching: Worth watching
 computer-science: Computer Science
 from-scratch: From scratch
+http: HTTP
