@@ -56,7 +56,7 @@ Tf-idf is a product of the term frequency and the inverse document frequency:
 
 A high value in tf–idf is reached by a high term frequency (in the given document) and a low document frequency of the term (in the entire collection of documents). As a term appears in more documents, the ratio inside the logarithm approaches `1`, bringing the idf and tf–idf closer to `0`. This is exactly how tf-idf penalizes the commonly used terms.
 
-As for `$w_{i,j}$` and `$w_{i,q}$` from (1), there’re different schemes exist for weighting terms that appear in documents and queries. I picked the following one without any particular reason:
+As for `$w_{i,j}$` and `$w_{i,q}$` from (1), there’re various tf-idf weighting schemes exist for terms that appear in documents and queries. I picked the following one without any particular reason:
 
 ```math
 w_{t,j} = f_{t,d_j} \cdot \log { \frac {N}{n_{t}} },
