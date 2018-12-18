@@ -3,7 +3,7 @@
 <title>Anton Eprev</title>
 <link href="https://eprev.org/atom.xml" rel="self" />
 <link href="https://eprev.org/" />
-<updated>2018-12-18T25:21:30+00:00</updated>
+<updated>2018-12-18T30:21:40+00:00</updated>
 <id>https://eprev.org/</id>
 <author>
 <name>Anton Eprev</name>
@@ -28,7 +28,7 @@ keep-history: true
 local-dir: static
 on:
 branch: master&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-&lt;/figure&gt;&lt;p&gt;It commands Travis to execute &lt;code&gt;make build&lt;/code&gt; to build the website. If it goes well, the Makefile creates the &lt;em&gt;static&lt;/em&gt; directory (see &lt;code&gt;local-dir&lt;/code&gt; option) with the contents of the website. Then Travis checks if the current branch is &lt;code&gt;master&lt;/code&gt; and uploads the contents of &lt;code&gt;local-dir&lt;/code&gt; to &lt;code&gt;target-branch&lt;/code&gt; (defaults to &lt;code&gt;gh-pages&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;That was it. Not I can edit files directly on GitHib.com (you can also) and any changes made there will get deployed in a matter of minutes.&lt;/p&gt;</content>
+&lt;/figure&gt;&lt;p&gt;It commands Travis to execute &lt;code&gt;make build&lt;/code&gt; to build the website. If it goes well, the Makefile creates the &lt;em&gt;static&lt;/em&gt; directory (see &lt;code&gt;local-dir&lt;/code&gt; option) with the contents of the website. Then Travis checks if the current branch is &lt;code&gt;master&lt;/code&gt; and uploads the contents of &lt;code&gt;local-dir&lt;/code&gt; to &lt;code&gt;target-branch&lt;/code&gt; (defaults to &lt;code&gt;gh-pages&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;That was it. Now I can edit files directly on GitHib.com (you can also) and any changes made there will get deployed in a matter of minutes.&lt;/p&gt;</content>
 </entry>
 <entry>
 <title>A philosophy of Software Design</title>
