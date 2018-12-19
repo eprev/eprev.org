@@ -36,5 +36,5 @@ deploy:
 
 It commands Travis to execute `make build` to build the website. If it goes well, the Makefile creates the _static_ directory (see `local-dir` option) with the contents of the website. Then Travis checks if the current branch is `master` and uploads the contents of `local-dir` to `target-branch` (defaults to `gh-pages`).
 
-That was it. Not I can edit files directly on GitHib.com (you can also) and any changes made there will get deployed in a matter of minutes.
+That was it. Now I can edit files directly on GitHub.com (you can also) and any changes made there will get deployed in a matter of minutes.
 
