@@ -4,6 +4,7 @@ tags:
   - computer-science
 description: Notes on how to (and how to not) design software.
 share-image: og-preview.png
+gh-issue-id: 40
 -->
 
 # A philosophy of Software Design
