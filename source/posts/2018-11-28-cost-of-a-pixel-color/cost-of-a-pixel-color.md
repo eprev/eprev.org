@@ -3,6 +3,7 @@ tags:
   - worth-watching
 description: Why darker pixels save power… almost.
 share-image: og-preview.jpg
+gh-issue-id: 39
 -->
 
 # Cost of a pixel color
