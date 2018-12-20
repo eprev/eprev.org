@@ -1,5 +1,6 @@
 SHELL   := /bin/bash
 
+NODE    := node -r esm
 ROLLUP  := ./node_modules/.bin/rollup
 BABILI  := ./node_modules/.bin/babili
 CSSNANO := ./node_modules/.bin/cssnano
@@ -31,7 +32,7 @@ init:
 	yarn install
 
 server:
-	bin/build --server
+	$(NODE) bin/build --server
 
 clean-manifest:
 	rm -f $(MANIFEST_FILE)
@@ -61,7 +62,7 @@ build-manifest: compress-bundles
 	done
 
 build: build-manifest
-	NODE_ENV=$(NODE_ENV) bin/build
+	NODE_ENV=$(NODE_ENV) $(NODE) bin/build
 	$(HTML) $(HTMLFLAGS) --input-dir static --file-ext html --output-dir static
 
 clean-static:
