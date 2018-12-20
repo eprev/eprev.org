@@ -4,6 +4,7 @@ tags:
   - performance
 description: A story of how the web performance team at Pinterest started off and made performance a priority for the company.
 share-image: og-preview.png
+gh-issue-id: 41
 -->
 
 # Building a foundation for performance
