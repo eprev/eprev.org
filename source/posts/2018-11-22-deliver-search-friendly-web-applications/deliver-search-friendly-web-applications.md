@@ -5,6 +5,7 @@ tags:
   - seo
 share-image: og-preview.png
 description: Insights on how Googlebot renders JavaScript websites and best practicies to build indexable web applications.
+gh-issue-id: 42
 -->
 
 # Deliver search-friendly web applications
