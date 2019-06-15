@@ -9,9 +9,9 @@ module.exports = {
     title: 'Anton Eprev',
     description:
       'My name’s Anton Eprev and I’m a software developer working ' +
-      'as front-end engineer at Booking.com in Amsterdam. ' + 
+      'as front-end engineer at Booking.com in Amsterdam. ' +
       'Tinker with electronics and 3D printers in spare time.',
-    url: env === 'production' ? 'https://eprev.org' : 'https://localhost:4000',
+    url: env === 'production' ? 'https://eprev.org' : 'http://localhost:3000',
     twitter: 'eprev',
     editUrl: 'https://github.com/eprev/eprev.org/blob/master/source',
   },
