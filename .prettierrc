@@ -1,5 +1,6 @@
 {
   "singleQuote": true,
   "trailingComma": "all",
+  "parser": "babel",
   "printWidth": 80
 }

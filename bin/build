@@ -113,19 +113,16 @@ if (watching) {
 }
 
 if (watching) {
+  const fsWatcher = require('../lib/fs-watcher');
   let to;
-  fs.watch(config.src, { recursive: true }, (eventType, filename) => {
+  fsWatcher(config.src, (eventType, filename) => {
     clearTimeout(to);
     to = setTimeout(safeBuild, 50);
   });
-  fs.watch(
-    path.join(__dirname, '..', 'templates'),
-    { recursive: true },
-    (eventType, filename) => {
-      clearTimeout(to);
-      to = setTimeout(safeBuild, 50);
-    },
-  );
+  fsWatcher(path.join(__dirname, '..', 'templates'), (eventType, filename) => {
+    clearTimeout(to);
+    to = setTimeout(safeBuild, 50);
+  });
   const { createServer } = require('../lib/server');
   createServer(config, buildEvents);
   console.log('Watching...');
