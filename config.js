@@ -11,10 +11,11 @@ module.exports = {
       'My name’s Anton Eprev and I’m a software developer working ' +
       'as front-end engineer at Booking.com in Amsterdam. ' +
       'Tinker with electronics and 3D printers in spare time.',
-    url: env === 'production' ? 'https://eprev.org' : 'http://localhost:3000',
+    url: env === 'production' ? 'https://eprev.org' : 'https://dev.eprev.org',
     twitter: 'eprev',
     editUrl: 'https://github.com/eprev/eprev.org/blob/master/source',
   },
+  serverUrl: 'http://localhost:3000',
   exclude: ['/gif/src', '/gif/Makefile'],
   rewrites: [
     [
