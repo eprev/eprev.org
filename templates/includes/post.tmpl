@@ -1,22 +1,25 @@
-// vim: ft=javascript
+/// <reference path="./post.d.ts" />
+// vim: ft=typescript
 
-const dateFormat = require("../lib/date-format");
+const dateFormat = require('../lib/date-format');
+
+const reSvg = new RegExp('<svg.*?</svg>', 'gs');
 
 function timeToRead(content) {
   let words = 0;
-  const text = content.replace(/<svg.*?<\/svg>/gs, (m) => {
-    words += parseInt(m.length / 80);
+  const text = content.replace(reSvg, m => {
+    words += Math.trunc(m.length / 80);
     return '';
   });
   words += text.split(/\s+/).length;
   if (words > 360) {
-    return ` ∙ ${parseInt(words / 180)} minutes read`;
+    return ` ∙ ${Math.trunc(words / 180)} minutes read`;
   } else {
-    return "";
+    return '';
   }
 }
 
-return html`
+print(html`
   <div class="post">
     <h${post.headingLevel || 1} class="post__header">
     ${
@@ -26,34 +29,45 @@ return html`
     }
     </h${post.headingLevel || 1}>
     <div class="post__meta">
-      ${dateFormat(post.date, "%MM D, YYYY")}
+      ${dateFormat(post.date, '%MM D, YYYY')}
       ${timeToRead(post.content)}
       ${
         post.tags
-          ? html` ∙ ${post.tags
-              .map(tag => {
-                return `<a href="/tags/${tag}/">${tag}</a>`;
-              })
-              .join(", ")}`
-          : ""
+          ? html`
+              ∙
+              ${post.tags
+                .map(tag => {
+                  return `<a href="/tags/${tag}/">${tag}</a>`;
+                })
+                .join(', ')}
+            `
+          : ''
       }
     </div>
     <div class="post__content">
-      ${ post.draft ? `<p><strong>Note: This is a draft document. Do not share it, this web address will change.</strong></p>` : '' }
+      ${
+        post.draft
+          ? `<p><strong>Note: This is a draft document. Do not share it,
+                this web address will change.</strong></p>`
+          : ''
+      }
       ${post.excerpt || post.content}
       ${
         post.excerpt
           ? html`
-            <div class="post__read-more">
-              <a
-                href="${post.pathname}"
-                data-ga-on="click"
-                data-ga-category="Click"
-                data-ga-action="Read More"
-                data-ga-label="${post.pathname}"
-              >Continue reading</a> &rsaquo;
-            </div>`
-          : ""
+              <div class="post__read-more">
+                <a
+                  href="${post.pathname}"
+                  data-ga-on="click"
+                  data-ga-category="Click"
+                  data-ga-action="Read More"
+                  data-ga-label="${post.pathname}"
+                  >Continue reading</a
+                >
+                &rsaquo;
+              </div>
+            `
+          : ''
       }
     </div>
-  </div>`;
+  </div>`);

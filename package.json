@@ -11,7 +11,8 @@
     "url": "https://github.com/eprev/eprev.org/issues"
   },
   "homepage": "http://eprev.org",
-  "dependencies": {
+  "devDependencies": {
+    "@types/node": "^12.6.2",
     "babili": "^0.0.9",
     "cssnano": "^3.9.1",
     "cssnano-cli": "^1.0.5",

@@ -181,25 +181,30 @@ figcaption {
 /* Layout [[[ */
 
 .page {
-  margin: 0 auto;
-  padding: 1.5rem 0;
-  padding-right: calc(980px * 0.3 - 1.5rem);
-  min-width: 320px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 30% 70%;
+  grid-template-areas:
+    "greeting content"
+    "navigation content";
   max-width: 980px;
+  margin: 0 auto;
+  grid-column-gap: 3rem;
+  padding: 1.5rem 0;
+  padding-right: calc(980px * .3 - 1.5rem);
+  min-width: 320px;
+
 }
 .page__sidebar {
-  display: flex;
-  flex-direction: column;
-  float: left;
-  box-sizing: border-box;
-  padding: 0 1rem 0 1.5rem; /* Left margin is bigger due to the outside position of the menu items */
-  width: 30%;
+  grid-area: greeting;
+}
+.page__nav {
+  grid-area: navigation;
 }
 .page__content {
-  box-sizing: border-box;
-  margin-left: 30%;
-  padding: 0 3rem 0 1rem; /* Right margin is bigger due to 1.5rem-wide box-shadow of the code elements */
+  grid-area: content;
 }
+
 .page__header {
   text-align: center;
 }
@@ -215,8 +220,9 @@ figcaption {
 .page__user-picture {
   display: block;
   margin: 0 auto 1.5rem; /* Vertical rhythm */
-  height: calc( 6 * 1.5rem ); /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
-                   and the picture will remain invisible - yay! */
+  /* Vertical rhythm. If calc() is not supported, then SVG may not be supported either
+     and the picture will remain invisible - yay! */
+  height: calc( 6 * 1.5rem );
 }
 .page__user-picture svg {
   width: 100%;
@@ -426,22 +432,10 @@ figcaption {
     padding-left: 1.5rem; /* There's no space on the left for markers */
   }
   .page {
-    padding-top: 0;
-    padding-right: 0;
-    margin: auto;
-    max-width: 42rem;
-  }
-  .page__sidebar {
-    float: none;
-    margin-bottom: 2rem; /* This breaks vertical rhythm, though looks much better */
-    padding-top: 1.5rem;
-    padding-left: 1rem;
-    width: auto;
-    box-shadow: 0 1px #ececec;
-  }
-  .page__content {
-    margin-left: auto;
-    padding-right: 1rem;
+    grid-template-areas:
+      "navigation navigation"
+      "greeting greeting"
+      "content content";
   }
   .page__user-picture-story {
     display: flex;
