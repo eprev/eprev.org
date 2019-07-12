@@ -1,8 +1,10 @@
 /// <reference path="../../types/templates.d.ts" />
 // vim: ft=typescript
 
-print(html`
+template(({ html }) => {
+  return html`
       </div> <!-- .page__content -->
     </div> <!-- .page -->
   </body>
-</html>`);
+</html>`;
+});

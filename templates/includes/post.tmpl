@@ -1,25 +1,26 @@
-/// <reference path="./post.d.ts" />
+/// <reference path="../../types/templates.d.ts" />
 // vim: ft=typescript
 
-const dateFormat = require('../lib/date-format');
+template(({ post, html }) => {
+  const dateFormat = require('../lib/date-format');
 
-const reSvg = new RegExp('<svg.*?</svg>', 'gs');
+  const reSvg = new RegExp('<svg.*?</svg>', 'gs');
 
-function timeToRead(content) {
-  let words = 0;
-  const text = content.replace(reSvg, m => {
-    words += Math.trunc(m.length / 80);
-    return '';
-  });
-  words += text.split(/\s+/).length;
-  if (words > 360) {
-    return ` ∙ ${Math.trunc(words / 180)} minutes read`;
-  } else {
-    return '';
+  function timeToRead(content) {
+    let words = 0;
+    const text = content.replace(reSvg, m => {
+      words += Math.trunc(m.length / 80);
+      return '';
+    });
+    words += text.split(/\s+/).length;
+    if (words > 360) {
+      return ` ∙ ${Math.trunc(words / 180)} minutes read`;
+    } else {
+      return '';
+    }
   }
-}
 
-print(html`
+  return html`
   <div class="post">
     <h${post.headingLevel || 1} class="post__header">
     ${
@@ -70,4 +71,5 @@ print(html`
           : ''
       }
     </div>
-  </div>`);
+  </div>`;
+});

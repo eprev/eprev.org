@@ -1,13 +1,9 @@
-declare var __name__: string;
-declare var page: any;
-declare var site: any;
-declare var env: any;
-declare function print(content: string): void;
-declare function read(path: string): string;
-declare function url(pathname: string): string;
-declare function html(
-  literals: TemplateStringsArray,
-  ...placeholders: string[]
-): string;
-declare function escape(text: string): string;
-declare function stringify(json: any): string;
+type TemplateContext = Record<string, any> & {
+  html: (literals: TemplateStringsArray, ...placeholders: string[]) => string,
+  read: (path: string) => string,
+  url: (pathname: string) => string,
+  escape: (text: string) => string,
+  stringify: (json: any) => string,
+};
+type TemplateFunc = (context: TemplateContext) => string;
+declare function template(fn: TemplateFunc): void;
