@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// vim: ft=typescript
 
 const fs = require('fs');
 const path = require('path');
@@ -39,20 +40,25 @@ async function build() {
 
   function generate(destination, template, page) {
     if (page && page.source) {
-      page.content = renderString(page.source, {
-        __name__: page.__name__,
-        env: config.env,
-        site,
-      });
+      page.content = renderString(
+        page.source,
+        {
+          env: config.env,
+          site,
+        },
+        {
+          __name__: page.__name__,
+        },
+      );
     }
     let content;
     if (template) {
-      const context = {
+      const params = {
         env: config.env,
         site,
         page,
       };
-      content = render(template, context);
+      content = render(template, params);
     } else {
       content = page.content;
     }

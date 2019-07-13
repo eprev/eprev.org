@@ -16,7 +16,7 @@ module.exports = {
     editUrl: 'https://github.com/eprev/eprev.org/blob/master/source',
   },
   serverUrl: 'http://localhost:3000',
-  exclude: ['/gif/src', '/gif/Makefile'],
+  exclude: ['/gif/src', '/gif/Makefile', 'stop-words.txt'],
   rewrites: [
     [
       /^\/posts\/(\d{4})-(\d{2})-(\d{2})-([^/.]+)(?:\/(.+)|\.md)?$/,

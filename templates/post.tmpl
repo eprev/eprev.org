@@ -1,46 +1,48 @@
-// vim: ft=javascript
+/// <reference path="../types/templates.d.ts" />
+// vim: ft=typescript
 
-return html`
-  ${render('includes/header')}
-
-  ${render('includes/post', {
-    post: page,
-  })}
-
-  ${
-    page.ghIssueId
+template(({ page, site }) => {
+  return html`
+    ${render('includes/header')}
+    ${render('includes/post', {
+      post: page,
+    })}
+    ${page.ghIssueId
       ? html`
-        <div class="post-comments" data-issue-id="${page.ghIssueId}">
-          <span class="post-comments__icon">${read('icons/comments.svg')}</span>
-          <span class="post-comments__text">
-            Want to leave a comment on this? Visit
-            <a
-              href="https://github.com/eprev/eprev.org/issues/${
-                page.ghIssueId
-              }"
-              data-ga-on="click"
-              data-ga-category="Click"
-              data-ga-action="Comments"
-              data-ga-label="${page.pathname}"
-            >the&#160;post’s&#160;issue&#160;page</a> on GitHub.
-          </span>
-        </div>`
-      : ''
-  }
-
-  ${
-    site.editUrl
+          <div class="post-comments" data-issue-id="${page.ghIssueId}">
+            <span class="post-comments__icon"
+              >${read('icons/comments.svg')}</span
+            >
+            <span class="post-comments__text">
+              Want to leave a comment on this? Visit
+              <a
+                href="https://github.com/eprev/eprev.org/issues/${page.ghIssueId}"
+                data-ga-on="click"
+                data-ga-category="Click"
+                data-ga-action="Comments"
+                data-ga-label="${page.pathname}"
+                >the&#160;post’s&#160;issue&#160;page</a
+              >
+              on GitHub.
+            </span>
+          </div>
+        `
+      : ''}
+    ${site.editUrl
       ? html`
-        <div class="post-footer">
+          <div class="post-footer">
             <a
               href="${site.editUrl}${page.__name__}"
               data-ga-on="click"
               data-ga-category="Click"
               data-ga-action="Edit"
               data-ga-label="${page.pathname}"
-            >Edit</a> this post on GitHub.
-        </div>`
-      : ''
-  }
-
-  ${render('includes/footer')}`;
+              >Edit</a
+            >
+            this post on GitHub.
+          </div>
+        `
+      : ''}
+    ${render('includes/footer')}
+  `;
+});

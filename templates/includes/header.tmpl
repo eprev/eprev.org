@@ -1,7 +1,7 @@
 /// <reference path="../../types/templates.d.ts" />
 // vim: ft=typescript
 
-template(({ page, site, env, read, html, url }) => {
+template(({ page, site, env }) => {
   const properties = require('../lib/properties');
 
   const manifest = properties(read('../manifest.txt'));

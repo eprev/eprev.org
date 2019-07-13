@@ -1,9 +1,10 @@
-type TemplateContext = Record<string, any> & {
-  html: (literals: TemplateStringsArray, ...placeholders: string[]) => string,
-  read: (path: string) => string,
-  url: (pathname: string) => string,
-  escape: (text: string) => string,
-  stringify: (json: any) => string,
-};
-type TemplateFunc = (context: TemplateContext) => string;
+declare const __name__: string;
+declare function html(literals: TemplateStringsArray, ...placeholders: string[]): string;
+declare function read(path: string): string;
+declare function url(pathname: string): string;
+declare function escape(text: string): string;
+declare function stringify(json: any): string;
+type TemplateParams = Record<string, any>;
+type TemplateFunc = (params: TemplateParams) => string;
 declare function template(fn: TemplateFunc): void;
+declare function render(pathname: string, params: TemplateParams): string;

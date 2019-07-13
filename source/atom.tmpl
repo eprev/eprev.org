@@ -2,30 +2,36 @@
 type: system
 pathname: /atom.xml
 ---*/
+/// <reference path="../types/templates.d.ts" />
 
-function sanitize(html) {
-  html = html
-    .replace(/\s+(class|style)="[^"]*"/g, '')
-    .replace(/<span>([^<]+)<\/span>/g, '$1')
-    .replace(/<span>([^<]+)<\/span>/g, '$1'); // Nested spans (substr in highlight.js)
-  return html;
-}
+template(({ site }) => {
+  function sanitize(html) {
+    html = html
+      .replace(/\s+(class|style)="[^"]*"/g, '')
+      .replace(/<span>([^<]+)<\/span>/g, '$1')
+      .replace(/<span>([^<]+)<\/span>/g, '$1'); // Nested spans (substr in highlight.js)
+    return html;
+  }
 
-const dateFormat = require('../lib/date-format');
+  const dateFormat = require('../lib/date-format');
 
-return html`<?xml version="1.0" encoding="UTF-8"?>
-  <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Anton Eprev</title>
-    <link href="${url('/atom.xml')}" rel="self" />
-    <link href="${site.url}/" />
-    <updated>${dateFormat(site.time, 'YYYY-MM-DDTmm:hh:ss+00:00')}</updated>
-    <id>${site.url}/</id>
-    <author>
-      <name>Anton Eprev</name>
-      <email>a.eprev@gmail.com</email>
-    </author>
-    ${site.byType('post').descBy('date').map(post => {
-      return `
+  return html`
+    <?xml version="1.0" encoding="UTF-8"?>
+    <feed xmlns="http://www.w3.org/2005/Atom">
+      <title>Anton Eprev</title>
+      <link href="${url('/atom.xml')}" rel="self" />
+      <link href="${site.url}/" />
+      <updated>${dateFormat(site.time, 'YYYY-MM-DDTmm:hh:ss+00:00')}</updated>
+      <id>${site.url}/</id>
+      <author>
+        <name>Anton Eprev</name>
+        <email>a.eprev@gmail.com</email>
+      </author>
+      ${site
+        .byType('post')
+        .descBy('date')
+        .map(post => {
+          return `
       <entry>
         <title>${escape(post.title)}</title>
         <link href="${url(post.pathname)}"/>
@@ -34,7 +40,9 @@ return html`<?xml version="1.0" encoding="UTF-8"?>
         <content type="html">${escape(sanitize(post.content))}</content>
       </entry>
       `;
-    })}
-  </feed>`;
+        })}
+    </feed>
+  `;
+});
 
-// vim: ft=javascript
+// vim: ft=typescript

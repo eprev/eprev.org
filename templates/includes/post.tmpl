@@ -1,7 +1,7 @@
 /// <reference path="../../types/templates.d.ts" />
 // vim: ft=typescript
 
-template(({ post, html }) => {
+template(({ post }) => {
   const dateFormat = require('../lib/date-format');
 
   const reSvg = new RegExp('<svg.*?</svg>', 'gs');

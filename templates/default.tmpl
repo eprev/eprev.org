@@ -1,6 +1,8 @@
+/// <reference path="../types/templates.d.ts" />
 // vim: ft=typescript
-/* global render, html */
 
-return html`
-  ${render('includes/header')} ${page.content} ${render('includes/footer')}
-`;
+template(({ page }) => {
+  return html`
+    ${render('includes/header')} ${page.content} ${render('includes/footer')}
+  `;
+});
