@@ -458,7 +458,7 @@ figcaption {
     padding-top: 1.5rem;
     padding-left: 1rem;
     width: auto;
-    box-shadow: 0 1px #ececec;
+    box-shadow: 0 1px var(--underline-color);
   }
   .page__content {
     margin-left: auto;
