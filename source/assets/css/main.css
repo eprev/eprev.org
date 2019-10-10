@@ -17,6 +17,12 @@
     --underline-color: #444;
     --underline-hover-color: #666;
     --code-color: #202020;
+
+    --image-filter: grayscale(30%);
+  }
+
+  img:not([src*=".svg"]) {
+    filter: var(--image-filter);
   }
 }
 
