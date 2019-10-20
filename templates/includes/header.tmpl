@@ -70,7 +70,7 @@ return html`
     href="${
       manifest ? '/assets-bundles/' + manifest['search-worker.js'] : '/assets/js/search-worker.js'
     }"
-    as="script"
+    as="worker"
   >
   ${
     env === 'development'
