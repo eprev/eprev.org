@@ -3,7 +3,7 @@
 <title>Anton Eprev</title>
 <link href="https://eprev.org/atom.xml" rel="self" />
 <link href="https://eprev.org/" />
-<updated>2019-10-10T06:09:32+00:00</updated>
+<updated>2019-10-20T48:10:44+00:00</updated>
 <id>https://eprev.org/</id>
 <author>
 <name>Anton Eprev</name>
@@ -250,7 +250,7 @@ server&lt;/a&gt; which
 flushes early-head of the document immediately and waits for a second before
 sending the rest of it.  The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the
 &lt;code&gt;async&lt;/code&gt; attribute and a &lt;code&gt;link&lt;/code&gt; tag to the external stylesheet.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;lt;script src=&quot;…&quot; async
-onload=&quot;console.log({scripts: performance.now()})&quot;&amp;gt;&lt;span&gt;&lt;/span&gt;&amp;lt;/script&amp;gt;
+onload=&quot;console.log({scripts: performance.now()})&quot;&amp;gt;&amp;lt;/script&amp;gt;
 &amp;lt;link href=&quot;…&quot; rel=&quot;stylesheet&quot;
 onload=&quot;console.log({styles: performance.now()})&quot;&amp;gt;
 &amp;lt;script&amp;gt;
