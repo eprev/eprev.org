@@ -66,12 +66,6 @@ return html`
       manifest ? '/assets-bundles/' + manifest['search-worker.js'] : '/assets/js/search-worker.js'
     }"
   ></script>
-  <link rel="preload"
-    href="${
-      manifest ? '/assets-bundles/' + manifest['search-worker.js'] : '/assets/js/search-worker.js'
-    }"
-    as="script" crossorigin
-  >
   ${
     env === 'development'
       ? '<script src="/assets/js/build-events.js" type="module"></script>'
