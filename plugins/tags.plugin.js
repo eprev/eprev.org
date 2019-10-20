@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../config');
-const properties = require('@eprev/wsngn/lib/properties');
-const { Collection } = require('@eprev/wsngn/lib/site');
+const properties = require('@eprev.org/wsngn/lib/properties');
+const { Collection } = require('@eprev.org/wsngn/lib/site');
 
 module.exports = function({ generate, site }) {
   const tagName = properties(
