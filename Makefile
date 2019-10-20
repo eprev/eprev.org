@@ -2,7 +2,7 @@ SHELL   := /bin/bash
 
 WSNGN  := ./node_modules/.bin/wsngn
 ROLLUP  := ./node_modules/.bin/rollup
-BABILI  := ./node_modules/.bin/babili
+BABILI  := ./node_modules/.bin/babel-minify
 CSSNANO := ./node_modules/.bin/cssnano
 HTML    := ./node_modules/.bin/html-minifier
 
