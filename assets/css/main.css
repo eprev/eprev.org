@@ -269,6 +269,7 @@ figcaption {
   box-sizing: border-box;
   height: 2rem;
   padding: 0 .25rem;
+  font-size: 16px; /* Prevent zoom in iOS */
 }
 .search-results__header,
 .search-results__content {
