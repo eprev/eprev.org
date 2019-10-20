@@ -1,7 +1,6 @@
 {
-  "name": "eprev.org",
-  "private": true,
-  "version": "3.0.0",
+  "name": "@eprev/wsngn",
+  "version": "1.0.0",
   "description": "That’s my spot.",
   "repository": {
     "type": "git",
@@ -11,11 +10,15 @@
   "bugs": {
     "url": "https://github.com/eprev/eprev.org/issues"
   },
+  "bin": "bin/build",
   "homepage": "http://eprev.org",
-  "workspaces": [
-    "wsngn"
-  ],
   "devDependencies": {
-    "@eprev/wsngn": "1.0.0"
+    "babel-minify": "^0.1.4",
+    "cssnano": "^4.1.10",
+    "cssnano-cli": "^1.0.5",
+    "highlight.js": "^9.15.10",
+    "html-minifier": "^4.0.0",
+    "mathjax-node": "^2.1.1",
+    "rollup": "^1.25.0"
   }
 }

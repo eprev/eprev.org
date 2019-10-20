@@ -3,7 +3,8 @@ const path = require('path');
 
 const htmlMinifier = require('./html-minifier');
 
-const templateDir = path.resolve(__dirname, '..', 'templates');
+const workingDir = process.cwd();
+const templateDir = path.resolve(workingDir, 'templates');
 
 class TemplateError extends Error {}
 
@@ -49,7 +50,7 @@ const html = (exports.html = function html(strings, ...keys) {
 const renderString = (exports.renderString = function(tmpl, context) {
   context.require = function(pathname) {
     return require(pathname.startsWith('.')
-      ? path.join(templateDir, pathname)
+      ? path.join(__dirname, pathname)
       : pathname);
   };
   context.html = html;

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const config = require('../config');
+const config = require(path.join(process.cwd(), 'config'));
 const frontMatter = require('./front-matter');
 const parseMarkdown = require('./markdown');
 const memoize = require('./memoize');
@@ -63,7 +63,7 @@ exports.Collection = Collection;
 
 const rewrites = config.rewrites || [];
 
-const process = memoize(async function process(pathname, mtime) {
+const processFile = memoize(async function processFile(pathname, mtime) {
   // console.info('Read', pathname);
   const doc = {
     __name__: pathname, // original pathname (eg. "/archive.tmpl")
@@ -128,7 +128,7 @@ class Site {
       exclude: config.exclude,
     });
     await Promise.all(files.map(async ([pathname, mtime]) => {
-      const doc = await process(pathname, mtime);
+      const doc = await processFile(pathname, mtime);
       if (!doc.skip) {
         this.files[pathname] = this.register(doc);
       }

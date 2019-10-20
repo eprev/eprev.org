@@ -3,7 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const config = require('../config');
+const workingDir = process.cwd();
+const config = require(path.join(workingDir, 'config'));
 
 function copy(src, dest) {
   createdir(path.dirname(dest));
@@ -60,7 +61,7 @@ async function build() {
   }
 
   function processPlugins() {
-    const dirname = path.join(__dirname, '..', 'plugins');
+    const dirname = path.join(workingDir, 'plugins');
     if (fs.existsSync(dirname)) {
       fs.readdirSync(dirname, { encoding: 'utf8' }).forEach(filename => {
         if (filename.endsWith('.plugin.js')) {
@@ -119,7 +120,7 @@ if (watching) {
     clearTimeout(to);
     to = setTimeout(safeBuild, 50);
   });
-  fsWatcher(path.join(__dirname, '..', 'templates'), (eventType, filename) => {
+  fsWatcher(path.join(workingDir, 'templates'), (eventType, filename) => {
     clearTimeout(to);
     to = setTimeout(safeBuild, 50);
   });
