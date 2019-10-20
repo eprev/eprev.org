@@ -2,11 +2,10 @@ SHELL   := /bin/bash
 
 WSNGN  := ./node_modules/.bin/wsngn
 ROLLUP  := ./node_modules/.bin/rollup
-BABILI  := ./node_modules/.bin/babel-minify
+TERSER  := ./node_modules/.bin/terser
 CSSNANO := ./node_modules/.bin/cssnano
 HTML    := ./node_modules/.bin/html-minifier
 
-BABILIFLAGS := --no-comments
 HTMLFLAGS   := --collapse-whitespace --remove-comments --minify-js
 ROLLUPFLAGS := --format=iife
 
@@ -44,16 +43,17 @@ clean: clean-bundles clean-static
 
 $(BUNDLES_DIR)/%.js: $(SRC_JS_DIR)/%.js
 	$(ROLLUP) $(ROLLUPFLAGS) -i $< -o $@
+	$(TERSER) $@ -o $@
+
+$(BUNDLES_DIR)/%.css: $(SRC_CSS_DIR)/%.css
+	$(CSSNANO) $< $@
 
 $(BUNDLES_DIR)/%.css: $(SRC_CSS_DIR)/%.css
 	$(CSSNANO) $< $@
 
 build-bundles: clean-bundles $(JS_BUNDLES) $(CSS_BUNDLES)
 
-compress-bundles: build-bundles
-	$(BABILI) $(BUNDLES_DIR) -d $(BUNDLES_DIR) $(BABILIFLAGS)
-
-build-manifest: compress-bundles
+build-manifest: build-bundles
 	@set -e; for filename in $$( find $(BUNDLES_DIR) -type f -exec basename {} \; ); do \
 		hash=$$(cat $(BUNDLES_DIR)/$$filename | openssl md5 -binary | xxd -p); \
 		hashed_filename="$${filename%%.*}-$$hash.$${filename#*.}"; \
