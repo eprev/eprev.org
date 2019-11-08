@@ -1,8 +1,8 @@
 // vim: ft=javascript
 
-const properties = require('../lib/properties');
+const properties = require('@eprev/wsngn/lib/properties');
 
-const manifest = properties(read('../manifest.txt'));
+const manifest = properties(read('../../manifest.txt'));
 
 return html`
 <!doctype html>
@@ -19,7 +19,7 @@ return html`
   ${
     manifest
       ? `<style>${read(
-          '../static/assets-bundles/' + manifest['main.css'],
+          '../../static/assets-bundles/' + manifest['main.css'],
         )}</style>`
       : `<link href="/assets/css/main.css" rel="stylesheet">`
   }
@@ -75,13 +75,13 @@ return html`
     <script>
       ${
         env == 'production'
-          ? read('includes/ga.js')
+          ? read('./ga.js')
           : `
             window.ga = function (...args) {
               console.log('ga', args);
             };`
       }
-      ${read('../source/assets/js/src/ga-tracking.js')}
+      ${read('../../source/assets/js/src/ga-tracking.js')}
     </script>
     <div class="page">
       <div class="page__sidebar">
@@ -91,7 +91,7 @@ return html`
               ? `<h1 class="page__user-name">@${site.twitter}</h1>`
               : `<a class="page__user-name" href="/">@${site.twitter}</a>`
           }
-          <div class="page__user-picture">${read('icons/4-eyed.svg')}</div>
+          <div class="page__user-picture">${read('../icons/4-eyed.svg')}</div>
           <div class="page__user-story">
             ${site.description}
             I’m on <a href="https://twitter.com/eprev">Twitter</a>,

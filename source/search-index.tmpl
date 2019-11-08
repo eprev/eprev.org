@@ -16,7 +16,7 @@ function vectorize(text) {
     .reduce((m, t) => (m[t] ? m[t]++ : (m[t] = 1), m), {}));
 }
 
-const dateFormat = require('../lib/date-format');
+const dateFormat = require('@eprev/wsngn/lib/date-format');
 
 const documents = site.byType('post').map(post => {
   const text = post.__source__
