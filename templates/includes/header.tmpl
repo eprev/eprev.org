@@ -114,7 +114,7 @@ return html`
             ${page.pathname == '/tags/' ? 'Tags' : '<a href="/tags/">Tags</a>'}
           </li>
           <li>
-            <a href="/atom.xml" class="rss">Feed ${read('icons/rss.svg')}</a>
+            <a href="/atom.xml" class="rss">Feed ${read('../icons/rss.svg')}</a>
           </li>
         </ul>
         <button
@@ -124,7 +124,7 @@ return html`
           data-ga-category="Click"
           data-ga-action="Search Button"
           aria-label="Search"
-        >${read('icons/search.svg')}</button>
+        >${read('../icons/search.svg')}</button>
         <input
           disabled
           type="text"
