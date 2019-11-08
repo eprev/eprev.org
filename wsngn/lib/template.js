@@ -50,7 +50,7 @@ const html = (exports.html = function html(strings, ...keys) {
 const renderString = (exports.renderString = function(tmpl, context) {
   context.require = function(pathname) {
     return require(pathname.startsWith('.')
-      ? path.join(__dirname, pathname)
+      ? path.join(context.__dirname__, pathname)
       : pathname);
   };
   context.html = html;
@@ -66,7 +66,7 @@ const renderString = (exports.renderString = function(tmpl, context) {
   };
   context.read = function(pathname) {
     try {
-      return fs.readFileSync(path.join(templateDir, pathname), 'utf8');
+      return fs.readFileSync(path.join(context.__dirname__, pathname), 'utf8');
     } catch (e) {}
   };
 
@@ -105,6 +105,8 @@ const renderString = (exports.renderString = function(tmpl, context) {
 
 const render = (exports.render = function(name, context) {
   context.__name__ = `<${name}>`;
-  const tmpl = fs.readFileSync(path.join(templateDir, name + '.tmpl'), 'utf8');
+  const filepath = path.join(templateDir, name + '.tmpl');
+  context.__dirname__ = path.dirname(filepath);
+  const tmpl = fs.readFileSync(filepath, 'utf8');
   return renderString(tmpl, context);
 });
