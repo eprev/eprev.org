@@ -374,6 +374,8 @@ class Tokenizer {
     }
   }
   _pushText(value) {
+    // Add "BREAK PERMITTED HERE" if the line ends with "\"
+    value = value.replace(/\\\n/g, '\u0082')
     const token = this._tokens[this._tokens.length - 1];
     if (token.type === 'text') {
       token.value += unescape(value);

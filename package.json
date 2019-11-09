@@ -16,6 +16,6 @@
     "wsngn"
   ],
   "devDependencies": {
-    "@eprev/wsngn": "0.1.4"
+    "@eprev/wsngn": "0.1.5"
   }
 }

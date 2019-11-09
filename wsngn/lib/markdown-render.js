@@ -52,7 +52,7 @@ module.exports = async function renderMarkdown(
         html += '<hr>';
         break;
       case 'text':
-        html += escape(token.value);
+        html += escape(token.value).replace(/\u0082/g, '<br>');
         break;
       case 'heading_start':
         // TODO: auto-ids
