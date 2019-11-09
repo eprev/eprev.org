@@ -2,7 +2,7 @@ const block = {
   // HTML comments and block attributes (<!--: -->)
   comment: /^<!--:?\s*([\s\S]*?)\s*-->(?:\n+|$)/,
   // --- or * * * or ___
-  thematicBreak: /^(?:[*-_] *){2,}[*-_](?:\n+|$)/,
+  thematicBreak: /^(?:[*_-] *){2,}[*_-](?:\n+|$)/,
   // # ... or ## ... etc.
   heading: /^(#{1,6}) +(.*?)(?:\n+|$)/,
   // ...    ...
