@@ -27,6 +27,8 @@ module.exports = function properties(s, { transform = false } = {}) {
           value = true;
         } else if (value === 'false') {
           value = false;
+        } else if (!isNaN(value)) {
+          value = Number(value);
         }
       }
       if (transform) {
