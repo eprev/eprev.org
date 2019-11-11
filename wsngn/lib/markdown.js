@@ -76,7 +76,7 @@ class Tokenizer {
     return [undefined, -1];
   }
   _isBlock(token) {
-    return /^((paragraph|heading|list|block_quote|block_code)_start|image)$/.test(
+    return /^(paragraph|heading|list|block_quote|block_code)_start$/.test(
       token.type,
     );
   }

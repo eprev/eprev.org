@@ -217,8 +217,6 @@ module.exports = async function renderMarkdown(
             token.alt,
           )}"${className}` +
           (token.title ? ` title="${escape(token.title)}"` : '') +
-          (token.width ? ` width="${escape(token.width)}"` : '') +
-          (token.height ? ` height="${escape(token.height)}"` : '') +
           '>';
         break;
       case 'comment':
