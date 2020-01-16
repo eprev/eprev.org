@@ -73,7 +73,6 @@ return html`
   }
   <body>
     <script>
-      ${env == 'production' && read('./gc.js')}
       ${
         env == 'production'
           ? read('./ga.js')
