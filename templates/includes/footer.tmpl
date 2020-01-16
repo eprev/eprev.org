@@ -2,6 +2,8 @@
 return html`
       </div> <!-- .page__content -->
     </div> <!-- .page -->
-    ${env == 'production' && read('./gc.js')}
+    <script>
+      ${env == 'production' && read('./gc.js')}
+    </script>
   </body>
 </html>`
