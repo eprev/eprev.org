@@ -3,7 +3,7 @@
 <title>Anton Eprev</title>
 <link href="https://eprev.org/atom.xml" rel="self" />
 <link href="https://eprev.org/" />
-<updated>2020-12-12T24:09:04+00:00</updated>
+<updated>2020-12-12T24:09:45+00:00</updated>
 <id>https://eprev.org/</id>
 <author>
 <name>Anton Eprev</name>
@@ -102,7 +102,7 @@ cp src/main.js dist/main.js&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 mkdir -p dist
 cp src/main.js dist/main.js&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;If no dependencies have changed after the target was generated, &lt;code&gt;make&lt;/code&gt; won’t update that target. That’s why if you run it twice in a row, &lt;code&gt;make&lt;/code&gt; won’t copy any files on the second run:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ make
-make: 'dist/main.js' is up to date.&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+make: &amp;#x27;dist/main.js&amp;#x27; is up to date.&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;Anyway, it required quite a bit of typing just to copy a file. Our recipe can be improved by using &lt;a href=&quot;https://www.gnu.org/software/make/manual/make.html#Automatic-Variables&quot;&gt;automatic variables&lt;/a&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;dist/main.js: src/main.js
 mkdir -p $(@D)
 cp $&amp;lt; $@&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
@@ -160,15 +160,15 @@ rm -f $(MANIFEST_FILE)
 build-manifest: clean-manifest compress-assets
 @for filename in $$( find $(ASSETS_DIRECTORY) -type f -exec basename {} \; ); do \
 hash=$$(md5 -q $(ASSETS_DIRECTORY)/$$filename); \
-hashed_filename=&quot;$${filename%%.*}-$$hash.$${filename#*.}&quot;; \
+hashed_filename=&amp;quot;$${filename%%.*}-$$hash.$${filename#*.}&amp;quot;; \
 cp $(ASSETS_DIRECTORY)/$$filename $(ASSETS_DIRECTORY)/$$hashed_filename; \
-echo &quot;$$filename: $$hashed_filename&quot; &amp;gt;&amp;gt; $(MANIFEST_FILE); \
+echo &amp;quot;$$filename: $$hashed_filename&amp;quot; &amp;gt;&amp;gt; $(MANIFEST_FILE); \
 done&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;Firstly, Make executes each line in a recipe separately. And if you need to write multi-line command, then you can use line continuations. Make also prints out each command before it gets executed, and the &lt;code&gt;@&lt;/code&gt; character in the start of the line prevents the command from such echoing.&lt;/p&gt;&lt;p&gt;Secondly, the &lt;code&gt;$&lt;/code&gt; character is used to reference variables in makefiles, so does the shell. And in order to get &lt;code&gt;$filename&lt;/code&gt; passed to the shell, rather than having Make trying to find a variable called &lt;code&gt;filename&lt;/code&gt;, we need to write &lt;code&gt;$$filename&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Thus, this is actually what Make will pass to the shell (Bash) when running &lt;code&gt;build-manifest&lt;/code&gt;:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;for filename in $( find assets -type f -exec basename {} \; ); do \
 hash=$(md5 -q assets/$filename); \
-hashed_filename=&quot;${filename%%.*}-$hash.${filename#*.}&quot;; \
+hashed_filename=&amp;quot;${filename%%.*}-$hash.${filename#*.}&amp;quot;; \
 cp asstes/$filename assets/$hashed_filename; \
-echo &quot;$filename: $hashed_filename&quot; &amp;gt;&amp;gt; _data/manifest.yml; \
+echo &amp;quot;$filename: $hashed_filename&amp;quot; &amp;gt;&amp;gt; _data/manifest.yml; \
 done&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;This command performs the following operations:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;The &lt;code&gt;find assets -type f -exec basename {} \;&lt;/code&gt; command will find all files in the &lt;code&gt;assets&lt;/code&gt; directory.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;md5 -q assets/$filename&lt;/code&gt; command will calculate a checksum for the given file.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;${filename%%.*}&lt;/code&gt; operation will delete the longest match of &lt;code&gt;.*&lt;/code&gt; from the back of the file name. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;main&lt;/code&gt; part only.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;${filename#*.}&lt;/code&gt; operation will delete the shortest match of &lt;code&gt;*.&lt;/code&gt; from the front of the file name. If &lt;code&gt;$filename&lt;/code&gt; was containing &lt;code&gt;main.js.map&lt;/code&gt;, it would keep the &lt;code&gt;js.map&lt;/code&gt; part only.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;echo &amp;quot;…&amp;quot; &amp;gt;&amp;gt; _data/manifest.yml&lt;/code&gt; command will append a string containing both file names to the manifest file.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Basically, for each file that it finds in the &lt;code&gt;assets&lt;/code&gt; directory, it will calculate a checksum, make a copy of the file and generate the manifest file containing key-value pairs:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;main.js: main-a2f40c69875a90f46f961febe52d4989.js
 …&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
@@ -186,7 +186,7 @@ git --git-dir=_site/.git reset --hard origin/gh-pages
 git --git-dir=_site/.git pull origin gh-pages
 deploy: reset-site build-deploy
 git --git-dir=_site/.git add -A
-git --git-dir=_site/.git commit -m &quot;Deploy&quot;
+git --git-dir=_site/.git commit -m &amp;quot;Deploy&amp;quot;
 git --git-dir=_site/.git push origin gh-pages&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;h2&gt;Conclusion&lt;/h2&gt;&lt;p&gt;Make is a great cross-platform tool suitable for projects of different sizes and complexities. More powerful and expressive in a certain way than NPM scripts, Grunt or Gulp.&lt;/p&gt;&lt;p&gt;And I hope this article has sparked your interest in learning and getting out of your comfort zone as a front-end developer.&lt;/p&gt;</content>
 </entry>
@@ -202,16 +202,16 @@ deprecated SMIL&lt;/a&gt;
 in favor of CSS animations. How come? Probably you’re thinking now of using CSS when it’s available
 and falling back to SVG &lt;code&gt;transform&lt;/code&gt; attribute.&lt;/p&gt;&lt;!-- Read More --&gt;&lt;p&gt;So how to check whether or not the browser supports CSS transforms on SVG elements? I came up with
 the following approach:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;const supportsCSSTransformsOnSVG = (() =&amp;gt; {
-const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-svg.setAttribute('viewBox', '0 0 2 2');
+const svg = document.createElementNS(&amp;#x27;http://www.w3.org/2000/svg&amp;#x27;, &amp;#x27;svg&amp;#x27;);
+svg.setAttribute(&amp;#x27;viewBox&amp;#x27;, &amp;#x27;0 0 2 2&amp;#x27;);
 Object.assign(svg.style, {
-position: 'absolute',
+position: &amp;#x27;absolute&amp;#x27;,
 top: 0,
 left: 0,
-width: '2px',
-height: '2px',
+width: &amp;#x27;2px&amp;#x27;,
+height: &amp;#x27;2px&amp;#x27;,
 });
-svg.innerHTML = '&amp;lt;rect width=&quot;1&quot; height=&quot;1&quot;/&amp;gt;';
+svg.innerHTML = &amp;#x27;&amp;lt;rect width=&amp;quot;1&amp;quot; height=&amp;quot;1&amp;quot; style=&amp;quot;transform: translate(1px, 1px)&amp;quot;/&amp;gt;&amp;#x27;;
 document.body.appendChild(svg);
 const result = document.elementFromPoint(1, 1) !== svg;
 svg.parentNode.removeChild(svg);
@@ -220,7 +220,7 @@ return result;
 &lt;/figure&gt;&lt;p&gt;Which can be used later on:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;if (supportsCSSTransformsOnSVG) {
 el.style.transform = `translate(${dx}px, ${dy}px)`;
 } else {
-el.setAttribute('transform', `translate(${dx} ${dy})`);
+el.setAttribute(&amp;#x27;transform&amp;#x27;, `translate(${dx} ${dy})`);
 }&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;</content>
 </entry>
@@ -249,13 +249,13 @@ indicated.&lt;/p&gt;&lt;!-- Read More --&gt;&lt;p&gt;To demonstrate this I made 
 server&lt;/a&gt; which
 flushes early-head of the document immediately and waits for a second before
 sending the rest of it.  The early-head contains a &lt;code&gt;script&lt;/code&gt; tag with the
-&lt;code&gt;async&lt;/code&gt; attribute and a &lt;code&gt;link&lt;/code&gt; tag to the external stylesheet.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;lt;script src=&quot;…&quot; async
-onload=&quot;console.log({scripts: performance.now()})&quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;link href=&quot;…&quot; rel=&quot;stylesheet&quot;
-onload=&quot;console.log({styles: performance.now()})&quot;&amp;gt;
+&lt;code&gt;async&lt;/code&gt; attribute and a &lt;code&gt;link&lt;/code&gt; tag to the external stylesheet.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;lt;script src=&amp;quot;…&amp;quot; async
+onload=&amp;quot;console.log({scripts: performance.now()})&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;link href=&amp;quot;…&amp;quot; rel=&amp;quot;stylesheet&amp;quot;
+onload=&amp;quot;console.log({styles: performance.now()})&amp;quot;&amp;gt;
 &amp;lt;script&amp;gt;
 document.addEventListener(
- 'DOMContentLoaded',
+&amp;#x27;DOMContentLoaded&amp;#x27;,
 () =&amp;gt; console.log({DOMContentLoaded: performance.now()})
 );
 &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
@@ -378,10 +378,10 @@ a wireless network it will change the location to either the corresponding or th
 has been changed. Let’s create scripts that will be executed every time it happens. One is
 for “Corp Wi-Fi” location:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;#!/usr/bin/env bash
 # Require password immediately after sleep or screen saver
-osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to true'&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+osascript -e &amp;#x27;tell application &amp;quot;System Events&amp;quot; to set require password to wake of security preferences to true&amp;#x27;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;Another is for the default location:&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;#!/usr/bin/env bash
 # Don’t require password after sleep or screen saver
-osascript -e 'tell application &quot;System Events&quot; to set require password to wake of security preferences to false'&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+osascript -e &amp;#x27;tell application &amp;quot;System Events&amp;quot; to set require password to wake of security preferences to false&amp;#x27;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;Save them as &lt;code&gt;~/.locations/Corp Wi-Fi&lt;/code&gt; and &lt;code&gt;~/.locations/Automatic&lt;/code&gt; respectively. Voilà!
 You’re not limited by changing only the security preferences, you can do whatever
 you want to…&lt;/p&gt;</content>
@@ -439,15 +439,15 @@ alt=&quot;‘Nap all day, sleep all night, party never’ by Nation of Amanda&qu
 <updated>2014-12-10T00:00:00+00:00</updated>
 <id>https://eprev.org/2014/12/10/open-all-modified-files/</id>
 <content type="html">&lt;p&gt;Often I finish working day without committing changes to the repository. Thus, next morning
-I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$&lt;span&gt; vim -p $(git diff --name-only HEAD | sed &quot;s,$(git rev-parse --show-prefix),,&quot; | tr &quot;\n&quot; &quot; &quot;)&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+I need to open all the files I was working yesterday. And I found an efficient way to do this.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$&lt;span&gt; vim -p $(git diff --name-only HEAD | sed &amp;quot;s,$(git rev-parse --show-prefix),,&amp;quot; | tr &amp;quot;\n&amp;quot; &amp;quot; &amp;quot;)&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;It opens Vim and loads all modified files in tabs. You could add this command as an alias to your &lt;code&gt;.bashrc&lt;/code&gt;,
 but adding this to &lt;code&gt;.gitconfig&lt;/code&gt; seems like a better option. This is what you need to add to your &lt;code&gt;~/.gitconfig&lt;/code&gt;.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;[alias]
-open = &quot;!vim -c \&quot;cd $GIT_PREFIX\&quot; -p $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+open = &amp;quot;!vim -c \&amp;quot;cd $GIT_PREFIX\&amp;quot; -p $(git diff --name-only HEAD | tr &amp;#x27;\\n&amp;#x27; &amp;#x27; &amp;#x27;)&amp;quot;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;To run this command you need to type &lt;code&gt;git open&lt;/code&gt; in the terminal. Since all commands prefixed with an exclamation
 point are executed from the top-level directory of a repository, we need to change working directory in Vim to
 the current one. And of course you can replace Vim by your favorite editor or event by &lt;code&gt;$EDITOR&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Besides, If you use sort of file watchers to perform certain operations when files change, then
 you would find the following command quite helpful. It changes modification time of all modified files at once.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;[alias]
-touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
+touch = &amp;quot;!touch -c $(git diff --name-only HEAD | tr &amp;#x27;\\n&amp;#x27; &amp;#x27; &amp;#x27;)&amp;quot;&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;You can find more handy aliases in &lt;a href=&quot;https://github.com/eprev/dotfiles/blob/master/gitconfig&quot;&gt;.dotfiles&lt;/a&gt; of mine.&lt;/p&gt;</content>
 </entry>
 <entry>
@@ -478,13 +478,13 @@ touch = &quot;!touch -c $(git diff --name-only HEAD | tr '\\n' ' ')&quot;&lt;/pr
 <id>https://eprev.org/2013/09/22/mongo-shell-as-an-interactive-javascript-interpreter/</id>
 <content type="html">&lt;p&gt;Do you have MongoDB installed? If you do then you have JavaScript interpreter. MongoDB has SpiderMonkey JavaScript engine. To start an interactive shell you have to type &lt;code&gt;mongo --nodb&lt;/code&gt; in the shell.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ mongo --nodb
 MongoDB shell version: 2.2.0
-&amp;gt; var user = {name: &quot;Anton Eprev&quot;, age: 27}
+&amp;gt; var user = {name: &amp;quot;Anton Eprev&amp;quot;, age: 27}
 &amp;gt; user
-{ &quot;name&quot; : &quot;Anton Eprev&quot;, &quot;age&quot; : 27 }
+{ &amp;quot;name&amp;quot; : &amp;quot;Anton Eprev&amp;quot;, &amp;quot;age&amp;quot; : 27 }
 &amp;gt; print(user)
 [object Object]
 &amp;gt; printjson(user)
-{ &quot;name&quot; : &quot;Anton Eprev&quot;, &quot;age&quot; : 27 }
+{ &amp;quot;name&amp;quot; : &amp;quot;Anton Eprev&amp;quot;, &amp;quot;age&amp;quot; : 27 }
 &amp;gt; var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 &amp;gt; print(numbers)
 1,2,3,4,5,6,7,8,9
@@ -504,7 +504,7 @@ age 27
 1
 …
 9&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
-&lt;/figure&gt;&lt;p&gt;You can also use the &lt;code&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;gt; var profile = cat('.profile')
+&lt;/figure&gt;&lt;p&gt;You can also use the &lt;code&gt;cat&lt;/code&gt; function to read the file’s contents.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;&amp;gt; var profile = cat(&amp;#x27;.profile&amp;#x27;)
 &amp;gt; profile
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 …&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
@@ -516,7 +516,7 @@ hostname()
 sleep()
 hex_md5()&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
 &lt;/figure&gt;&lt;p&gt;And finally, you can run a JavaScript file using MongoDB shell.&lt;/p&gt;&lt;figure&gt;&lt;code&gt;&lt;div&gt;&lt;pre&gt;$ cat hello.js
-print(&quot;Hello World!&quot;);
+print(&amp;quot;Hello World!&amp;quot;);
 $ mongo --nodb hello.js
 MongoDB shell version: 2.2.0
 Hello World!&lt;/pre&gt;&lt;/div&gt;&lt;/code&gt;
