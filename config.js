@@ -8,8 +8,8 @@ module.exports = {
   site: {
     title: 'Anton Eprev',
     description:
-      'My name’s Anton Eprev and I’m a software developer working ' +
-      'as front-end engineer at Booking.com in Amsterdam. ' +
+      'My name’s Anton Eprev and I’m a software engineer working ' +
+      'as front-end developer at Booking.com in Amsterdam. ' +
       'Tinker with electronics and 3D printers in spare time.',
     url: env === 'production' ? 'https://eprev.org' : 'https://dev.eprev.org',
     twitter: 'eprev',
