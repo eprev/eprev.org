@@ -1,3 +1,4 @@
+/** @type {(s: string) => string} */
 function strip(s) {
   return (
     s
@@ -14,9 +15,11 @@ function strip(s) {
       )
   );
 }
-module.exports = function htmlMinifier(html) {
+
+/** @type {(html: string) => string} */
+export default function htmlMinifier(html) {
   // Stretch a tag onto a single line (collapse white-spaces in between)
-  html = html.replace(/<[^>]+>/g, tag => {
+  html = html.replace(/<[^>]+>/g, (tag) => {
     return tag.replace(/\s+/g, ' ');
   });
   // Strip white-spaces, but keep them between <pre> and </pre>
@@ -41,4 +44,4 @@ module.exports = function htmlMinifier(html) {
     }
   }
   return res;
-};
+}

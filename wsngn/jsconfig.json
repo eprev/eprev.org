@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    // "declaration": true,
+    // "declarationDir": "./types",
+    "noEmit": true,
+    // "emitDeclarationOnly": true,
+    "strict": true,
+    "module": "nodenext",
+    "moduleResolution":"nodenext",
+    "baseUrl": ".",
+    "paths": {
+      "mathjax-node": ["types/mathjax-node.d.ts"]
+    },
+    "noImplicitAny": false
+  }
+}

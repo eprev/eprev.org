@@ -1,13 +1,18 @@
-const inspect = require('util').inspect;
+import { inspect } from 'util';
+
 const colors = inspect.colors;
 
-module.exports = process.stdout.isTTY
+/** @type {(text: string, color: string) => string} */
+const colorize = process.stdout.isTTY
   ? function colorize(text, color) {
-      if (color in colors) {
-        const [setCode, resetCode] = colors[color];
+      const codes = colors[color];
+      if (codes) {
+        const [setCode, resetCode] = codes;
         return `\u001b[${setCode}m${text}\u001b[${resetCode}m`;
       } else {
         return text;
       }
     }
-  : text => text;
+  : (text) => text;
+
+export default colorize;

@@ -28,7 +28,7 @@ all: build-bundles
 init:
 	git submodule init
 	git submodule update
-	yarn install
+	npm install
 
 server:
 	$(WSNGN) --server

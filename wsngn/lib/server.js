@@ -1,11 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-const { URL } = require('url');
+import fs from 'fs';
+import path from 'path';
+import url, { URL } from 'url';
 
-const mime = require('./mime');
-const colorize = require('./colorize');
+import mime from './mime.js';
+import colorize from './colorize.js';
 
-exports.createServer = function createServer(config, buildEvents) {
+/** @typedef {import("http").RequestListener} RequestListener */
+/** @typedef {import("http").ServerResponse} ServerResponse */
+/** @typedef {import("events").EventEmitter} EventEmitter */
+/** @typedef {import("./config.js").Config} Config */
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+
+/**
+ * @param {Config} config
+ * @param {EventEmitter} buildEvents
+ */
+export default async function createServer(config, buildEvents) {
   const { port, protocol } = new URL(config.serverUrl);
 
   if (protocol === 'https:/') {
@@ -13,15 +24,14 @@ exports.createServer = function createServer(config, buildEvents) {
       key: fs.readFileSync(path.join(__dirname, '../bin/ssl/localhost.key')),
       cert: fs.readFileSync(path.join(__dirname, '../bin/ssl/localhost.crt')),
     };
-    require('https')
-      .createServer(options, reqHandler)
-      .listen(port);
+    const { createServer } = await import('https');
+    createServer(options, reqHandler).listen(port);
   } else {
-    require('http')
-      .createServer(reqHandler)
-      .listen(port);
+    const { createServer } = await import('http');
+    createServer(reqHandler).listen(port);
   }
 
+  /** @type {(res: ServerResponse, code: number, msg: string) => void } */
   function end(res, code, msg) {
     res.writeHead(code, {
       'Content-Length': Buffer.byteLength(msg),
@@ -30,6 +40,7 @@ exports.createServer = function createServer(config, buildEvents) {
     res.end(msg);
   }
 
+  /** @type {RequestListener} */
   function reqHandler(req, res) {
     if (req.method !== 'GET') {
       return end(res, 405, 'Method Not Allowed');
@@ -40,22 +51,27 @@ exports.createServer = function createServer(config, buildEvents) {
         'Cache-Control': 'no-cache',
         Connection: 'keep-alive',
       });
-      const buildSuccess = function() {
+
+      const buildSuccess = function () {
         res.write(`event: build-success\r\ndata:\r\n\r\n`);
       };
-      const buildError = function(error) {
+      /** @param {Error} error */
+      const buildError = function (error) {
         res.write(
           `event: build-error\r\ndata: ${JSON.stringify(error.stack)}\r\n\r\n`,
         );
       };
+
       buildEvents.on('success', buildSuccess);
       buildEvents.on('error', buildError);
+
       req.setTimeout(0);
+
       req.on('close', () => {
         buildEvents.removeListener('success', buildSuccess);
         buildEvents.removeListener('error', buildError);
       });
-    } else {
+    } else if (req.url) {
       const url = new URL(req.url, config.site.url);
       const pathname = path.join(
         config.dest,
@@ -83,4 +99,4 @@ exports.createServer = function createServer(config, buildEvents) {
   }
 
   console.log(`Listening ${colorize(config.serverUrl, 'grey')}`);
-};
+}

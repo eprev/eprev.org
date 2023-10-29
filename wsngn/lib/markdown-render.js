@@ -1,9 +1,9 @@
-const path = require('path');
-const { execFileSync } = require('child_process');
-const { URL } = require('url');
-const { highlight } = require('highlight.js');
+import path from 'path';
+import { execFileSync } from 'child_process';
+import { URL } from 'url';
+import hljs from 'highlight.js';
 
-const memoize = require('./memoize');
+import memoize from './memoize.js';
 
 const escapeChars = {
   '&': '&amp;',
@@ -12,41 +12,56 @@ const escapeChars = {
   '"': '&quot;',
 };
 
+/** @param {string} str */
 function escape(str) {
   if (/[&<>"]/.test(str)) {
-    return str.replace(/[&<>"]/g, ch => escapeChars[ch]);
+    return str.replace(/[&<>"]/g, (ch) => escapeChars[ch]);
   }
   return str;
 }
 
-const getImageSize = memoize(function getImageSize(pathname) {
-  const stdout = execFileSync('identify', [
-    '-ping',
-    '-format',
-    '%w %h',
-    pathname,
-  ]);
-  return stdout.toString().split(' ');
-});
+const getImageSize = memoize(
+  /** @param {string} pathname */
+  function getImageSize(pathname) {
+    const stdout = execFileSync('identify', [
+      '-ping',
+      '-format',
+      '%w %h',
+      pathname,
+    ]);
+    return stdout.toString().split(' ').map(Number);
+  },
+);
 
-var mj = require('mathjax-node');
+import mj from 'mathjax-node';
 
-module.exports = async function renderMarkdown(
+/** @typedef {import('./markdown.js').Token} Token */
+
+/**
+ * @param {Token[]} tokens
+ * @param {{baseUrl: string, baseDir: string}} options
+ */
+export default async function renderMarkdown(
   tokens,
   { baseUrl = '', baseDir = '' },
 ) {
-  if (baseUrl.includes('//localhost:')) {
-    baseUrl = 'https://dev.eprev.org';
-  }
+  // if (baseUrl.includes('//localhost:')) {
+  //   baseUrl = 'https://dev.eprev.org';
+  // }
+
+  /** @param {string} s */
   function makeUrl(s) {
     const url = new URL(s, baseUrl);
     return url.toString();
   }
+
   let html = '';
   let token;
   let index = 0;
   while ((token = tokens[index])) {
-    const className = token.class ? ` class="${escape(token.class)}"` : '';
+    const className = token.attrs?.['class']
+      ? ` class="${escape(token.attrs.class)}"`
+      : '';
     switch (token.type) {
       case 'thematic_break':
         html += '<hr>';
@@ -64,22 +79,24 @@ module.exports = async function renderMarkdown(
       case 'paragraph_start':
         const nextToken = tokens[index + 1];
         if (
-          token.layout &&
+          token.attrs?.layout &&
           nextToken.type === 'image' &&
           tokens[index + 2].type === 'paragraph_end'
         ) {
           const imageToken = nextToken;
-          if (token.layout !== 'responsive') {
+          if (token.attrs.layout !== 'responsive') {
             throw new Error('Only responsive layout is supported');
           }
-          const clickable = token.clickable === 'yes';
-          let { width, height } = token;
-          if (!width || !height) {
-            [width, height] = getImageSize(path.join(baseDir, imageToken.src));
-          }
+          const clickable = token.attrs.clickable === 'yes';
+
+          const [width, height] =
+            token.attrs.width && token.attrs.height
+              ? [Number(token.attrs.width), Number(token.attrs.height)]
+              : getImageSize(path.join(baseDir, imageToken.src));
+
           html += `<figure
               class="responsive-image${
-                token.class ? ' ' + escape(token.class) : ''
+                token.attrs.class ? ' ' + escape(token.attrs.class) : ''
               }"
               style="max-width: ${width}px"
             >
@@ -128,48 +145,52 @@ module.exports = async function renderMarkdown(
         break;
       case 'block_code_start':
         const textToken = tokens[index + 1];
-        let value;
-        if (token.lang && token.lang === 'math') {
-          let svg;
-          try {
-            const r = await mj.typeset({
-              math: textToken.value,
-              format: 'TeX',
-              svg: true,
-            });
-            svg = r.svg;
-          } catch (err) {
-            svg = `<em>${err}</em>`;
-          }
-          html +=
-            `<figure class="formula${
-              token.class ? ' ' + escape(token.class) : ''
-            }">` +
-            svg +
-            `${
-              token.caption
-                ? `<figcaption>${escape(token.caption)}</figcaption>`
-                : ''
+        if (textToken.type == 'text') {
+          if (token.lang && token.lang === 'math') {
+            let svg;
+            try {
+              const r = await mj.typeset({
+                math: textToken.value,
+                format: 'TeX',
+                svg: true,
+              });
+              svg = r.svg;
+            } catch (err) {
+              svg = `<em>${err}</em>`;
             }
-            </figure>`;
-        } else {
-          if (token.lang) {
-            value = highlight(token.lang, textToken.value).value;
+            html +=
+              `<figure class="formula${
+                token.attrs?.class ? ' ' + escape(token.attrs.class) : ''
+              }">` +
+              svg +
+              `${
+                token.attrs?.caption
+                  ? `<figcaption>${escape(token.attrs.caption)}</figcaption>`
+                  : ''
+              }
+              </figure>`;
           } else {
-            value = escape(textToken.value);
-          }
-          html +=
-            `<figure class="highlight${
-              token.class ? ' ' + escape(token.class) : ''
-            }"><code><div class="scrollable"><pre>` +
-            value +
-            `</pre></div></code>
+            let value;
+            if (token.lang) {
+              value = hljs.highlight(textToken.value, {
+                language: token.lang,
+              }).value;
+            } else {
+              value = escape(textToken.value);
+            }
+            html +=
+              `<figure class="highlight${
+                token.attrs?.class ? ' ' + escape(token.attrs.class) : ''
+              }"><code><div class="scrollable"><pre>` +
+              value +
+              `</pre></div></code>
             ${
-              token.caption
-                ? `<figcaption>${escape(token.caption)}</figcaption>`
+              token.attrs?.caption
+                ? `<figcaption>${escape(token.attrs.caption)}</figcaption>`
                 : ''
             }
             </figure>`;
+          }
         }
         index += 2; // text, block_code_end
         break;
@@ -228,4 +249,4 @@ module.exports = async function renderMarkdown(
     index++;
   }
   return html;
-};
+}
