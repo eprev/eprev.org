@@ -3,7 +3,7 @@ SHELL   := /bin/bash
 WSNGN  := ./node_modules/.bin/wsngn
 ROLLUP  := ./node_modules/.bin/rollup
 TERSER  := ./node_modules/.bin/terser
-CSSNANO := ./node_modules/.bin/cssnano
+CSSNANO := ./node_modules/.bin/postcss
 HTML    := ./node_modules/.bin/html-minifier
 
 HTMLFLAGS   := --collapse-whitespace --remove-comments --minify-js
@@ -46,10 +46,7 @@ $(BUNDLES_DIR)/%.js: $(SRC_JS_DIR)/%.js
 	$(TERSER) $@ -o $@
 
 $(BUNDLES_DIR)/%.css: $(SRC_CSS_DIR)/%.css
-	$(CSSNANO) $< $@
-
-$(BUNDLES_DIR)/%.css: $(SRC_CSS_DIR)/%.css
-	$(CSSNANO) $< $@
+	$(CSSNANO) $< > $@
 
 build-bundles: clean-bundles $(JS_BUNDLES) $(CSS_BUNDLES)
 
