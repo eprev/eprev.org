@@ -6,15 +6,14 @@ const MIN_SCROLLBAR_WIDTH = 50;
 
 const cache = new WeakMap();
 
-/** @param {HTMLHtmlElement} targetEl */
 function scrollable(targetEl) {
+
   if (cache.has(targetEl)) {
     return cache.get(targetEl);
   }
 
   let clientWidth;
   let scrollWidth;
-  /** @type {HTMLHtmlElement[]} */
   let childNodes;
   let scrollLeft;
   let scrollLeftMax;
@@ -44,11 +43,11 @@ function scrollable(targetEl) {
     const clientX = e.clientX;
     let currScrollLeft = scrollLeft;
 
-    const onMouseMove = (e) => {
+    const onMouseMove = e => {
       currScrollLeft = scrollBy(e.clientX - clientX);
     };
 
-    const onMouseUp = (e) => {
+    const onMouseUp = e => {
       sbEl.classList.remove('scrollbar--active');
       scrollLeft = currScrollLeft;
       document.removeEventListener('mousemove', onMouseMove);
@@ -59,7 +58,7 @@ function scrollable(targetEl) {
     sbEl.classList.add('scrollbar--active');
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
-  }
+  };
 
   function targetOnMouseDown(e) {
     if (isLocked) {
@@ -68,12 +67,12 @@ function scrollable(targetEl) {
     isLocked = true;
 
     const targetX = window.pageXOffset + targetEl.getBoundingClientRect().left;
-    const leftX = targetX + clientWidth * 0.9;
-    const rightX = targetX + clientWidth * 0.1;
+    const leftX = targetX + clientWidth * .9;
+    const rightX = targetX + clientWidth * .1;
 
     let currScrollLeft = scrollLeft;
 
-    const onMouseMove = (e) => {
+    const onMouseMove = e => {
       if (e.clientX > leftX) {
         currScrollLeft = scrollBy(scrollWidth);
       } else if (e.clientX < rightX) {
@@ -81,7 +80,7 @@ function scrollable(targetEl) {
       }
     };
 
-    const onMouseUp = (e) => {
+    const onMouseUp = e => {
       scrollLeft = currScrollLeft;
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
@@ -90,7 +89,7 @@ function scrollable(targetEl) {
 
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
-  }
+  };
 
   function targetOnTouchStart(e) {
     if (isLocked || e.touches.length > 1) {
@@ -105,7 +104,7 @@ function scrollable(targetEl) {
     let isDetected = false;
     let isAllowed = false;
 
-    const onTouchMove = (e) => {
+    const onTouchMove = e => {
       if (e.touches.length > 1) {
         return;
       }
@@ -122,7 +121,7 @@ function scrollable(targetEl) {
       }
     };
 
-    const onTouchEnd = (e) => {
+    const onTouchEnd = e => {
       isLocked = false;
       scrollLeft = currScrollLeft;
       document.removeEventListener('touchmove', onTouchMove);
@@ -152,15 +151,15 @@ function scrollable(targetEl) {
 
   function updateScrollBar() {
     const scrollBarWidth = max(
-      floor((clientWidth * clientWidth) / scrollWidth),
-      MIN_SCROLLBAR_WIDTH,
-    );
+        floor( clientWidth * clientWidth / scrollWidth ),
+        MIN_SCROLLBAR_WIDTH
+      );
     scrollRatio = (scrollWidth - clientWidth) / (clientWidth - scrollBarWidth);
     scrollLeftMax = clientWidth - scrollBarWidth;
 
     sbEl.style.width = scrollBarWidth + 'px';
 
-    [sbEl, ...childNodes].forEach((el) => (el.style.willChange = 'transform'));
+    [sbEl, ...childNodes].forEach((el) => el.style.willChange = 'transform');
   }
 
   function removeScrollBar() {
@@ -175,8 +174,9 @@ function scrollable(targetEl) {
   }
 
   function scrollBy(dx) {
-    const sdx =
-      dx > 0 ? min(scrollLeft + dx, scrollLeftMax) : max(scrollLeft + dx, 0);
+    const sdx = dx > 0
+        ? min(scrollLeft + dx, scrollLeftMax)
+        : max(scrollLeft + dx, 0);
     sbEl.style.transform = `translateX(${sdx}px)`;
     scrollContentTo(-1 * sdx * scrollRatio);
     return sdx;
@@ -199,19 +199,16 @@ function scrollable(targetEl) {
 
   function update() {
     const style = getComputedStyle(targetEl);
-    clientWidth =
-      targetEl.clientWidth -
-      parseFloat(style.getPropertyValue('padding-left')) -
-      parseFloat(style.getPropertyValue('padding-right'));
+    clientWidth = targetEl.clientWidth -
+        parseFloat(style.getPropertyValue('padding-left')) -
+        parseFloat(style.getPropertyValue('padding-right'));
 
-    childNodes = /** @type {HTMLHtmlElement[]} */ (
-      Array.from(targetEl.childNodes).filter((childEl) => {
+    childNodes = Array.from(targetEl.childNodes).filter((childEl) => {
         return childEl !== sbEl;
-      })
-    );
+      });
     scrollWidth = childNodes.reduce((maxWidth, childEl) => {
-      return max(childEl.scrollWidth, maxWidth);
-    }, 0);
+        return max(childEl.scrollWidth, maxWidth);
+      }, 0);
 
     if (scrollWidth > clientWidth) {
       if (hasScrollBar()) {
@@ -225,6 +222,7 @@ function scrollable(targetEl) {
         removeScrollBar();
       }
     }
+
   }
 
   const object = {
@@ -234,6 +232,7 @@ function scrollable(targetEl) {
   cache.set(targetEl, object);
 
   return object;
+
 }
 
 let isWatching = false;
@@ -247,7 +246,7 @@ const windowOnResize = throttle(() => {
   }
   windowWidth = window.innerWidth;
 
-  const els = Array.from(document.querySelectorAll('.scrollable--enabled'));
+  const els = Array.from( document.querySelectorAll('.scrollable--enabled') );
   els.forEach((el) => {
     const o = cache.get(el);
     if (o) {
@@ -274,9 +273,8 @@ function stopWatching() {
 }
 
 export default function scrollbar(root = document) {
-  const els = /** @type {HTMLHtmlElement[]} */ (
-    Array.from(root.querySelectorAll('.scrollable:not(.scrollable--enabled)'))
-  );
+
+  const els = Array.from( root.querySelectorAll('.scrollable:not(.scrollable--enabled)') );
 
   els.forEach((el) => {
     el.classList.add('scrollable--enabled');
@@ -286,4 +284,5 @@ export default function scrollbar(root = document) {
   if (els.length) {
     startWatching();
   }
+
 }
