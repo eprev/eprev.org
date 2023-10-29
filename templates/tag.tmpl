@@ -1,9 +1,12 @@
+/// <reference types="../wsngn/types/tmpl.d.ts" />
 // vim: ft=javascript
 
-const dateFormat = require('@eprev/wsngn/lib/date-format');
+import { dateFormat } from '@eprev/wsngn';
+
+/** @type {import('../plugins/tags.plugin.js').TagPage} */
+var page;
 
 return html`${render('includes/header')}
-
   <h1 class="page__header">${page.title}</h1>
   ${page.posts.descBy('date').reduce(
     ({ year, res }, post, index, posts) => {
@@ -29,7 +32,6 @@ return html`${render('includes/header')}
         return { year, res };
       }
     },
-    { year: '', res: '' }
+    { year: '', res: '' },
   )}
-
   ${render('includes/footer')}`;

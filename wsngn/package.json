@@ -1,6 +1,6 @@
 {
   "name": "@eprev/wsngn",
-  "version": "0.1.8",
+  "version": "0.2.0-alpha.0",
   "description": "That’s my spot.",
   "repository": {
     "type": "git",
@@ -10,15 +10,27 @@
   "bugs": {
     "url": "https://github.com/eprev/eprev.org/issues"
   },
-  "bin": "bin/build",
+  "bin": {
+    "wsngn": "./lib/build.js"
+  },
+  "type": "module",
+  "main": "index.js",
   "homepage": "http://eprev.org",
+  "scripts": {
+    "lint": "tsc -p jsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.5",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "rollup": "^4.1.5",
+    "terser": "^5.22.0",
+    "typescript": "^5.2.2"
+  },
   "dependencies": {
-    "terser": "^4.3.9",
-    "cssnano": "^4.1.10",
-    "cssnano-cli": "^1.0.5",
     "highlight.js": "^10.4.1",
     "html-minifier": "^4.0.0",
-    "mathjax-node": "^2.1.1",
-    "rollup": "^1.25.0"
+    "mathjax-node": "^2.1.1"
   }
 }

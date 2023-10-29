@@ -1,20 +1,37 @@
+import { inspect } from 'util';
+import assert, { AssertionError } from 'assert';
+
+/** @typedef {typeof assert} AssertFn */
+/** @typedef {(name: string, testFn: (assert: AssertFn) => void) => void} TestFn */
+/** @typedef {(it: TestFn) => void} SuitFn */
+
+/** @type {string[]} */
 const suites = [];
 
-const inspect = require('util').inspect;
-const assert = require('assert');
+/** @type {{
+ *   suite: string,
+ *   name: string,
+ *   error: AssertionError,
+ * }[]}
+ */
 const failed = [];
+
 let tests = 0;
 let skipped = 0;
 
-const colorize = require('./colorize');
+import colorize from './colorize.js';
 
+/**
+ * @param {any} o
+ */
 function pretty(o) {
   return inspect(o, { colors: true })
     .replace(/^\[ /, '[\n  ')
     .replace(/ \]$/, '\n]');
 }
 
-module.exports = function describe(name, suiteFn) {
+/** @type {(name: string, suiteFn: SuitFn) => void} */
+export default function describe(name, suiteFn) {
   if (suites.length === 0) {
     console.time('Time');
   }
@@ -29,7 +46,7 @@ module.exports = function describe(name, suiteFn) {
     if (tests) {
       process.stdout.write('\n');
     }
-    failed.forEach(test => {
+    failed.forEach((test) => {
       console.log(
         test.suite +
           ' ' +
@@ -39,7 +56,7 @@ module.exports = function describe(name, suiteFn) {
           ' but got ' +
           pretty(test.error.actual) +
           '\n' +
-          test.error.stack.replace(test.error.message, '') +
+          test.error.stack?.replace(test.error.message, '') +
           '\n',
       );
     });
@@ -48,8 +65,9 @@ module.exports = function describe(name, suiteFn) {
     );
     console.timeEnd('Time');
   }
-};
+}
 
+/** @type {TestFn} */
 function it(name, testFn) {
   if (name) {
     tests++;
@@ -57,7 +75,7 @@ function it(name, testFn) {
       testFn(assert);
       process.stdout.write(colorize('.', 'green'));
     } catch (error) {
-      if (error.code === 'ERR_ASSERTION') {
+      if (error instanceof AssertionError && error.code === 'ERR_ASSERTION') {
         process.stdout.write(colorize('F', 'red'));
         failed.push({
           suite: suites.join(': '),

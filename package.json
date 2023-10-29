@@ -1,7 +1,7 @@
 {
   "name": "eprev.org",
   "private": true,
-  "version": "3.0.0",
+  "version": "4.0.0-alpha.0",
   "description": "That’s my spot.",
   "repository": {
     "type": "git",
@@ -13,9 +13,15 @@
   },
   "homepage": "http://eprev.org",
   "workspaces": [
-    "wsngn"
+    "./wsngn"
   ],
+  "type": "module",
+  "scripts": {
+    "lint": "tsc -p jsconfig.json"
+  },
   "devDependencies": {
-    "@eprev/wsngn": "0.1.8"
+    "@types/node": "^20.8.5",
+    "typescript": "^5.2.2",
+    "@eprev/wsngn": "0.2.0-alpha.0"
   }
 }

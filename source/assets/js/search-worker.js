@@ -1,18 +1,19 @@
-self.addEventListener('message', e => {
+self.addEventListener('message', (e) => {
   // console.debug('search-worker received', e.data);
   const { type } = e.data;
   if (type === 'init') {
     getIndex()
-      .then(v => self.postMessage({ type: 'ready' }))
-      .catch(err => self.postMessage({ type: 'error', err }));
+      .then((v) => self.postMessage({ type: 'ready' }))
+      .catch((err) => self.postMessage({ type: 'error', err }));
   } else if (type === 'search') {
-    search(e.data.query).then(results =>
+    search(e.data.query).then((results) =>
       self.postMessage({ type: 'results', results }),
     );
   }
 });
 
-const storage = (function() {
+const storage = (function () {
+  /** @type {Promise<IDBDatabase>} */
   const store = new Promise((resolve, reject) => {
     const req = indexedDB.open('idb-storage', 1);
     req.onerror = () => reject(req.error);
@@ -20,9 +21,13 @@ const storage = (function() {
     req.onupgradeneeded = () => req.result.createObjectStore('objects');
   });
 
+  /**
+   * @param {"readonly" | "readwrite"} mode
+   * @param {(store: IDBObjectStore) => unknown} callback
+   */
   function begin(mode, callback) {
     return store.then(
-      db =>
+      (db) =>
         new Promise((resolve, reject) => {
           let retVal;
           const transaction = db.transaction('objects', mode);
@@ -34,14 +39,19 @@ const storage = (function() {
     );
   }
 
+  /** @param {string} key */
   function get(key) {
-    return begin('readonly', store => {
+    return begin('readonly', (store) => {
       return store.get(key);
-    }).then(req => req.result);
+    }).then((req) => req.result);
   }
 
+  /**
+   * @param {string} key
+   * @param {any} value
+   */
   function set(key, value) {
-    return begin('readwrite', store => {
+    return begin('readwrite', (store) => {
       store.put(value, key);
     });
   }
@@ -52,6 +62,9 @@ const storage = (function() {
   };
 })();
 
+/** @typedef {ReturnType<buildIndex>} SearchIndex */
+
+/** @type {() => SearchIndex} */
 async function getIndex() {
   if (getIndex.index) {
     return getIndex.index;
@@ -67,8 +80,12 @@ async function getIndex() {
   }
 }
 
+/** @type {SearchIndex | undefined} */
+getIndex.index = undefined;
+
 const INDEX_NRGAM_SIZE = 3;
 
+/** @type {(text: string, size: number) => string[]} */
 function ngram(text, size = 2) {
   const seq = [];
   text = '-' + text.padEnd(size - 2, '-') + '-';
@@ -78,6 +95,7 @@ function ngram(text, size = 2) {
   return seq;
 }
 
+/** @type {(items: string[], acc?: Record<string, number>, inc?: number) => Record<string, number>} */
 function countItems(items, acc = {}, inc = 1) {
   return items.reduce((acc, item) => {
     acc[item] = acc[item] ? acc[item] + inc : inc;
@@ -85,15 +103,19 @@ function countItems(items, acc = {}, inc = 1) {
   }, acc);
 }
 
+/** @typedef {import('../../search-index.tmpl.js').IndexedDocument} IndexedDocument */
+
 async function buildIndex() {
   const response = await fetch('/index.json');
+
   if (response.ok) {
+    /** @type {IndexedDocument[]} */
     const documents = await response.json();
 
     // Tokens is a hash where the keys are the words and the associated
     // values are the numbers of their occurrences. So, we need to iterate over
     // that list of words and generate n-gram (trigram) sequence from each of them.
-    documents.forEach(doc => {
+    documents.forEach((doc) => {
       doc.tokens = Object.keys(doc.tokens).reduce((ngrams, tk) => {
         const freq = doc.tokens[tk];
         const seq = ngram(tk, INDEX_NRGAM_SIZE);
@@ -112,9 +134,9 @@ async function buildIndex() {
     const idf = Object.keys(tokens).reduce((idf, tk) => {
       idf[tk] = Math.log(n / tokens[tk]);
       return idf;
-    }, {});
+    }, /** @type {Record<string, number>} */ ({}));
 
-    documents.forEach(d => {
+    documents.forEach((d) => {
       for (let tk in d.tokens) {
         d.tokens[tk] *= idf[tk];
       }
@@ -132,24 +154,37 @@ async function buildIndex() {
   }
 }
 
+// TODO: vectors
+/** @typedef {Record<string, number>} Vector */
+
+/** @type {(text: string, idf: Record<string, number>) => Record<string, number>} */
 function vectorize(text, idf) {
   // Tokenizer
   const tokens = text
     .replace(/’/g, "'")
     .split(/[^A-Za-z0-9'-]+/)
-    .map(t => t.toLowerCase().replace(/['-]/g, ''))
-    .filter(t => t.length > 1);
+    .map((t) => t.toLowerCase().replace(/['-]/g, ''))
+    .filter((t) => t.length > 1);
   // Generate n-grams (trigrams) from the tokens
   const ngrams = tokens
-    .reduce((ngrams, tk) => ngrams.concat(ngram(tk, INDEX_NRGAM_SIZE)), [])
-    .filter(tk => tk in idf); // filter "unknown" ngrams out
+    .reduce(
+      (ngrams, tk) => ngrams.concat(ngram(tk, INDEX_NRGAM_SIZE)),
+      /** @type {string[]} */ ([]),
+    )
+    .filter((tk) => tk in idf); // filter "unknown" ngrams out
   return countItems(ngrams);
 }
 
+/** @type {(v: number[]) => number} */
 function vectorLength(v) {
   return Math.sqrt(v.reduce((sum, value) => sum + value * value, 0));
 }
 
+/**
+ * @param {Record<string, number>} a
+ * @param {Record<string, number>} b
+ * @returns {number}
+ */
 function cosineSimilarity(a, b) {
   const tokens = new Set(Object.keys(a).concat(Object.keys(b)));
   const product = [...tokens.values()].reduce(
@@ -158,14 +193,16 @@ function cosineSimilarity(a, b) {
   );
   const lenA = vectorLength(Object.values(a));
   const lenB = vectorLength(Object.values(b));
-  return (
-    product / ( lenA * lenB )
-  );
+  return product / (lenA * lenB);
 }
 
+/** @typedef {Omit<IndexedDocument, 'tokens'> & { score: number}} SearchResult */
+
+/** @param {string} query */
 async function search(query) {
   const index = await getIndex();
   const idf = index.idf;
+  /** @type {SearchResult[]} */
   let results = [];
   if (query) {
     const vector = vectorize(query, idf);
@@ -175,7 +212,7 @@ async function search(query) {
     );
     // TF–IDF weighting schemes No. 1 (https://en.wikipedia.org/wiki/Tf–idf)
     for (let tk in vector) {
-      vector[tk] = (0.5 + 0.5 * vector[tk] / tfMax) * idf[tk];
+      vector[tk] = (0.5 + (0.5 * vector[tk]) / tfMax) * idf[tk];
     }
 
     if (Object.values(vector).length > 0) {
@@ -191,7 +228,7 @@ async function search(query) {
             });
           }
           return res;
-        }, [])
+        }, /** @type {SearchResult[]} */ ([]))
         .sort((a, b) => b.score - a.score);
     }
   }

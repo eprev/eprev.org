@@ -1,0 +1,8 @@
+{
+  "extends": "./wsngn/jsconfig.json",
+  "include": [
+    "plugins/**/*",
+    "source/**/*",
+    "templates/**/*",
+  ]
+}

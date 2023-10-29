@@ -41,6 +41,7 @@ const inline = {
   text: /^[\s\S]+?(?=[_*`[\\<]|$)/,
 };
 
+/** @type {(text: string) => string} */
 function unescape(text) {
   return text.replace(/&#(\d+|x[0-9A-Fa-f]+);/g, (_, code) => {
     return code.startsWith('x')
@@ -49,14 +50,48 @@ function unescape(text) {
   });
 }
 
+/** @typedef {{
+ *    attrs?: Record<string, string>
+ * } & ({
+ *   type: "text" | "comment" | "code",
+ *   value: string,
+ * } | {
+ *   type: "block_code_start" | "block_code_end",
+ *   lang?: string,
+ * } | {
+ *   type: "list_start" | "list_end",
+ *   style: "bullet" | "ordered",
+ * } | {
+ *   type: "heading_start" | "heading_end",
+ *   level: number,
+ * } | {
+ *   type: "link_start",
+ *   href: string,
+ *   title: string,
+ * } | {
+ *   type: "image",
+ *   src: string,
+ *   alt: string,
+ *   title: string,
+ * } | {
+ *   type: "thematic_break" | "paragraph_start" | "paragraph_end" | "block_quote_start"
+ *       | "block_quote_end" | "list_item_start" | "list_item_end" | "link_end"
+ *       | "strong_start" | "strong_end" | "em_start" | "em_end"
+ * })} Token */
+
 class Tokenizer {
+  /** @param {string} source */
   constructor(source) {
+    /** @type {Token[]} */
     this._tokens = [];
     this._blockToken(this._normalize(source));
   }
+
   get tokens() {
     return this._tokens;
   }
+
+  /** @type {(source: string) => string} */
   _normalize(source) {
     return source
       .replace(/\r\n|\r/g, '\n')
@@ -64,6 +99,8 @@ class Tokenizer {
       .replace(/ +$/gm, '') // trailing spaces (multiline)
       .replace(/^\n*/, ''); // leading new-line characters
   }
+
+  /** @type {(test: (t: Token) => boolean) => [Token | undefined, number]} */
   _findLast(test) {
     let index = this._tokens.length - 1;
     while (index >= 0) {
@@ -75,11 +112,14 @@ class Tokenizer {
     }
     return [undefined, -1];
   }
+
+  /** @type {(token: Token) => boolean} */
   _isBlock(token) {
     return /^(paragraph|heading|list|block_quote|block_code)_start$/.test(
       token.type,
     );
   }
+
   _tokenForAttributes() {
     // find the last block token
     const [blockToken, blockIndex] = this._findLast(this._isBlock);
@@ -95,7 +135,10 @@ class Tokenizer {
       return blockToken;
     }
   }
+
+  /** @param {string} text */
   _parseAttributes(text) {
+    /** @type {Record<string, string>} */
     const attrs = {};
     const re = /(\w+)\s*=\s*(['"])([\s\S].*?)\2\s*/g;
     let match;
@@ -105,11 +148,12 @@ class Tokenizer {
     }
     return attrs;
   }
+
+  /** @param {string} text */
   _processAttributes(text) {
     const token = this._tokenForAttributes();
     if (token) {
-      const attrs = this._parseAttributes(text);
-      Object.assign(token, attrs);
+      token.attrs = this._parseAttributes(text);
     }
     // if the current token is a text one, then trim trailing spaces
     // (that are followed by "<!--:")
@@ -122,6 +166,8 @@ class Tokenizer {
       }
     }
   }
+
+  /** @param {string} source */
   _blockToken(source) {
     while (source) {
       let match;
@@ -229,7 +275,7 @@ class Tokenizer {
         const items = str.split(
           style === 'bullet' ? /^[*+-]\s*/gm : /^[0-9]{1,9}[.)]\s*/gm,
         );
-        items.forEach(item => {
+        items.forEach((item) => {
           if (item) {
             this._tokens.push({ type: 'list_item_start' });
             const listItemIndex = this._tokens.length - 1;
@@ -282,6 +328,8 @@ class Tokenizer {
       throw new Error(`Unexpected token: ${source}`);
     }
   }
+
+  /** @param {string} source */
   _inlineToken(source) {
     while (source) {
       let match;
@@ -373,9 +421,11 @@ class Tokenizer {
       throw new Error(`Unexpected token: ${source}`);
     }
   }
+
+  /** @param {string} value */
   _pushText(value) {
     // Add "BREAK PERMITTED HERE" if the line ends with "\"
-    value = value.replace(/\\\n/g, '\u0082')
+    value = value.replace(/\\\n/g, '\u0082');
     const token = this._tokens[this._tokens.length - 1];
     if (token.type === 'text') {
       token.value += unescape(value);
@@ -388,7 +438,8 @@ class Tokenizer {
   }
 }
 
-module.exports = function markdown(source) {
+/** @param {string} source */
+export default function markdown(source) {
   const tokenizer = new Tokenizer(source);
   return tokenizer.tokens;
-};
+}

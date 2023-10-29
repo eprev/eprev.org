@@ -1,30 +1,32 @@
-const describe = require('./describe');
+import describe from './describe.js';
 
-describe(`markdown`, it => {
-  const parse = require('./markdown');
+import parse from './markdown.js';
 
-  describe(`comment`, it => {
-    it(`treat HTML comment as regular comment`, assert => {
-      assert.deepEqual(parse('<!-- comment -->'), [{ type: 'comment', value: 'comment' }]);
+describe(`markdown`, (it) => {
+  describe(`comment`, (it) => {
+    it(`treat HTML comment as regular comment`, (assert) => {
+      assert.deepEqual(parse('<!-- comment -->'), [
+        { type: 'comment', value: 'comment' },
+      ]);
     });
   });
 
-  describe(`thematic break`, it => {
-    it(`require minimum three characters`, assert => {
+  describe(`thematic break`, (it) => {
+    it(`require minimum three characters`, (assert) => {
       assert.deepEqual(parse('***'), [{ type: 'thematic_break' }]);
       assert.deepEqual(parse('---'), [{ type: 'thematic_break' }]);
       assert.deepEqual(parse('___'), [{ type: 'thematic_break' }]);
     });
-    it(`allow more than three characters`, assert => {
+    it(`allow more than three characters`, (assert) => {
       assert.deepEqual(parse('*****'), [{ type: 'thematic_break' }]);
     });
-    it(`allow spaces between haracters and at the end`, assert => {
+    it(`allow spaces between haracters and at the end`, (assert) => {
       assert.deepEqual(parse('* * * '), [{ type: 'thematic_break' }]);
     });
   });
 
-  describe(`heading`, it => {
-    it(`require up to six # characters`, assert => {
+  describe(`heading`, (it) => {
+    it(`require up to six # characters`, (assert) => {
       assert.deepEqual(parse('# Header'), [
         {
           type: 'heading_start',
@@ -92,7 +94,7 @@ describe(`markdown`, it => {
         },
       ]);
     });
-    it(`ignore spaces in between and at the end`, assert => {
+    it(`ignore spaces in between and at the end`, (assert) => {
       assert.deepEqual(parse('#  Header '), [
         {
           type: 'heading_start',
@@ -107,8 +109,8 @@ describe(`markdown`, it => {
     });
   });
 
-  describe(`underline heading`, it => {
-    it(`require at least one "underline" character`, assert => {
+  describe(`underline heading`, (it) => {
+    it(`require at least one "underline" character`, (assert) => {
       assert.deepEqual(parse('Header\n='), [
         {
           type: 'heading_start',
@@ -132,7 +134,7 @@ describe(`markdown`, it => {
         },
       ]);
     });
-    it(`allow longer underline`, assert => {
+    it(`allow longer underline`, (assert) => {
       assert.deepEqual(parse('Header\n-------'), [
         {
           type: 'heading_start',
@@ -145,7 +147,7 @@ describe(`markdown`, it => {
         },
       ]);
     });
-    it(`is not a block element`, assert => {
+    it(`is not a block element`, (assert) => {
       assert.deepEqual(parse('---\n---'), [
         { type: 'thematic_break' },
         { type: 'thematic_break' },
@@ -153,8 +155,8 @@ describe(`markdown`, it => {
     });
   });
 
-  describe(`code`, it => {
-    it(`except 4 space indent and can contain blank lines`, assert => {
+  describe(`code`, (it) => {
+    it(`except 4 space indent and can contain blank lines`, (assert) => {
       assert.deepEqual(parse('    foo();\n\n    bar();\n'), [
         { type: 'block_code_start' },
         { type: 'text', value: 'foo();\n\nbar();' },
@@ -163,15 +165,15 @@ describe(`markdown`, it => {
     });
   });
 
-  describe(`fenced code`, it => {
-    it('treat three ` characters as code marker', assert => {
+  describe(`fenced code`, (it) => {
+    it('treat three ` characters as code marker', (assert) => {
       assert.deepEqual(parse('```\nfoo();\n\nbar();\n```'), [
         { type: 'block_code_start', lang: '' },
         { type: 'text', value: 'foo();\n\nbar();' },
         { type: 'block_code_end' },
       ]);
     });
-    it('allow language identifier', assert => {
+    it('allow language identifier', (assert) => {
       assert.deepEqual(parse('```js\nfoo();\n```'), [
         { type: 'block_code_start', lang: 'js' },
         { type: 'text', value: 'foo();' },
@@ -180,8 +182,8 @@ describe(`markdown`, it => {
     });
   });
 
-  describe(`paragraph`, it => {
-    it(`can contain multiple lines, but no blank lines`, assert => {
+  describe(`paragraph`, (it) => {
+    it(`can contain multiple lines, but no blank lines`, (assert) => {
       assert.deepEqual(parse('foo\nbar\n'), [
         { type: 'paragraph_start' },
         { type: 'text', value: 'foo\nbar' },
@@ -198,8 +200,8 @@ describe(`markdown`, it => {
     });
   });
 
-  describe(`block quote`, it => {
-    it(`treat > as quote marker`, assert => {
+  describe(`block quote`, (it) => {
+    it(`treat > as quote marker`, (assert) => {
       assert.deepEqual(parse('> foo\n> bar\n'), [
         { type: 'block_quote_start' },
         { type: 'paragraph_start' },
@@ -208,7 +210,7 @@ describe(`markdown`, it => {
         { type: 'block_quote_end' },
       ]);
     });
-    it(`can contain other blocks`, assert => {
+    it(`can contain other blocks`, (assert) => {
       assert.deepEqual(parse('> # Header\n> Text.\n'), [
         { type: 'block_quote_start' },
         { type: 'heading_start', level: 1 },
@@ -232,7 +234,7 @@ describe(`markdown`, it => {
         { type: 'block_quote_end' },
       ]);
     });
-    it(`contain continuation lines`, assert => {
+    it(`contain continuation lines`, (assert) => {
       assert.deepEqual(parse('> foo\nbar\n'), [
         { type: 'block_quote_start' },
         { type: 'paragraph_start' },
@@ -249,8 +251,8 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`bullet list`, it => {
-    it(`can contain a single item`, assert => {
+  describe(`bullet list`, (it) => {
+    it(`can contain a single item`, (assert) => {
       assert.deepEqual(parse('- foo'), [
         { type: 'list_start', style: 'bullet' },
         { type: 'list_item_start' },
@@ -259,7 +261,7 @@ describe(`markdown`, it => {
         { type: 'list_end', style: 'bullet' },
       ]);
     });
-    it(`treat *, + or - as bullet marker`, assert => {
+    it(`treat *, + or - as bullet marker`, (assert) => {
       assert.deepEqual(parse('- foo\n\n  + bar\n\n* qux'), [
         { type: 'list_start', style: 'bullet' }, // - foo
         { type: 'list_item_start' },
@@ -278,7 +280,7 @@ describe(`markdown`, it => {
         { type: 'list_end', style: 'bullet' },
       ]);
     });
-    it(`may contain blocks separated by more than one blank line`, assert => {
+    it(`may contain blocks separated by more than one blank line`, (assert) => {
       assert.deepEqual(parse('- foo\n  bar\n\n- qux\n\nquz'), [
         { type: 'list_start', style: 'bullet' },
         { type: 'list_item_start' },
@@ -293,7 +295,7 @@ describe(`markdown`, it => {
         { type: 'paragraph_end' },
       ]);
     });
-    it(`can be terminated by a unindented block`, assert => {
+    it(`can be terminated by a unindented block`, (assert) => {
       assert.deepEqual(parse('+ foo\n\n    bar();\n'), [
         { type: 'list_start', style: 'bullet' },
         { type: 'list_item_start' },
@@ -317,7 +319,7 @@ describe(`markdown`, it => {
         { type: 'block_code_end' },
       ]);
     });
-    it(`may contain other blocks`, assert => {
+    it(`may contain other blocks`, (assert) => {
       assert.deepEqual(parse('+ foo\n\n  ```\n  bar();\n  ```'), [
         { type: 'list_start', style: 'bullet' },
         { type: 'list_item_start' },
@@ -344,8 +346,8 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`ordered list`, it => {
-    it(`can contain a single item`, assert => {
+  describe(`ordered list`, (it) => {
+    it(`can contain a single item`, (assert) => {
       assert.deepEqual(parse('1. foo'), [
         { type: 'list_start', style: 'ordered' },
         { type: 'list_item_start' },
@@ -354,7 +356,7 @@ describe(`markdown`, it => {
         { type: 'list_end', style: 'ordered' },
       ]);
     });
-    it(`treat a number followed by . or ) as bullet marker`, assert => {
+    it(`treat a number followed by . or ) as bullet marker`, (assert) => {
       assert.deepEqual(parse('1. foo\n\n   1) bar\n\n2. qux'), [
         { type: 'list_start', style: 'ordered' }, // 1. foo
         { type: 'list_item_start' },
@@ -373,7 +375,7 @@ describe(`markdown`, it => {
         { type: 'list_end', style: 'ordered' },
       ]);
     });
-    it(`may contain blocks separated by more than one blank line`, assert => {
+    it(`may contain blocks separated by more than one blank line`, (assert) => {
       assert.deepEqual(parse('1. foo\n   bar\n\n2. qux\n\nquz'), [
         { type: 'list_start', style: 'ordered' },
         { type: 'list_item_start' },
@@ -388,7 +390,7 @@ describe(`markdown`, it => {
         { type: 'paragraph_end' },
       ]);
     });
-    it(`can be terminated by a unindented block`, assert => {
+    it(`can be terminated by a unindented block`, (assert) => {
       assert.deepEqual(parse('1. foo\n\n    bar();\n'), [
         { type: 'list_start', style: 'ordered' },
         { type: 'list_item_start' },
@@ -412,7 +414,7 @@ describe(`markdown`, it => {
         { type: 'block_code_end' },
       ]);
     });
-    it(`may contain other blocks`, assert => {
+    it(`may contain other blocks`, (assert) => {
       assert.deepEqual(parse('1. foo\n\n   ```\n   bar();\n   ```'), [
         { type: 'list_start', style: 'ordered' },
         { type: 'list_item_start' },
@@ -440,8 +442,8 @@ describe(`markdown`, it => {
     });
   });
 
-  describe(`inline emphasis`, it => {
-    it(`treat * and _ as indicators of emphasis`, assert => {
+  describe(`inline emphasis`, (it) => {
+    it(`treat * and _ as indicators of emphasis`, (assert) => {
       assert.deepEqual(parse('foo _bar_ quz'), [
         { type: 'paragraph_start' },
         { type: 'text', value: 'foo ' },
@@ -461,7 +463,7 @@ describe(`markdown`, it => {
         { type: 'paragraph_end' },
       ]);
     });
-    it(`do not allow _ inside words`, assert => {
+    it(`do not allow _ inside words`, (assert) => {
       assert.deepEqual(parse('**foo_bar_quz**'), [
         { type: 'paragraph_start' },
         { type: 'strong_start' },
@@ -470,7 +472,7 @@ describe(`markdown`, it => {
         { type: 'paragraph_end' },
       ]);
     });
-    it(`allow * inside words`, assert => {
+    it(`allow * inside words`, (assert) => {
       assert.deepEqual(parse('__foo*bar*quz__'), [
         { type: 'paragraph_start' },
         { type: 'strong_start' },
@@ -484,8 +486,8 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`inline strong emphasis`, it => {
-    it(`treat ** and __ as indicators of strong emphasis`, assert => {
+  describe(`inline strong emphasis`, (it) => {
+    it(`treat ** and __ as indicators of strong emphasis`, (assert) => {
       assert.deepEqual(parse('foo __bar__ quz'), [
         { type: 'paragraph_start' },
         { type: 'text', value: 'foo ' },
@@ -505,7 +507,7 @@ describe(`markdown`, it => {
         { type: 'paragraph_end' },
       ]);
     });
-    it(`do not allow __ inside words`, assert => {
+    it(`do not allow __ inside words`, (assert) => {
       assert.deepEqual(parse('*foo__bar__quz*'), [
         { type: 'paragraph_start' },
         { type: 'em_start' },
@@ -514,7 +516,7 @@ describe(`markdown`, it => {
         { type: 'paragraph_end' },
       ]);
     });
-    it(`allow ** inside words`, assert => {
+    it(`allow ** inside words`, (assert) => {
       assert.deepEqual(parse('_foo**bar**quz_'), [
         { type: 'paragraph_start' },
         { type: 'em_start' },
@@ -528,8 +530,8 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`inline code`, it => {
-    it('treat one or more backticks as indicator of code span', assert => {
+  describe(`inline code`, (it) => {
+    it('treat one or more backticks as indicator of code span', (assert) => {
       assert.deepEqual(parse('foo ` bar ` quz'), [
         { type: 'paragraph_start' },
         { type: 'text', value: 'foo ' },
@@ -549,8 +551,8 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`link`, it => {
-    it('expect text, url and title', assert => {
+  describe(`link`, (it) => {
+    it('expect text, url and title', (assert) => {
       assert.deepEqual(parse('[text](url "title")'), [
         { type: 'paragraph_start' },
         { type: 'link_start', href: 'url', title: 'title' },
@@ -568,14 +570,14 @@ describe(`markdown`, it => {
         { type: 'paragraph_end' },
       ]);
     });
-    it('cannot contain spaces in destination', assert => {
+    it('cannot contain spaces in destination', (assert) => {
       assert.deepEqual(parse('[text](example .com)'), [
         { type: 'paragraph_start' },
         { type: 'text', value: '[text](example .com)' },
         { type: 'paragraph_end' },
       ]);
     });
-    it('allow inline spans inside text', assert => {
+    it('allow inline spans inside text', (assert) => {
       assert.deepEqual(parse('[foo*bar*quz](url)'), [
         { type: 'paragraph_start' },
         { type: 'link_start', href: 'url', title: '' },
@@ -588,7 +590,7 @@ describe(`markdown`, it => {
         { type: 'paragraph_end' },
       ]);
     });
-    it('allow escpaed [ and ] inside text', assert => {
+    it('allow escpaed [ and ] inside text', (assert) => {
       assert.deepEqual(parse('[\\[\\]](url)'), [
         { type: 'paragraph_start' },
         { type: 'link_start', href: 'url', title: '' },
@@ -597,7 +599,7 @@ describe(`markdown`, it => {
         { type: 'paragraph_end' },
       ]);
     });
-    it('do not allow inline spans inside text', assert => {
+    it('do not allow inline spans inside text', (assert) => {
       assert.deepEqual(parse('![foo*bar*quz](url)'), [
         { type: 'paragraph_start' },
         { type: 'image', src: 'url', alt: 'foo*bar*quz', title: '' },
@@ -605,8 +607,8 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`image`, it => {
-    it('expect text, url and title', assert => {
+  describe(`image`, (it) => {
+    it('expect text, url and title', (assert) => {
       assert.deepEqual(parse('![text](url "title")'), [
         { type: 'paragraph_start' },
         { type: 'image', src: 'url', alt: 'text', title: 'title' },
@@ -614,8 +616,8 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`inline comment`, it => {
-    it(`treat inline HTML comment as regular comment`, assert => {
+  describe(`inline comment`, (it) => {
+    it(`treat inline HTML comment as regular comment`, (assert) => {
       assert.deepEqual(parse('![text](url "title")<!-- comment -->'), [
         { type: 'paragraph_start' },
         { type: 'image', src: 'url', alt: 'text', title: 'title' },
@@ -624,8 +626,8 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`text`, it => {
-    it('convert HTML entities', assert => {
+  describe(`text`, (it) => {
+    it('convert HTML entities', (assert) => {
       assert.deepEqual(parse('foo&#160;bar'), [
         { type: 'paragraph_start' },
         { type: 'text', value: 'foo\u00A0bar' },
@@ -643,8 +645,8 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`escape`, it => {
-    it('treat escaped characters as regular characters', assert => {
+  describe(`escape`, (it) => {
+    it('treat escaped characters as regular characters', (assert) => {
       assert.deepEqual(parse('\\`foo\\`'), [
         { type: 'paragraph_start' },
         { type: 'text', value: '`foo`' },
@@ -657,24 +659,31 @@ describe(`markdown`, it => {
       ]);
     });
   });
-  describe(`block attributes`, it => {
-    it(`treat <!--: --> comments as attributes for the previous block tag`, assert => {
+  describe(`block attributes`, (it) => {
+    it(`treat <!--: --> comments as attributes for the previous block tag`, (assert) => {
       assert.deepEqual(parse('_text_\n<!--: key="value" -->'), [
-        { type: 'paragraph_start', key: 'value' },
+        { type: 'paragraph_start', attrs: { key: 'value' } },
         { type: 'em_start' },
         { type: 'text', value: 'text' },
         { type: 'em_end' },
         { type: 'paragraph_end' },
       ]);
-      assert.deepEqual(parse('```\nfoo();\n```\n<!--: key="value" key2 = "value2" -->'), [
-        { type: 'block_code_start', lang: '', key: 'value', key2: 'value2' },
-        { type: 'text', value: 'foo();' },
-        { type: 'block_code_end' },
-      ]);
+      assert.deepEqual(
+        parse('```\nfoo();\n```\n<!--: key="value" key2 = "value2" -->'),
+        [
+          {
+            type: 'block_code_start',
+            lang: '',
+            attrs: { key: 'value', key2: 'value2' },
+          },
+          { type: 'text', value: 'foo();' },
+          { type: 'block_code_end' },
+        ],
+      );
     });
-    it(`add attributes to the outer block when the paragraph is its child`, assert => {
+    it(`add attributes to the outer block when the paragraph is its child`, (assert) => {
       assert.deepEqual(parse('> text\n<!--: key="value" -->'), [
-        { type: 'block_quote_start', key: 'value' },
+        { type: 'block_quote_start', attrs: { key: 'value' } },
         { type: 'paragraph_start' },
         { type: 'text', value: 'text' },
         { type: 'paragraph_end' },
