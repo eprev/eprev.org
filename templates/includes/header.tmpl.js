@@ -97,9 +97,7 @@ export default async ({
         ? '<script src="/assets/js/build-events.js" type="module"></script>'
         : ''}
       <body>
-        <script>
-          ${env == 'production' && '<script data-goatcounter="https://eprev_org.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'};
-        </script>
+        ${env == 'production' && '<script data-goatcounter="https://eprev_org.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'}
         <div class="page">
           <div class="page__sidebar">
             <div class="page__user-picture-story">
