@@ -1,7 +1,6 @@
-/** @typedef {import('../config.js')['default']['site']} ConfigSite */
-
 /** @type {import('@eprev/wsngn').TemplateFunction} */
 export default ({ html, render, page, read, site: _site }) => {
+  /** @typedef {import('../config.js').ConfigSite} ConfigSite */
   const site = /** @type {import('@eprev/wsngn').Site<ConfigSite>} */ (_site);
   const post = /** @type {import('@eprev/wsngn').Document} */ (page);
   return html` ${render('includes/header')}

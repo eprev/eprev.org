@@ -1,7 +1,4 @@
-// <reference types="../wsngn/types/tmpl.d.ts" />
-
 import { dateFormat } from '@eprev/wsngn';
-// const { dateFormat } = require('@eprev/wsngn');
 
 /** @type {import('@eprev/wsngn').TemplateFunction} */
 export default ({ html, render, page }) => {

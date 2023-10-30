@@ -1,3 +1,5 @@
+// TODO: Intl.DateTimeFormat
+
 const months = [
   'January',
   'February',
@@ -40,7 +42,7 @@ const days = [
 
 const shortDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-/** @param {number} v */
+/** @type {(v: number) => string} */
 function pad(v) {
   return v < 10 ? '0' + v : String(v);
 }
@@ -65,7 +67,7 @@ const rules = [
 ];
 
 /** @type {(date: Date, format: string) => string} */
-const dateFormat = function (date, format) {
+export default function dateFormat(date, format) {
   let res = '';
   while (format) {
     const rule = rules.find(([s]) => format.startsWith(s));
@@ -79,6 +81,4 @@ const dateFormat = function (date, format) {
     }
   }
   return res;
-};
-
-export default dateFormat;
+}

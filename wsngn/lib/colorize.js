@@ -1,8 +1,17 @@
 import { inspect } from 'util';
 
+// https://nodejs.org/api/util.html#foreground-colors
 const colors = inspect.colors;
 
-/** @type {(text: string, color: string) => string} */
+/** @typedef {"black" | "red" | "green" | "yellow" | "blue" | "magenta" | "cyan" | "white" |
+ *  "gray" | "grey" | "blackBright" | "redBright" | "greenBright" | "yellowBright" |
+ *  "blueBright" | "magentaBright" | "cyanBright" | "whiteBright"} FgColor */
+
+/** @typedef {"bgBlack" | "bgRed" | "bgGreen" | "bgYellow" | "bgBlue" | "bgMagenta" | "bgCyan" |
+ * "bgWhite" | "bgGray" | "bgGrey" | "bgBlackBright" | "bgRedBright" | "bgGreenBright" |
+ * "bgYellowBright" | "bgBlueBright" | "bgMagentaBright" | "bgCyanBright" | "bgWhiteBright"} BgColor */
+
+/** @type {(text: string, color: FgColor | BgColor) => string} */
 const colorize = process.stdout.isTTY
   ? function colorize(text, color) {
       const codes = colors[color];

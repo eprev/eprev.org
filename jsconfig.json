@@ -3,6 +3,6 @@
   "include": [
     "plugins/**/*",
     "source/**/*",
-    "templates/**/*",
+    "templates/**/*"
   ]
 }
