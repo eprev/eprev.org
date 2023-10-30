@@ -17,6 +17,7 @@
   "main": "index.js",
   "homepage": "http://eprev.org",
   "scripts": {
+    "test": "for test in lib/*.test.js; do echo \"\\n$test\"; node $test; done",
     "lint": "tsc -p jsconfig.json"
   },
   "devDependencies": {

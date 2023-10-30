@@ -10,10 +10,7 @@
  *   [key: string]: unknown,
  * }} Config */
 
-/**
- * @param {unknown} config
- * @returns {config is Config}
- */
+/** @type {(config: unknown) => config is Config} */
 function isConfig(config) {
   if (typeof config !== 'object' || config === null) {
     throw new Error('config: object is required');

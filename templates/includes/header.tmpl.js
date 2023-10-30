@@ -1,5 +1,4 @@
 import { properties } from '@eprev/wsngn';
-/** @typedef {import('../../config.js')['default']['site']} ConfigSite */
 
 /** @type {import('@eprev/wsngn').TemplateFunction} */
 export default async ({
@@ -12,6 +11,7 @@ export default async ({
   url,
 }) => {
   const manifest = properties(read('../../manifest.txt'));
+  /** @typedef {import('../../config.js').ConfigSite} ConfigSite */
   const site = /** @type {import('@eprev/wsngn').Site<ConfigSite>} */ (_site);
   const page = /** @type {import('@eprev/wsngn').Document} */ (_page);
 
