@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20.x, 21.x]
+        node-version: [20.xx]
 
     steps:
     - uses: actions/checkout@v3
@@ -24,5 +24,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-presentn
     - run: npm test
